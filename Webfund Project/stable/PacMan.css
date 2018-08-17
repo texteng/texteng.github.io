@@ -1,0 +1,110 @@
+* {
+font-family: "Trebuchet MS", "Lucida Console", Helvetica, Arial, sans-serif;
+}
+
+body{
+    background-color: black;
+    margin:0px;
+    display:block; 
+}
+
+div#header{
+    background-color: #001e64;
+    height:80px;
+    color: white;
+    border-radius: 15px 15px 0px 0px;
+    width: 1000px;
+    /* width determined in javascript file */
+}
+
+div.row{
+    margin: 0;
+}
+
+div.row div{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin: 0;
+}
+div.brick{
+    /* background-color: blue; */
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image:url('background2.png');
+}
+div.coin{
+    background-image: url('coin.gif');
+    background-position:center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+div.cherry{
+    background-image: url('cherry.png');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    width: 40px;
+    height: 40px;
+}
+
+/* Note div is slightly enlarged for artistic effect */
+div#pacman{
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 44px;
+    height: 44px;
+    margin: 0px;
+    position: absolute;
+}
+
+div#scorebox{
+    background: linear-gradient(#001e64, #001e64,#000033);
+    text-align: center;
+    color: white;
+    padding: 10px 40px;
+    font-size: 25px;
+    border-radius: 0px 0px 15px 15px;
+    /* width determined in javascript file */
+}
+div#score{
+    display: inline-block;
+    text-align: center;
+}
+
+div#scorebox span{
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+div#lives{
+    display: inline-block;
+    text-align: center;
+    margin-left: 160px;
+}
+
+/* Note div is slightly enlarged for artistic effect */
+.monster{
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+}
+
+div#gameover{
+    display:block;
+    background-color: #001e64;
+    position: absolute;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    height: 100px;
+    top:190px;
+    left:95px;
+}

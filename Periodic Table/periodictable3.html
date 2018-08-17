@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Periodic Table</title>
+    <!-- Bootstrap CSS -->
+    <style>
+        #table{
+            background-color: white;
+            padding: 0px;
+            width: 2500px;
+            background-color: white;
+            display:block; 
+        }
+        
+        .row{
+            background-color: white;
+            padding: 00px;
+            background-color: white;
+            display:block; 
+            margin: 0px;
+        }
+        
+        div.element{
+            padding: 2px;
+            width: 60px;
+            height: 100px;
+            background-color: pink;
+            display:inline-block;
+            margin:0px;
+            text-align: center;
+        }
+        
+        .element h6{
+            font-size:8px;
+        }
+        
+        div.blank{
+            padding: 2px;
+            width: 60px;
+            height: 100px;
+            margin:0px;
+            background-color: blue;
+            display:inline-block; 
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body class = "container">
+    <div id ="element"></div>
+    <div id = "table">
+        <div id ="row1" class= "row"></div>
+        <div id ="row2" class= "row"></div>
+        <div id ="row3" class= "row"></div>
+        <div id ="row4" class= "row"></div>
+        <div id ="row5" class= "row"></div>
+        <div id ="row6" class= "row"></div>
+        <div id ="row7" class= "row"></div>
+        <div id ="row8" class= "row"></div>
+        <div id ="row9" class= "row"></div>
+    </div>
+    
+</div>
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- Periodic Table Data -->
+<script>
+    Tablematrix = [
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+    [3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
+    [11, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 14, 15, 16, 17, 18],
+    [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+    [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+    [55, 56, 0, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86],
+    [87, 88, 0, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118],
+    [0, 0, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 0],
+    [0, 0, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 0]
+    ]   
+    
+    function displaytable(){
+        // displayrow(1);
+        // displayrow(2);
+        for (var row=1; row <=9; row++ ){
+            displayrow(row);
+        }
+    }
+    
+    function displayrow(row){
+        for (var column=1; column <=18; column++ ){
+            console.log(Tablematrix[row-1][column-1])
+            if (Tablematrix[row-1][column-1] == 0){
+                displayBlank(row);
+                console.log("blank")
+            }
+            else{
+                displayElement(Tablematrix[row-1][column-1], row)
+                console.log("element")
+            }
+        }
+    }
+        
+    function displayBlank(row){
+        $(document).ready(function(){
+            $("#row"+row).append('<div class="blank"></div>');
+        })
+    }
+    
+        // Display Element
+        function displayElement(atomicNumber, row){
+            $(document).ready(function(){
+                $("#row"+row).append('<div class="element">'+atomicNumber+'</div>');
+            })
+        }
+
+
+
+            // $(document).ready(function(){
+            //     $.get("https://raw.githubusercontent.com/texteng/Periodic-Table-JSON/master/PeriodicTableJSON.json", function(element) {
+            //         console.log(element["elements"][0]["number"]);
+            //         console.log(element["elements"][0]["name"]);
+            //         $("#row"+row).append('<div class="element"><h6>' +
+            //             element["elements"][atomicNumber-1]["number"] +'</h6><h4>'+
+            //                 element["elements"][atomicNumber-1]["symbol"] +'</h4><h6>'+
+            //                     element["elements"][atomicNumber-1]["atomic_mass"] +'</h6><h6>'+
+            //                         element["elements"][atomicNumber-1]["name"] +'</h6>'+
+            //                         '</div>');
+            //                     }, "json");
+            //                 })
+                        // }
+                        
+                        
+                    </script>
+                    
+                </body>
+                </html>
