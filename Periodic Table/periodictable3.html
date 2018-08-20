@@ -3,125 +3,13 @@
 <head>
     <title>Periodic Table</title>
     <!-- Bootstrap CSS -->
-    <style>
-        #table{
-            padding: 0px;
-            width: 1140px;
-            background-color: white;
-            display:block;
-            align-self: center;
-        }
-        
-        .row{
-            padding: 00px;
-            background-color: white;
-            display:block; 
-            margin: 0px;
-        }
-        
-        div.element{
-            padding: 0px;
-            width: 60px;
-            height: 75px;
-            display:inline-block;
-            text-align: center;
-            border-radius: 3px;
-            border-width: 1px;
-            border-color: lightgray;
-            border-style: solid;
-        }
-        
-        .element h6{
-            font-size:9px;
-            margin: 2px;
-        }
-        
-        h6.atomicnumber {
-            font-size:10px;
-            font-weight: bold;
-        }
-        h3.elementsymbol {
-            margin: -1px;
-
-        }
-        h6.elementname {
-            font-size:10px;
-            font-weight: bold;
-            margin: 0px;
-            /* letter-spacing: 0px; */
-            font-family: "Helvetica Narrow", "Arial Narrow"
-        }
-        
-        div.blank{
-            padding: 2px;
-            width: 60px;
-            height: 75px;
-            line-height: 75px;
-            margin:0px;
-            background-color: white;
-            display:inline-block;
-            align-items: center;
-            text-align: center;
-        }
-
-        div.columnlabel{
-            padding: 6px 2px 2px 2px;
-            width: 60px;
-            height: 75px;
-            margin:0px;
-            border-width: 1px;
-            /* border-color: gray;
-            border-style: hidden solid ; */
-            display:inline-block;
-            align-items: center;
-            text-align: center;
-        }
-
-        /* div.space{
-            height: 30px;
-            width: 10px;
-            display: block;
-        } */
-
-        .IUPAC{/* Specifies numbering system of groups (columns) */
-            display:block;
-        }
-
-        .CAS{/* Specifies numbering system of groups (columns) */
-            display:block;
-            font-family: "Times New Roman", Times, serif;
-        }
-        .CAS2{/* Specifies numbering system of groups (columns) */
-            display:block;
-        }
-        
-        div.smallblank{
-            padding: 2px;
-            width: 60px;
-            height: 20px;
-            margin:0px;
-            background-color: white;
-            display:inline-block;
-            align-items: center;
-            text-align: center;
-        }
-
-        #displayblock{
-            position: absolute;
-            background-color: yellow;
-            display:block;
-            align-self: center;
-            width: 600px;
-            height: 255px;
-            left: 316px;
-            top: 58px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="PeriodicTable.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
 <body class = "container">
     <h1 class= "display-4 text-center">Periodic Table of Elements</h1>
-    <div id ="element"></div>
+    <!-- Display div found below table -->
     <div id = "table">
         <div id ="row0" class= "row"></div>
         <div id ="row1" class= "row"></div>
@@ -134,7 +22,6 @@
         <div id ="row8" class= "row"></div>
         <div id ="row9" class= "row"></div>
         <div id ="row10" class= "row"></div>
-        <div id ="row11" class= "row"></div>
     </div>
     <div id ="displayblock"></div>
 <!-- Bootstrap JS -->

@@ -27,7 +27,7 @@ Tablematrix = [
 ]   
 
 function displaytable(){
-    for (var row=0; row <=11; row++){
+    for (var row=0; row <=10; row++){
         displayrow(row);
     }
 }
@@ -35,7 +35,7 @@ function displaytable(){
 function displayrow(row){
     for (var column=0; column <=18; column++ ){
         var rowlocation = Tablematrix[row][column];
-        console.log(rowlocation)
+        // console.log(rowlocation)
         switch(true) {
             case (rowlocation == 0):
             displayBlank(row);
@@ -69,7 +69,7 @@ function displayrow(row){
             break;
             
             default:
-            console.log("this is broken")
+            // console.log("this is broken")
         }   
     }
 }
@@ -138,7 +138,7 @@ function CASnumber(column){
         case (18):
         return "VIIIA";
         default:
-        console.log("this is broken")
+        // console.log("this is broken")
     }
 }
 
@@ -155,33 +155,33 @@ function displayElement(atomicNumber, row){
     //For Phase of Matter
     if (currentelement["phase"] == "Solid"){
         color = "primary";
-        console.log("solid");
+        // console.log("solid");
     }
     else if (currentelement["phase"] == "Liquid"){
         color = "info";
-        console.log("liquid");
+        // console.log("liquid");
     }
     else if (currentelement["phase"] == "Gas"){
         color = "light";
-        console.log("gas");
+        // console.log("gas");
     }
     else{
         color = "secondary";
-        console.log("other");
+        // console.log("other");
     }
 
     $(document).ready(function(){
-        $("#row"+row).append('<div id="Element'+ atomicNumber + '"class="element btn-' + color + '"><h6 class = "atomicnumber">' + 
+        $("#row"+row).append('<button id="'+ atomicNumber + '"class="element btn-' + color + '"><h6 class = "atomicnumber">' + 
         currentelement["number"] +'</span><h3 class = "elementsymbol">'+
         currentelement["symbol"] +'</h3><h6>'+
         roundAtomicMass(currentelement["atomic_mass"]) +'</h6><h6 class = "elementname">'+
         currentelement["name"] +'</h6>'+
-        '</div>')
+        '</button>')
     })
 }                      
 
 function roundAtomicMass(MassNumber){
-    if (MassNumber*1000%1 != 0){
+    if (MassNumber*1000 % 1 != 0){
         return MassNumber.toFixed(3);
     }
     else if (MassNumber%1 == 0){
@@ -191,4 +191,48 @@ function roundAtomicMass(MassNumber){
         return MassNumber;
     }
 }
+
+function elementInformation(ElementNumber){
+    var currentelement = (PeriodicTable["elements"][ElementNumber-1]);
+    var output = ""
+    output += "<h4>" + currentelement['name'] +" ("+ currentelement['symbol'] + ")</h4>"
+    output += "<ul>"
+    // output += "<li>Atomic Mass: " + currentelement['atomic_mass'] + "</li>"
+    // output += "<li>Category: " + currentelement['category'] + "</li>"
+    // output += "<li>Phase (Room Tempurature): " + currentelement['phase'] + "</li>"
+    // output += "<li>Pointing Point: " + currentelement['boil'] + " K</li>"
+    // output += "<li>Melting Point: " + currentelement['melt'] + " K</li>"
+    // output += "<li>Density (at STP): " + currentelement['density'] + " g/L</li>"
+    // output += "<li>Discovered by: " + currentelement['discovered_by'] + "</li>"
+    // if (currentelement['color'] != null){
+    //     output += "<li>Color: " + currentelement['color'] + "</li>"
+    // }
+    output += "<li>Summary: " + currentelement['summary'] + "</li>"
+    output += "</ul>"
+    return output;
+}
+
+$(document).on('click', 'button', function(){
+    elementId = this.id
+    console.log(elementId)
+    $("#displayblock").html(elementInformation(elementId))
+});
+
+
 displaytable();
+
+// $(document).ready(function(){
+//     $('button').click(function(){
+//         console.log("Click")
+//         alert("The Element was clicked.");
+//     });
+// });
+
+// $(document).on('click', 'button', function(){
+//     alert("The Element was clicked.");
+//     console.log("Click")
+// });
+// $("#Element1").click(function(){
+//     alert("The Element was clicked.");
+//     $("#displayblock").html("Boo!")
+// });
