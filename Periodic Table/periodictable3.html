@@ -4,24 +4,22 @@
     <title>Periodic Table</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="PeriodicTable.css">
+    <link rel="stylesheet" type="text/css" href="custombootstrapbuttons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
 <body class = "container">
-    <h1 class= "display-4 text-center">Periodic Table of Elements</h1>
+    <div class= "row">
+        <h1 class= "display-4 col-md-8">Periodic Table of Elements</h1>
+        <div class="col-md-4">
+            <h6>View colors by</h6>
+            <button class="btn btn-primary view" id="phase">Phase</button>
+            <button class="btn btn-primary view" id="category">Category</button>
+
+        </div>
+    </div>
     <!-- Display div found below table -->
     <div id = "table">
-        <div id ="row0" class= "row"></div>
-        <div id ="row1" class= "row"></div>
-        <div id ="row2" class= "row"></div>
-        <div id ="row3" class= "row"></div>
-        <div id ="row4" class= "row"></div>
-        <div id ="row5" class= "row"></div>
-        <div id ="row6" class= "row"></div>
-        <div id ="row7" class= "row"></div>
-        <div id ="row8" class= "row"></div>
-        <div id ="row9" class= "row"></div>
-        <div id ="row10" class= "row"></div>
     </div>
     <div id ="displayblock"></div>
 <!-- Bootstrap JS -->
@@ -30,6 +28,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <!-- Periodic Table Data -->
 <script src="PeriodicTableJS.js"></script>
+<script src="PTDisplayElements.js"></script>
 <script src="PeriodicTableRender.js"></script>
                 
 </body>

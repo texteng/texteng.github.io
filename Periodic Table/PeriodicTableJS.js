@@ -1,5 +1,4 @@
-PeriodicTable = {
-    "elements": [
+PeriodicTable = [
         {
             "name": "Hydrogen", 
             "appearance": "colorless gas", 
@@ -3484,6 +3483,6 @@ PeriodicTable = {
             ]
         }
     ]
-}
+
 
 
