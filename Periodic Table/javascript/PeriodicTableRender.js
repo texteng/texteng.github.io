@@ -35,6 +35,11 @@ function displayTable(type){
     for (var row=0; row <=10; row++){
         displayRow(row, type);
     }
+    var legend = displayLegend(type);
+
+    $( document ).ready(function() {
+        $("#legend").html(legend)
+    });
 }
 
 function displayRow(row, type){
@@ -49,7 +54,6 @@ function displayRow(row, type){
             case (rowlocation > 0):
             displayElement(rowlocation, row, type)
             break;
-            
             case (rowlocation == "Lanthanide"):
             if (type == "category"){
                 $(document).ready(function(){
@@ -62,7 +66,7 @@ function displayRow(row, type){
                 })
             }
             break;
-            
+
             case (rowlocation == "Actinoid"):
             if (type == "category"){
                 $(document).ready(function(){
@@ -89,15 +93,38 @@ function displayRow(row, type){
             break;
             
             default:
-            // console.log("this is broken")
+            console.log("this is broken")
         }   
     }
+}
+
+function displayLegend(type){
+    var dict = colorLibrary(type);
+    var output = "";
+    output +='<h4>Elemental Categories</h4>'
+    output +='<table class = "legend">'
+    output +='<tr>'
+    output +='<td>'
+    output +='<ul>'
+    var count = 0;
+    for (key in dict){
+        if (count > 1 && count % 6 == 0){
+            output +='</ul>\n'
+            output +='</td>\n'
+            output +='<td>\n'
+            output +='<ul>\n'
+        }
+        count++
+        output +=    '<li><div class ="colorBox btn-'+ dict[key] + '"></div> ' + key +'</li>\n'
+    }
+    return output;
 }
 
 $(document).on('click', '.element', function(){
     elementId = this.id
     // console.log(elementId)
-    $("#displayblock").html(elementInformation(elementId))
+    $(".modal-title").html(elementInformationTitle(elementId))
+    $(".modal-body").html(elementInformation(elementId))
 });
 
 $(document).on('click', '.view', function(){
@@ -105,7 +132,6 @@ $(document).on('click', '.view', function(){
     console.log(this.id)
     displayTable(displaytype);
 });
-
 
 
 displayTable("category");
