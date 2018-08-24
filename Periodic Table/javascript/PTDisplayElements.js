@@ -76,7 +76,16 @@ function displaySmallBlank(row){
 function displayElement(atomicNumber, row, type){
     var currentelement = (PeriodicTable[atomicNumber-1]);
     var colordict = colorLibrary(type);
-    var color = colordict[currentelement[type]]
+    // if (type == "category" || type == "phase" || type == "groupBlock" || type == "bondingType"){
+        var color = colordict[currentelement[type]]
+    // }
+    // else{
+    //     for(x in colordict){
+    //     if (eval()){
+    //         var color = colordict[currentelement[type]]
+    //     }
+    //     }
+    // }
     var output = ""
     if (color == undefined){
         output = '<button id="'+ atomicNumber + '"class="element btn-light" data-toggle="modal" data-target="#ElementDisplayModal">'

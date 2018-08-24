@@ -1,5 +1,5 @@
 Tablematrix = [
-    ["0", "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
+    [0, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
     ["RL", 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
     ["RL", 11, 12, "CL", "CL", "CL", "CL", "CL", "CL", "CL", "CL", "CL", "CL", 13, 14, 15, 16, 17, 18],
@@ -12,16 +12,16 @@ Tablematrix = [
     [0, 0, 0, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 0]
 ]   
 
-// Tablematrix = [
-//     ["0", "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
-//     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
-//     ["RL", 3, 4, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
-//     ["RL", 11, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", "CL", "CL", "CL", "CL", "CL", 13, 14, 15, 16, 17, 18],
-//     ["RL", 19, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
-//     ["RL", 37, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
-//     ["RL", 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86],
-//     ["RL", 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103,, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118]
-// ]   
+Tablematrixwide = [
+    [0, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
+    ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
+    ["RL", 3, 4, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
+    ["RL", 11, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", "CL", "CL", "CL", "CL", "CL", 13, 14, 15, 16, 17, 18],
+    ["RL", 19, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+    ["RL", 37, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
+    ["RL", 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86],
+    ["RL", 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118],
+]   
 
 
 
@@ -42,6 +42,61 @@ function displayTable(type){
     });
 }
 
+function displayTableWide(type){
+    $("#table").html('');
+    $("#table").append('<div id ="tablewide"></div>')
+    for (var i = 0, rownumber = Tablematrixwide.length; i < rownumber; i++){
+        $("#tablewide").append('<div id ="row'+ i +'" class = "row"></div>');
+    }
+
+    for (var row=0; row <=7; row++){
+        displayRowwide(row, type);
+    }
+    var legend = displayLegend(type);
+
+    $( document ).ready(function() {
+        $("#legend").html(legend)
+    });
+}
+
+function displayRowwide(row, type){
+    // length = Tablematrixwide[row].length;
+    length = 33;
+    // length = 33;
+    for (var column=0; column < length; column++ ){
+        var rowlocation = Tablematrixwide[row][column];
+        // console.log(rowlocation)
+        switch(true) {
+            case (rowlocation == 0):
+            displayBlank(row);
+            break;
+            case (rowlocation > 0):
+            displayElement(rowlocation, row, type)
+            break;
+            
+
+            case (rowlocation == "RL"):
+            // displayBlank(row);
+            displayRowLabel(row);
+            break;
+
+            case (rowlocation == "CL"):
+            console.log("OK")
+            if (column <= 2){
+                displayColumnLabel(row, column);
+            }
+            else{
+                // displayBlank(row);
+                displayColumnLabel(row, column-14);
+            }
+            break;
+            
+            default:
+            console.log(rowlocation)
+        }   
+    }
+}
+
 function displayRow(row, type){
     length = Tablematrix[row].length;
     for (var column=0; column < length; column++ ){
@@ -55,7 +110,7 @@ function displayRow(row, type){
             displayElement(rowlocation, row, type)
             break;
             case (rowlocation == "Lanthanide"):
-            if (type == "category"){
+            if (type == "category" || type == "groupBlock" ){
                 $(document).ready(function(){
                     $("#row6").append('<button class="element btn-danger">57-71</div>');
                 })
@@ -68,7 +123,7 @@ function displayRow(row, type){
             break;
 
             case (rowlocation == "Actinoid"):
-            if (type == "category"){
+            if (type == "category" || type == "groupBlock" ){
                 $(document).ready(function(){
                     $("#row7").append('<button class="element btn-warning">89-103</div>');
                 })
@@ -101,21 +156,23 @@ function displayRow(row, type){
 function displayLegend(type){
     var dict = colorLibrary(type);
     var output = "";
-    output +='<h4>Elemental Categories</h4>'
+    output +='<h4>' + dict["title"] + '</h4>'
     output +='<table class = "legend">'
     output +='<tr>'
     output +='<td>'
     output +='<ul>'
     var count = 0;
     for (key in dict){
-        if (count > 1 && count % 6 == 0){
-            output +='</ul>\n'
-            output +='</td>\n'
-            output +='<td>\n'
-            output +='<ul>\n'
-        }
+        if (key != "title"){
+            if (count > 1 && count % 6 == 0){
+                output +='</ul>\n'
+                output +='</td>\n'
+                output +='<td>\n'
+                output +='<ul>\n'
+            }
         count++
         output +=    '<li><div class ="colorBox btn-'+ dict[key] + '"></div> ' + key +'</li>\n'
+        }
     }
     return output;
 }
@@ -127,11 +184,6 @@ $(document).on('click', '.element', function(){
     $(".modal-body").html(elementInformation(elementId))
 });
 
-$(document).on('click', '.view', function(){
-    displaytype = this.id
-    console.log(this.id)
-    displayTable(displaytype);
-});
 
 
-displayTable("category");
+
