@@ -67,7 +67,6 @@
         width: 40px;
         height: 55px;
         margin:0px;
-        border-width: 1px;
         display:inline-block;
         align-items: center;
         text-align: center;
@@ -102,10 +101,13 @@
         padding: 2px;
         display:block;
         align-self: center;
-        width: 406px;
-        height: 228px;
-        left: 100px;
+        width: 401px;
+        height: 165px;
+        left: 104px;
         top: -586px;
+        /* border-width: 1px;
+        border-color: red;
+        border-style: solid; */
     }
 
     .h2 {

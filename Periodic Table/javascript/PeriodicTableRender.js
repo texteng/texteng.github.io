@@ -109,7 +109,7 @@ function displayRow(row, type){
             case (rowlocation == "Lanthanide"):
                 if (type == "category" || type == "groupBlock" ){
                     $(document).ready(function(){
-                        $("#row6").append('<button class="element btn-danger">57-71</div>');
+                        $("#row6").append('<button class="element btn-danger R6">57-71</div>');
                     })
                 }
             else{
@@ -122,7 +122,7 @@ function displayRow(row, type){
             case (rowlocation == "Actinoid"):
                 if (type == "category" || type == "groupBlock" ){
                     $(document).ready(function(){
-                        $("#row7").append('<button class="element btn-warning">89-103</div>');
+                        $("#row7").append('<button class="element btn-warning R7">89-103</div>');
                     })
                 }
                 else{
@@ -162,8 +162,25 @@ function displayElement(atomicNumber, row, column, type){
         output +=   'R' + modifiedrow + ' ';
 
         //Creates Column Class
-        output +=   'C' + column      + ' ';
-
+        if(atomicNumber == 71 || atomicNumber == 103){
+            output +=   'C3 ';
+        }
+        if((atomicNumber < 57 || atomicNumber > 71) && (atomicNumber < 89 || atomicNumber > 103)){
+            if (column == 17 && (atomicNumber == 21 || atomicNumber == 39)){
+                output +=   'C3 ';
+            }
+            else if(column == 18 && (atomicNumber == 22 || atomicNumber == 40 || atomicNumber == 72 || atomicNumber == 104)){
+                output +=   'C4 ';
+            }
+            else if(column > 18){
+                column -= 14;
+                output +=   'C' + column      + ' ';
+            }
+            else{
+                output +=   'C' + column      + ' ';
+            }
+        }
+        
         //Determines color of element square
         var colordict = colorLibrary(type);  
         var color = colordict[currentelement[type]]
@@ -205,65 +222,11 @@ function displayLegend(type){
         if (count > 1 && count % 6 == 0){
             output +='</ul>\n</td>\n<td>\n<ul>\n'
         }
-        output += '<li>\n' 
-            output += '<div id ="btn-'+ dict[key] +'"' 
-            output += 'class ="colorBox btn-'+ dict[key] + '">'
-            output += '</div> ' + key 
+        output += '<li class="legenditem" id ="btn-'+ dict[key] +'">\n' 
+            output += '<div class ="colorBox btn-'+ dict[key] + '"></div> '
+            output += key 
         output += '</li>\n'
         count++
     }
     return output;
 }
-
-$(document).on('click', '.element', function(){
-    elementId = this.id
-    // console.log(elementId)
-    $(".modal-title").html(elementInformationTitle(elementId))
-    $(".modal-body").html(elementInformation(elementId))
-});
-
-
-// $(document).ready(function(){
-//     $('.rowlabel').hover(function(){
-//         $(".element").button('toggle');
-//         }, function(){
-//         $(".element").button('toggle');
-//     });
-// });
-
-$(document).on('mouseover', '.rowlabel', function(){
-    var rowId = this.id;
-    // console.log(elementId)
-    $("."+ rowId).button('toggle');
-});
-
-$(document).on('mouseleave ', '.rowlabel', function(){
-    rowId = this.id;
-    // console.log(elementId)
-    $("."+ rowId).button('toggle');
-});
-
-// $(document).on('mouseover', '.columnlabel', function(){
-//     var columnId = this.id;
-//     // console.log(elementId)
-//     $("."+ columnId).button('toggle');
-// });
-
-// $(document).on('mouseleave ', '.columnlabel', function(){
-//     var columnId = this.id;
-//     // console.log(elementId)
-//     $("."+ columnId).button('toggle');
-// });
-
-
-$(document).on('mouseover', '.colorBox', function(){
-    var colorBoxId = this.id;
-    $("."+ colorBoxId).button('toggle');
-});
-
-$(document).on('mouseleave ', '.colorBox', function(){
-    var colorBoxId = this.id;
-    $("."+ colorBoxId).button('toggle');
-});
-
-
