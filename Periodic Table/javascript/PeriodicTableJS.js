@@ -29,7 +29,7 @@ PeriodicTable = [
         "electronAffinity":-73,
         "bondingType":"diatomic",
         "groupBlock":"nonmetal",
-        "yearDiscovered":1766
+        "yearDiscovered":1766,
     },
     {
         "name":"Helium",

@@ -15,6 +15,10 @@
         margin: 0px;
     }
 
+    span.bold{
+        font-weight: bold;
+    }
+
     button.element{
         padding: 0px;
         width: 60px;

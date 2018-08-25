@@ -1,26 +1,41 @@
 function displayBlank(row){
+    var output = '<div class="blank"></div>';
     $(document).ready(function(){
-        $("#row"+row).append('<div class="blank"></div>');
+        $("#row"+row).append(output);
     })
 }
 
 function displayRowLabel(row){
+    var output = '';
+    output +='<div ';
+    output += 'id ="R'+ row + '" ';
+    output += 'class= "'
+        output += 'blank ';
+        output += 'rowlabel ';
+        output += 'h2 ';
+    output += '">';
+    output += row; //Row Label
+    output += '</div>';
     $(document).ready(function(){
-        $("#row"+row).append('<div class="blank h2">'+ row +'</div>');
+        $("#row"+row).append(output);
     })
 }
 
 function displayColumnLabel(row, column){
-    if (column != 8 && column != 10){
-        $(document).ready(function(){
-            $("#row"+row).append('<div class="columnlabel"><h3 class ="IUPAC">'+ column +'</h3><h5 class = "CAS">'+CASnumber(column)+'</h5></div>');
-        })
+    var output = '';
+    output += '<div id = "C' + column + '" ';
+    output += 'class= "columnlabel">';
+    output += '<h3 class ="IUPAC">'+ column +'</h3>';
+    if (column == 8 || column == 10){
+        output += '<h5 class = "CAS2">'+CASnumber(column)+'</h5>';
     }
     else{
-        $(document).ready(function(){
-            $("#row"+row).append('<div class="columnlabel"><h3 class ="IUPAC">'+ column +'</h3><h5 class = "CAS2">'+CASnumber(column)+'</h5></div>');
-        })
+        output += '<h5 class = "CAS">'+CASnumber(column)+'</h5>';
     }
+    output += '</div>';
+    $(document).ready(function(){
+        $("#row"+row).append(output);
+    })
 }
 
 function CASnumber(column){
@@ -72,38 +87,6 @@ function displaySmallBlank(row){
     })
 }
 
-// Display Element
-function displayElement(atomicNumber, row, type){
-    var currentelement = (PeriodicTable[atomicNumber-1]);
-    var colordict = colorLibrary(type);
-    // if (type == "category" || type == "phase" || type == "groupBlock" || type == "bondingType"){
-        var color = colordict[currentelement[type]]
-    // }
-    // else{
-    //     for(x in colordict){
-    //     if (eval()){
-    //         var color = colordict[currentelement[type]]
-    //     }
-    //     }
-    // }
-    var output = ""
-    if (color == undefined){
-        output = '<button id="'+ atomicNumber + '"class="element btn-light" data-toggle="modal" data-target="#ElementDisplayModal">'
-    }
-    else{
-        output = '<button id="'+ atomicNumber + '"class="element btn-' + color + '" data-toggle="modal" data-target="#ElementDisplayModal">'
-    }
-    output += '<h6 class = "atomicnumber">' + currentelement["number"] +'</h6>'
-    output += '<h3 class = "elementsymbol">'+ currentelement["symbol"] +'</h3>'
-    output += '<h6>'+ roundAtomicMass(currentelement["atomic_mass"]) + '</h6>'
-    output += '<h6 class = "elementname">'+ currentelement["name"] +'</h6>'
-    output += '</button>'
-
-    $(document).ready(function(){
-        $("#row"+row).append(output)
-    })
-}
-
 function roundAtomicMass(MassNumber){
     if (MassNumber*1000 % 1 != 0){
         return MassNumber.toFixed(3);
@@ -118,24 +101,29 @@ function roundAtomicMass(MassNumber){
 
 function elementInformationTitle(ElementNumber){
     var currentelement = (PeriodicTable[ElementNumber-1]);
-    var output = ""
-    output += currentelement['name'] +" ("+ currentelement['symbol'] + ")"
+    var output = "";
+    output += currentelement['name'] +" ("+ currentelement['symbol'] + ")";
     return output;
 }
 
 function elementInformation(ElementNumber){
     var currentelement = (PeriodicTable[ElementNumber-1]);
-    var output = ""
-    output += "<ul>"
-    output += "<li>Atomic Mass: " + currentelement['atomic_mass'] + "</li>"
-    output += "<li>Appearance: " + currentelement['appearance'] + "</li>"
-    output += "<li>Category: " + currentelement['category'] + "</li>"
-    output += "<li>Phase (Room Tempurature): " + currentelement['phase'] + "</li>"
-    output += "<li>Pointing Point: " + currentelement['boil'] + " K</li>"
-    output += "<li>Melting Point: " + currentelement['melt'] + " K</li>"
-    output += "<li>Density (at STP): " + currentelement['density'] + " g/L</li>"
-    output += "<li>Discovered by: " + currentelement['discovered_by'] + "</li>"
+    var output = "";
+    output += "<ul>";
+    output += "<li><span class= 'bold'>Atomic Mass (amu):</span> " + currentelement['atomic_mass'] + "</li>";
+    if (currentelement['appearance'] != null){
+        output += "<li><span class= 'bold'>Appearance:</span> " + currentelement['appearance'] + "</li>";
+    }
+    output += "<li><span class= 'bold'>Category:</span> " + currentelement['category'] + "</li>";
+    output += "<li><span class= 'bold'>Phase (Room Tempurature):</span> " + currentelement['phase'] + "</li>";
+    output += "<li><span class= 'bold'>Boiling Point:</span> " + currentelement['boil'] + " K</li>";
+    if (currentelement['melt'] != null){
+        output += "<li><span class= 'bold'>Melting Point:</span> " + currentelement['melt'] + " K</li>";
+    }
+    output += "<li><span class= 'bold'>Density (at STP):</span> " + currentelement['density'] + " g/L</li>";
+    output += "<li><span class= 'bold'>Discovered by:</span> " + currentelement['discovered_by'] + "</li>";
+    output += "<li><span class= 'bold'>Electron Configuration:</span> " + electronConfiguration(currentelement['number']) + "</li>";
     output += "</ul>"
-    output += currentelement['summary']
+    output += currentelement['summary'];
     return output;
 }

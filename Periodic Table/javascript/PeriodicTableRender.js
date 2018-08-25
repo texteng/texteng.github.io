@@ -52,10 +52,9 @@ function displayTableWide(type){
     for (var row=0; row <=7; row++){
         displayRowwide(row, type);
     }
-    var legend = displayLegend(type);
 
     $( document ).ready(function() {
-        $("#legend").html(legend)
+        $("#legend").html(displayLegend(type))
     });
 }
 
@@ -68,25 +67,23 @@ function displayRowwide(row, type){
         // console.log(rowlocation)
         switch(true) {
             case (rowlocation == 0):
-            displayBlank(row);
+                displayBlank(row);
             break;
+
             case (rowlocation > 0):
-            displayElement(rowlocation, row, type)
+                displayElement(rowlocation, row, column, type)
             break;
             
-
             case (rowlocation == "RL"):
-            // displayBlank(row);
-            displayRowLabel(row);
+                displayRowLabel(row);
             break;
-
+            
             case (rowlocation == "CL"):
             console.log("OK")
             if (column <= 2){
                 displayColumnLabel(row, column);
             }
             else{
-                // displayBlank(row);
                 displayColumnLabel(row, column-14);
             }
             break;
@@ -107,14 +104,14 @@ function displayRow(row, type){
             displayBlank(row);
             break;
             case (rowlocation > 0):
-            displayElement(rowlocation, row, type)
+                displayElement(rowlocation, row, column, type)
             break;
             case (rowlocation == "Lanthanide"):
-            if (type == "category" || type == "groupBlock" ){
-                $(document).ready(function(){
-                    $("#row6").append('<button class="element btn-danger">57-71</div>');
-                })
-            }
+                if (type == "category" || type == "groupBlock" ){
+                    $(document).ready(function(){
+                        $("#row6").append('<button class="element btn-danger">57-71</div>');
+                    })
+                }
             else{
                 $(document).ready(function(){
                     $("#row6").append('<div class="blank h6">57-71</div>');
@@ -123,28 +120,28 @@ function displayRow(row, type){
             break;
 
             case (rowlocation == "Actinoid"):
-            if (type == "category" || type == "groupBlock" ){
-                $(document).ready(function(){
-                    $("#row7").append('<button class="element btn-warning">89-103</div>');
-                })
-            }
-            else{
-                $(document).ready(function(){
-                    $("#row7").append('<div class="blank h6">89-103</div>');
-                })
+                if (type == "category" || type == "groupBlock" ){
+                    $(document).ready(function(){
+                        $("#row7").append('<button class="element btn-warning">89-103</div>');
+                    })
+                }
+                else{
+                    $(document).ready(function(){
+                        $("#row7").append('<div class="blank h6">89-103</div>');
+                    })
             }
             break;
             
             case (rowlocation == "SB"):
-            displaySmallBlank(row);
+                displaySmallBlank(row);
             break;
 
             case (rowlocation == "RL"):
-            displayRowLabel(row);
+                displayRowLabel(row);
             break;
 
             case (rowlocation == "CL"):
-            displayColumnLabel(row, column);
+                displayColumnLabel(row, column);
             break;
             
             default:
@@ -153,26 +150,67 @@ function displayRow(row, type){
     }
 }
 
+// Display Element
+function displayElement(atomicNumber, row, column, type){
+    var currentelement = (PeriodicTable[atomicNumber-1]);
+    var output = ""
+    output = '<button id="'+ atomicNumber + '" '; //Determines button ID
+    output += 'class= "element '; //Below are the classes added to elements
+        //Creates Row Class
+        var modifiedrow = row;
+        if (row > 8){modifiedrow -= 3;}
+        output +=   'R' + modifiedrow + ' ';
+
+        //Creates Column Class
+        output +=   'C' + column      + ' ';
+
+        //Determines color of element square
+        var colordict = colorLibrary(type);  
+        var color = colordict[currentelement[type]]
+        if (color == undefined){
+            output += 'btn-light';
+        }
+        else{
+            output += 'btn-' + color;
+        }
+
+    output += '" ';
+    output += 'data-toggle="modal" data-target="#ElementDisplayModal">\n'; //Allows information to be displayed in modal
+    output += '<h6 class = "atomicnumber">' + currentelement["number"] +'</h6>\n';
+    output += '<h3 class = "elementsymbol">'+ currentelement["symbol"] +'</h3>\n';
+    
+    if(type == "phase"){
+        output += '<h6>'+ currentelement["phase"] + '</h6>\n'
+    }
+    else{
+        output += '<h6>'+ roundAtomicMass(currentelement["atomic_mass"]) + '</h6>\n';
+        output += '<h6 class = "elementname">'+ currentelement["name"] +'</h6>\n';
+    }
+    output += '</button>';
+
+    $(document).ready(function(){
+        $("#row"+row).append(output)
+    })
+}
+
 function displayLegend(type){
     var dict = colorLibrary(type);
     var output = "";
     output +='<h4>' + dict["title"] + '</h4>'
     output +='<table class = "legend">'
-    output +='<tr>'
-    output +='<td>'
-    output +='<ul>'
+    output +='<tr>\n<td>\n<ul>\n'
     var count = 0;
     for (key in dict){
-        if (key != "title"){
-            if (count > 1 && count % 6 == 0){
-                output +='</ul>\n'
-                output +='</td>\n'
-                output +='<td>\n'
-                output +='<ul>\n'
-            }
-        count++
-        output +=    '<li><div class ="colorBox btn-'+ dict[key] + '"></div> ' + key +'</li>\n'
+        if (key == "title"){continue};
+        if (count > 1 && count % 6 == 0){
+            output +='</ul>\n</td>\n<td>\n<ul>\n'
         }
+        output += '<li>\n' 
+            output += '<div id ="btn-'+ dict[key] +'"' 
+            output += 'class ="colorBox btn-'+ dict[key] + '">'
+            output += '</div> ' + key 
+        output += '</li>\n'
+        count++
     }
     return output;
 }
@@ -185,5 +223,47 @@ $(document).on('click', '.element', function(){
 });
 
 
+// $(document).ready(function(){
+//     $('.rowlabel').hover(function(){
+//         $(".element").button('toggle');
+//         }, function(){
+//         $(".element").button('toggle');
+//     });
+// });
+
+$(document).on('mouseover', '.rowlabel', function(){
+    var rowId = this.id;
+    // console.log(elementId)
+    $("."+ rowId).button('toggle');
+});
+
+$(document).on('mouseleave ', '.rowlabel', function(){
+    rowId = this.id;
+    // console.log(elementId)
+    $("."+ rowId).button('toggle');
+});
+
+// $(document).on('mouseover', '.columnlabel', function(){
+//     var columnId = this.id;
+//     // console.log(elementId)
+//     $("."+ columnId).button('toggle');
+// });
+
+// $(document).on('mouseleave ', '.columnlabel', function(){
+//     var columnId = this.id;
+//     // console.log(elementId)
+//     $("."+ columnId).button('toggle');
+// });
+
+
+$(document).on('mouseover', '.colorBox', function(){
+    var colorBoxId = this.id;
+    $("."+ colorBoxId).button('toggle');
+});
+
+$(document).on('mouseleave ', '.colorBox', function(){
+    var colorBoxId = this.id;
+    $("."+ colorBoxId).button('toggle');
+});
 
 
