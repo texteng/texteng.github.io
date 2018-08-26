@@ -70,9 +70,9 @@
   $(document).on('click', '.view', function(){
     displaytype = this.id
     console.log(this.id)
-    displayTableWide(displaytype);
+    displayTable(displaytype, true);
   });
-  displayTableWide("category");
+  displayTable("category", "wide");
 
   $(document).on('click', '.view', function(){
     displaytype = this.id

@@ -6,7 +6,7 @@ $( document ).ready(function() {
         $(".modal-title").html(elementInformationTitle(elementId))
         $(".modal-body").html(elementInformation(elementId))
     });
-
+    
     //Highlights whole rows 
     $(document).on('mouseenter', '.rowlabel', function(){
         rowId = this.id;

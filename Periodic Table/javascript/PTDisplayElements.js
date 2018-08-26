@@ -1,18 +1,84 @@
-function displayBlank(row){
-    var output = '<div class="blank"></div>';
+// *********************** Element Tiles **************************
+function displayElement(atomicNumber, row, column, type){
+    var currentelement = (PeriodicTable[atomicNumber-1]);
+    var output = ""
+    output = '<button id="'+ atomicNumber + '" '; //Determines button ID
+    output += 'class= "element '; //Below are the classes added to elements
+        //Creates Row Class
+        var modifiedrow = row;
+        if (row > 8){modifiedrow -= 3;}
+        output +=   'R' + modifiedrow + ' ';
+
+        //Creates Column Class
+        if(atomicNumber == 71 || atomicNumber == 103){
+            output +=   'C3 ';
+        }
+        if((atomicNumber < 57 || atomicNumber > 71) && (atomicNumber < 89 || atomicNumber > 103)){
+            if (column == 17 && (atomicNumber == 21 || atomicNumber == 39)){
+                output +=   'C3 ';
+            }
+            else if(column == 18 && (atomicNumber == 22 || atomicNumber == 40 || atomicNumber == 72 || atomicNumber == 104)){
+                output +=   'C4 ';
+            }
+            else if(column > 18){
+                column -= 14;
+                output +=   'C' + column      + ' ';
+            }
+            else{
+                output +=   'C' + column      + ' ';
+            }
+        }
+        
+        //Determines color of element square
+        var colordict = colorLibrary(type);  
+        var color = colordict[currentelement[type]]
+        if (color == undefined){
+            output += 'btn-light';
+        }
+        else{
+            output += 'btn-' + color;
+        }
+
+    output += '" ';
+    output += 'data-toggle="modal" data-target="#ElementDisplayModal">\n'; //Allows information to be displayed in modal
+    output += '<h6 class = "atomicnumber">' + currentelement["number"] +'</h6>\n';
+    output += '<h3 class = "elementsymbol">'+ currentelement["symbol"] +'</h3>\n';
+    
+    if(type == "phase"){
+        output += '<h6>'+ currentelement["phase"] + '</h6>\n'
+    }
+    else{
+        output += '<h6>'+ roundAtomicMass(currentelement["atomic_mass"]) + '</h6>\n';
+        output += '<h6 class = "elementname">'+ currentelement["name"] +'</h6>\n';
+    }
+    output += '</button>';
+
     $(document).ready(function(){
-        $("#row"+row).append(output);
+        $("#row"+row).append(output)
     })
 }
 
+function roundAtomicMass(MassNumber){
+    if (MassNumber*1000 % 1 != 0){
+        return MassNumber.toFixed(3);
+    }
+    else if (MassNumber%1 == 0){
+        return "("+MassNumber+")";
+    }
+    else{
+        return MassNumber;
+    }
+}
+
+//****************Labels for Rows and Columns***********************
 function displayRowLabel(row){
     var output = '';
     output +='<div ';
     output += 'id ="R'+ row + '" ';
     output += 'class= "'
-        output += 'blank ';
-        output += 'rowlabel ';
-        output += 'h2 ';
+    output += 'blank ';
+    output += 'rowlabel ';
+    output += 'h2 ';
     output += '">';
     output += row; //Row Label
     output += '</div>';
@@ -81,24 +147,22 @@ function CASnumber(column){
     }
 }
 
+//****************Blanks***********************
+function displayBlank(row){
+    var output = '<div class="blank"></div>';
+    $(document).ready(function(){
+        $("#row"+row).append(output);
+    })
+}
+
 function displaySmallBlank(row){
     $(document).ready(function(){
         $("#row"+row).append('<div class="smallblank"></div>');
     })
 }
 
-function roundAtomicMass(MassNumber){
-    if (MassNumber*1000 % 1 != 0){
-        return MassNumber.toFixed(3);
-    }
-    else if (MassNumber%1 == 0){
-        return "("+MassNumber+")";
-    }
-    else{
-        return MassNumber;
-    }
-}
 
+//****************Labels for Modal***********************
 function elementInformationTitle(ElementNumber){
     var currentelement = (PeriodicTable[ElementNumber-1]);
     var output = "";

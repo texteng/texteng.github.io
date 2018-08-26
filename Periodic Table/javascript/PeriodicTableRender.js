@@ -23,34 +23,22 @@ Tablematrixwide = [
     ["RL", 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118],
 ]   
 
-
-
-function displayTable(type){
+//*********************************Renders Table************************
+function displayTable(type, wide = false){
     $("#table").html('');
-
-    for (var i = 0, rownumber = Tablematrix.length; i < rownumber; i++){
+    var matrix = Tablematrix;
+    if (wide == "wide"){
+        matrix = Tablematrixwide;
+    }
+    for (var i = 0, rownumber = matrix.length; i < rownumber; i++){
         $("#table").append('<div id ="row'+ i +'" class = "row"></div>');
     }
-
-    for (var row=0; row <=10; row++){
-        displayRow(row, type);
+    var rowlength = 10;
+    if (wide == "wide"){
+        rowlength = 7;
     }
-    var legend = displayLegend(type);
-
-    $( document ).ready(function() {
-        $("#legend").html(legend)
-    });
-}
-
-function displayTableWide(type){
-    $("#table").html('');
-    $("#table").append('<div id ="tablewide"></div>')
-    for (var i = 0, rownumber = Tablematrixwide.length; i < rownumber; i++){
-        $("#tablewide").append('<div id ="row'+ i +'" class = "row"></div>');
-    }
-
-    for (var row=0; row <=7; row++){
-        displayRowwide(row, type);
+    for (var row=0; row <=rowlength; row++){
+        displayRow(row, type, wide);
     }
 
     $( document ).ready(function() {
@@ -58,90 +46,70 @@ function displayTableWide(type){
     });
 }
 
-function displayRowwide(row, type){
-    // length = Tablematrixwide[row].length;
-    length = 33;
-    // length = 33;
-    for (var column=0; column < length; column++ ){
-        var rowlocation = Tablematrixwide[row][column];
-        // console.log(rowlocation)
-        switch(true) {
-            case (rowlocation == 0):
-                displayBlank(row);
-            break;
-
-            case (rowlocation > 0):
-                displayElement(rowlocation, row, column, type)
-            break;
-            
-            case (rowlocation == "RL"):
-                displayRowLabel(row);
-            break;
-            
-            case (rowlocation == "CL"):
-            console.log("OK")
-            if (column <= 2){
-                displayColumnLabel(row, column);
-            }
-            else{
-                displayColumnLabel(row, column-14);
-            }
-            break;
-            
-            default:
-            console.log(rowlocation)
-        }   
+//*********************************Renders Each Row************************
+function displayRow(row, type, wide){
+    var matrix = Tablematrix;
+    if (wide == "wide"){
+        matrix = Tablematrixwide;
     }
-}
-
-function displayRow(row, type){
-    length = Tablematrix[row].length;
+    length = matrix[row].length;
     for (var column=0; column < length; column++ ){
-        var rowlocation = Tablematrix[row][column];
-        // console.log(rowlocation)
+        var rowlocation = matrix[row][column];
         switch(true) {
             case (rowlocation == 0):
             displayBlank(row);
             break;
+
             case (rowlocation > 0):
-                displayElement(rowlocation, row, column, type)
+            displayElement(rowlocation, row, column, type)
             break;
+
             case (rowlocation == "Lanthanide"):
-                if (type == "category" || type == "groupBlock" ){
-                    $(document).ready(function(){
-                        $("#row6").append('<button class="element btn-danger R6">57-71</div>');
-                    })
-                }
+            if (type == "category" || type == "groupBlock" ){
+                $(document).ready(function(){
+                    $("#row6").append('<button class="element btn-danger R6">57-71</div>');
+                })
+            }
             else{
                 $(document).ready(function(){
                     $("#row6").append('<div class="blank h6">57-71</div>');
                 })
             }
             break;
-
+            
             case (rowlocation == "Actinoid"):
-                if (type == "category" || type == "groupBlock" ){
-                    $(document).ready(function(){
-                        $("#row7").append('<button class="element btn-warning R7">89-103</div>');
-                    })
-                }
-                else{
-                    $(document).ready(function(){
+            if (type == "category" || type == "groupBlock" ){
+                $(document).ready(function(){
+                    $("#row7").append('<button class="element btn-warning R7">89-103</div>');
+                })
+            }
+            else{
+                $(document).ready(function(){
                         $("#row7").append('<div class="blank h6">89-103</div>');
                     })
             }
             break;
             
             case (rowlocation == "SB"):
-                displaySmallBlank(row);
+            displaySmallBlank(row);
             break;
-
+            
             case (rowlocation == "RL"):
-                displayRowLabel(row);
+            displayRowLabel(row);
             break;
-
+            
             case (rowlocation == "CL"):
-                displayColumnLabel(row, column);
+            if (wide != "wide"){
+            displayColumnLabel(row, column);
+            }
+            else{
+                if (column <= 2){
+                    displayColumnLabel(row, column);
+                }
+                else{
+                    displayColumnLabel(row, column-14);
+                }
+            }
             break;
             
             default:
@@ -150,65 +118,7 @@ function displayRow(row, type){
     }
 }
 
-// Display Element
-function displayElement(atomicNumber, row, column, type){
-    var currentelement = (PeriodicTable[atomicNumber-1]);
-    var output = ""
-    output = '<button id="'+ atomicNumber + '" '; //Determines button ID
-    output += 'class= "element '; //Below are the classes added to elements
-        //Creates Row Class
-        var modifiedrow = row;
-        if (row > 8){modifiedrow -= 3;}
-        output +=   'R' + modifiedrow + ' ';
-
-        //Creates Column Class
-        if(atomicNumber == 71 || atomicNumber == 103){
-            output +=   'C3 ';
-        }
-        if((atomicNumber < 57 || atomicNumber > 71) && (atomicNumber < 89 || atomicNumber > 103)){
-            if (column == 17 && (atomicNumber == 21 || atomicNumber == 39)){
-                output +=   'C3 ';
-            }
-            else if(column == 18 && (atomicNumber == 22 || atomicNumber == 40 || atomicNumber == 72 || atomicNumber == 104)){
-                output +=   'C4 ';
-            }
-            else if(column > 18){
-                column -= 14;
-                output +=   'C' + column      + ' ';
-            }
-            else{
-                output +=   'C' + column      + ' ';
-            }
-        }
-        
-        //Determines color of element square
-        var colordict = colorLibrary(type);  
-        var color = colordict[currentelement[type]]
-        if (color == undefined){
-            output += 'btn-light';
-        }
-        else{
-            output += 'btn-' + color;
-        }
-
-    output += '" ';
-    output += 'data-toggle="modal" data-target="#ElementDisplayModal">\n'; //Allows information to be displayed in modal
-    output += '<h6 class = "atomicnumber">' + currentelement["number"] +'</h6>\n';
-    output += '<h3 class = "elementsymbol">'+ currentelement["symbol"] +'</h3>\n';
-    
-    if(type == "phase"){
-        output += '<h6>'+ currentelement["phase"] + '</h6>\n'
-    }
-    else{
-        output += '<h6>'+ roundAtomicMass(currentelement["atomic_mass"]) + '</h6>\n';
-        output += '<h6 class = "elementname">'+ currentelement["name"] +'</h6>\n';
-    }
-    output += '</button>';
-
-    $(document).ready(function(){
-        $("#row"+row).append(output)
-    })
-}
+//*********************************Renders Legend************************
 
 function displayLegend(type){
     var dict = colorLibrary(type);
