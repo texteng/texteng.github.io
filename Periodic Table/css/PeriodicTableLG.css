@@ -15,10 +15,7 @@
         margin: 0px;
     }
 
-    span.bold{
-        font-weight: bold;
-    }
-
+    /* Element Display */
     button.element{
         padding: 0px;
         width: 60px;
@@ -30,61 +27,35 @@
         border-color: lightgray;
         border-style: solid;
     }
-
-    .element h6{
-        font-size:9px;
-        margin: 2px;
-    }
-
-    h6.atomicnumber {
-        font-size:10px;
-        font-weight: bold;
-    }
-    h3.elementsymbol {
-        margin: -1px;
-
-    }
     
-    h6.elementname {
-        font-size:10px;
-        font-weight: bold;
-        margin: 0px;
-        font-family: "Helvetica Narrow", "Arial Narrow";
-        display: block;
-    }
+        .element h6{
+            font-size:9px;
+            margin: 2px;
+        }
+    
+        .element.h6.atomicnumber {
+            font-size:10px;
+            font-weight: bold;
+        }
 
+        .element.h3.elementsymbol {
+            margin: -1px;
+        }
+        
+        h6.elementname {
+            font-size:10px;
+            font-weight: bold;
+            margin: 0px;
+            font-family: "Helvetica Narrow", "Arial Narrow";
+            display: block;
+        }
+        
     div.blank{
-        padding: 2px;
         width: 60px;
         height: 75px;
-        line-height: 75px;
         margin:0px;
         background-color: white;
         display:inline-block;
-        align-items: center;
-        text-align: center;
-    }
-
-    div.columnlabel{
-        padding: 6px 2px 2px 2px;
-        width: 60px;
-        height: 75px;
-        margin:0px;
-        display:inline-block;
-        align-items: center;
-        text-align: center;
-    }
-
-    .IUPAC{/* Specifies numbering system of groups (columns) */
-        display:block;
-    }
-
-    .CAS{/* Specifies numbering system of groups (columns) */
-        display:block;
-        font-family: "Times New Roman", Times, serif;
-    }
-    .CAS2{/* Specifies numbering system of groups (columns) */
-        display:block;
     }
 
     div.smallblank{
@@ -97,25 +68,49 @@
         align-items: center;
         text-align: center;
     }
-
-    .h2{
-        font-size: 2rem !important;
+        
+    div.rowlabel{
+        padding: 2px;
+        width: 60px;
+        height: 75px;
+        line-height: 75px;
+        margin:0px;
+        background-color: white;
+        display:inline-block;
+        align-items: center;
+        text-align: center;
     }
     
-    h3{
-        font-size: 1.75rem !important;
+    div.columnlabel{
+        padding: 6px 2px 2px 2px;
+        width: 60px;
+        height: 75px;
+        margin:0px;
+        display:inline-block;
+        align-items: center;
+        text-align: center;
     }
     
-    h5{
-        font-size: 1.25rem !important;
-    }
+        .IUPAC{/* Specifies numbering system of groups (columns) */
+            display:block;
+        }
+        
+        .CAS{/* Specifies numbering system of groups (columns) */
+            display:block;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .CAS2{/* Specifies numbering system of groups (columns) */
+            display:block;
+        }
     
-    /* Modal stuff */
-    .modal-dialog {
-        max-width: 1000px !important;
-    }
     
-    /* Legend CSS */
+        
+        /* Modal stuff */
+        .modal-dialog {
+            max-width: 1000px !important;
+        }
+        
+        /* Legend CSS */
     #legend{
         position: relative;
         padding: 6px;
@@ -127,22 +122,33 @@
         top: -770px;
     }
     
-    table.legend {
-        border-style: hidden;
-        width: 100%;
-        vertical-align: top;
-    }
+        table.legend {
+            border-style: hidden;
+            width: 100%;
+            vertical-align: top;
+        }
     
-    .legend td{
-        vertical-align: top;
-    }
-    .legend li{
-        list-style: none;
-        font-size: 14px;
-        margin-bottom: 5px;
-        text-transform: capitalize;
-    }
-    
+        .legend td{
+            vertical-align: top;
+        }
+        
+        .colorBox{
+            padding: 0px;
+            width: 20px;
+            height: 20px;
+            display:inline-block;
+            text-align: center;
+            border-radius: 3px;
+            border-style: hidden;
+        }
+        
+        .legend li{
+            list-style: none;
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-transform: capitalize;
+        }
+        
     #mobile{
         display: none;
         position: absolute;
@@ -150,14 +156,19 @@
         left: 0px;
     }
     
-    .colorBox{
-        padding: 0px;
-        width: 20px;
-        height: 20px;
-        display:inline-block;
-        text-align: center;
-        border-radius: 3px;
-        border-style: hidden;
+    span.bold{
+        font-weight: bold;
     }
-
+    
+    .h2{
+        font-size: 2rem !important;
+    }
+    
+    h3{
+        font-size: 1.75rem !important;
+    }
+    
+    h5{
+        font-size: 1.25rem !important;
+    }
 }

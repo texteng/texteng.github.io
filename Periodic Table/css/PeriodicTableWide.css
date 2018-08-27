@@ -15,10 +15,7 @@
         margin: 0px;
     }
 
-    span.bold{
-        font-weight: bold;
-    }
-
+    /* Element Display */
     button.element{
         padding: 0px;
         width: 40px;
@@ -30,28 +27,43 @@
         border-color: lightgray;
         border-style: solid;
     }
-
-    .element h6{
-        font-size:9px;
-        margin: 2px;
-    }
-
-    h6.atomicnumber {
-        font-size:10px;
-        font-weight: bold;
-    }
-    h3.elementsymbol {
-        margin: -1px;
-    }
-    h6.elementname {
-        font-size:10px;
-        font-weight: bold;
-        margin: 0px;
-        font-family: "Helvetica Narrow", "Arial Narrow";
-        display:none;
-    }
-
+    
+        .element h6{
+            font-size:9px;
+            margin: 2px;
+        }
+    
+        h6.atomicnumber {
+            font-size:10px;
+            font-weight: bold;
+        }
+        h3.elementsymbol {
+            margin: -1px;
+        }
+        h6.elementname {
+            display:none;
+        }
+    
     div.blank{
+        width: 40px;
+        height: 55px;
+        margin:0px;
+        background-color: white;
+        display:inline-block;
+    }
+    
+    div.smallblank{
+        padding: 2px;
+        width: 60px;
+        height: 20px;
+        margin:0px;
+        background-color: white;
+        display:inline-block;
+        align-items: center;
+        text-align: center;
+    }
+
+    div.rowlabel{
         padding: 2px;
         width: 40px;
         height: 55px;
@@ -73,32 +85,73 @@
         align-items: center;
         text-align: center;
     }
+    
+        .IUPAC{/* Specifies numbering system of groups (columns) */
+            display:block;
+        }
+        
+        .CAS{/* Specifies numbering system of groups (columns) */
+            display:block;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .CAS2{/* Specifies numbering system of groups (columns) */
+            display:block;
+        }
 
-
-    .IUPAC{/* Specifies numbering system of groups (columns) */
-        display:block;
-    }
-
-    .CAS{/* Specifies numbering system of groups (columns) */
-        display:block;
-        font-family: "Times New Roman", Times, serif;
-    }
-    .CAS2{/* Specifies numbering system of groups (columns) */
-        display:block;
-    }
-
-    div.smallblank{
+        /* Modal stuff */
+        .modal-dialog {
+            max-width: 1000px !important;
+        }
+        
+        
+    #legend{
+        position: relative;
         padding: 2px;
-        width: 60px;
-        height: 20px;
-        margin:0px;
-        background-color: white;
-        display:inline-block;
-        align-items: center;
-        text-align: center;
+        display:block;
+        align-self: center;
+        width: 561px;
+        height: 228px;
+        left: 105px;
+        top: -440px;
     }
-
-
+        
+        table.legend {
+            border-style: hidden;
+            width: 100%;
+            vertical-align: top;
+        }
+        
+        .legend td{
+            vertical-align: top;
+        }
+        
+        .colorBox{
+            padding: 0px;
+            width: 20px;
+            height: 20px;
+            display:inline-block;
+            text-align: center;
+            border-radius: 3px;
+            border-style: hidden;
+        }
+        
+        .legend li{
+            list-style: none;
+            font-size: 14px;
+            margin-bottom: 5px;
+            text-transform: capitalize;
+        }
+        
+    #mobile{
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    
+    span.bold{
+        font-weight: bold;
+    }
     
     .h2 {
         font-size: 1.5rem !important;
@@ -111,55 +164,4 @@
     h5{
         font-size: .75rem !important;
     }
-
-    /* Modal stuff */
-    .modal-dialog {
-        max-width: 1000px !important;
-    }
-    
-    .colorBox{
-        padding: 0px;
-        width: 20px;
-        height: 20px;
-        display:inline-block;
-        text-align: center;
-        border-radius: 3px;
-        border-style: hidden;
-    }
-    
-    #legend{
-        position: relative;
-        padding: 2px;
-        display:block;
-        align-self: center;
-        width: 561px;
-        height: 228px;
-        left: 105px;
-        top: -440px;
-        /* border-style:solid; */
-    }
-    
-    table.legend {
-        border-style: hidden;
-        width: 100%;
-        vertical-align: top;
-    }
-    
-    .legend td{
-        vertical-align: top;
-    }
-    .legend li{
-        list-style: none;
-        font-size: 14px;
-        margin-bottom: 5px;
-        text-transform: capitalize;
-    }
-
-    #mobile{
-        display: none;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-
 }

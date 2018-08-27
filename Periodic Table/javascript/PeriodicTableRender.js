@@ -1,4 +1,6 @@
-Tablematrix = [
+//Functions that display the table, rows, elements and legends are found here. The rest are found in PTDisplayElements.
+
+var Tablematrix = [
     [0, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
     ["RL", 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
@@ -12,7 +14,7 @@ Tablematrix = [
     [0, 0, 0, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 0]
 ]   
 
-Tablematrixwide = [
+var Tablematrixwide = [
     [0, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
     ["RL", 3, 4, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
@@ -40,7 +42,7 @@ function displayTable(type, wide = false){
     for (var row=0; row <=rowlength; row++){
         displayRow(row, type, wide);
     }
-
+    
     $( document ).ready(function() {
         $("#legend").html(displayLegend(type))
     });
@@ -54,54 +56,54 @@ function displayRow(row, type, wide){
     }
     length = matrix[row].length;
     for (var column=0; column < length; column++ ){
-        var rowlocation = matrix[row][column];
+        var tableposition = matrix[row][column];
         switch(true) {
-            case (rowlocation == 0):
-            displayBlank(row);
-            break;
-
-            case (rowlocation > 0):
-            displayElement(rowlocation, row, column, type)
-            break;
-
-            case (rowlocation == "Lanthanide"):
-            if (type == "category" || type == "groupBlock" ){
-                $(document).ready(function(){
-                    $("#row6").append('<button class="element btn-danger R6">57-71</div>');
-                })
-            }
-            else{
-                $(document).ready(function(){
-                    $("#row6").append('<div class="blank h6">57-71</div>');
-                })
-            }
+            case (tableposition > 0):
+                displayElement(tableposition, row, column, type)
             break;
             
-            case (rowlocation == "Actinoid"):
-            if (type == "category" || type == "groupBlock" ){
-                $(document).ready(function(){
-                    $("#row7").append('<button class="element btn-warning R7">89-103</div>');
-                })
-            }
-            else{
-                $(document).ready(function(){
+            case (tableposition == 0):
+                displayBlank(row);
+            break;
+            
+            case (tableposition == "Lanthanide"):
+                if (type == "category" || type == "groupBlock" ){
+                    $(document).ready(function(){
+                        $("#row6").append('<button class="element btn-danger R6">57-71</div>');
+                    })
+                }
+                else{
+                    $(document).ready(function(){
+                        $("#row6").append('<div class="blank h6">57-71</div>');
+                    })
+                }
+            break;
+            
+            case (tableposition == "Actinoid"):
+                if (type == "category" || type == "groupBlock" ){
+                    $(document).ready(function(){
+                        $("#row7").append('<button class="element btn-warning R7">89-103</div>');
+                    })
+                }
+                else{
+                    $(document).ready(function(){
                         $("#row7").append('<div class="blank h6">89-103</div>');
                     })
-            }
+                }
             break;
             
-            case (rowlocation == "SB"):
-            displaySmallBlank(row);
+            case (tableposition == "SB"):
+                displaySmallBlank(row);
             break;
             
-            case (rowlocation == "RL"):
-            displayRowLabel(row);
+            case (tableposition == "RL"):
+                displayRowLabel(row);
             break;
             
-            case (rowlocation == "CL"):
-            if (wide != "wide"){
-            displayColumnLabel(row, column);
-            }
+            case (tableposition == "CL"):
+                if (wide != "wide"){
+                    displayColumnLabel(row, column);
+                }
             else{
                 if (column <= 2){
                     displayColumnLabel(row, column);
@@ -117,7 +119,76 @@ function displayRow(row, type, wide){
         }   
     }
 }
+//***************************Renders Each Element******************************* 
+// Minor elements found in PTDispalyElements
+function displayElement(atomicNumber, row, column, type){
+    var currentelement = (PeriodicTable[atomicNumber-1]);
+    var output = ""
+    output = '<button id="'+ atomicNumber + '" '; //Determines button ID
+    output += 'class= "element '; //Below are the classes added to elements
+    //Creates Row Class
+    var modifiedrow = row;
+    if (row > 8){modifiedrow -= 3;}
+    output +=   'R' + modifiedrow + ' ';
+    
+    //Creates Column Class
+    if(atomicNumber == 71 || atomicNumber == 103){
+        output += 'C3 ';
+    }
 
+    if((atomicNumber < 57 || atomicNumber > 71) && 
+    (atomicNumber < 89 || atomicNumber > 103)){
+        if (column == 17 && (atomicNumber == 21 || atomicNumber == 39)){
+            output += 'C3 ';
+        }
+        else if(   column == 18 && 
+            (atomicNumber == 22 || 
+             atomicNumber == 40 || 
+             atomicNumber == 72 || 
+             atomicNumber == 104)){
+            output +=   'C4 ';
+        }
+
+        else if(column > 18){
+            column -= 14;
+            output +=   'C' + column      + ' ';
+        }
+        else{
+            output +=   'C' + column      + ' ';
+        }
+    }
+
+    //Determines color of element square
+    var colordict = colorLibrary(type);  
+    var color = colordict[currentelement[type]]
+    if (color == undefined){
+        output += 'btn-light';
+    }
+    else{
+        output += 'btn-' + color;
+    }
+    output += '" ';
+
+    output += 'data-toggle="modal" data-target="#ElementDisplayModal">\n'; //Allows information to be displayed in modal
+
+    //Information found inside element
+    output += '<h6 class = "atomicnumber">' + currentelement["number"] +'</h6>\n';
+    output += '<h3 class = "elementsymbol">'+ currentelement["symbol"] +'</h3>\n';
+    
+    if(type == "phase"){
+        output += '<h6>'+ currentelement["phase"] + '</h6>\n'
+    }
+    else{
+        output += '<h6>'+ roundAtomicMass(currentelement["atomic_mass"]) + '</h6>\n';
+        output += '<h6 class = "elementname">'+ currentelement["name"] +'</h6>\n';
+    }
+    output += '</button>';
+    
+    $(document).ready(function(){
+        $("#row"+row).append(output)
+    })
+}
+        
 //*********************************Renders Legend************************
 
 function displayLegend(type){
@@ -133,8 +204,8 @@ function displayLegend(type){
             output +='</ul>\n</td>\n<td>\n<ul>\n'
         }
         output += '<li class="legenditem" id ="btn-'+ dict[key] +'">\n' 
-            output += '<div class ="colorBox btn-'+ dict[key] + '"></div> '
-            output += key 
+        output += '<div class ="colorBox btn-'+ dict[key] + '"></div> '
+        output += key 
         output += '</li>\n'
         count++
     }

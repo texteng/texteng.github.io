@@ -14,10 +14,7 @@
         margin: 0px;
     }
 
-    span.bold{
-        font-weight: bold;
-    }
-
+    /* Element Display */
     button.element{
         padding: 0px;
         width: 40px;
@@ -29,28 +26,43 @@
         border-color: lightgray;
         border-style: solid;
     }
-
-    .element h6{
-        font-size:9px;
-        margin: 2px;
-    }
-
-    h6.atomicnumber {
-        font-size:10px;
-        font-weight: bold;
-    }
-    h3.elementsymbol {
-        margin: -1px;
-    }
-    h6.elementname {
-        font-size:10px;
-        font-weight: bold;
-        margin: 0px;
-        font-family: "Helvetica Narrow", "Arial Narrow";
-        display:none;
-    }
-
+    
+        .element h6{
+            font-size:9px;
+            margin: 2px;
+        }
+    
+        h6.atomicnumber {
+            font-size:10px;
+            font-weight: bold;
+        }
+        h3.elementsymbol {
+            margin: -1px;
+        }
+        h6.elementname {
+            display:none;
+        }
+        
     div.blank{
+        width: 40px;
+        height: 55px;
+        margin:0px;
+        background-color: white;
+        display:inline-block;
+    }
+    
+    div.smallblank{
+        padding: 2px;
+        width: 60px;
+        height: 20px;
+        margin:0px;
+        background-color: white;
+        display:inline-block;
+        align-items: center;
+        text-align: center;
+    }
+
+    div.rowlabel{
         padding: 2px;
         width: 40px;
         height: 55px;
@@ -72,30 +84,21 @@
         text-align: center;
     }
 
-
-    .IUPAC{/* Specifies numbering system of groups (columns) */
-        display:block;
-    }
-
-    .CAS{/* Specifies numbering system of groups (columns) */
-        display:block;
-        font-family: "Times New Roman", Times, serif;
-    }
-    .CAS2{/* Specifies numbering system of groups (columns) */
-        display:block;
-    }
-
-    div.smallblank{
-        padding: 2px;
-        width: 60px;
-        height: 20px;
-        margin:0px;
-        background-color: white;
-        display:inline-block;
-        align-items: center;
-        text-align: center;
-    }
-
+        .IUPAC{/* Specifies numbering system of groups (columns) */
+            display:block;
+        }
+        
+        .CAS{/* Specifies numbering system of groups (columns) */
+            display:block;
+            font-family: "Times New Roman", Times, serif;
+        }
+        .CAS2{/* Specifies numbering system of groups (columns) */
+            display:block;
+        }
+    
+    
+        
+        
     #legend{
         position: relative;
         padding: 2px;
@@ -105,55 +108,55 @@
         height: 165px;
         left: 104px;
         top: -586px;
-        /* border-width: 1px;
-        border-color: red;
-        border-style: solid; */
     }
-
-    .h2 {
-        font-size: 1.5rem !important;
-    }
-
-    h3{
-        font-size: 1.25rem !important;
-    }
-
-    h5{
-        font-size: .75rem !important;
-    }
-
-    .colorBox{
-        padding: 0px;
-        width: 10px;
-        height: 10px;
-        display:inline-block;
-        text-align: center;
-        border-radius: 3px;
-        border-style: hidden;
-    }
-    
-    table.legend {
-        border-style: hidden;
-        width: 100%;
-        vertical-align: top;
-    }
-    
-    .legend td{
-        vertical-align: top;
-    }
-    .legend li{
-        list-style: none;
-        font-size: 10px;
-        margin-bottom: 0px;
-        text-transform: capitalize;
-
-    }
-
+        
+        table.legend {
+            border-style: hidden;
+            width: 100%;
+            vertical-align: top;
+        }
+        
+        .legend td{
+            vertical-align: top;
+        }
+        
+        .colorBox{
+            padding: 0px;
+            width: 10px;
+            height: 10px;
+            display:inline-block;
+            text-align: center;
+            border-radius: 3px;
+            border-style: hidden;
+        }
+        
+        .legend li{
+            list-style: none;
+            font-size: 10px;
+            margin-bottom: 0px;
+            text-transform: capitalize;    
+        }
+        
     #mobile{
         display: none;
         position: absolute;
         top: 0px;
         left: 0px;
     }
-
+    
+    span.bold{
+        font-weight: bold;
+    }
+    
+    .h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    h3{
+        font-size: 1.25rem !important;
+    }
+    
+    h5{
+        font-size: .75rem !important;
+    }
 }
