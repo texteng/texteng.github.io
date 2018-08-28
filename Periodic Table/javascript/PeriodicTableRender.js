@@ -1,5 +1,4 @@
 //Functions that display the table, rows, elements and legends are found here. The rest are found in PTDisplayElements.
-
 var Tablematrix = [
     [0, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
