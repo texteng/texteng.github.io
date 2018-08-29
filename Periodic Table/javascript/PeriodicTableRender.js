@@ -32,7 +32,7 @@ function displayTable(type, wide = false){
         matrix = Tablematrixwide;
     }
     for (var i = 0, rownumber = matrix.length; i < rownumber; i++){
-        $("#table").append('<div id ="row'+ i +'" class = "row"></div>');
+        $("#table").append(`<div id ="row${i}" class = "row"></div>`);
     }
     var rowlength = 10;
     if (wide == "wide"){
@@ -123,12 +123,12 @@ function displayRow(row, type, wide){
 function displayElement(atomicNumber, row, column, type){
     var currentelement = (PeriodicTable[atomicNumber-1]);
     var output = ""
-    output = '<button id="'+ atomicNumber + '" '; //Determines button ID
+    output = `<button id="${atomicNumber}" `; //Determines button ID
     output += 'class= "element '; //Below are the classes added to elements
     //Creates Row Class
     var modifiedrow = row;
     if (row > 8){modifiedrow -= 3;}
-    output +=   'R' + modifiedrow + ' ';
+    output +=   `R${modifiedrow} `;
     
     //Creates Column Class
     if(atomicNumber == 71 || atomicNumber == 103){
@@ -145,15 +145,15 @@ function displayElement(atomicNumber, row, column, type){
              atomicNumber == 40 || 
              atomicNumber == 72 || 
              atomicNumber == 104)){
-            output +=   'C4 ';
+            output += 'C4 ';
         }
 
         else if(column > 18){
             column -= 14;
-            output +=   'C' + column      + ' ';
+            output += `C${column} `;
         }
         else{
-            output +=   'C' + column      + ' ';
+            output += `C${column} `;
         }
     }
 
@@ -164,22 +164,22 @@ function displayElement(atomicNumber, row, column, type){
         output += 'btn-light';
     }
     else{
-        output += 'btn-' + color;
+        output += `btn-${color}`;
     }
     output += '" ';
 
     output += 'data-toggle="modal" data-target="#ElementDisplayModal">\n'; //Allows information to be displayed in modal
 
     //Information found inside element
-    output += '<h6 class = "atomicnumber">' + currentelement["number"] +'</h6>\n';
-    output += '<h3 class = "elementsymbol">'+ currentelement["symbol"] +'</h3>\n';
+    output += `<h6 class = "atomicnumber">${currentelement["number"]}</h6>\n`;
+    output += `<h3 class = "elementsymbol">${currentelement["symbol"]}</h3>\n`;
     
     if(type == "phase"){
-        output += '<h6>'+ currentelement["phase"] + '</h6>\n'
+        output += `<h6>${currentelement["phase"]}</h6>\n`
     }
     else{
-        output += '<h6>'+ roundAtomicMass(currentelement["atomic_mass"]) + '</h6>\n';
-        output += '<h6 class = "elementname">'+ currentelement["name"] +'</h6>\n';
+        output += `<h6>${roundAtomicMass(currentelement["atomic_mass"])}</h6>\n`;
+        output += `<h6 class = "elementname">${currentelement["name"]}</h6>\n`;
     }
     output += '</button>';
     
@@ -193,20 +193,22 @@ function displayElement(atomicNumber, row, column, type){
 function displayLegend(type){
     var dict = colorLibrary(type);
     var output = "";
-    output +='<h4>' + dict["title"] + '</h4>'
-    output +='<table class = "legend">'
-    output +='<tr>\n<td>\n<ul>\n'
+    output +=`<h4>${dict["title"]}</h4>`;
+    output +='<table class = "legend">';
+    output +='<tr>\n<td>\n<ul>\n';
     var count = 0;
     for (key in dict){
-        if (key == "title"){continue};
+        if (key == "title"){
+            continue
+        };
         if (count > 1 && count % 6 == 0){
-            output +='</ul>\n</td>\n<td>\n<ul>\n'
+            output +='</ul>\n</td>\n<td>\n<ul>\n';
         }
-        output += '<li class="legenditem" id ="btn-'+ dict[key] +'">\n' 
-        output += '<div class ="colorBox btn-'+ dict[key] + '"></div> '
-        output += key 
-        output += '</li>\n'
-        count++
+        output += `<li class="legenditem" id ="btn-${dict[key]}">\n`;
+        output += `<div class ="colorBox btn-${dict[key]}"></div>`;
+        output += key;
+        output += '</li>\n';
+        count++;
     }
     return output;
 }

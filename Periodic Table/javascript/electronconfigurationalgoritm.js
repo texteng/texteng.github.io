@@ -147,7 +147,6 @@ function electronConfiguration(electronNumber){
             if (electronNumber == 86){
                 break;
             }
-        //Here
         case (electronNumber >= 87):
             output += "7s";
             if (electronNumber == 87){

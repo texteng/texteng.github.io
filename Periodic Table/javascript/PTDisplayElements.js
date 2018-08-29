@@ -6,7 +6,7 @@ function roundAtomicMass(MassNumber){
         return MassNumber.toFixed(3);
     }
     else if (MassNumber%1 == 0){
-        return "("+MassNumber+")";
+        return `(${MassNumber})`;
     }
     else{
         return MassNumber;
@@ -17,7 +17,7 @@ function roundAtomicMass(MassNumber){
 function displayRowLabel(row){
     var output = '';
     output +='<div ';
-    output += 'id ="R'+ row + '" ';
+    output += `id ="R${row}" `;
     output += 'class= "rowlabel h2">';
     output += row; //Row Label
     output += '</div>';
@@ -28,15 +28,15 @@ function displayRowLabel(row){
 
 function displayColumnLabel(row, column){
     var output = '';
-    output += '<div id = "C' + column + '" ';
+    output += `<div id = "C${column}" `;
     output += 'class= "columnlabel">';
     //Actual Labels
-    output += '<h3 class ="IUPAC">'+ column +'</h3>';
+    output += `<h3 class ="IUPAC">${column}</h3>`;
     if (column == 8 || column == 10){
-        output += '<h5 class = "CAS2">'+CASnumber(column)+'</h5>';
+        output += `<h5 class = "CAS2">${CASnumber(column)}</h5>`;
     }
     else{
-        output += '<h5 class = "CAS">'+CASnumber(column)+'</h5>';
+        output += `<h5 class = "CAS">${CASnumber(column)}</h5>`;
     }
     output += '</div>';
     $(document).ready(function(){
@@ -104,27 +104,27 @@ function displaySmallBlank(row){
 function elementInformationTitle(ElementNumber){
     var currentelement = (PeriodicTable[ElementNumber-1]);
     var output = "";
-    output += currentelement['name'] +" ("+ currentelement['symbol'] + ")";
+    output += `${currentelement['name']} (${currentelement['symbol']})`;
     return output;
 }
 
 function elementInformation(ElementNumber){
     var currentelement = (PeriodicTable[ElementNumber-1]);
     var output = "";
-    output += "<ul>";
-    output += "<li><span class= 'bold'>Atomic Mass (amu):</span> " + currentelement['atomic_mass'] + "</li>";
+    output += `<ul>`;
+    output += `<li><span class= 'bold'>Atomic Mass (amu):</span> ${currentelement['atomic_mass']}</li>`;
     if (currentelement['appearance'] != null){
-        output += "<li><span class= 'bold'>Appearance:</span> " + currentelement['appearance'] + "</li>";
+        output += `<li><span class= 'bold'>Appearance:</span> ${currentelement['appearance']}</li>`;
     }
-    output += "<li><span class= 'bold'>Category:</span> " + currentelement['category'] + "</li>";
-    output += "<li><span class= 'bold'>Phase (Room Tempurature):</span> " + currentelement['phase'] + "</li>";
-    output += "<li><span class= 'bold'>Boiling Point:</span> " + currentelement['boil'] + " K</li>";
+    output += `<li><span class= 'bold'>Category:</span> ${currentelement['category']} "</li>`;
+    output += `<li><span class= 'bold'>Phase (Room Tempurature):</span>${currentelement['phase']}</li>`;
+    output += `<li><span class= 'bold'>Boiling Point:</span> ${currentelement['boil']} K</li>`;
     if (currentelement['melt'] != null){
-        output += "<li><span class= 'bold'>Melting Point:</span> " + currentelement['melt'] + " K</li>";
+        output += `<li><span class= 'bold'>Melting Point:</span> ${currentelement['melt']} K</li>`;
     }
-    output += "<li><span class= 'bold'>Density (at STP):</span> " + currentelement['density'] + " g/L</li>";
-    output += "<li><span class= 'bold'>Discovered by:</span> " + currentelement['discovered_by'] + "</li>";
-    output += "<li><span class= 'bold'>Electron Configuration:</span> " + electronConfiguration(currentelement['number']) + "</li>";
+    output += `<li><span class= 'bold'>Density (at STP):</span> ${currentelement['density']} g/L</li>`;
+    output += `<li><span class= 'bold'>Discovered by:</span> ${currentelement['discovered_by']}</li>`;
+    output += `<li><span class= 'bold'>Electron Configuration:</span> ${electronConfiguration(currentelement['number'])}</li>`;
     output += "</ul>"
     output += currentelement['summary'];
     return output;
