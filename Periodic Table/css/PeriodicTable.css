@@ -1,0 +1,126 @@
+#table{
+    padding: 0px;
+    width: 1950px;
+    background-color: white;
+    display:block;
+    align-self: center;
+}
+
+.row{
+    padding: 0px;
+    background-color: white;
+    display:block; 
+    margin: 0px;
+}
+
+
+table.legend {
+    border-style: hidden;
+    width: 100%;
+    vertical-align: top;
+}
+
+button.element{
+    padding: 0px;
+    display:inline-block;
+    text-align: center;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: lightgray;
+    border-style: solid;
+}
+
+    .element h6{
+        font-size:9px;
+        margin: 2px;
+    }
+
+    .element.h6.atomicnumber {
+        font-size:10px;
+        font-weight: bold;
+    }
+
+    .elementsymbol {
+        margin: -1px;
+    }
+
+div.blank{
+    margin:0px;
+    background-color: white;
+    display:inline-block;
+}
+
+div.rowlabel{
+    padding: 2px;
+    line-height: 75px;
+    margin:0px;
+    background-color: white;
+    display:inline-block;
+    align-items: center;
+    text-align: center;
+}
+
+div.columnlabel{
+    padding: 6px 2px 2px 2px;
+    margin:0px;
+    display:inline-block;
+    align-items: center;
+    text-align: center;
+}
+
+div.smallblank{
+    padding: 2px;
+    margin:0px;
+    background-color: white;
+    display:inline-block;
+    align-items: center;
+    text-align: center;
+}
+
+#legend{
+    position: relative;
+    padding: 2px;
+    display:block;
+    align-self: center;
+    
+}
+
+.colorBox{
+    padding: 0px;
+    display:inline-block;
+    text-align: center;
+    border-radius: 3px;
+
+}
+
+.legend li{
+    list-style: none;
+    text-transform: capitalize;
+}
+
+.legend td{
+    vertical-align: top !important;
+}
+
+@media only screen and (max-width: 480px){
+    /* we will set these stylings only if the device is a screen with a width of 480px or less */
+    #mobile{
+    display: block;
+    }
+    
+    #table{
+        display: none !important;
+    }
+
+    .row{
+        display:none !important; 
+    }
+
+    #legend{
+        display:none !important;
+    }
+
+    nav{
+        display: none !important;
+    }
+}

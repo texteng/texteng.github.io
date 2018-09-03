@@ -1,7 +1,7 @@
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 481px){
     #table{
         padding: 0px;
-        /* width: 1140px; */
+        /* width: 800px; */
         width: 3040px;
         background-color: white;
         display:block;
@@ -18,8 +18,8 @@
     /* Element Display */
     button.element{
         padding: 0px;
-        width: 60px;
-        height: 75px;
+        width: 40px;
+        height: 55px;
         display:inline-block;
         text-align: center;
         border-radius: 3px;
@@ -33,34 +33,28 @@
             margin: 2px;
         }
     
-        .element.h6.atomicnumber {
+        h6.atomicnumber {
             font-size:10px;
             font-weight: bold;
         }
-
-        .element.h3.elementsymbol {
+        h3.elementsymbol {
             margin: -1px;
         }
-        
         h6.elementname {
-            font-size:10px;
-            font-weight: bold;
-            margin: 0px;
-            font-family: "Helvetica Narrow", "Arial Narrow";
-            display: block;
+            display:none;
         }
         
     div.blank{
-        width: 60px;
-        height: 75px;
+        width: 40px;
+        height: 55px;
         margin:0px;
         background-color: white;
         display:inline-block;
     }
-
+    
     div.smallblank{
         padding: 2px;
-        width: 60px;
+        width: 40px;
         height: 20px;
         margin:0px;
         background-color: white;
@@ -68,11 +62,11 @@
         align-items: center;
         text-align: center;
     }
-        
+
     div.rowlabel{
         padding: 2px;
-        width: 60px;
-        height: 75px;
+        width: 40px;
+        height: 55px;
         line-height: 75px;
         margin:0px;
         background-color: white;
@@ -80,47 +74,39 @@
         align-items: center;
         text-align: center;
     }
-    
+
     div.columnlabel{
         padding: 6px 2px 2px 2px;
-        width: 60px;
-        height: 75px;
+        width: 40px;
+        height: 55px;
         margin:0px;
         display:inline-block;
         align-items: center;
         text-align: center;
-    }
-    
-    
-    
+    }  
         
-        /* Modal stuff */
-        .modal-dialog {
-            max-width: 1000px !important;
-        }
-        
-        /* Legend CSS */
     #legend{
         position: relative;
-        padding: 6px;
+        padding: 2px;
         display:block;
         align-self: center;
-        width: 602px;
-        height: 228px;
-        left: 164px;
-        top: -770px;
+        width: 401px;
+        height: 165px;
+        left: 104px;
+        top: -586px;
     }
-    
+        
         table.legend {
             border-style: hidden;
             width: 100%;
             vertical-align: top;
         }
         
+        
         .colorBox{
             padding: 0px;
-            width: 20px;
-            height: 20px;
+            width: 10px;
+            height: 10px;
             display:inline-block;
             text-align: center;
             border-radius: 3px;
@@ -129,8 +115,8 @@
         
         .legend li{
             list-style: none;
-            font-size: 14px;
-            margin-bottom: 5px;
+            font-size: 10px;
+            margin-bottom: 0px;
             text-transform: capitalize;
         }
         
@@ -141,15 +127,16 @@
         left: 0px;
     }
     
-    .h2{
-        font-size: 2rem !important;
+    
+    .h2 {
+        font-size: 1.5rem !important;
     }
     
     h3{
-        font-size: 1.75rem !important;
+        font-size: 1.25rem !important;
     }
     
     h5{
-        font-size: 1.25rem !important;
+        font-size: .75rem !important;
     }
 }

@@ -24,21 +24,24 @@ var Tablematrixwide = [
     ["RL", 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118],
 ]
 
+var wide = false;
 var matrix = Tablematrix; //Table by default is normal sized.
+var currentcategory = "category";
+
+//*************Starts Rendering Process*******************
+displayTable(currentcategory);
 
 //*********************************Renders Table************************
 function displayTable(type){
-    var rowlength = 10;
+    var rowlength = matrix.length;
     $("#table").html('');
-    if (wide == "wide"){
-        matrix = Tablematrixwide;
-        rowlength = 7;
-    }
-    for (var i = 0, rownumber = matrix.length; i < rownumber; i++){
+
+    console.log(matrix.length);
+    for (var i = 0; i < rowlength; i++){
         $("#table").append(`<div id ="row${i}" class = "row"></div>`);
     }
     
-    for (var row=0; row <=rowlength; row++){
+    for (var row=0; row < rowlength; row++){
         displayRow(row, type);
     }
     
@@ -63,10 +66,10 @@ function displayRow(row, type){
             case (tableposition == "Lanthanide"):
                 $(document).ready(function(){
                     if (type == "category" || type == "groupBlock" ){
-                        $("#row6").append('<button class="element btn-danger R6">57-71</div>');
+                        $("#row6").append('<button class="element boxsize btn-danger R6">57-71</div>');
                     }
                     else{
-                        $("#row6").append('<div class="rowlabel h6">57-71</div>');
+                        $("#row6").append('<div class="rowlabel boxsize h6">57-71</div>');
                     }
                 })
             break;
@@ -74,10 +77,10 @@ function displayRow(row, type){
             case (tableposition == "Actinoid"):
                 $(document).ready(function(){
                     if (type == "category" || type == "groupBlock" ){
-                        $("#row7").append('<button class="element btn-warning R7">89-103</div>');
+                        $("#row7").append('<button class="element boxsize btn-warning R7">89-103</div>');
                     }
                     else{
-                        $("#row7").append('<div class="rowlabel h6">89-103</div>');
+                        $("#row7").append('<div class="rowlabel boxsize h6">89-103</div>');
                     }
                 })
             break;
@@ -91,7 +94,7 @@ function displayRow(row, type){
             break;
             
             case (tableposition == "CL"):
-                if (wide == "wide" && column > 2){
+                if (wide && column > 2){
                     displayColumnLabel(row, column-14);
                     break;
                 }
@@ -109,7 +112,7 @@ function displayElement(atomicNumber, row, column, type){
     var currentelement = (PeriodicTable[atomicNumber-1]);
     var output = ""
     output = `<button id="${atomicNumber}" `; //Determines button ID
-    output += 'class= "element '; //Below are the classes added to elements
+    output += 'class= "element boxsize '; //Below are the classes added to elements
     //Creates Row Class
     var modifiedrow = row;
     if (row > 8){modifiedrow -= 3;}
@@ -117,7 +120,7 @@ function displayElement(atomicNumber, row, column, type){
     
     //Creates Column Class
     if((atomicNumber < 57 || atomicNumber > 70) && (atomicNumber < 89 || atomicNumber > 102)){
-        if(wide != "wide" || column <=2){
+        if(!wide || column <=2){
             if (atomicNumber != 71 || atomicNumber != 103){
                 output += `C${column} `;
             }

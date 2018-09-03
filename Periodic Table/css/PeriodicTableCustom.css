@@ -1,0 +1,109 @@
+@media only screen and (min-width: 481px){
+    .boxsize{
+        width: 40px !important;
+        height: 55px !important;
+    }
+
+    h6.elementname {
+        display:none;
+    }
+
+    div.smallblank{
+        width: 40px;
+        height: 20px;
+    }
+
+    #legend{
+        width: 401px;
+        height: 165px;
+        left: 104px;
+        top: -564px;
+    }
+
+    .colorBox{
+        width: 10px;
+        height: 10px;
+    }
+
+    .legend li{
+        font-size: 10px;
+        margin-bottom: 0px;
+    }
+
+    #mobile{
+        display: none;
+    }
+
+    .h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    h3{
+        font-size: 1.25rem !important;
+    }
+    
+    h5{
+        font-size: .75rem !important;
+    }
+
+}
+@media only screen and (min-width: 1024px){
+    .boxsize{
+        width: 60px !important;
+        height: 75px !important;
+    }
+    /* Element Display */
+
+        
+    h6.elementname {
+        font-size:10px;
+        font-weight: bold;
+        margin: 0px;
+        font-family: "Helvetica Narrow", "Arial Narrow";
+        display: block;
+    }
+        
+    div.smallblank{
+        width: 60px;
+        height: 20px;
+    }
+        
+        /* Modal stuff */
+        .modal-dialog {
+            max-width: 1000px !important;
+        }
+        
+        /* Legend CSS */
+    #legend{
+        width: 602px;
+        height: 228px;
+        left: 164px;
+        top: -770px;
+    }
+        
+        .colorBox{
+            width: 20px;
+            height: 20px;
+        }
+        
+        .legend li{
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+    #mobile{
+        display: none;
+    }
+    
+    .h2{
+        font-size: 2rem !important;
+    }
+    
+    h3{
+        font-size: 1.75rem !important;
+    }
+    
+    h5{
+        font-size: 1.25rem !important;
+    }
+}

@@ -17,7 +17,7 @@ function displayRowLabel(row){
     var output = '';
     output +='<div ';
     output += `id ="R${row}" `;
-    output += 'class= "rowlabel h2">';
+    output += 'class= "rowlabel boxsize h2">';
     output += row; //Row Label
     output += '</div>';
     $(document).ready(function(){
@@ -28,7 +28,7 @@ function displayRowLabel(row){
 function displayColumnLabel(row, column){
     var output = '';
     output += `<div id = "C${column}" `;
-    output += 'class= "columnlabel">';
+    output += 'class= "columnlabel boxsize">';
     //Actual Labels
     output += `<h3 class ="d-block">${column}</h3>`;
     output += `<h5 class ="d-block"` 
@@ -70,7 +70,7 @@ function CASnumber(column){
 
 //****************Blanks***********************
 function displayBlank(row){
-    var output = '<div class="blank"></div>';
+    var output = '<div class="blank boxsize"></div>';
     $(document).ready(function(){
         $("#row"+row).append(output);
     })
