@@ -91,17 +91,6 @@
         text-align: center;
     }
     
-        .IUPAC{/* Specifies numbering system of groups (columns) */
-            display:block;
-        }
-        
-        .CAS{/* Specifies numbering system of groups (columns) */
-            display:block;
-            font-family: "Times New Roman", Times, serif;
-        }
-        .CAS2{/* Specifies numbering system of groups (columns) */
-            display:block;
-        }
     
     
         
@@ -127,10 +116,6 @@
             width: 100%;
             vertical-align: top;
         }
-    
-        .legend td{
-            vertical-align: top;
-        }
         
         .colorBox{
             padding: 0px;
@@ -154,10 +139,6 @@
         position: absolute;
         top: 0px;
         left: 0px;
-    }
-    
-    span.bold{
-        font-weight: bold;
     }
     
     .h2{

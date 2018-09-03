@@ -1,16 +1,15 @@
 //DisplayElement found on PeriodicTableRender function. DisplayElements holds other display functions
 
 // *********************** Element Tiles **************************
-function roundAtomicMass(MassNumber){
+function displayAtomicMass(MassNumber){
     if (MassNumber*1000 % 1 != 0){
         return MassNumber.toFixed(3);
     }
     else if (MassNumber%1 == 0){
         return `(${MassNumber})`;
     }
-    else{
-        return MassNumber;
-    }
+    
+    return MassNumber;
 }
 
 //****************Labels for Rows and Columns***********************
@@ -31,18 +30,20 @@ function displayColumnLabel(row, column){
     output += `<div id = "C${column}" `;
     output += 'class= "columnlabel">';
     //Actual Labels
-    output += `<h3 class ="IUPAC">${column}</h3>`;
-    if (column == 8 || column == 10){
-        output += `<h5 class = "CAS2">${CASnumber(column)}</h5>`;
+    output += `<h3 class ="d-block">${column}</h3>`;
+    output += `<h5 class ="d-block"` 
+    if (column != 8 && column != 10){
+        output +=` style="font-family: 'Times New Roman', 'Times', 'serif'"`
     }
-    else{
-        output += `<h5 class = "CAS">${CASnumber(column)}</h5>`;
-    }
+    output +=`>${CASnumber(column)}</h5>`;
     output += '</div>';
     $(document).ready(function(){
         $("#row"+row).append(output);
     })
 }
+
+
+// "Helvetica Neue", Helvetica, Arial, sans-serif
 function CASnumber(column){
     let CASindex = [
         "IA", //1
@@ -91,23 +92,27 @@ function elementInformationTitle(ElementNumber){
 }
 
 function elementInformation(ElementNumber){
+    function elementFact(title, elementInformation){
+        return `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation}</li>`
+    }
     var currentelement = (PeriodicTable[ElementNumber-1]);
     var output = "";
     output += `<ul>`;
-    output += `<li><span class= 'bold'>Atomic Mass (amu):</span> ${currentelement['atomic_mass']}</li>`;
+    output += elementFact("Atomic Mass (amu)", currentelement['atomic_mass']);
     if (currentelement['appearance'] != null){
-        output += `<li><span class= 'bold'>Appearance:</span> ${currentelement['appearance']}</li>`;
+        output += elementFact("Appearance", currentelement['appearance']);
     }
-    output += `<li><span class= 'bold'>Category:</span> ${currentelement['category']} "</li>`;
-    output += `<li><span class= 'bold'>Phase (Room Tempurature):</span>${currentelement['phase']}</li>`;
-    output += `<li><span class= 'bold'>Boiling Point:</span> ${currentelement['boil']} K</li>`;
+    output += elementFact("Category", currentelement['category']);
+    output += elementFact("Phase (Room Tempurature)", currentelement['phase']);
+    output += elementFact("Boiling Point", currentelement['boil']+" K");
     if (currentelement['melt'] != null){
-        output += `<li><span class= 'bold'>Melting Point:</span> ${currentelement['melt']} K</li>`;
+        output += elementFact("Melting Point", currentelement['melt']);
     }
-    output += `<li><span class= 'bold'>Density (at STP):</span> ${currentelement['density']} g/L</li>`;
-    output += `<li><span class= 'bold'>Discovered by:</span> ${currentelement['discovered_by']}</li>`;
-    output += `<li><span class= 'bold'>Electron Configuration:</span> ${electronConfiguration(currentelement['number'])}</li>`;
+    output += elementFact("Density (at STP)", currentelement['density'] +"g/L</li>");
+    output += elementFact("Discovered by", currentelement['discovered_by']);
+    output += elementFact("Electron Configuration", electronConfiguration(currentelement['number']));
     output += "</ul>"
     output += currentelement['summary'];
     return output;
 }
+

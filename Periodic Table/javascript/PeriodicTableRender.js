@@ -22,24 +22,24 @@ var Tablematrixwide = [
     ["RL", 37, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54],
     ["RL", 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86],
     ["RL", 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118],
-]   
+]
+
+var matrix = Tablematrix; //Table by default is normal sized.
 
 //*********************************Renders Table************************
-function displayTable(type, wide = false){
+function displayTable(type){
+    var rowlength = 10;
     $("#table").html('');
-    var matrix = Tablematrix;
     if (wide == "wide"){
         matrix = Tablematrixwide;
+        rowlength = 7;
     }
     for (var i = 0, rownumber = matrix.length; i < rownumber; i++){
         $("#table").append(`<div id ="row${i}" class = "row"></div>`);
     }
-    var rowlength = 10;
-    if (wide == "wide"){
-        rowlength = 7;
-    }
+    
     for (var row=0; row <=rowlength; row++){
-        displayRow(row, type, wide);
+        displayRow(row, type);
     }
     
     $( document ).ready(function() {
@@ -48,11 +48,7 @@ function displayTable(type, wide = false){
 }
 
 //*********************************Renders Each Row************************
-function displayRow(row, type, wide){
-    var matrix = Tablematrix;
-    if (wide == "wide"){
-        matrix = Tablematrixwide;
-    }
+function displayRow(row, type){
     length = matrix[row].length;
     for (var column=0; column < length; column++ ){
         var tableposition = matrix[row][column];
@@ -65,29 +61,25 @@ function displayRow(row, type, wide){
                 displayBlank(row);
             break;
             case (tableposition == "Lanthanide"):
-                if (type == "category" || type == "groupBlock" ){
-                    $(document).ready(function(){
+                $(document).ready(function(){
+                    if (type == "category" || type == "groupBlock" ){
                         $("#row6").append('<button class="element btn-danger R6">57-71</div>');
-                    })
-                }
-                else{
-                    $(document).ready(function(){
+                    }
+                    else{
                         $("#row6").append('<div class="rowlabel h6">57-71</div>');
-                    })
-                }
+                    }
+                })
             break;
             
             case (tableposition == "Actinoid"):
-                if (type == "category" || type == "groupBlock" ){
-                    $(document).ready(function(){
+                $(document).ready(function(){
+                    if (type == "category" || type == "groupBlock" ){
                         $("#row7").append('<button class="element btn-warning R7">89-103</div>');
-                    })
-                }
-                else{
-                    $(document).ready(function(){
+                    }
+                    else{
                         $("#row7").append('<div class="rowlabel h6">89-103</div>');
-                    })
-                }
+                    }
+                })
             break;
             
             case (tableposition == "SB"):
@@ -99,18 +91,12 @@ function displayRow(row, type, wide){
             break;
             
             case (tableposition == "CL"):
-                if (wide != "wide"){
-                    displayColumnLabel(row, column);
-                }
-            else{
-                if (column <= 2){
-                    displayColumnLabel(row, column);
-                }
-                else{
+                if (wide == "wide" && column > 2){
                     displayColumnLabel(row, column-14);
+                    break;
                 }
-            }
-            break;
+                displayColumnLabel(row, column);
+                break;
             
             default:
             console.log("this is broken")
@@ -130,28 +116,17 @@ function displayElement(atomicNumber, row, column, type){
     output +=   `R${modifiedrow} `;
     
     //Creates Column Class
-    if(atomicNumber == 71 || atomicNumber == 103){
-        output += 'C3 ';
-    }
-
-    if((atomicNumber < 57 || atomicNumber > 71) && 
-    (atomicNumber < 89 || atomicNumber > 103)){
-        if (column == 17 && (atomicNumber == 21 || atomicNumber == 39)){
-            output += 'C3 ';
-        }
-        else if(   column == 18 && 
-            (atomicNumber == 22 || 
-             atomicNumber == 40 || 
-             atomicNumber == 72 || 
-             atomicNumber == 104)){
-            output += 'C4 ';
-        }
-
-        else if(column > 18){
-            column -= 14;
-            output += `C${column} `;
+    if((atomicNumber < 57 || atomicNumber > 70) && (atomicNumber < 89 || atomicNumber > 102)){
+        if(wide != "wide" || column <=2){
+            if (atomicNumber != 71 || atomicNumber != 103){
+                output += `C${column} `;
+            }
+            else{
+                output += 'C3 ';
+            }
         }
         else{
+            column -= 14;
             output += `C${column} `;
         }
     }
@@ -177,7 +152,7 @@ function displayElement(atomicNumber, row, column, type){
         output += `<h6>${currentelement["phase"]}</h6>\n`
     }
     else{
-        output += `<h6>${roundAtomicMass(currentelement["atomic_mass"])}</h6>\n`;
+        output += `<h6>${displayAtomicMass(currentelement["atomic_mass"])}</h6>\n`;
         output += `<h6 class = "elementname">${currentelement["name"]}</h6>\n`;
     }
     output += '</button>';
@@ -194,7 +169,7 @@ function displayLegend(type){
     var output = "";
     output +=`<h4>${dict["title"]}</h4>`;
     output +='<table class = "legend">';
-    output +='<tr>\n<td>\n<ul>\n';
+    output +='<tr>\n<td class= "align-top">\n<ul>\n';
     var count = 0;
     for (key in dict){
         if (key == "title"){

@@ -67,12 +67,13 @@
 <script src="javascript/electronconfigurationalgoritm.js"></script>
 <script src="javascript/jqueryfunctions.js"></script>
 <script>
+  var wide = "wide";
   $(document).on('click', '.view', function(){
     displaytype = this.id
     console.log(this.id)
-    displayTable(displaytype, "wide");
+    displayTable(displaytype);
   });
-  displayTable("category", "wide");
+  displayTable("category");
 
   $(document).on('click', '.view', function(){
     displaytype = this.id
