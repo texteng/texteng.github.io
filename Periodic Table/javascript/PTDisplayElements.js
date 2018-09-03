@@ -43,46 +43,28 @@ function displayColumnLabel(row, column){
         $("#row"+row).append(output);
     })
 }
-
 function CASnumber(column){
-    switch(column) {
-        case (1):
-        return "IA";
-        case (2):
-        return "IIA";
-        case (3):
-        return "IIIB";
-        case (4):
-        return "IVB";
-        case (5):
-        return "VB";
-        case (6):
-        return "VIB";
-        case (7):
-        return "VIIB";
-        case (8):
-        return '&#9486;&#8212;&#8212;';
-        case (9):
-        return "VIIIB";
-        case (10):
-        return "&#8212;&#8212;&#9490;";
-        case (11):
-        return "IB";
-        case (12):
-        return "IIB";
-        case (13):
-        return "IIIA";
-        case (14):
-        return "IVA";
-        case (15):
-        return "VA";
-        case (16):
-        return "VIA";
-        case (17):
-        return "VIIA";
-        case (18):
-        return "VIIIA";
-    }
+    let CASindex = [
+        "IA", //1
+        "IIA", //2
+        "IIIB", //3
+        "IVB", //4
+        "VB", //5
+        "VIB", //6
+        "VIIB", //7
+        '&#9486;&#8212;&#8212;', //8
+        "VIIIB", //9
+        "&#8212;&#8212;&#9490;", //10
+        "IB", //11
+        "IIB", //12
+        "IIIA", //13
+        "IVA", //14
+        "VA", //15
+        "VIA", //16
+        "VIIA", //17
+        "VIIIA" //18
+    ]
+    return CASindex[column-1];
 }
 
 //****************Blanks***********************

@@ -64,7 +64,6 @@ function displayRow(row, type, wide){
             case (tableposition == 0):
                 displayBlank(row);
             break;
-            
             case (tableposition == "Lanthanide"):
                 if (type == "category" || type == "groupBlock" ){
                     $(document).ready(function(){
@@ -73,7 +72,7 @@ function displayRow(row, type, wide){
                 }
                 else{
                     $(document).ready(function(){
-                        $("#row6").append('<div class="blank h6">57-71</div>');
+                        $("#row6").append('<div class="rowlabel h6">57-71</div>');
                     })
                 }
             break;
@@ -86,7 +85,7 @@ function displayRow(row, type, wide){
                 }
                 else{
                     $(document).ready(function(){
-                        $("#row7").append('<div class="blank h6">89-103</div>');
+                        $("#row7").append('<div class="rowlabel h6">89-103</div>');
                     })
                 }
             break;

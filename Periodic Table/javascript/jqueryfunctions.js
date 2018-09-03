@@ -1,4 +1,3 @@
-$( document ).ready(function() {
     //Activates Modal
     $(document).on('click', '.element', function(){
         elementId = this.id
@@ -36,5 +35,3 @@ $( document ).ready(function() {
         var colorBoxId = this.id;
         $("."+ colorBoxId).button('toggle');
     });
-
-});
