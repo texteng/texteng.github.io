@@ -18,12 +18,36 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li><button class="nav-link btn btn-link view active" id="category">Category</button></li>
-            <li><button class="nav-link btn btn-link view" id="phase">Phase</button></li>
-            <li><button class="nav-link btn btn-link view" id="groupBlock">Group Block</button></li>
-            <li><button class="nav-link btn btn-link view" id="bondingType">Bonding Type</button></li>
+              <li class="nav-item dropdown">
+                  <div class ="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorization</div>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <button class="dropdown-item view" id="category">Categorization System 1</button>
+                    <button class="dropdown-item view" id="groupBlock">Categorization System 2</button>
+                    <!-- <button class="dropdown-item view view" id="electronAffinity">Electron Affinity</button> -->
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <div class ="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thermal</div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <button class="dropdown-item view" id="phase">Phase</button>
+                      <button class="dropdown-item view" id="melt">Melting Point</button>
+                      <button class="dropdown-item view" id="boil">Boiling Point</button>
+                    </div>
+                  </li>
+            <li><button class="nav-link btn btn-link view" id="density">Density</button></li>
+            <li><button class="nav-link btn btn-link view" id="yearDiscovered">Year Discovered</button></li>
+            <li class="nav-item dropdown">
+                <div class ="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Additional Properties</div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <button class="dropdown-item view view" id="bondingType">Bonding Type</button>
+                  <button class="dropdown-item view view" id="electronegativity">Electronegativity</button>
+                  <button class="dropdown-item view view" id="atomicRadius">Atomic Radius</button>
+                  <button class="dropdown-item view view" id="ionizationEnergy">Ionization energy</button>
+                  <!-- <button class="dropdown-item view view" id="electronAffinity">Electron Affinity</button> -->
+                </div>
+              </li>
             <li id="wide"><button class="nav-link btn btn-link wide active">Wide</button></li>
-            <!-- <li><button class="nav-link btn btn-link view" id="yearDiscovered">Year Discovered</button></li> -->
+            <li><button class="nav-link btn btn-link credits" id="credits" data-toggle="modal" data-target="#ElementDisplayModal">Credits</button></li>
           </ul>
         </div>
     
@@ -39,7 +63,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ElementDisplayModalLongTitle"></h5>
+            <h4 class="modal-title" id="ElementDisplayModalLongTitle"></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

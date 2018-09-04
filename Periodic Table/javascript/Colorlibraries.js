@@ -1,5 +1,4 @@
-
-var categoryDict = {
+const categoryDict = {
     "title":"Elemental Categories",
     "diatomic nonmetal":"info", 
     "noble gas":"skyblue", 
@@ -14,8 +13,8 @@ var categoryDict = {
     "unknown":"light",
 }
 
-var groupblockDict = {
-    "title":"Group Block",
+const groupblockDict = {
+    "title":"Elemental Categories (Alternate System)",
     "halogen":"info", 
     "noble gas":"skyblue", 
     "alkali metal":"success", 
@@ -30,7 +29,7 @@ var groupblockDict = {
 }
 
 
-var phasesDict = {
+const phasesDict = {
     "title":"Phases at STP",
     "Solid":"primary", 
     "Liquid":"info", 
@@ -38,7 +37,7 @@ var phasesDict = {
 }
 
 
-var bondtypeDict = {
+const bondtypeDict = {
     "title":"Bond Type",
     "atomic":"skyblue",
     "metallic": "darkgreen",
@@ -47,26 +46,119 @@ var bondtypeDict = {
     "unknown":"light" 
 }
 
-// var yearDiscoveredDict = {
-//     "title":"Year Discovered",
-//     "metallic":"skyblue",
-//     "metallic": "darkgreen",
-//     "diatomic":"info", 
-//     "covalent network":"primary",
-//     "unknown":"light" 
+const yearDiscoveredDict = {
+    "title":"Year Discovered By",
+    "Ancient": "light",
+    1800:"skyblue",
+    1850: "info",
+    1900:"darkgreen", 
+    1950:"success", 
+    2000:"warning",
+    2018: "danger"
+}
+
+const densityDict = {
+    "title":"Density g/L",
+    1:"darkgreen", 
+    2:"danger", 
+    3:"warning", 
+    4:"info", 
+    5:"success", 
+    10:"primary", 
+    20:"skyblue",
+    50:"dark",
+}
+
+const meltDict = {
+    "title":"Melting/Freezing Point (K) (Note 273 is 0 C)",
+    50: "dark",
+    100:"purple",
+    250:"skyblue", 
+    273:"info", 
+    374:"primary", 
+    500:"darkgreen",
+    1000:"success",
+    2000:"warning",
+    5000: "danger"
+}
+
+const boilDict = {
+    "title":"Boiling Point (K) (Note 374 is 100 C)",
+    50: "dark",
+    100:"purple",
+    250:"skyblue", 
+    273:"info", 
+    374:"primary", 
+    1000:"darkgreen",
+    3000:"success",
+    5000:"warning",
+    7000: "danger"
+}
+const electronegativityDict = {
+    "title":"Electronegativity",
+    1: "primary",
+    2:"purple",
+    3:"skyblue", 
+    4:"info", 
+}
+
+const atomicRadiusDict = {
+    "title":"Atomic Radius (Angstroms &#197;) ",
+    "Unknown": "light",
+    50: "primary",
+    100: "skyblue",
+    125: "info",
+    150: "darkgreen",
+    175: "success",
+    200: "warning",
+    250: "danger",
+}
+
+const ionizationEnergyDict = {
+    "title":"Ionization Energy (Electron Volts eV)",
+    "Unknown": "light",
+    500: "primary",
+    750: "skyblue",
+    1000: "info",
+    1250: "darkgreen",
+    1500: "success",
+    2000: "warning",
+    2500: "danger",
+}
+// const electronAffinityDict= {
+//     "None": "light",
+//     parseInt("-300"): "primary",
 // }
 
-function colorLibrary(type){
-    switch(type) {
-        case ("category"):
-        return categoryDict;
-        case ("phase"):
-        return phasesDict;
-        case ("groupBlock"):
-        return groupblockDict;
-        case ("bondingType"):
-        return bondtypeDict;
-        // case(yearDiscovered):
-        // return yearDiscoveredDict;
+function colorLibrary(){
+    const library = {
+        "category":categoryDict,
+        "phase": phasesDict,
+        "groupBlock": groupblockDict,
+        "bondingType": bondtypeDict,
+        "yearDiscovered": yearDiscoveredDict,
+        "density": densityDict,
+        "melt": meltDict,
+        "boil": boilDict,
+        "electronegativity": electronegativityDict,
+        "atomicRadius": atomicRadiusDict,
+        "ionizationEnergy": ionizationEnergyDict,
+        // "electronAffinity":-electronAffinityDict,
+    }
+    return library[currentcategory];
+}
+
+function determineColor(currentelement){
+    let currentDict = colorLibrary()
+    for(let index in currentDict){
+        if(typeof currentelement[currentcategory] == "string"){
+            return currentDict[currentelement[currentcategory]]
+        }
+        else if(currentelement[currentcategory] == null){
+            return "light";
+        }
+        else if (currentelement[currentcategory] <= index){
+            return(currentDict[index]);
+        }
     }
 }

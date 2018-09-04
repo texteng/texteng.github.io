@@ -2,8 +2,7 @@
     padding: 0px;
     width: 1950px;
     background-color: white;
-    display:block;
-    align-self: center;
+    display: block;
 }
 
 .row{
@@ -13,7 +12,6 @@
     margin: 0px;
 }
 
-
 table.legend {
     border-style: hidden;
     width: 100%;
@@ -22,12 +20,12 @@ table.legend {
 
 button.element{
     padding: 0px;
-    display:inline-block;
+    display: inline-block;
     text-align: center;
     border-radius: 3px;
     border-width: 1px;
-    border-color: lightgray;
     border-style: solid;
+    border-color: lightgray;
 }
 
     .element h6{
@@ -48,15 +46,16 @@ div.blank{
     margin:0px;
     background-color: white;
     display:inline-block;
+    vertical-align: middle;
+    text-align: center;
+    padding: 2px;
 }
 
 div.rowlabel{
-    padding: 2px;
-    line-height: 75px;
     margin:0px;
     background-color: white;
     display:inline-block;
-    align-items: center;
+    vertical-align:middle;
     text-align: center;
 }
 
@@ -64,7 +63,7 @@ div.columnlabel{
     padding: 6px 2px 2px 2px;
     margin:0px;
     display:inline-block;
-    align-items: center;
+    vertical-align:middle;
     text-align: center;
 }
 
@@ -90,7 +89,10 @@ div.smallblank{
     display:inline-block;
     text-align: center;
     border-radius: 3px;
-
+    margin-right: 5px;
+    border: 1px;
+    border-color: lightgray !important;
+    border-style: solid;
 }
 
 .legend li{
@@ -100,6 +102,19 @@ div.smallblank{
 
 .legend td{
     vertical-align: top !important;
+}
+
+#ElmentDisplayModalLongTitle{
+    font-size: 1.25rem !important;
+}
+
+h6.characterisitc {
+    text-transform: capitalize;
+}
+
+.LanthAct{
+    font-size: 0.75em !important;
+    font-weight: bolder;
 }
 
 @media only screen and (max-width: 480px){

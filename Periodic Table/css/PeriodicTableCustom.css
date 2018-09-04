@@ -4,6 +4,10 @@
         height: 55px !important;
     }
 
+    div.rowlabel{
+        padding: 15px;
+    }
+    
     h6.elementname {
         display:none;
     }
@@ -54,7 +58,10 @@
     }
     /* Element Display */
 
-        
+    div.rowlabel{
+        padding: 18px;
+    }
+
     h6.elementname {
         font-size:10px;
         font-weight: bold;

@@ -87,32 +87,44 @@ function displaySmallBlank(row){
 function elementInformationTitle(ElementNumber){
     var currentelement = (PeriodicTable[ElementNumber-1]);
     var output = "";
-    output += `${currentelement['name']} (${currentelement['symbol']})`;
+    output += `${currentelement['name']} (${currentelement['symbol']}) `;
     return output;
 }
 
 function elementInformation(ElementNumber){
-    function elementFact(title, elementInformation){
-        return `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation}</li>`
+    function elementFact(title, elementInformation, units = ""){
+        if (elementInformation != null && elementInformation != ""){
+            output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>`
+        }
+        return
     }
-    var currentelement = (PeriodicTable[ElementNumber-1]);
-    var output = "";
-    output += `<ul>`;
-    output += elementFact("Atomic Mass (amu)", currentelement['atomic_mass']);
-    if (currentelement['appearance'] != null){
-        output += elementFact("Appearance", currentelement['appearance']);
+    let currentelement = (PeriodicTable[ElementNumber-1]);
+    let output = "<ul>";
+    elementFact("Atomic Number", currentelement['number']);
+    output+= `<li><span class= 'font-weight-bold'>Category: </span>`
+    output+= currentelement['category']
+    if(!currentelement['category'].includes(currentelement['groupBlock']) && currentelement['groupBlock'] != "lanthanoid" && currentelement['groupBlock'] != "actinoid"){
+        output += ", " + currentelement['groupBlock']
     }
-    output += elementFact("Category", currentelement['category']);
-    output += elementFact("Phase (Room Tempurature)", currentelement['phase']);
-    output += elementFact("Boiling Point", currentelement['boil']+" K");
-    if (currentelement['melt'] != null){
-        output += elementFact("Melting Point", currentelement['melt']);
-    }
-    output += elementFact("Density (at STP)", currentelement['density'] +"g/L</li>");
-    output += elementFact("Discovered by", currentelement['discovered_by']);
-    output += elementFact("Electron Configuration", electronConfiguration(currentelement['number']));
+    output+=`</li>`
+    // elementFact("Group Block", currentelement['groupBlock']);
+    elementFact("Atomic Mass (amu)", currentelement['atomic_mass']);
+    elementFact("Appearance", currentelement['appearance']);
+    elementFact("Phase (Room Tempurature)", currentelement['phase']);
+    elementFact("Boiling Point", currentelement['boil']," K");
+    elementFact("Melting Point", currentelement['melt']," K");
+    elementFact("Density", currentelement['density'],"g/L</li>");
+    elementFact("Electronegativity", currentelement['electronegativity']);
+    elementFact("Atomic Radius", currentelement['atomicRadius'], "&#197;");
+    elementFact("Ionization Energy", currentelement['ionizationEnergy'], "eV");
+    elementFact("Electron Affinity", currentelement['electronAffinity'], "E<sub>A</sub>");
+    elementFact("Bonding Type", currentelement['bondingType']);
+    // elementFact("Electron Configuration", electronConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
+    // elementFact("Nobel Gas Configuration", nobelGasConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
+    elementFact("Discovered by", currentelement['discovered_by']);0
     output += "</ul>"
     output += currentelement['summary'];
+    output += `<br><span class= 'font-weight-bold'>For More information see </span><a href="${currentelement['source']}">${currentelement['source']}</a>`
     return output;
 }
 

@@ -1,9 +1,11 @@
 //Activates Modal
 $(document).on('click', '.element', function(){
     elementId = this.id
-    // console.log(elementId)
+    if(elementId != "lanth" && elementId != "actin"){
     $(".modal-title").html(elementInformationTitle(elementId))
     $(".modal-body").html(elementInformation(elementId))
+    }
+
 });
 
 //Highlights whole rows 
@@ -59,3 +61,13 @@ $(document).on('click', '.standard', function(){
     displayTable(currentcategory);
 });
 
+$(document).on('click', '#credits', function(){
+    
+    $(".modal-title").html("Credits")
+    let text = "<ul>"
+    text += "<li>Creator: Stephen Teng</li>"
+    text += "<li>Sources: https://github.com/Bowserinator/Periodic-Table-JSON<br>https://github.com/andrejewski/periodic-table</li>"
+    text += "<li>Project for Coding Dojo Dallas</li>"
+    text += "</ul>"
+    $(".modal-body").html(text);
+});

@@ -1,5 +1,5 @@
 //Functions that display the table, rows, elements and legends are found here. The rest are found in PTDisplayElements.
-var Tablematrix = [
+const Tablematrix = [
     [0, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
     ["RL", 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
@@ -13,7 +13,7 @@ var Tablematrix = [
     [0, 0, 0, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 0]
 ]   
 
-var Tablematrixwide = [
+const Tablematrixwide = [
     [0, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
     ["RL", 3, 4, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
@@ -32,55 +32,56 @@ var currentcategory = "category";
 displayTable(currentcategory);
 
 //*********************************Renders Table************************
-function displayTable(type){
+function displayTable(){
     var rowlength = matrix.length;
     $("#table").html('');
 
-    console.log(matrix.length);
     for (var i = 0; i < rowlength; i++){
         $("#table").append(`<div id ="row${i}" class = "row"></div>`);
     }
     
     for (var row=0; row < rowlength; row++){
-        displayRow(row, type);
+        displayRow(row);
     }
     
     $( document ).ready(function() {
-        $("#legend").html(displayLegend(type))
+        $("#legend").html(displayLegend())
     });
 }
 
 //*********************************Renders Each Row************************
-function displayRow(row, type){
+function displayRow(row){
     length = matrix[row].length;
     for (var column=0; column < length; column++ ){
         var tableposition = matrix[row][column];
         switch(true) {
             case (tableposition > 0):
-                displayElement(tableposition, row, column, type)
+                displayElement(tableposition, row, column)
             break;
             
             case (tableposition == 0):
                 displayBlank(row);
             break;
+
             case (tableposition == "Lanthanide"):
                 $(document).ready(function(){
-                    if (type == "category" || type == "groupBlock" ){
-                        $("#row6").append('<button class="element boxsize btn-danger R6">57-71</div>');
+                    if (currentcategory == "category" || currentcategory == "groupBlock" ){
+                        $("#row6").append('<button id = "lanth" class="element boxsize btn-danger R6 LanthAct">57-71</button>');
                     }
                     else{
-                        $("#row6").append('<div class="rowlabel boxsize h6">57-71</div>');
+                        // $("#row6").append('<div class="blank boxsize">57-71</div>');
+                        $("#row6").append('<button id = "lanth" class="element boxsize btn R6 LanthAct">57-71</div>');
                     }
                 })
             break;
             
             case (tableposition == "Actinoid"):
                 $(document).ready(function(){
-                    if (type == "category" || type == "groupBlock" ){
-                        $("#row7").append('<button class="element boxsize btn-warning R7">89-103</div>');
+                    if (currentcategory == "category" || currentcategory == "groupBlock" ){
+                        $("#row7").append('<button id = "actin" class="element boxsize btn-warning R7 LanthAct">89-103</button>');
                     }
                     else{
-                        $("#row7").append('<div class="rowlabel boxsize h6">89-103</div>');
+                        $("#row7").append('<button id = "actin" class="element boxsize btn R7 LanthAct">89-103</div>');
                     }
                 })
             break;
@@ -100,15 +101,12 @@ function displayRow(row, type){
                 }
                 displayColumnLabel(row, column);
                 break;
-            
-            default:
-            console.log("this is broken")
         }   
     }
 }
 //***************************Renders Each Element******************************* 
 // Minor elements found in PTDispalyElements
-function displayElement(atomicNumber, row, column, type){
+function displayElement(atomicNumber, row, column){
     var currentelement = (PeriodicTable[atomicNumber-1]);
     var output = ""
     output = `<button id="${atomicNumber}" `; //Determines button ID
@@ -121,7 +119,7 @@ function displayElement(atomicNumber, row, column, type){
     //Creates Column Class
     if((atomicNumber < 57 || atomicNumber > 70) && (atomicNumber < 89 || atomicNumber > 102)){
         if(!wide || column <=2){
-            if (atomicNumber != 71 || atomicNumber != 103){
+            if (atomicNumber != 71 && atomicNumber != 103){
                 output += `C${column} `;
             }
             else{
@@ -135,8 +133,7 @@ function displayElement(atomicNumber, row, column, type){
     }
 
     //Determines color of element square
-    var colordict = colorLibrary(type);  
-    var color = colordict[currentelement[type]]
+    let color = determineColor(currentelement);
     if (color == undefined){
         output += 'btn-light';
     }
@@ -145,18 +142,19 @@ function displayElement(atomicNumber, row, column, type){
     }
     output += '" ';
 
+    //Needed to make modal display
     output += 'data-toggle="modal" data-target="#ElementDisplayModal">\n'; //Allows information to be displayed in modal
 
     //Information found inside element
     output += `<h6 class = "atomicnumber">${currentelement["number"]}</h6>\n`;
     output += `<h3 class = "elementsymbol">${currentelement["symbol"]}</h3>\n`;
-    
-    if(type == "phase"){
-        output += `<h6>${currentelement["phase"]}</h6>\n`
-    }
-    else{
+
+    if(currentcategory == "groupBlock" || currentcategory == "category"){
         output += `<h6>${displayAtomicMass(currentelement["atomic_mass"])}</h6>\n`;
         output += `<h6 class = "elementname">${currentelement["name"]}</h6>\n`;
+    }
+    else{
+        output += `<h6 class = "characterisitc">${currentelement[currentcategory]}</h6>\n`
     }
     output += '</button>';
     
@@ -167,8 +165,8 @@ function displayElement(atomicNumber, row, column, type){
         
 //*********************************Renders Legend************************
 
-function displayLegend(type){
-    var dict = colorLibrary(type);
+function displayLegend(){
+    var dict = colorLibrary(currentcategory);
     var output = "";
     output +=`<h4>${dict["title"]}</h4>`;
     output +='<table class = "legend">';
