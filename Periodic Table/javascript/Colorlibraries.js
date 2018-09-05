@@ -59,13 +59,14 @@ const yearDiscoveredDict = {
 
 const densityDict = {
     "title":"Density g/L",
-    1:"darkgreen", 
-    2:"danger", 
-    3:"warning", 
-    4:"info", 
-    5:"success", 
+    1:"danger", 
+    2:"warning", 
+    3:"success", 
+    4:"skyblue", 
+    5:"info", 
     10:"primary", 
-    20:"skyblue",
+    20:"darkgreen",
+    30:"purple",
     50:"dark",
 }
 

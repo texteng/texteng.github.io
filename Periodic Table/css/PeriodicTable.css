@@ -93,6 +93,7 @@ div.smallblank{
     border: 1px;
     border-color: lightgray !important;
     border-style: solid;
+    vertical-align: bottom;
 }
 
 .legend li{
@@ -110,11 +111,18 @@ div.smallblank{
 
 h6.characterisitc {
     text-transform: capitalize;
+    font-weight: bolder;
 }
 
 .LanthAct{
     font-size: 0.75em !important;
     font-weight: bolder;
+    white-space: nowrap;
+}
+
+.legend ul{
+    padding-left: 20px !important;
+    vertical-align: middle;
 }
 
 @media only screen and (max-width: 480px){

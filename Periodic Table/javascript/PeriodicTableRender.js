@@ -1,4 +1,4 @@
-//Functions that display the table, rows, elements and legends are found here. The rest are found in PTDisplayElements.
+//See jqueryfunctions for interactive portions
 const Tablematrix = [
     [0, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
@@ -43,91 +43,87 @@ function displayTable(){
     for (var row=0; row < rowlength; row++){
         displayRow(row);
     }
-    
-    $( document ).ready(function() {
-        $("#legend").html(displayLegend())
-    });
+
+    $("#legend").html(displayLegend())
 }
 
 //*********************************Renders Each Row************************
 function displayRow(row){
     length = matrix[row].length;
+    var output = "";
     for (var column=0; column < length; column++ ){
         var tableposition = matrix[row][column];
         switch(true) {
-            case (tableposition > 0):
-                displayElement(tableposition, row, column)
+            case (tableposition > 0): //Displays Elements
+                output +=displayElement(tableposition, row, column)+"\n";
             break;
             
-            case (tableposition == 0):
-                displayBlank(row);
+            case (tableposition == 0): // Blank
+                output +='<div class="blank boxsize"></div>\n';
+            break;
+            
+            case (tableposition == "SB"): //Small Blank
+                output +='<div class="smallblank"></div>\n';
             break;
 
+            case (tableposition == "RL"): //Row Label
+               output +=output +=`<div id ="R${row}" class= "rowlabel boxsize h2">${row}</div>\n`;
+            break;
+            
+            case (tableposition == "CL"): //Column Label
+                if (wide && column > 2){
+                   output +=displayColumnLabel(column-14)+"\n";
+                break;
+                }
+                output +=displayColumnLabel(row, column)+"\n";
+            break;
+            
             case (tableposition == "Lanthanide"):
-                $(document).ready(function(){
-                    if (currentcategory == "category" || currentcategory == "groupBlock" ){
-                        $("#row6").append('<button id = "lanth" class="element boxsize btn-danger R6 LanthAct">57-71</button>');
-                    }
-                    else{
-                        // $("#row6").append('<div class="blank boxsize">57-71</div>');
-                        $("#row6").append('<button id = "lanth" class="element boxsize btn R6 LanthAct">57-71</div>');
-                    }
-                })
+                if (currentcategory == "category" || currentcategory == "groupBlock" ){
+                   output +='<button id = "lanth" class="element boxsize btn-danger R6 LanthAct">57-71</button>'+"\n";
+                }
+                else{
+                   output +='<button id = "lanth" class="element boxsize btn R6 LanthAct">57-71</div>'+"\n";
+                }
             break;
             
             case (tableposition == "Actinoid"):
-                $(document).ready(function(){
-                    if (currentcategory == "category" || currentcategory == "groupBlock" ){
-                        $("#row7").append('<button id = "actin" class="element boxsize btn-warning R7 LanthAct">89-103</button>');
-                    }
-                    else{
-                        $("#row7").append('<button id = "actin" class="element boxsize btn R7 LanthAct">89-103</div>');
-                    }
-                })
-            break;
-            
-            case (tableposition == "SB"):
-                displaySmallBlank(row);
-            break;
-            
-            case (tableposition == "RL"):
-                displayRowLabel(row);
-            break;
-            
-            case (tableposition == "CL"):
-                if (wide && column > 2){
-                    displayColumnLabel(row, column-14);
-                    break;
+                if (currentcategory == "category" || currentcategory == "groupBlock" ){
+                   output +='<button id = "actin" class="element boxsize btn-warning R7 LanthAct">89-103</button>'+"\n";
                 }
-                displayColumnLabel(row, column);
-                break;
+                else{
+                   output +='<button id = "actin" class="element boxsize btn R7 LanthAct">89-103</div>'+"\n";
+                }
+            break;
         }   
     }
+    $("#row"+row).append(output);
 }
+
 //***************************Renders Each Element******************************* 
-// Minor elements found in PTDispalyElements
 function displayElement(atomicNumber, row, column){
     var currentelement = (PeriodicTable[atomicNumber-1]);
     var output = ""
     output = `<button id="${atomicNumber}" `; //Determines button ID
     output += 'class= "element boxsize '; //Below are the classes added to elements
+    
     //Creates Row Class
     var modifiedrow = row;
-    if (row > 8){modifiedrow -= 3;}
-    output +=   `R${modifiedrow} `;
+    if (row > 8){
+        modifiedrow -= 3;
+    }
+    output += `R${modifiedrow} `;
     
     //Creates Column Class
     if((atomicNumber < 57 || atomicNumber > 70) && (atomicNumber < 89 || atomicNumber > 102)){
-        if(!wide || column <=2){
-            if (atomicNumber != 71 && atomicNumber != 103){
-                output += `C${column} `;
-            }
-            else{
-                output += 'C3 ';
-            }
+        if (wide && column > 2){
+            column -= 14;
+            output += `C${column} `;
+        }
+        else if(atomicNumber == 71 || atomicNumber == 103){
+            output += 'C3 ';
         }
         else{
-            column -= 14;
             output += `C${column} `;
         }
     }
@@ -145,10 +141,11 @@ function displayElement(atomicNumber, row, column){
     //Needed to make modal display
     output += 'data-toggle="modal" data-target="#ElementDisplayModal">\n'; //Allows information to be displayed in modal
 
+    
     //Information found inside element
     output += `<h6 class = "atomicnumber">${currentelement["number"]}</h6>\n`;
     output += `<h3 class = "elementsymbol">${currentelement["symbol"]}</h3>\n`;
-
+    
     if(currentcategory == "groupBlock" || currentcategory == "category"){
         output += `<h6>${displayAtomicMass(currentelement["atomic_mass"])}</h6>\n`;
         output += `<h6 class = "elementname">${currentelement["name"]}</h6>\n`;
@@ -158,13 +155,44 @@ function displayElement(atomicNumber, row, column){
     }
     output += '</button>';
     
-    $(document).ready(function(){
-        $("#row"+row).append(output)
-    })
+    return output;
 }
-        
-//*********************************Renders Legend************************
 
+function displayAtomicMass(MassNumber){
+    if (MassNumber*1000 % 1 != 0){
+        return MassNumber.toFixed(3);
+    }
+    else if (MassNumber%1 == 0){
+        return `(${MassNumber})`;
+    }
+    
+    return MassNumber;
+}
+
+function displayColumnLabel(column){
+    var output = '';
+    output += `<div id = "C${column}" class= "columnlabel boxsize">`;
+    //Actual Labels
+    output += `<h3 class ="d-block">${column}</h3>`;
+    output += `<h5 class ="d-block"` 
+    if (column != 8 && column != 10){
+        output +=` style="font-family: 'Times New Roman', 'Times', 'serif'"`
+    }
+    const CASindex = ["IA", "IIA", "IIIB", "IVB", "VB", "VIB", "VIIB", '&#9486;&#8212;&#8212;', "VIIIB", "&#8212;&#8212;&#9490;", "IB", "IIB", "IIIA", "IVA", "VA", "VIA", "VIIA", "VIIIA" ];
+    output +=`>${CASindex[column-1]}</h5>`;
+    output += '</div>';
+    return output;
+}
+
+//****************Labels for Modal***********************
+function elementInformationTitle(ElementNumber){
+    var currentelement = (PeriodicTable[ElementNumber-1]);
+    var output = "";
+    output += `${currentelement['name']} (${currentelement['symbol']}) `;
+    return output;
+}
+
+//*********************************Renders Legend************************
 function displayLegend(){
     var dict = colorLibrary(currentcategory);
     var output = "";
@@ -185,5 +213,43 @@ function displayLegend(){
         output += '</li>\n';
         count++;
     }
+    return output;
+}
+
+//*********************************Renders modal************************
+function elementInformation(ElementNumber){
+    function elementFact(title, elementInformation, units = ""){
+        if (elementInformation != null && elementInformation != ""){
+            output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>`
+        }
+        return
+    }
+    let currentelement = (PeriodicTable[ElementNumber-1]);
+    let output = "<ul>";
+    elementFact("Atomic Number", currentelement['number']);
+    output+= `<li><span class= 'font-weight-bold'>Category: </span>`
+    output+= currentelement['category']
+    if(!currentelement['category'].includes(currentelement['groupBlock']) && currentelement['groupBlock'] != "lanthanoid" && currentelement['groupBlock'] != "actinoid"){
+        output += ", " + currentelement['groupBlock']
+    }
+    output+=`</li>`
+    // elementFact("Group Block", currentelement['groupBlock']);
+    elementFact("Atomic Mass (amu)", currentelement['atomic_mass']);
+    elementFact("Appearance", currentelement['appearance']);
+    elementFact("Phase (Room Tempurature)", currentelement['phase']);
+    elementFact("Boiling Point", currentelement['boil']," K");
+    elementFact("Melting Point", currentelement['melt']," K");
+    elementFact("Density", currentelement['density'],"g/L</li>");
+    elementFact("Electronegativity", currentelement['electronegativity']);
+    elementFact("Atomic Radius", currentelement['atomicRadius'], "&#197;");
+    elementFact("Ionization Energy", currentelement['ionizationEnergy'], "eV");
+    elementFact("Electron Affinity", currentelement['electronAffinity'], "E<sub>A</sub>");
+    elementFact("Bonding Type", currentelement['bondingType']);
+    // elementFact("Electron Configuration", electronConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
+    // elementFact("Nobel Gas Configuration", nobelGasConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
+    elementFact("Discovered by", currentelement['discovered_by'], "(" + currentelement['yearDiscovered'] + ")");0
+    output += "</ul>"
+    output += currentelement['summary'];
+    output += `<br><span class= 'font-weight-bold'>For More information see </span><a href="${currentelement['source']}">${currentelement['source']}</a>`
     return output;
 }
