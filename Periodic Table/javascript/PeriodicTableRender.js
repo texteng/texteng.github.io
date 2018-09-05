@@ -37,7 +37,7 @@ function displayTable(){
     $("#table").html('');
 
     for (var i = 0; i < rowlength; i++){
-        $("#table").append(`<div id ="row${i}" class = "row"></div>`);
+        $("#table").append(`<div id ="row${i}" class = "row"></div>\n`);
     }
     
     for (var row=0; row < rowlength; row++){
@@ -49,9 +49,9 @@ function displayTable(){
 
 //*********************************Renders Each Row************************
 function displayRow(row){
-    length = matrix[row].length;
-    var output = "";
-    for (var column=0; column < length; column++ ){
+    let length = matrix[row].length;
+    let output = "";
+    for (var column=0; column < length; column++){
         var tableposition = matrix[row][column];
         switch(true) {
             case (tableposition > 0): //Displays Elements
@@ -72,28 +72,26 @@ function displayRow(row){
             
             case (tableposition == "CL"): //Column Label
                 if (wide && column > 2){
-                   output +=displayColumnLabel(column-14)+"\n";
-                break;
+                    output += displayColumnLabel(column-14)+"\n";
+                    break;
                 }
-                output +=displayColumnLabel(row, column)+"\n";
+                output += displayColumnLabel(column)+"\n";
             break;
             
             case (tableposition == "Lanthanide"):
+                output +='<button id = "lanth" class="element boxsize btn'
                 if (currentcategory == "category" || currentcategory == "groupBlock" ){
-                   output +='<button id = "lanth" class="element boxsize btn-danger R6 LanthAct">57-71</button>'+"\n";
+                    output +='-danger';
                 }
-                else{
-                   output +='<button id = "lanth" class="element boxsize btn R6 LanthAct">57-71</div>'+"\n";
-                }
+                output += ' R6 LanthAct">57-71</button>'+"\n";
             break;
             
             case (tableposition == "Actinoid"):
+                output +='<button id = "actin" class="element boxsize btn'
                 if (currentcategory == "category" || currentcategory == "groupBlock" ){
-                   output +='<button id = "actin" class="element boxsize btn-warning R7 LanthAct">89-103</button>'+"\n";
+                    output +='-warning';
                 }
-                else{
-                   output +='<button id = "actin" class="element boxsize btn R7 LanthAct">89-103</div>'+"\n";
-                }
+                output +=' R7 LanthAct">89-103</button>'+"\n";
             break;
         }   
     }
@@ -103,7 +101,7 @@ function displayRow(row){
 //***************************Renders Each Element******************************* 
 function displayElement(atomicNumber, row, column){
     var currentelement = (PeriodicTable[atomicNumber-1]);
-    var output = ""
+    let output = "";
     output = `<button id="${atomicNumber}" `; //Determines button ID
     output += 'class= "element boxsize '; //Below are the classes added to elements
     
@@ -129,14 +127,8 @@ function displayElement(atomicNumber, row, column){
     }
 
     //Determines color of element square
-    let color = determineColor(currentelement);
-    if (color == undefined){
-        output += 'btn-light';
-    }
-    else{
-        output += `btn-${color}`;
-    }
-    output += '" ';
+    let color = determineColor(currentelement); //Function found in color libraries
+    output += `btn-${color}" `;
 
     //Needed to make modal display
     output += 'data-toggle="modal" data-target="#ElementDisplayModal">\n'; //Allows information to be displayed in modal
@@ -187,7 +179,7 @@ function displayColumnLabel(column){
 //****************Labels for Modal***********************
 function elementInformationTitle(ElementNumber){
     var currentelement = (PeriodicTable[ElementNumber-1]);
-    var output = "";
+    let output = "";
     output += `${currentelement['name']} (${currentelement['symbol']}) `;
     return output;
 }
@@ -195,7 +187,7 @@ function elementInformationTitle(ElementNumber){
 //*********************************Renders Legend************************
 function displayLegend(){
     var dict = colorLibrary(currentcategory);
-    var output = "";
+    let output = "";
     output +=`<h4>${dict["title"]}</h4>`;
     output +='<table class = "legend">';
     output +='<tr>\n<td class= "align-top">\n<ul>\n';
@@ -233,7 +225,6 @@ function elementInformation(ElementNumber){
         output += ", " + currentelement['groupBlock']
     }
     output+=`</li>`
-    // elementFact("Group Block", currentelement['groupBlock']);
     elementFact("Atomic Mass (amu)", currentelement['atomic_mass']);
     elementFact("Appearance", currentelement['appearance']);
     elementFact("Phase (Room Tempurature)", currentelement['phase']);

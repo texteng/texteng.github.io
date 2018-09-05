@@ -131,6 +131,24 @@ const ionizationEnergyDict = {
 //     parseInt("-300"): "primary",
 // }
 
+function determineColor(currentelement){
+    let currentDict = colorLibrary();
+    for(let index in currentDict){
+        if (typeof currentelement[currentcategory] == "string"){
+            if (currentelement[currentcategory].includes("unknown")){
+                return "light";
+            }
+            return currentDict[currentelement[currentcategory]]
+        }
+        else if(currentelement[currentcategory] == null){
+            return "light";
+        }
+        else if (currentelement[currentcategory] <= index){
+            return(currentDict[index]);
+        }
+    }
+}
+
 function colorLibrary(){
     const library = {
         "category":categoryDict,
@@ -147,19 +165,4 @@ function colorLibrary(){
         // "electronAffinity":-electronAffinityDict,
     }
     return library[currentcategory];
-}
-
-function determineColor(currentelement){
-    let currentDict = colorLibrary()
-    for(let index in currentDict){
-        if(typeof currentelement[currentcategory] == "string"){
-            return currentDict[currentelement[currentcategory]]
-        }
-        else if(currentelement[currentcategory] == null){
-            return "light";
-        }
-        else if (currentelement[currentcategory] <= index){
-            return(currentDict[index]);
-        }
-    }
 }
