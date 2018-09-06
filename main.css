@@ -1,0 +1,54 @@
+.maindisplay{
+    background-color: #805115;
+    justify-content:center;
+}
+
+.frontphoto {
+    max-width: 500px;
+    padding: 0px;
+}
+
+.titlebox {
+    padding: 30px 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.col-sm-12{
+    align-items: center;
+}
+
+.certifications{
+    align-items: center;
+    text-align: center;
+
+}
+
+.certifications img{
+    display: inline-block;
+}
+
+.blockquote{
+    border: 1px;
+    border-style: solid none;
+}
+
+#EducationCarousel{
+    height: 400px;
+}
+
+.carousel-text{
+    align-self: center!important;
+    display: inline-block!important;
+    vertical-align: middle!important;
+    margin: 20px;
+}
+
+.mainpagelinks{
+    text-align: center;
+}
+
+
