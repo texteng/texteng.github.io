@@ -1,149 +1,155 @@
-#table{
-    padding: 0px;
-    width: 1950px;
-    background-color: white;
-    display: block;
+#table {
+  padding: 0px;
+  background-color: white;
+  display: block;
 }
 
-.row{
-    padding: 0px;
-    background-color: white;
-    display:block; 
-    margin: 0px;
+.row {
+  padding: 0px;
+  background-color: white;
+  display: block;
+  margin: 0px;
 }
 
 table.legend {
-    border-style: hidden;
-    width: 100%;
-    vertical-align: top;
+  border-style: hidden;
+  width: 100%;
+  vertical-align: top;
 }
 
-button.element{
-    padding: 0px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 3px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: lightgray;
+button.element {
+  padding: 0px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgray;
 }
 
-    .element h6{
-        font-size:9px;
-        margin: 2px;
-    }
-
-    .element.h6.atomicnumber {
-        font-size:10px;
-        font-weight: bold;
-    }
-
-    .elementsymbol {
-        margin: -1px;
-    }
-
-div.blank{
-    margin:0px;
-    background-color: white;
-    display:inline-block;
-    vertical-align: middle;
-    text-align: center;
-    padding: 2px;
+.element h6 {
+  font-size: 9px;
+  margin: 2px;
 }
 
-div.rowlabel{
-    margin:0px;
-    background-color: white;
-    display:inline-block;
-    vertical-align:middle;
-    text-align: center;
+.element.h6.atomicnumber {
+  font-size: 10px;
+  font-weight: bold;
 }
 
-div.columnlabel{
-    padding: 6px 2px 2px 2px;
-    margin:0px;
-    display:inline-block;
-    vertical-align:middle;
-    text-align: center;
+.elementsymbol {
+  margin: -1px;
 }
 
-div.smallblank{
-    padding: 2px;
-    margin:0px;
-    background-color: white;
-    display:inline-block;
-    align-items: center;
-    text-align: center;
+div.blank {
+  margin: 0px;
+  background-color: white;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  padding: 2px;
 }
 
-#legend{
-    position: relative;
-    padding: 2px;
-    display:block;
-    align-self: center;
-    
+div.rowlabel {
+  margin: 0px;
+  background-color: white;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
 }
 
-.colorBox{
-    padding: 0px;
-    display:inline-block;
-    text-align: center;
-    border-radius: 3px;
-    margin-right: 5px;
-    border: 1px;
-    border-color: lightgray !important;
-    border-style: solid;
-    vertical-align: bottom;
+div.columnlabel {
+  padding: 6px 2px 2px 2px;
+  margin: 0px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
 }
 
-.legend li{
-    list-style: none;
-    text-transform: capitalize;
+div.smallblank {
+  padding: 2px;
+  margin: 0px;
+  background-color: white;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
 }
 
-.legend td{
-    vertical-align: top !important;
+#legend {
+  position: relative;
+  padding: 2px;
+  display: block;
+  align-self: center;
 }
 
-#ElmentDisplayModalLongTitle{
-    font-size: 1.25rem !important;
+.colorBox {
+  padding: 0px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 3px;
+  margin-right: 5px;
+  border: 1px;
+  border-color: lightgray !important;
+  border-style: solid;
+  vertical-align: bottom;
+}
+
+.legend li {
+  list-style: none;
+  text-transform: capitalize;
+}
+
+.legend td {
+  vertical-align: top !important;
+}
+
+/* Modal stuff */
+.modal-dialog {
+  max-width: 80% !important;
+}
+
+#ElmentDisplayModalLongTitle {
+  font-size: 1.25rem !important;
 }
 
 h6.characterisitc {
-    text-transform: capitalize;
-    font-weight: bolder;
+  text-transform: capitalize;
+  font-weight: bolder;
 }
 
-.LanthAct{
-    font-size: 0.75em !important;
-    font-weight: bolder;
-    white-space: nowrap;
+.LanthAct {
+  font-size: 0.75em !important;
+  font-weight: bolder;
+  white-space: nowrap;
 }
 
-.legend ul{
-    padding-left: 20px !important;
-    vertical-align: middle;
+.legend ul {
+  padding-left: 20px !important;
+  vertical-align: middle;
 }
 
-@media only screen and (max-width: 480px){
-    /* we will set these stylings only if the device is a screen with a width of 480px or less */
-    #mobile{
-    display: block;
-    }
-    
-    #table{
-        display: none !important;
-    }
 
-    .row{
-        display:none !important; 
-    }
+/* @media only screen and (max-width: 480px) or (orientation: portrait) { */
+@media only screen and (orientation:portrait) {
+  /* we will set these stylings only if the device is a screen with a width of 480px or less */
+  #mobile {
+    display: block !important;
+    font-size: 30px;
+  }
 
-    #legend{
-        display:none !important;
-    }
+  #table {
+    display: none !important;
+  }
 
-    nav{
-        display: none !important;
-    }
+  .row {
+    display: none !important;
+  }
+
+  #legend {
+    display: none !important;
+  }
+
+  nav {
+    display: none !important;
+  }
 }

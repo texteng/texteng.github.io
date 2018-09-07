@@ -1,59 +1,65 @@
-@media only screen and (min-width: 481px){
-    .boxsize{
-        width: 40px !important;
-        height: 55px !important;
-    }
-    
-        h6.elementname {
-            display:none;
-        }
-    
-        /* Modal stuff */
-        .modal-dialog {
-            max-width: 1000px !important;
-        }
-        
-    div.rowlabel{
-        padding: 15px;
-    }
-        
-    #legend{
-        width: 561px;
-        height: 228px;
-        left: 105px;
-        top: -440px;
-    }
-        
-        table.legend {
-            border-style: hidden;
-            width: 100%;
-            vertical-align: top;
-        }
-        
-        .colorBox{
-            width: 25px;
-            height: 25px;
-        }
-        
-        .legend li{
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        
-    #mobile{
-        display: none;
-    }
-    
-    
-    .h2 {
-        font-size: 1.5rem !important;
-    }
-    
-    h3{
-        font-size: 1.25rem !important;
-    }
-    
-    h5{
-        font-size: .75rem !important;
-    }
+@media only screen and (min-width: 481px) {
+  #table {
+    width: 1320px;
+  }
+
+  .boxsize {
+    width: 40px !important;
+    height: 55px !important;
+  }
+
+  .thin {
+    width: 30px !important;
+    height: 55px !important;
+  }
+
+  h6.elementname {
+    display: none;
+  }
+
+
+
+  div.rowlabel {
+    padding: 15px;
+  }
+
+  #legend {
+    width: 561px;
+    height: 228px;
+    left: 105px;
+    top: -440px;
+  }
+
+  table.legend {
+    border-style: hidden;
+    width: 100%;
+    vertical-align: top;
+  }
+
+  .colorBox {
+    width: 25px;
+    height: 25px;
+  }
+
+  .legend li {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  #mobile {
+    display: none;
+  }
+
+  .h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  h5 {
+    font-size: 0.75rem !important;
+  }
+
 }
