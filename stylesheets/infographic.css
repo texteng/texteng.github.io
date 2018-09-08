@@ -1,0 +1,21 @@
+#titlebox {
+    padding: 30px 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.infographic {
+    padding: 30px 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.imagecaptions{
+    display:block;
+}
