@@ -1,4 +1,7 @@
 @media only screen and (min-width: 481px) {
+  .container{
+    max-width: 1330px !important;
+  }
   #table {
     width: 1320px;
   }
@@ -16,8 +19,6 @@
   h6.elementname {
     display: none;
   }
-
-
 
   div.rowlabel {
     padding: 15px;

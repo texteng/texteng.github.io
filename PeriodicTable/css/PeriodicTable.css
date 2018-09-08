@@ -11,6 +11,10 @@
   margin: 0px;
 }
 
+#mobile {
+  display: none;
+}
+
 table.legend {
   border-style: hidden;
   width: 100%;
@@ -128,16 +132,46 @@ h6.characterisitc {
   vertical-align: middle;
 }
 
+a:link {
+  text-decoration: none;
+  color: black;
+}
 
-/* @media only screen and (max-width: 480px) or (orientation: portrait) { */
+a:visited {
+  text-decoration: none;
+  color: darkslategray;
+}
+
+a:hover {
+  text-decoration: none !important;
+  font-weight:bold !important;
+  color: blue !important;
+  /* background-color: yellow !important; */
+}
+
+a:active {
+  text-decoration: none !important;
+}
+
 @media only screen and (orientation:portrait) {
-  /* we will set these stylings only if the device is a screen with a width of 480px or less */
+  .container-fluid{
+    margin:auto;
+    display: none;
+  }
+  
   #mobile {
-    display: block !important;
-    font-size: 30px;
+    display: block;
+    background-color: white;
+    height: 100%;
+    text-align: center;
+    padding: 30px 30px;;
   }
 
-  #table {
+  #mobile h1{
+    margin-top: 30% !important;
+  }
+
+  #table .boxsize .button.element .row #legend{
     display: none !important;
   }
 
@@ -150,6 +184,10 @@ h6.characterisitc {
   }
 
   nav {
+    display: none !important;
+  }
+
+  .boxsize {
     display: none !important;
   }
 }

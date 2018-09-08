@@ -56,19 +56,21 @@ function displayTable() {
           break;
 
         case tableposition == "RL": //Row Label
-          table_output += `<div id ="R${row}" class= "rowlabel thin h2">${row}</div>\n`;
+          // table_output += `<div id ="R${row}" class= "rowlabel thin h2">${row}</div>\n`;
+          table_output += `<div id ="R${row}" class= "rowlabel thin h2"><a href="https://en.wikipedia.org/wiki/Period_${row}_element">${row}</a></div>\n`;
+
           break;
 
         case tableposition == "CL": //Column Label
           if (wide && column > 2) {
-            table_output += displayColumnLabel(column - 14) + "\n";
+            table_output += displayColumnLabel(column - 14);
             break;
           }
-          table_output += displayColumnLabel(column) + "\n";
+          table_output += displayColumnLabel(column);
           break;
 
         case tableposition == "thin": //Column Label
-          table_output += '<div class="blank thin"></div>\n';
+          table_output += '<div class="blank thin"></div>';
           break;
 
         case tableposition == "Lanthanide":
@@ -79,7 +81,7 @@ function displayTable() {
           ) {
             table_output += "-danger";
           }
-          table_output += ' R6 LanthAct">57-71</button>' + "\n";
+          table_output += ' R6 LanthAct">57-71</button>';
           break;
 
         case tableposition == "Actinoid":
@@ -90,9 +92,10 @@ function displayTable() {
           ) {
             table_output += "-warning";
           }
-          table_output += ' R7 LanthAct">89-103</button>' + "\n";
+          table_output += ' R7 LanthAct">89-103</button>';
           break;
       }
+      table_output += "\n";
     }
     table_output += "</div>\n";
     // console.log("Length of total string: " + table_output.length);
@@ -197,7 +200,7 @@ function displayColumnLabel(column) {
   var columnlabel_output = "";
   columnlabel_output += `<div id = "C${column}" class= "columnlabel boxsize">`;
   //Actual Labels
-  columnlabel_output += `<h3 class ="d-block">${column}</h3>`;
+  columnlabel_output += `<a href="https://en.wikipedia.org/wiki/Group_${column}_element"><h3 class ="d-block">${column}</h3>`;
   columnlabel_output += `<h5 class ="d-block"`;
   if (column != 8 && column != 10) {
     columnlabel_output += ` style="font-family: 'Times New Roman', 'Times', 'serif'"`;
@@ -222,7 +225,7 @@ function displayColumnLabel(column) {
     "VIIA",
     "VIIIA"
   ];
-  columnlabel_output += `>${CASindex[column - 1]}</h5>`;
+  columnlabel_output += `>${CASindex[column - 1]}</h5></a>`;
   columnlabel_output += "</div>";
   return columnlabel_output;
 }
@@ -272,7 +275,7 @@ function elementInformationTitle(ElementNumber) {
 function elementInformation(ElementNumber) {
   function elementFact(title, elementInformation, units = "") {
     if (elementInformation != null && elementInformation != "") {
-      elementinformation_output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>`;
+      elementinformation_output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>\n`;
     }
     return;
   }
@@ -285,10 +288,11 @@ function elementInformation(ElementNumber) {
     !currentelement["category"].includes(currentelement["groupBlock"]) &&
     currentelement["groupBlock"] != "lanthanoid" &&
     currentelement["groupBlock"] != "actinoid"
-  ) {
-    elementinformation_output += ", " + currentelement["groupBlock"];
-  }
-  elementinformation_output += `</li>`;
+  ) 
+    {
+      elementinformation_output += ", " + currentelement["groupBlock"];
+    }
+  elementinformation_output += `</li>\n`;
   elementFact("Atomic Mass (amu)", currentelement["atomic_mass"]);
   elementFact("Appearance", currentelement["appearance"]);
   elementFact("Phase (Room Tempurature)", currentelement["phase"]);
@@ -298,20 +302,12 @@ function elementInformation(ElementNumber) {
   elementFact("Electronegativity", currentelement["electronegativity"]);
   elementFact("Atomic Radius", currentelement["atomicRadius"], "&#197;");
   elementFact("Ionization Energy", currentelement["ionizationEnergy"], "eV");
-  elementFact(
-    "Electron Affinity",
-    currentelement["electronAffinity"],
-    "E<sub>A</sub>"
-  );
+  elementFact("Electron Affinity", currentelement["electronAffinity"],"E<sub>A</sub>");
   elementFact("Bonding Type", currentelement["bondingType"]);
   // elementFact("Electron Configuration", electronConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
   // elementFact("Nobel Gas Configuration", nobelGasConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
-  elementFact(
-    "Discovered by",
-    currentelement["discovered_by"],
-    "(" + currentelement["yearDiscovered"] + ")"
-  );
-  elementinformation_output += "</ul>";
+  elementFact("Discovered by", currentelement["discovered_by"], "(" + currentelement["yearDiscovered"] + ")");
+  elementinformation_output += "</ul>\n";
   elementinformation_output += currentelement["summary"];
   elementinformation_output += `<br><span class= 'font-weight-bold'>For More information see </span><a href="${
     currentelement["source"]
