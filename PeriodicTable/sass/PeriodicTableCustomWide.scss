@@ -1,12 +1,12 @@
 $Wideboxwidth:36px;
 $Wideboxheight:50px; 
-$Widecontainerwidth: $Wideboxwidth * 32.75;
+$Widecontainerwidth: $Wideboxwidth * 32.50;
 
 @media only screen and (min-width: 481px) {
   #container{
     max-width: $Widecontainerwidth;
-    padding: 0px;
   }
+
   #table {
     width: $Widecontainerwidth;
   }
@@ -17,12 +17,13 @@ $Widecontainerwidth: $Wideboxwidth * 32.75;
   }
   div{
     .thin {
-        width: $Wideboxwidth*.75 !important;
+        width: $Wideboxwidth*.50 !important;
         height: $Wideboxheight !important;
       }
 
     .rowlabel {
-      padding: 15px;
+      padding: $Wideboxwidth/3 0px ;
+      // padding: 15px;
     }
   }
 

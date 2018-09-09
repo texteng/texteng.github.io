@@ -1,10 +1,10 @@
 $MDstandardboxwidth:40px;
 $MDstandardboxheight:55px; 
-$MDcontainerwidth: $MDstandardboxwidth * 18.75;
+$MDcontainerwidth: $MDstandardboxwidth * 18.50;
 
 $LGstandardboxwidth:55px;
 $LGstandardboxheight:75px;
-$LGcontainerwidth: $LGstandardboxwidth * 18.75;
+$LGcontainerwidth: $LGstandardboxwidth * 18.50;
 
 @mixin respond-to($media) {
   @if $media == condensed {
@@ -18,15 +18,14 @@ $LGcontainerwidth: $LGstandardboxwidth * 18.75;
 #container {
   @include respond-to("condensed") {max-width: $MDcontainerwidth;}
   @include respond-to("full") {max-width: $LGcontainerwidth;}
-  padding: 0px;
 }
 #table {
-  @include respond-to(condensed) {width: $MDcontainerwidth;}
+  @include respond-to("condensed") {width: $MDcontainerwidth;}
   @include respond-to("full") {width: $LGcontainerwidth;}
 }
 
 .boxsize {
-  @include respond-to(condensed) {
+  @include respond-to("condensed") {
     width: $MDstandardboxwidth !important;
     height: $MDstandardboxheight !important;
   }
@@ -37,17 +36,17 @@ $LGcontainerwidth: $LGstandardboxwidth * 18.75;
 }
 div{
   &.thin {
-    @include respond-to(condensed) {
-      width: $MDstandardboxwidth * .75 !important;
+    @include respond-to("condensed") {
+      width: $MDstandardboxwidth * .5 !important;
       height: $MDstandardboxheight !important;
     }
     @include respond-to("full") {
-      width: $LGstandardboxwidth*.75 !important;
+      width: $LGstandardboxwidth*.5 !important;
       height: $LGstandardboxheight !important;
     }
   }
   &.smallblank {
-    @include respond-to(condensed) {
+    @include respond-to("condensed") {
     width: $MDstandardboxwidth;
     height: $MDstandardboxwidth/4;
     }
@@ -57,13 +56,13 @@ div{
     }
   }
   &.rowlabel {
-    @include respond-to(condensed) {padding: 15px;}    
-    @include respond-to("full") {padding: 18px;}
+    @include respond-to("condensed") {padding: $MDstandardboxwidth/3 0px ;}    
+    @include respond-to("full") {padding: $LGstandardboxwidth/3 0px ;}
   }
 }
 
 h6.elementname {
-  @include respond-to(condensed) {display: none;}
+  @include respond-to("condensed") {display: none;}
   @include respond-to("full") {
     font-size: 10px;
     font-weight: bold;
@@ -73,7 +72,7 @@ h6.elementname {
   }
 }
 #legend {
-  @include respond-to(condensed) {
+  @include respond-to("condensed") {
     width: $MDstandardboxwidth*10;
     height: $MDstandardboxheight*3;
     left: $MDstandardboxwidth*2.75;
@@ -86,7 +85,7 @@ h6.elementname {
     top: -$LGstandardboxheight*10.25;
   }
   .colorBox {
-    @include respond-to(condensed) {
+    @include respond-to("condensed") {
       width: 15px;
       height: 15px;
     }    
@@ -96,7 +95,7 @@ h6.elementname {
     }
   }
   .legend li {
-    @include respond-to(condensed) {
+    @include respond-to("condensed") {
       font-size: 10px;
       margin-bottom: 0px;
     }
@@ -108,20 +107,20 @@ h6.elementname {
 }
 
 .h2 {
-  @include respond-to(condensed) {font-size: 1.5rem !important;}
+  @include respond-to("condensed") {font-size: 1.5rem !important;}
   @include respond-to("full") {font-size: 2rem !important;}
 }
 h3 {
-  @include respond-to(condensed) {font-size: 1.25rem !important;}
+  @include respond-to("condensed") {font-size: 1.25rem !important;}
   @include respond-to("full") {font-size: 1.75rem !important;}
 }
 h5 {
-  @include respond-to(condensed) {font-size: 0.65rem !important;}
+  @include respond-to("condensed") {font-size: 0.65rem !important;}
   @include respond-to("full") {font-size: 1.25rem !important;}
 }
 
 #mobile {
-  @include respond-to(condensed) {display: none;}
+  @include respond-to("condensed") {display: none;}
   @include respond-to("full") {display: none;}
 }
 /*# sourceMappingURL=PeriodicTableCustom.scss.map */

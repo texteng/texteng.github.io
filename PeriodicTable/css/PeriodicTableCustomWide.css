@@ -1,11 +1,10 @@
 @media only screen and (min-width: 481px) {
   #container {
-    max-width: 1179px;
-    padding: 0px;
+    max-width: 1170px;
   }
 
   #table {
-    width: 1179px;
+    width: 1170px;
   }
 
   .boxsize {
@@ -14,11 +13,11 @@
   }
 
   div .thin {
-    width: 27px !important;
+    width: 18px !important;
     height: 50px !important;
   }
   div .rowlabel {
-    padding: 15px;
+    padding: 12px 0px;
   }
 
   h6.elementname {

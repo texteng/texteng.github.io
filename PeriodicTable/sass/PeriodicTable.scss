@@ -9,12 +9,18 @@ $nopixels: 0px;
 @mixin displaynone {
   display: none;
 }
+
+#container {
+  padding: 0px;
+}
+
 #table {
   @include basicbackground;
 }
   
 .row {
  @include basicbackground;
+ margin: 0px !important;
 }
   
 #mobile {
@@ -63,8 +69,8 @@ div {
     &.rowlabel {
       margin: $nopixels;
       background-color: white;
-      display: inline-block;
-      vertical-align: middle;
+      display: inline-block;;
+      text-align: left;
     }
     &.columnlabel {
       padding: 6px 2px 2px 2px;
@@ -78,7 +84,7 @@ div {
 
 #legend {
     position: relative;
-    padding: 2px;
+    padding: 10px;
     display: block;
     align-self: center;
     .legend {
