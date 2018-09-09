@@ -1,24 +1,19 @@
 #table {
-  padding: 0px;
   background-color: white;
   display: block;
+  padding: 0px;
+  margin: 0px;
 }
 
 .row {
-  padding: 0px;
   background-color: white;
   display: block;
+  padding: 0px;
   margin: 0px;
 }
 
 #mobile {
   display: none;
-}
-
-table.legend {
-  border-style: hidden;
-  width: 100%;
-  vertical-align: top;
 }
 
 button.element {
@@ -30,52 +25,44 @@ button.element {
   border-style: solid;
   border-color: lightgray;
 }
-
-.element h6 {
+button.element h6 {
   font-size: 9px;
   margin: 2px;
 }
-
-.element.h6.atomicnumber {
+button.element h6 .characteristic {
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+button.element.h6.atomicnumber {
   font-size: 10px;
   font-weight: bold;
 }
-
-.elementsymbol {
+button.element .elementsymbol {
   margin: -1px;
 }
 
-div.blank {
+.LanthAct {
+  font-size: 0.75em !important;
+  font-weight: bolder;
+  white-space: nowrap;
+}
+
+div.blank div.smallblank {
   margin: 0px;
   background-color: white;
   display: inline-block;
-  vertical-align: middle;
-  text-align: center;
-  padding: 2px;
 }
-
 div.rowlabel {
   margin: 0px;
   background-color: white;
   display: inline-block;
   vertical-align: middle;
-  text-align: left;
 }
-
 div.columnlabel {
   padding: 6px 2px 2px 2px;
   margin: 0px;
   display: inline-block;
   vertical-align: middle;
-  text-align: center;
-}
-
-div.smallblank {
-  padding: 2px;
-  margin: 0px;
-  background-color: white;
-  display: inline-block;
-  align-items: center;
   text-align: center;
 }
 
@@ -85,8 +72,23 @@ div.smallblank {
   display: block;
   align-self: center;
 }
-
-.colorBox {
+#legend .legend ul {
+  padding-left: 20px !important;
+  vertical-align: middle;
+}
+#legend .legend li {
+  list-style: none;
+  text-transform: capitalize;
+}
+#legend .legend td {
+  vertical-align: top !important;
+}
+#legend .legend table {
+  border-style: hidden;
+  width: 100%;
+  vertical-align: top;
+}
+#legend .legend .colorBox {
   padding: 0px;
   display: inline-block;
   text-align: center;
@@ -98,15 +100,6 @@ div.smallblank {
   vertical-align: bottom;
 }
 
-.legend li {
-  list-style: none;
-  text-transform: capitalize;
-}
-
-.legend td {
-  vertical-align: top !important;
-}
-
 /* Modal stuff */
 .modal-dialog {
   max-width: 80% !important;
@@ -116,78 +109,39 @@ div.smallblank {
   font-size: 1.25rem !important;
 }
 
-h6.characterisitc {
-  text-transform: capitalize;
-  font-weight: bolder;
-}
-
-.LanthAct {
-  font-size: 0.75em !important;
-  font-weight: bolder;
-  white-space: nowrap;
-}
-
-.legend ul {
-  padding-left: 20px !important;
-  vertical-align: middle;
-}
-
 a:link {
   text-decoration: none;
   color: black;
 }
-
 a:visited {
   text-decoration: none;
   color: darkslategray;
 }
-
 a:hover {
   text-decoration: none !important;
-  font-weight:bold !important;
+  font-weight: bold !important;
   color: blue !important;
   /* background-color: yellow !important; */
 }
-
 a:active {
   text-decoration: none !important;
 }
 
-@media only screen and (orientation:portrait) {
-  .container-fluid{
-    margin:auto;
-    display: none;
-  }
-  
+@media only screen and (orientation: portrait) {
   #mobile {
     display: block;
     background-color: white;
     height: 100%;
     text-align: center;
-    padding: 30px 30px;;
+    padding: 30px 30px;
+  }
+  #mobile h1 {
+    margin-top: 20% !important;
   }
 
-  #mobile h1{
-    margin-top: 30% !important;
-  }
-
-  #table .boxsize .button.element .row #legend{
-    display: none !important;
-  }
-
-  .row {
-    display: none !important;
-  }
-
-  #legend {
-    display: none !important;
-  }
-
-  nav {
-    display: none !important;
-  }
-
-  .boxsize {
+  #container #table .boxsize .button.element .row #legend, .row, #legend, nav, .boxsize {
     display: none !important;
   }
 }
+
+/*# sourceMappingURL=PeriodicTable.css.map */

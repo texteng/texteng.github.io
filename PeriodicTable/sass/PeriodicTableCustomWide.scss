@@ -1,0 +1,73 @@
+$Wideboxwidth:36px;
+$Wideboxheight:50px; 
+$Widecontainerwidth: $Wideboxwidth * 32.75;
+
+@media only screen and (min-width: 481px) {
+  #container{
+    max-width: $Widecontainerwidth;
+    padding: 0px;
+  }
+  #table {
+    width: $Widecontainerwidth;
+  }
+
+  .boxsize {
+    width: $Wideboxwidth !important;
+    height: $Wideboxheight !important;
+  }
+  div{
+    .thin {
+        width: $Wideboxwidth*.75 !important;
+        height: $Wideboxheight !important;
+      }
+
+    .rowlabel {
+      padding: 15px;
+    }
+  }
+
+  h6.elementname {
+    display: none;
+  }
+
+#legend {
+  width: $Wideboxwidth*13;
+  height: $Wideboxheight*3;
+  left: $Wideboxwidth*2.75;
+  top: -$Wideboxheight*8;
+
+  table.legend {
+    border-style: hidden;
+    width: 100%;
+    vertical-align: top;
+  }
+
+  .colorBox {
+    width: 25px;
+    height: 25px;
+  }
+
+  .legend li {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+}
+
+  #mobile {
+    display: none;
+  }
+
+  .h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  h5 {
+    font-size: 0.75rem !important;
+  }
+
+}

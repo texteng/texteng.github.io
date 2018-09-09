@@ -1,93 +1,82 @@
+#container {
+  padding: 0px;
+}
 @media only screen and (min-width: 481px) {
-  .container{
-    max-width: 780px;
+  #container {
+    max-width: 750px;
   }
+}
+@media only screen and (min-width: 1031.25px) {
+  #container {
+    max-width: 1031.25px;
+  }
+}
 
+@media only screen and (min-width: 481px) {
   #table {
-    width: 775px;
+    width: 750px;
   }
+}
+@media only screen and (min-width: 1031.25px) {
+  #table {
+    width: 1031.25px;
+  }
+}
 
+@media only screen and (min-width: 481px) {
   .boxsize {
     width: 40px !important;
     height: 55px !important;
   }
+}
+@media only screen and (min-width: 1031.25px) {
+  .boxsize {
+    width: 55px !important;
+    height: 75px !important;
+  }
+}
 
-  .thin {
+@media only screen and (min-width: 481px) {
+  div.thin {
     width: 30px !important;
     height: 55px !important;
   }
-
+}
+@media only screen and (min-width: 1031.25px) {
+  div.thin {
+    width: 41.25px !important;
+    height: 75px !important;
+  }
+}
+@media only screen and (min-width: 481px) {
+  div.smallblank {
+    width: 40px;
+    height: 10px;
+  }
+}
+@media only screen and (min-width: 1031.25px) {
+  div.smallblank {
+    width: 55px;
+    height: 13.75px;
+  }
+}
+@media only screen and (min-width: 481px) {
   div.rowlabel {
     padding: 15px;
   }
-
-  h6.elementname {
-    display: none;
-  }
-
-  div.smallblank {
-    width: 40px;
-    height: 20px;
-  }
-
-  #legend {
-    width: 401px;
-    height: 165px;
-    left: 104px;
-    top: -564px;
-  }
-
-  .colorBox {
-    width: 15px;
-    height: 15px;
-  }
-
-  .legend li {
-    font-size: 10px;
-    margin-bottom: 0px;
-  }
-
-  #mobile {
-    display: none;
-  }
-
-  .h2 {
-    font-size: 1.5rem !important;
-  }
-
-  h3 {
-    font-size: 1.25rem !important;
-  }
-
-  h5 {
-    font-size: 0.65rem !important;
-  }
 }
-@media only screen and (min-width: 1024px) {
-  .container{
-    max-width: 1150px;
-  }
-
-  #table {
-    width: 1150px;
-    
-  }
-
-  .boxsize {
-    width: 60px !important;
-    height: 75px !important;
-  }
-
-  .thin {
-    width: 40px !important;
-    height: 75px !important;
-  }
-  /* Element Display */
-
+@media only screen and (min-width: 1031.25px) {
   div.rowlabel {
     padding: 18px;
   }
+}
 
+@media only screen and (min-width: 481px) {
+  h6.elementname {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1031.25px) {
   h6.elementname {
     font-size: 10px;
     font-weight: bold;
@@ -95,44 +84,93 @@
     font-family: "Helvetica Narrow", "Arial Narrow";
     display: block;
   }
+}
 
-  div.smallblank {
-    width: 60px;
-    height: 20px;
-  }
-
-  /* Legend CSS */
+@media only screen and (min-width: 481px) {
   #legend {
-    width: 602px;
-    height: 228px;
-    left: 164px;
-    top: -770px;
+    width: 400px;
+    height: 165px;
+    left: 110px;
+    top: -563.75px;
   }
-
-  .colorBox {
+}
+@media only screen and (min-width: 1031.25px) {
+  #legend {
+    width: 550px;
+    height: 225px;
+    left: 151.25px;
+    top: -768.75px;
+  }
+}
+@media only screen and (min-width: 481px) {
+  #legend .colorBox {
+    width: 15px;
+    height: 15px;
+  }
+}
+@media only screen and (min-width: 1031.25px) {
+  #legend .colorBox {
     width: 25px;
     height: 25px;
   }
-
-  .legend li {
+}
+@media only screen and (min-width: 481px) {
+  #legend .legend li {
+    font-size: 10px;
+    margin-bottom: 0px;
+  }
+}
+@media only screen and (min-width: 1031.25px) {
+  #legend .legend li {
     font-size: 14px;
     margin-bottom: 5px;
   }
+}
 
-  #mobile {
-    display: none;
+@media only screen and (min-width: 481px) {
+  .h2 {
+    font-size: 1.5rem !important;
   }
-
+}
+@media only screen and (min-width: 1031.25px) {
   .h2 {
     font-size: 2rem !important;
   }
+}
 
+@media only screen and (min-width: 481px) {
+  h3 {
+    font-size: 1.25rem !important;
+  }
+}
+@media only screen and (min-width: 1031.25px) {
   h3 {
     font-size: 1.75rem !important;
   }
+}
 
+@media only screen and (min-width: 481px) {
+  h5 {
+    font-size: 0.65rem !important;
+  }
+}
+@media only screen and (min-width: 1031.25px) {
   h5 {
     font-size: 1.25rem !important;
   }
-
 }
+
+@media only screen and (min-width: 481px) {
+  #mobile {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1031.25px) {
+  #mobile {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=PeriodicTableCustom.scss.map */
+
+/*# sourceMappingURL=PeriodicTableCustom.css.map */
