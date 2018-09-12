@@ -40,30 +40,31 @@ $(document).on("click", ".view", function() {
   displayTable(currentcategory);
 });
 
-$(document).on("click", ".wide", function() {
-  $("#widecss").html(
-    '<link rel="stylesheet" type="text/css" href="css/PeriodicTableCustomWide.css">'
-  );
-  $("#wide").html(
-    '<button class="nav-link btn btn-link standard active">Standard</button>'
-  );
-  wide = true;
-  matrix = Tablematrixwide;
-  displayTable(currentcategory);
-});
+  // ---------------------------------turns standard to wide -------------------------
+  $(document).on("click", ".wide", function() {
+    $("#widecss").html(
+      '<link rel="stylesheet" type="text/css" href="css/PeriodicTableCustomWide.css">'
+    );
+    $("#wide").html(
+      '<button class="nav-link btn btn-link standard active">Standard</button>'
+    );
+    wide = true;
+    matrix = Tablematrixwide;
+    displayTable(currentcategory);
+  });
 
-$(document).on("click", ".standard", function() {
-  //turns wide to narrow
-  $("#widecss").html(
-    '<link rel="stylesheet" type="text/css" href="css/PeriodicTableCustom.css">'
-  );
-  $("#wide").html(
-    '<button class="nav-link btn btn-link wide active">Wide</button>'
-  );
-  wide = false;
-  matrix = Tablematrix;
-  displayTable(currentcategory);
-});
+  // ---------------------------------turns wide to standard-------------------------
+  $(document).on("click", ".standard", function() {
+    $("#widecss").html(
+      '<link rel="stylesheet" type="text/css" href="css/PeriodicTableCustom.css">'
+    );
+    $("#wide").html(
+      '<button class="nav-link btn btn-link wide active">Wide</button>'
+    );
+    wide = false;
+    matrix = Tablematrix;
+    displayTable(currentcategory);
+  });
 
 $(document).on("click", "#credits", function() {
   $(".modal-title").html("Credits");
