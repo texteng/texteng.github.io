@@ -1,0 +1,111 @@
+*{
+    margin:0px;
+}
+
+$standardsize: 40px;
+@mixin boxsize($size:1) {
+    height: $standardsize * $size;
+    width: $standardsize * $size;
+}
+
+body{
+    background-color: black;
+    display:block;
+    font-family: "Trebuchet MS", "Lucida Console", Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+    %standardbackground {
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+
+#header{
+    background-color: #001e64;
+    height: $standardsize * 2;
+    width: $standardsize*25;
+    border-radius: 15px 15px 0px 0px;
+    /* width determined in javascript file */
+}
+
+.row div{
+    @include boxsize();
+    display: inline-block;
+}
+
+.brick{
+    /* background-color: blue; */
+    @extend %standardbackground;
+    background-image:url('background2.png');
+}
+
+.coin{
+    @extend %standardbackground;
+    background-image: url('coin.gif');
+}
+
+.cherry{
+    @extend %standardbackground;
+    @include boxsize();
+    background-image: url('cherry.png');
+    background-size: $standardsize * .75;
+}
+
+.empty{
+    @include boxsize();
+    background-color: black;
+}
+
+%movingobjects {
+    @extend %standardbackground;
+    position: absolute;
+}
+
+    #pacman{
+        @extend %movingobjects;
+        @include boxsize(1.1); /* Note pacman is slightly enlarged for artistic effect */
+    }
+
+
+    .monster{
+        @extend %movingobjects;
+        @include boxsize(1.2); /* Note monster is slightly enlarged for artistic effect */
+    }
+
+#scorebox{
+    background: linear-gradient(#001e64, #001e64,#000033);
+    padding: $standardsize/4 $standardsize;
+    font-size: 25px;
+    border-radius: 0px 0px 15px 15px;
+    text-align: center;
+    /* width determined in javascript file */
+
+    %scoreboxformatting {
+        display: inline-block;
+    }
+    span{
+        font-weight: bold;
+        color: #ffcc00;
+    }
+    #score{
+        @extend %scoreboxformatting;
+    }
+    #lives{
+        @extend %scoreboxformatting;
+        margin-left: $standardsize*4;
+    }
+}
+
+#gameover{
+    display:block;
+    background-color: #001e64;
+    position: absolute;
+    text-align: center;
+    border-radius: $standardsize/2;
+    padding: $standardsize/2;
+    width: 300px;
+    height: 100px;
+    top:190px;
+    left:95px;
+}

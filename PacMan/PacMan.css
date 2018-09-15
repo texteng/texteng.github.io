@@ -1,110 +1,102 @@
 * {
-font-family: "Trebuchet MS", "Lucida Console", Helvetica, Arial, sans-serif;
+  margin: 0px;
 }
 
-body{
-    background-color: black;
-    margin:0px;
-    display:block; 
+body {
+  background-color: black;
+  display: block;
+  font-family: "Trebuchet MS", "Lucida Console", Helvetica, Arial, sans-serif;
+  color: white;
 }
 
-div#header{
-    background-color: #001e64;
-    height:80px;
-    color: white;
-    border-radius: 15px 15px 0px 0px;
-    width: 1000px;
-    /* width determined in javascript file */
+.monster, #pacman, .cherry, .coin, .brick {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-div.row{
-    margin: 0;
+#header {
+  background-color: #001e64;
+  height: 80px;
+  width: 1000px;
+  border-radius: 15px 15px 0px 0px;
+  /* width determined in javascript file */
 }
 
-div.row div{
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    margin: 0;
-}
-div.brick{
-    /* background-color: blue; */
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-image:url('background2.png');
-}
-div.coin{
-    background-image: url('coin.gif');
-    background-position:center;
-    background-size:cover;
-    background-repeat: no-repeat;
-}
-div.cherry{
-    background-image: url('cherry.png');
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size: 30px;
-    width: 40px;
-    height: 40px;
+.row div {
+  height: 40px;
+  width: 40px;
+  display: inline-block;
 }
 
-/* Note div is slightly enlarged for artistic effect */
-div#pacman{
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size:cover;
-    width: 44px;
-    height: 44px;
-    margin: 0px;
-    position: absolute;
+.brick {
+  /* background-color: blue; */
+  background-image: url("background2.png");
 }
 
-div#scorebox{
-    background: linear-gradient(#001e64, #001e64,#000033);
-    text-align: center;
-    color: white;
-    padding: 10px 40px;
-    font-size: 25px;
-    border-radius: 0px 0px 15px 15px;
-    /* width determined in javascript file */
-}
-div#score{
-    display: inline-block;
-    text-align: center;
+.coin {
+  background-image: url("coin.gif");
 }
 
-div#scorebox span{
-    font-weight: bold;
-    color: #ffcc00;
+.cherry {
+  height: 40px;
+  width: 40px;
+  background-image: url("cherry.png");
+  background-size: 30px;
 }
 
-div#lives{
-    display: inline-block;
-    text-align: center;
-    margin-left: 160px;
+.empty {
+  height: 40px;
+  width: 40px;
+  background-color: black;
 }
 
-/* Note div is slightly enlarged for artistic effect */
-.monster{
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size:cover;
-    width: 48px;
-    height: 48px;
-    position: absolute;
+.monster, #pacman {
+  position: absolute;
 }
 
-div#gameover{
-    display:block;
-    background-color: #001e64;
-    position: absolute;
-    color: white;
-    text-align: center;
-    border-radius: 20px;
-    padding: 20px;
-    width: 300px;
-    height: 100px;
-    top:190px;
-    left:95px;
+#pacman {
+  height: 44px;
+  width: 44px;
+  /* Note pacman is slightly enlarged for artistic effect */
 }
+
+.monster {
+  height: 48px;
+  width: 48px;
+  /* Note monster is slightly enlarged for artistic effect */
+}
+
+#scorebox {
+  background: linear-gradient(#001e64, #001e64, #000033);
+  padding: 10px 40px;
+  font-size: 25px;
+  border-radius: 0px 0px 15px 15px;
+  text-align: center;
+  /* width determined in javascript file */
+}
+#scorebox #lives, #scorebox #score {
+  display: inline-block;
+}
+#scorebox span {
+  font-weight: bold;
+  color: #ffcc00;
+}
+#scorebox #lives {
+  margin-left: 160px;
+}
+
+#gameover {
+  display: block;
+  background-color: #001e64;
+  position: absolute;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  width: 300px;
+  height: 100px;
+  top: 190px;
+  left: 95px;
+}
+
+/*# sourceMappingURL=PacMan.css.map */
