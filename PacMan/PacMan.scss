@@ -1,12 +1,28 @@
-*{
-    margin:0px;
-}
+$standardsize: 40px; // If edited, please change PacMan js's version of same variable
 
-$standardsize: 40px;
 @mixin boxsize($size:1) {
     height: $standardsize * $size;
     width: $standardsize * $size;
 }
+
+@mixin standardbackground() {
+    background: {
+        position:center;
+        size:cover;
+        repeat: no-repeat;
+    }
+}
+
+@mixin rotate($degrees:0deg) {
+    -ms-transform: rotate($degrees); /* IE 9 */
+    -webkit-transform: rotate($degrees); /* Safari 3-8 */
+    transform: rotate($degrees);
+}
+@mixin mirrorimage() {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
 
 body{
     background-color: black;
@@ -15,56 +31,69 @@ body{
     color: white;
 }
 
-    %standardbackground {
-        background-position:center;
-        background-repeat: no-repeat;
-        background-size:cover;
-    }
-
 #header{
     background-color: #001e64;
     height: $standardsize * 2;
     width: $standardsize*25;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: $standardsize*.25 $standardsize*.25 0px 0px;
     /* width determined in javascript file */
+    img{
+        height: $standardsize*2;
+    }
 }
 
-.row div{
+%standardbox {
+    @include standardbackground();
     @include boxsize();
     display: inline-block;
 }
 
-.brick{
-    /* background-color: blue; */
-    @extend %standardbackground;
-    background-image:url('background2.png');
-}
+    .brick{
+        /* background-color: blue; */
+        @extend %standardbox;
+        background-image:url('background2.png');
+    }
 
-.coin{
-    @extend %standardbackground;
-    background-image: url('coin.gif');
-}
+    .coin{
+        @extend %standardbox;
+        background-image: url('coin.gif');
+    }
 
-.cherry{
-    @extend %standardbackground;
-    @include boxsize();
-    background-image: url('cherry.png');
-    background-size: $standardsize * .75;
-}
+    .cherry{
+        @extend %standardbox;
+        background: {
+            image: url('cherry.png');
+            size: $standardsize * .75;
+        }
 
-.empty{
-    @include boxsize();
-    background-color: black;
-}
+    }
+
+    .empty{
+        @extend %standardbox;
+        background-color: black;
+    }
+
 
 %movingobjects {
-    @extend %standardbackground;
+    @include standardbackground();
     position: absolute;
 }
 
     #pacman{
         @extend %movingobjects;
         @include boxsize(1.1); /* Note pacman is slightly enlarged for artistic effect */
+        .pacmanL{
+            @include mirrorimage();
+        }
+        .pacmanR{
+            @include rotate($degrees:0deg);
+        }
+        .pacmanU{
+            @include rotate($degrees:90deg);
+        }
+        .pacmanD{
+            @include rotate($degrees:-90deg);
+        }
     }
 
 
@@ -75,9 +104,9 @@ body{
 
 #scorebox{
     background: linear-gradient(#001e64, #001e64,#000033);
-    padding: $standardsize/4 $standardsize;
-    font-size: 25px;
-    border-radius: 0px 0px 15px 15px;
+    padding: $standardsize*.25 $standardsize;
+    font-size: $standardsize/1.6;
+    border-radius: 0px 0px $standardsize*.25 $standardsize*.25;
     text-align: center;
     /* width determined in javascript file */
 
@@ -95,6 +124,7 @@ body{
         @extend %scoreboxformatting;
         margin-left: $standardsize*4;
     }
+
 }
 
 #gameover{
@@ -104,8 +134,14 @@ body{
     text-align: center;
     border-radius: $standardsize/2;
     padding: $standardsize/2;
-    width: 300px;
-    height: 100px;
-    top:190px;
-    left:95px;
+    width: $standardsize*7.5;
+    height: $standardsize*2.5;
+    top:$standardsize*4.75;
+    left:$standardsize*2.5;
+    h1{
+        margin: $standardsize/5 0px !important;
+    }
+    p{
+        margin: $standardsize/5 0px !important;
+    }
 }

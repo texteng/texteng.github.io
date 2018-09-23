@@ -47,8 +47,8 @@ div{
   }
   &.smallblank {
     @include respond-to("condensed") {
-    width: $MDstandardboxwidth;
-    height: $MDstandardboxwidth/4;
+      width: $MDstandardboxwidth;
+      height: $MDstandardboxwidth/4;
     }
     @include respond-to("full") {
       width: $LGstandardboxwidth;
@@ -64,13 +64,16 @@ div{
 h6.elementname {
   @include respond-to("condensed") {display: none;}
   @include respond-to("full") {
-    font-size: 10px;
-    font-weight: bold;
+    font: {
+      size: 10px;
+      weight: bold;
+      family: "Helvetica Narrow", "Arial Narrow";
+    }
     margin: 0px;
-    font-family: "Helvetica Narrow", "Arial Narrow";
     display: block;
   }
 }
+
 #legend {
   @include respond-to("condensed") {
     width: $MDstandardboxwidth*10;

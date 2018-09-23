@@ -1,7 +1,3 @@
-* {
-  margin: 0px;
-}
-
 body {
   background-color: black;
   display: block;
@@ -9,21 +5,21 @@ body {
   color: white;
 }
 
-.monster, #pacman, .cherry, .coin, .brick {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 #header {
   background-color: #001e64;
   height: 80px;
   width: 1000px;
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 10px 10px 0px 0px;
   /* width determined in javascript file */
 }
+#header img {
+  height: 80px;
+}
 
-.row div {
+.empty, .cherry, .coin, .brick {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 40px;
   width: 40px;
   display: inline-block;
@@ -39,19 +35,18 @@ body {
 }
 
 .cherry {
-  height: 40px;
-  width: 40px;
   background-image: url("cherry.png");
   background-size: 30px;
 }
 
 .empty {
-  height: 40px;
-  width: 40px;
   background-color: black;
 }
 
 .monster, #pacman {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
 }
 
@@ -59,6 +54,31 @@ body {
   height: 44px;
   width: 44px;
   /* Note pacman is slightly enlarged for artistic effect */
+}
+#pacman .pacmanL {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+#pacman .pacmanR {
+  -ms-transform: rotate(0deg);
+  /* IE 9 */
+  -webkit-transform: rotate(0deg);
+  /* Safari 3-8 */
+  transform: rotate(0deg);
+}
+#pacman .pacmanU {
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Safari 3-8 */
+  transform: rotate(90deg);
+}
+#pacman .pacmanD {
+  -ms-transform: rotate(-90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-90deg);
+  /* Safari 3-8 */
+  transform: rotate(-90deg);
 }
 
 .monster {
@@ -71,7 +91,7 @@ body {
   background: linear-gradient(#001e64, #001e64, #000033);
   padding: 10px 40px;
   font-size: 25px;
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0px 0px 10px 10px;
   text-align: center;
   /* width determined in javascript file */
 }
@@ -96,7 +116,13 @@ body {
   width: 300px;
   height: 100px;
   top: 190px;
-  left: 95px;
+  left: 100px;
+}
+#gameover h1 {
+  margin: 8px 0px !important;
+}
+#gameover p {
+  margin: 8px 0px !important;
 }
 
 /*# sourceMappingURL=PacMan.css.map */

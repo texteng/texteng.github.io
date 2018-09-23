@@ -7,7 +7,7 @@ $nopixels: 0px;
 }
 
 @mixin displaynone {
-  display: none;
+  
 }
 
 #container {
@@ -19,22 +19,25 @@ $nopixels: 0px;
 }
   
 .row {
- @include basicbackground;
- margin: 0px !important;
+  @include basicbackground;
+  display: none;margin: 0px !important;
 }
   
 #mobile {
-    @include displaynone;
+  @include displaynone;
 }
   
 button.element {
     padding: $nopixels;
     display: inline-block;
     text-align: center;
-    border-radius: 3px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: lightgray;
+    border: {
+      style: solid;
+      radius: 3px;
+      width: 1px;
+      color: lightgray;
+    }
+
 
     h6 {
       font-size: 9px;
@@ -45,8 +48,11 @@ button.element {
       }
     }
     &.h6.atomicnumber {
-      font-size: 10px;
-      font-weight: bold;
+      font: {
+        size: 10px;
+        weight: bold;
+      }
+
     }
     .elementsymbol {
       margin: -1px;
@@ -55,27 +61,29 @@ button.element {
 }
 
 .LanthAct {
-  font-size: 0.75em !important;
-  font-weight: bolder;
+  font: {
+    size: 0.75em !important;
+    weight: bolder;
+  }
   white-space: nowrap;
 }
   
 div {
+  @mixin blankstyle {
+    margin: $nopixels;
+    background-color: white;
+    display: inline-block;
+  }
     &.blank &.smallblank {
-      margin: 0px;
-      background-color: white;
-      display: inline-block;
+      @include blankstyle;
     }
     &.rowlabel {
-      margin: $nopixels;
-      background-color: white;
-      display: inline-block;;
+      @include blankstyle;
       text-align: left;
     }
     &.columnlabel {
+      @include blankstyle;
       padding: 6px 2px 2px 2px;
-      margin: $nopixels;
-      display: inline-block;
       vertical-align: middle;
       text-align: center;
     }
@@ -108,11 +116,13 @@ div {
             padding: $nopixels;
             display: inline-block;
             text-align: center;
-            border-radius: 3px;
             margin-right: 5px;
-            border: 1px;
-            border-color: lightgray !important;
-            border-style: solid;
+            border: 1px{
+              radius: 3px;
+              color: lightgray !important;
+              style: solid;
+            };
+
             vertical-align: bottom;
         }
     }
@@ -130,23 +140,21 @@ div {
   }
   
 a {
+  text-decoration: none !important;
     &:link {
-      text-decoration: none;
       color: black;
     }
     &:visited {
-      text-decoration: none;
       color: darkslategray;
     }
     &:hover {
-      text-decoration: none !important;
       font-weight: bold !important;
       color: blue !important;
       /* background-color: yellow !important; */
     }
-    &:active {
-      text-decoration: none !important;
-    }
+    // &:active {
+    //
+    // }
 }
   
 @media only screen and (orientation: portrait) {

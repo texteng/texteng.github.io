@@ -18,16 +18,16 @@
 }
 
 #mobile {
-  display: none;
+  display: none !important;
 }
 
 button.element {
   padding: 0px;
   display: inline-block;
   text-align: center;
+  border-style: solid;
   border-radius: 3px;
   border-width: 1px;
-  border-style: solid;
   border-color: lightgray;
 }
 button.element h6 {
@@ -64,9 +64,10 @@ div.rowlabel {
   text-align: left;
 }
 div.columnlabel {
-  padding: 6px 2px 2px 2px;
   margin: 0px;
+  background-color: white;
   display: inline-block;
+  padding: 6px 2px 2px 2px;
   vertical-align: middle;
   text-align: center;
 }
@@ -97,9 +98,9 @@ div.columnlabel {
   padding: 0px;
   display: inline-block;
   text-align: center;
-  border-radius: 3px;
   margin-right: 5px;
   border: 1px;
+  border-radius: 3px;
   border-color: lightgray !important;
   border-style: solid;
   vertical-align: bottom;
@@ -114,22 +115,19 @@ div.columnlabel {
   font-size: 1.25rem !important;
 }
 
+a {
+  text-decoration: none !important;
+}
 a:link {
-  text-decoration: none;
   color: black;
 }
 a:visited {
-  text-decoration: none;
   color: darkslategray;
 }
 a:hover {
-  text-decoration: none !important;
   font-weight: bold !important;
   color: blue !important;
   /* background-color: yellow !important; */
-}
-a:active {
-  text-decoration: none !important;
 }
 
 @media only screen and (orientation: portrait) {

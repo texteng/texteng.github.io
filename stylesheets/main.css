@@ -1,97 +1,100 @@
-.maindisplay{
-    background-color: #805115;
-    justify-content:center;
-}
-
 .frontphoto {
-    max-width: 500px;
-    padding: 0px;
+  max-width: 500px;
+  padding: 0px;
+}
+@media only screen and (min-width: 481px) {
+  .frontphoto {
+    align-items: center;
+  }
 }
 
 #titlebox {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  vertical-align: middle;
+}
+@media only screen and (min-width: 481px) {
+  #titlebox .display-1 {
+    font-size: 60px;
+  }
 }
 
-.col-sm-12{
-    align-items: center;
+.certifications {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.certifications img {
+  display: inline-block;
 }
 
-.certifications{
-    align-items: center;
-    text-align: center;
-
+.blockquote {
+  border: 1px;
+  border-style: solid none;
 }
 
-.certifications img{
-    display: inline-block;
+#EducationCarousel {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 30px 0;
+  height: 400px;
+  display: flex;
+  vertical-align: middle;
 }
-
-.blockquote{
-    border: 1px;
-    border-style: solid none;
-}
-
-#EducationCarousel{
-    padding: 30px 0;
-    height: 400px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-}
-
-.carousel-text{
-    align-self: center!important;
-    display: inline-block!important;
-    vertical-align: middle!important;
-    margin: 20px;
-}
-
-.mainpagelinks{
-    text-align: center;
-}
-
-.carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-}
-
-.carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-}
-
 #EducationCarousel li:after {
-    background-color: teal;
-    
+  background-color: teal;
 }
-
 #EducationCarousel li.active:after {
-    background-color: turquoise;
+  background-color: turquoise;
+}
+#EducationCarousel .carousel-text {
+  align-self: center !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 20px;
+}
+#EducationCarousel .carousel-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+#EducationCarousel .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+@media only screen and (min-width: 481px) {
+  #EducationCarousel .carouselimage {
+    max-width: 250px;
+    max-height: 100px;
+  }
 }
 
-blockquote{
-    margin: 0px 3em;
-    line-height: 2 !important;
+.mainpagelinks {
+  text-align: center;
 }
 
-.skills{
-    line-height: 2 !important;
+@media only screen and (min-width: 481px) {
+  blockquote {
+    margin: 0px 2em;
+    line-height: 1 !important;
+  }
+}
+@media only screen and (min-width: 482px) {
+  blockquote {
+    margin: 0px 2.5em;
+    line-height: 1.5 !important;
+  }
 }
 
-@media only screen and (max-width: 480px){
-    /* we will set these stylings only if the device is a screen with a width of 480px or less */
-
-    .carouselimage{
-        max-width: 250px;
-        max-height: 100px;
-    }
-
-    #titlebox .display-1{
-        font-size: 60px;
-    }
-
+@media only screen and (min-width: 481px) {
+  .skills {
+    line-height: 1 !important;
+  }
 }
+@media only screen and (min-width: 482px) {
+  .skills {
+    line-height: 1.5 !important;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

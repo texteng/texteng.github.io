@@ -96,11 +96,13 @@ for(var i = 0; i < worldColumnLength; i++){
     }
 }
 var monsternum = monsterArray.length;
+//determine's size of elements
+const standardsize = 40; //If edited, please change sass equivalent;
 
 //determines the width of header and scorebox
 var PageWidth = worldRowLength;
-document.getElementById("header").style.width = (PageWidth) * 40+"px";
-document.getElementById("scorebox").style.width = (PageWidth-2) * 40+"px";
+document.getElementById("header").style.width = (PageWidth) * standardsize +"px";
+document.getElementById("scorebox").style.width = (PageWidth-2) * standardsize +"px";
 
 //*******************************Points************************************/
 //PointValues
@@ -159,16 +161,16 @@ function displayWorld(){
 
 //Note div is slightly enlarged for artistic effect
 function displayPacman(){
-    document.getElementById('pacman').style.left = pacman.x*40-4+"px";
-    document.getElementById('pacman').style.top = pacman.y*40+70+"px";
+    document.getElementById('pacman').style.left = pacman.x*standardsize-(standardsize/10)+"px";
+    document.getElementById('pacman').style.top = pacman.y*standardsize+(1.75*standardsize)+"px";
     document.getElementById('pacman').style.backgroundImage = "url('PacMan"+ pacman.direction +".gif')";
 }
 
 //Note the monsters are slightly enlarged and off center for artistic effect
 function displayMonster(){
     for(var i = 0; i < monsternum; i++){
-        document.getElementById('m' + i).style.left = monsterArray[i].x*40-4+"px";
-        document.getElementById('m' + i).style.top = monsterArray[i].y*40+70+"px";
+        document.getElementById('m' + i).style.left = monsterArray[i].x*standardsize-(standardsize/10)+"px";
+        document.getElementById('m' + i).style.top = monsterArray[i].y*standardsize+(1.75*standardsize)+"px";
         document.getElementById('m' + i).style.backgroundImage = "url('monster"+ monsterArray[i].direction +".gif')";
     }
 }
