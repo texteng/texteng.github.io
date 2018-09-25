@@ -5,6 +5,8 @@
 @media only screen and (min-width: 481px) {
   .frontphoto {
     align-items: center;
+    text-align: center;
+    justify-content: center;
   }
 }
 
@@ -31,7 +33,7 @@
 }
 
 .blockquote {
-  border: 1px;
+  border-width: 1px;
   border-style: solid none;
 }
 
@@ -56,16 +58,16 @@
   vertical-align: middle !important;
   margin: 20px;
 }
-#EducationCarousel .carousel-prev-icon {
+#EducationCarousel .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
 }
 #EducationCarousel .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
 @media only screen and (min-width: 481px) {
-  #EducationCarousel .carouselimage {
-    max-width: 250px;
-    max-height: 100px;
+  #EducationCarousel .carouselimage max {
+    width: 250px;
+    height: 100px;
   }
 }
 

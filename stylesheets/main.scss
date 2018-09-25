@@ -22,7 +22,7 @@
     max-width: 500px;
     padding: 0px;
     @include respond-to("condensed"){
-        align-items: center;
+        @include aligncenter;
     }
 }
 
@@ -45,8 +45,10 @@
 }
 
 .blockquote{
-    border: 1px;
-    border-style: solid none;
+    border: {
+        width:1px;
+        style: solid none;
+    }
 }
 
 #EducationCarousel{
@@ -68,16 +70,21 @@
             vertical-align: middle!important;
             margin: 20px;
         }
-        &-prev-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+        &-control{
+            &-prev-icon {
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+            }
+            &-next-icon {
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+            }
         }
-        &-control-next-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='teal' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-        }
+
         &image{
             @include respond-to("condensed"){
-            max-width: 250px;
-            max-height: 100px;
+                max{
+                    width:250px;
+                    height: 100px;
+                }
             }
         }
     }
@@ -97,7 +104,6 @@ blockquote{
         margin: 0px 2.5em;
         line-height: 1.5 !important;
     }
-
 }
 
 .skills{

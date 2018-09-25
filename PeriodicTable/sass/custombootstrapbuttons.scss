@@ -1,0 +1,201 @@
+@import '_buttons';
+//**********Single custom buttons ******************
+.btn-purple {
+  @include button-variant(
+    #ffffff, 
+    #611bbd, 
+    #130269
+  );
+}
+
+.btn-darkgreen {
+  @include button-variant(
+    #ffffff, 
+    #156124, 
+    #000000
+  );
+}
+
+.btn-skyblue {
+  @include button-variant(
+    #000000, 
+    #00ccff, 
+    #7a7a7a
+  );
+}
+
+//**********Color Schemes created by algorithms ******************
+@for $number from 1 through 6{
+  $button_name: "yeardiscovered";
+  $original_hue: 191;
+  $hue_increment: -4;
+  $initial_saturationpercent: 0;
+  $saturation_increment: 20;
+  $initial_lightness: 20;
+  $lightness_increment: 10;
+  $whitetext_threshhold:50;
+
+  $backgroundcolor: $original_hue + $hue_increment*($number - 1);
+  $saturationpercent: $initial_saturationpercent + $saturation_increment*($number - 1);
+  $lightness: ($initial_lightness+$lightness_increment*($number - 1));
+  
+  //Lighter background colors should have black text, darker background colors should be white
+  $textcolor: black;
+  @if ($lightness < $whitetext_threshhold){
+    $textcolor: white;
+  }
+
+  .btn-#{$button_name}-#{$number} {
+    @include button-variant(
+      $textcolor, 
+      hsl($backgroundcolor, $saturationpercent, $lightness), 
+      hsl($backgroundcolor, $saturationpercent, $lightness)
+    );
+  }
+}
+
+@for $number from 1 through 9{
+  $button_name: "heatcolors";
+  $original_hue: 182;
+  $hue_increment: -28;
+  $initial_saturationpercent: 65;
+  $saturation_increment: 1.3;
+  $initial_lightness: 40;
+  $lightness_increment: 2;
+  $whitetext_threshhold:60;
+
+  $backgroundcolor: $original_hue + $hue_increment*($number - 1);
+  $saturationpercent: $initial_saturationpercent + $saturation_increment*($number - 1);
+  $lightness: ($initial_lightness+$lightness_increment*($number - 1));
+  
+  //Lighter background colors should have black text, darker background colors should be white
+  $textcolor: black;
+  @if ($lightness < $whitetext_threshhold){
+    $textcolor: white;
+  }
+
+  .btn-#{$button_name}-#{$number} {
+    @include button-variant(
+      $textcolor, 
+      hsl($backgroundcolor, $saturationpercent, $lightness), 
+      hsl($backgroundcolor, $saturationpercent, $lightness)
+    );
+  }
+}
+
+@for $number from 1 through 9{
+  $button_name: "coldcolors";
+  $original_hue: 320;
+  $hue_increment: -23;
+  $initial_saturationpercent: 72;
+  $saturation_increment: 2;
+  $initial_lightness: 10;
+  $lightness_increment: 10;
+  $whitetext_threshhold: 60;
+
+  $backgroundcolor: $original_hue + $hue_increment*($number - 1);
+  $saturationpercent: $initial_saturationpercent + $saturation_increment*($number - 1);
+  $lightness: ($initial_lightness + $lightness_increment*($number - 1));
+  
+  //Lighter background colors should have black text, darker background colors should be white
+  $textcolor: black;
+  @if ($lightness < $whitetext_threshhold){
+    $textcolor: white;
+  }
+
+  .btn-#{$button_name}-#{$number} {
+    @include button-variant(
+      $textcolor, 
+      hsl($backgroundcolor, $saturationpercent, $lightness), 
+      hsl($backgroundcolor, $saturationpercent, $lightness)
+    );
+  }
+}
+
+@for $number from 1 through 9{
+  $button_name: "densitycolors";
+  $original_hue: 180;
+  $hue_increment: 180;
+  $initial_saturationpercent: 65;
+  $saturation_increment: -5;
+  $initial_lightness: 98;
+  $lightness_increment: -9.8;
+  $whitetext_threshhold: 50;
+
+  $backgroundcolor: $original_hue + $hue_increment*($number - 1);
+  $saturationpercent: $initial_saturationpercent + $saturation_increment*($number - 1);
+  $lightness: ($initial_lightness + $lightness_increment*($number - 1));
+  
+  //Lighter background colors should have black text, darker background colors should be white
+  $textcolor: black;
+  @if ($lightness < $whitetext_threshhold){
+    $textcolor: white;
+  }
+
+  .btn-#{$button_name}-#{$number} {
+    @include button-variant(
+      $textcolor, 
+      hsl($backgroundcolor, $saturationpercent, $lightness), 
+      hsl($backgroundcolor, $saturationpercent, $lightness)
+    );
+  }
+}
+        
+@for $number from 1 through 7{
+  $button_name: "atomicRadius";
+  $original_hue: 340;
+  $hue_increment: 40;
+  $initial_saturationpercent: 80;
+  $saturation_increment: 0;
+  $initial_lightness: 70;
+  $lightness_increment: -10;
+  $whitetext_threshhold: 30;
+
+  $backgroundcolor: $original_hue + $hue_increment*($number - 1);
+  $saturationpercent: $initial_saturationpercent + $saturation_increment*($number - 1);
+  $lightness: ($initial_lightness + $lightness_increment*($number - 1));
+  
+  //Lighter background colors should have black text, darker background colors should be white
+  $textcolor: black;
+  @if ($lightness < $whitetext_threshhold){
+    $textcolor: white;
+  }
+
+  .btn-#{$button_name}-#{$number} {
+    @include button-variant(
+      $textcolor, 
+      hsl($backgroundcolor, $saturationpercent, $lightness), 
+      hsl($backgroundcolor, $saturationpercent, $lightness)
+    );
+  }
+}
+
+
+@for $number from 1 through 7{
+  $button_name: "ionizationEnergy";
+  $original_hue: 308;
+  $hue_increment: -22;
+  $initial_saturationpercent: 70;
+  $saturation_increment: 2;
+  $initial_lightness: 20;
+  $lightness_increment: 10;
+  $whitetext_threshhold: 60;
+
+  $backgroundcolor: $original_hue + $hue_increment*($number - 1);
+  $saturationpercent: $initial_saturationpercent + $saturation_increment*($number - 1);
+  $lightness: ($initial_lightness + $lightness_increment*($number - 1));
+  
+  //Lighter background colors should have black text, darker background colors should be white
+  $textcolor: black;
+  @if ($lightness < $whitetext_threshhold){
+    $textcolor: white;
+  }
+
+  .btn-#{$button_name}-#{$number} {
+    @include button-variant(
+      $textcolor, 
+      hsl($backgroundcolor, $saturationpercent, $lightness), 
+      hsl($backgroundcolor, $saturationpercent, $lightness)
+    );
+  }
+}

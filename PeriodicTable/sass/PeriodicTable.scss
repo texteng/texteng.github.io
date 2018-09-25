@@ -6,10 +6,6 @@ $nopixels: 0px;
     margin: 0px;
 }
 
-@mixin displaynone {
-  
-}
-
 #container {
   padding: 0px;
 }
@@ -20,11 +16,12 @@ $nopixels: 0px;
   
 .row {
   @include basicbackground;
-  display: none;margin: 0px !important;
+  display: none;
+  margin: 0px !important;
 }
   
 #mobile {
-  @include displaynone;
+  display: none;
 }
   
 button.element {
