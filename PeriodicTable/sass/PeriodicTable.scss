@@ -16,7 +16,6 @@ $nopixels: 0px;
   
 .row {
   @include basicbackground;
-  display: none;
   margin: 0px !important;
 }
   
