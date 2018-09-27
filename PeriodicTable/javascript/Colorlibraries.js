@@ -28,7 +28,6 @@ const groupblockDict = {
     "post-transition metal":"light",
 }
 
-
 const phasesDict = {
     "title":"Phases at STP",
     "Solid":"primary", 
@@ -36,14 +35,43 @@ const phasesDict = {
     "Gas":"light", 
 }
 
+const meltDict = {
+    "title":"Melting/Freezing Point (K) (Note 273 is 0 C)",
+    50: "melt-1",
+    100:"melt-2",
+    250:"melt-3", 
+    273:"melt-4", 
+    374:"melt-5", 
+    500:"melt-6",
+    1000:"melt-7",
+    2000:"melt-8",
+    4000: "melt-9"
+}
 
-const bondtypeDict = {
-    "title":"Bond Type",
-    "atomic":"skyblue",
-    "metallic": "darkgreen",
-    "diatomic":"info", 
-    "covalent network":"primary",
-    "unknown":"light" 
+const boilDict = {
+    "title":"Boiling Point (K) (Note 374 is 100 C)",
+    50: "boil-1",
+    100:"boil-2",
+    250:"boil-3", 
+    273:"boil-4", 
+    374:"boil-5", 
+    1000:"boil-6",
+    3000:"boil-7",
+    5000:"boil-8",
+    7000: "boil-9"
+}
+
+const densityDict = {
+    "title":"Density g/L",
+    1:"density-1", 
+    2:"density-2", 
+    3:"density-3", 
+    4:"density-4", 
+    5:"density-5", 
+    10:"density-6", 
+    20:"density-7",
+    30:"density-8",
+    50:"density-9",
 }
 
 const yearDiscoveredDict = {
@@ -57,50 +85,21 @@ const yearDiscoveredDict = {
     2018:"yeardiscovered-6"
 }
 
-const densityDict = {
-    "title":"Density g/L",
-    1:"densitycolors-1", 
-    2:"densitycolors-2", 
-    3:"densitycolors-3", 
-    4:"densitycolors-4", 
-    5:"densitycolors-5", 
-    10:"densitycolors-6", 
-    20:"densitycolors-7",
-    30:"densitycolors-8",
-    50:"densitycolors-9",
+const bondtypeDict = {
+    "title":"Bond Type",
+    "atomic":"skyblue",
+    "metallic": "darkgreen",
+    "diatomic":"info", 
+    "covalent network":"primary",
+    "unknown":"light" 
 }
 
-const meltDict = {
-    "title":"Melting/Freezing Point (K) (Note 273 is 0 C)",
-    50: "coldcolors-1",
-    100:"coldcolors-2",
-    250:"coldcolors-3", 
-    273:"coldcolors-4", 
-    374:"coldcolors-5", 
-    500:"coldcolors-6",
-    1000:"coldcolors-7",
-    2000:"coldcolors-8",
-    5000: "coldcolors-9"
-}
-
-const boilDict = {
-    "title":"Boiling Point (K) (Note 374 is 100 C)",
-    50: "heatcolors-1",
-    100:"heatcolors-2",
-    250:"heatcolors-3", 
-    273:"heatcolors-4", 
-    374:"heatcolors-5", 
-    1000:"heatcolors-6",
-    3000:"heatcolors-7",
-    5000:"heatcolors-8",
-    7000: "heatcolors-9"
-}
 const electronegativityDict = {
-    "title":"Electronegativity",
-    1: "primary",
-    2:"purple",
-    3:"skyblue", 
-    4:"info", 
+    "title":"electronegativity",
+    1: "electronegativity-1",
+    2: "electronegativity-2",
+    3: "electronegativity-3", 
+    4: "electronegativity-4"
 }
 
 const atomicRadiusDict = {
