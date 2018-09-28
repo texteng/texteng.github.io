@@ -7,4 +7,4 @@ sass --watch sass/PeriodicTableCustom.scss css/PeriodicTableCustom.css
 
 sass --watch sass/PeriodicTableCustomWide.scss css/PeriodicTableCustomWide.css
 
-sass --watch sass/custombootstrapbuttons.scss css/custombootstrapbuttons.css
+sass --watch sass/custombootstrapbuttons.scss css/custombootstrapbuttons.css 
