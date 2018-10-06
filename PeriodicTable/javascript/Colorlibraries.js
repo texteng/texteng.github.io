@@ -95,7 +95,7 @@ const bondtypeDict = {
 }
 
 const electronegativityDict = {
-    "title":"electronegativity",
+    "title":"Electronegativity",
     1: "electronegativity-1",
     2: "electronegativity-2",
     3: "electronegativity-3", 

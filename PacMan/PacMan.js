@@ -1,58 +1,3 @@
-// **********************Pacman, Map and Monster Notes********************************    
-// Initial Direction
-//     L = left
-//     R = right
-//     T = top
-//     B = bottom
-
-// Strategy
-//     CCW = counterclockwise movement
-//     CW = clockwise movement
-
-//0= blank space
-//1= coin
-//2= wall
-//3= cherry
-
-// //**********************Large Difficult World **************************************
-var world = [
-    [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-    [2,3,1,1,1,1,1,1,1,1,1,1,1,3,2],
-    [2,1,2,2,1,2,2,2,2,1,2,2,2,1,2],
-    [2,1,2,3,1,1,1,1,1,1,1,3,2,1,2],
-    [2,1,2,1,2,2,2,1,2,2,2,1,1,1,2],
-    [2,1,1,1,2,1,1,1,1,1,2,1,2,1,2],
-    [2,1,2,1,1,1,2,1,2,1,1,1,2,1,2],
-    [2,1,2,1,2,1,1,0,1,1,2,1,2,1,2],
-    [2,1,2,1,1,1,2,1,2,1,1,1,2,1,2],
-    [2,1,2,1,2,1,1,1,1,1,2,1,1,1,2],
-    [2,1,1,1,2,2,2,1,2,2,2,1,2,1,2],
-    [2,1,2,3,1,1,1,1,1,1,1,3,2,1,2],
-    [2,1,2,2,2,1,2,2,2,2,1,2,2,1,2],
-    [2,3,1,1,1,1,1,1,1,1,1,1,1,3,2],
-    [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
-]
-
-var pacman = {
-    x:7,
-    y:7,
-    direction:"R"
-}
-
-
-var monsterArray=[
-    // outer ring
-    {x:1, y:1, direction:"R", strategy: "CW"},
-    {x:13, y:13, direction:"L", strategy: "CW"},
-    {x:1, y:13, direction:"R", strategy: "CCW"},
-    {x:13, y:1, direction:"L", strategy: "CCW"},
-    //middle ring
-    {x:3, y:3, direction:"R", strategy: "CCW"},
-    {x:11, y:11, direction:"L", strategy: "CW"},
-    //inner ring
-    {x:9, y:5, direction:"D", strategy: "CW"}, 
-];
-
 // **********************Small Easy Level **************************************
 // var world = [
 //     [2,2,2,2,2,2,2,2,2,2,2,2],
@@ -84,274 +29,330 @@ var monsterArray=[
 // ];
 //*********************End of basic map *********************************************
 //Determines basic dimensions of level
-var worldColumnLength = world.length;
-var worldRowLength = world[0].length;
+// **********************Pacman, Map and Monster Notes********************************    
+// Initial Direction
+//     L = left
+//     R = right
+//     T = top
+//     B = bottom
 
-//Creates a matrix that tracks the location of the monsters
-var monsters = []
-for(var i = 0; i < worldColumnLength; i++){
-    monsters[i] = [];
-    for(var j = 0; j < worldRowLength; j++){
-        monsters[i][j] = 0;
+// Strategy
+//     CCW = counterclockwise movement
+//     CW = clockwise movement
+
+//0= blank space
+//1= coin
+//2= wall
+//3= cherry
+
+
+class World{
+    constructor(){
+        this.world = [
+            [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+            [2,3,1,1,1,1,1,1,1,1,1,1,1,3,2],
+            [2,1,2,2,1,2,2,2,2,1,2,2,2,1,2],
+            [2,1,2,3,1,1,1,1,1,1,1,3,2,1,2],
+            [2,1,2,1,2,2,2,1,2,2,2,1,1,1,2],
+            [2,1,1,1,2,1,1,1,1,1,2,1,2,1,2],
+            [2,1,2,1,1,1,2,1,2,1,1,1,2,1,2],
+            [2,1,2,1,2,1,1,0,1,1,2,1,2,1,2],
+            [2,1,2,1,1,1,2,1,2,1,1,1,2,1,2],
+            [2,1,2,1,2,1,1,1,1,1,2,1,1,1,2],
+            [2,1,1,1,2,2,2,1,2,2,2,1,2,1,2],
+            [2,1,2,3,1,1,1,1,1,1,1,3,2,1,2],
+            [2,1,2,2,2,1,2,2,2,2,1,2,2,1,2],
+            [2,3,1,1,1,1,1,1,1,1,1,1,1,3,2],
+            [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+        ]
+        this.monsterlocations = [
+            // outer ring
+            {x:1, y:1, direction:"R", strategy: "CW"},
+            {x:13, y:13, direction:"L", strategy: "CW"},
+            {x:1, y:13, direction:"R", strategy: "CCW"},
+            {x:13, y:1, direction:"L", strategy: "CCW"},
+            //middle ring
+            {x:3, y:3, direction:"R", strategy: "CCW"},
+            {x:11, y:11, direction:"L", strategy: "CW"},
+            //inner ring
+            {x:9, y:5, direction:"D", strategy: "CW"}, 
+        ];
+        this.monsterlocationtable = this.createMonsterTable();
+        this.standardsize = 40;
+        this.coinValue = 10;
+        this.cherryValue = 50;
+        this.numberofedibles= this.calculateEdibles();
+        this.createMonsters();
+        document.getElementById("header").style.width = (this.worldRowLength) * this.standardsize +"px";
+        document.getElementById("scorebox").style.width = (this.worldRowLength-2) * this.standardsize +"px";
     }
-}
-var monsternum = monsterArray.length;
-//determine's size of elements
-const standardsize = 40; //If edited, please change sass equivalent;
-
-//determines the width of header and scorebox
-var PageWidth = worldRowLength;
-document.getElementById("header").style.width = (PageWidth) * standardsize +"px";
-document.getElementById("scorebox").style.width = (PageWidth-2) * standardsize +"px";
-
-//*******************************Points************************************/
-//PointValues
-var score = 0;
-var lives = 3;
-var coinValue = 10;
-var cherryValue = 50;
-
-//Maximum Points Calculation
-var maximumPoints= 0;
-for(var i=0; i<worldColumnLength; i++){
-    for(var j=0; j<worldRowLength; j++){
-        if(world[i][j] == 2){
-            continue;
-        }
-        else if(world[i][j] == 1){
-            maximumPoints +=coinValue;
-        }
-        else if(world[i][j] == 0){
-            continue;
-        }
-        else if(world[i][j] == 3){
-            maximumPoints += cherryValue;
-        }
-    }
-}
-console.log("The maximum points you can score on this page is " + maximumPoints);
-
-//*****************Functions that affect the game's display*****************
-function displayWorld(){
-    var output = '';
-    
-    for(var i=0; i<worldColumnLength; i++){
-        output += "\n<div class = 'row'\n>";
-        for(var j=0; j<worldRowLength; j++){
-            switch (world[i][j]) {
-                case 0:
-                output += "<div class='empty'></div>";
-                break;
-                case 1:
-                output += "<div class='coin'></div>";
-                break;
-                case 2:
-                output += "<div class='brick'></div>";
-                break;
-                case 3:
-                output += "<div class='cherry'></div>";
-                break;
+    createMonsterTable(){
+        let monstertable = [];
+        for(let i in this.world){
+            monstertable[i] = [];
+            for(let j in this.world[i]){
+                monstertable[i][j] = 0;
             }
         }
-        output += "\n</div>";
+        return monstertable;
     }
-    document.getElementById('world').innerHTML = output;
+
+    createMonsters(){
+        let monsterdivs = "";
+        for(var i in this.monsterlocations){
+            monsterdivs +="<div id='m"+ i + "' class='monster'></div>\n"
+            this.monsterlocations[i] = new Monster(
+                i, 
+                this.monsterlocations[i].x,
+                this.monsterlocations[i].y,
+                this.monsterlocations[i].direction,
+                this.monsterlocations[i].strategy
+                )
+        }
+        document.getElementById('m').innerHTML= monsterdivs;
+        return this;
+    }
+
+    moveMonsters(){
+        for(var currentMonster of this.monsterlocations){
+            currentMonster.move().display();
+        }
+        return this;
+    }
     
-}
+    calculateEdibles(){
+        let ediblecount = 0;
+        for(let row of this.world){
+            for(let section of row){
+                if(section == 1 || section == 3 ){
+                    ediblecount++;
+                }
+            }
+        }
+        return ediblecount;
+    }
 
-//Note div is slightly enlarged for artistic effect
-function displayPacman(){
-    document.getElementById('pacman').style.left = pacman.x*standardsize-(standardsize/10)+"px";
-    document.getElementById('pacman').style.top = pacman.y*standardsize+(1.75*standardsize)+"px";
-    document.getElementById('pacman').style.backgroundImage = "url('PacMan"+ pacman.direction +".gif')";
-}
-
-//Note the monsters are slightly enlarged and off center for artistic effect
-function displayMonster(){
-    for(var i = 0; i < monsternum; i++){
-        document.getElementById('m' + i).style.left = monsterArray[i].x*standardsize-(standardsize/10)+"px";
-        document.getElementById('m' + i).style.top = monsterArray[i].y*standardsize+(1.75*standardsize)+"px";
-        document.getElementById('m' + i).style.backgroundImage = "url('monster"+ monsterArray[i].direction +".gif')";
+    display(){
+        let output = '';
+        for(let row of this.world){
+            output += "\n<div class = 'row'\n>";
+            for(let section of row){
+                switch (section) {
+                    case 0:
+                    output += "<div class='empty'></div>";
+                    break;
+                    case 1:
+                    output += "<div class='coin'></div>";
+                    break;
+                    case 2:
+                    output += "<div class='brick'></div>";
+                    break;
+                    case 3:
+                    output += "<div class='cherry'></div>";
+                    break;
+                }
+            }
+            output += "\n</div>";
+        }
+        document.getElementById('world').innerHTML = output;
+        return this;
     }
 }
 
-function displayScore(){
-    if(world[pacman.y][pacman.x]==1 && monsters[pacman.y][pacman.x]==0){
-        world[pacman.y][pacman.x]=0
-        score+=coinValue;
+class Monster{
+    constructor(_number, x, y, direction, strategy){
+        this.number = _number;
+        this.x = x; this.y = y;
+        this.direction = direction;
+        this.strategy = strategy;
     }
-    if(world[pacman.y][pacman.x]==3 && monsters[pacman.y][pacman.x]==0){
-        world[pacman.y][pacman.x]=0;
-        score+=cherryValue;
+
+    display(){
+        document.getElementById("m"+this.number).style.left = this.x*currentWorld.standardsize-(currentWorld.standardsize/10)+"px";
+        document.getElementById("m"+this.number).style.top = this.y*currentWorld.standardsize+(1.75*currentWorld.standardsize)+"px";
+        document.getElementById("m"+this.number).style.backgroundImage = "url('monster"+ this.direction +".gif')";
+        return this;
     }
-    document.getElementById('score').innerHTML = "Score: <span>"+score+"</span>";
+
+    move(){ 
+        switch (this.direction) {
+            case "L":
+            if(currentWorld.world[this.y][this.x-1]!=2){
+                currentWorld.monsterlocationtable[this.y][this.x] = 0;
+                currentWorld.monsterlocationtable[this.y][this.x-1] = 1; 
+                this.x--;
+                break;
+            }
+            else if(this.strategy == "CCW"){
+                this.direction ="D";
+                this.move();
+                break;
+            }
+            else if(this.strategy == "CW"){
+                this.direction ="U";
+                this.move();
+                break;
+            }
+            case "D":
+            if(currentWorld.world[this.y+1][this.x]!=2){
+                currentWorld.monsterlocationtable[this.y][this.x] = 0;
+                currentWorld.monsterlocationtable[this.y+1][this.x] = 1; 
+                this.y++;
+                break;
+            }
+            else if(this.strategy == "CCW"){
+                this.direction ="R";
+                this.move();
+                break;
+            }
+            else if (this.strategy == "CW"){
+                this.direction ="L";
+                this.move();
+                break;
+            }
+            case "R":
+            if(currentWorld.world[this.y][this.x+1]!=2){
+                currentWorld.monsterlocationtable[this.y][this.x] = 0;
+                currentWorld.monsterlocationtable[this.y][this.x+1] = 1; 
+                this.x++;
+                break;
+            }
+            else if(this.strategy == "CCW"){
+                this.direction ="U";
+                this.move();
+                break;
+            }
+            else if (this.strategy == "CW"){
+                this.direction ="D";
+                this.move();
+                break;
+            }
+            case "U":
+            if(currentWorld.world[this.y-1][this.x]!=2){
+                currentWorld.monsterlocationtable[this.y][this.x] = 0;
+                currentWorld.monsterlocationtable[this.y-1][this.x] = 1; 
+                this.y--;
+            }
+            else if(this.strategy == "CCW"){
+                this.direction ="L";
+                this.move();
+                break;
+            }
+            else if (this.strategy == "CW"){
+                this.direction ="R";
+                this.move();
+                break;
+            }
+            break;
+        }
+        death();
+        this.display();
+        return this;
+    }
 }
 
-function displayLives(){
-    document.getElementById('lives').innerHTML = "Lives: <span>"+lives+"</span>";
+class Pacman{
+    constructor(){
+        this.x = this.y = 7;
+        this.direction = "R"
+        this.lives = 3;
+        this.score = 0;
+    }
+    currentlocationinformation(){
+        return(currentWorld.world[this.y][this.x]);
+    }
+    currentlocation(){
+        return({y : this.y, x : this.x});
+    }
+    stats(){
+        return({score:this.score, lives: this.lives});
+    }
+    move(direction){
+        this.direction = direction;
+             if(direction == "L"){this.x--;}
+        else if(direction == "R"){this.x++;}
+        else if(direction == "U"){this.y--;}
+        else if(direction == "D"){this.y++;}
+        if (this.currentlocationinformation() == 1){
+            currentWorld.world[this.y][this.x] = 0;
+            currentWorld.numberofedibles--;
+            this.score += 10;
+        }
+        else if (this.currentlocationinformation() == 3){
+            currentWorld.world[this.y][this.x] = 0;
+            currentWorld.numberofedibles--;
+            this.score += 50;
+        }
+        // console.log("your score is", this.score);
+        currentWorld.display();
+        this.display().displayScore();
+        death();
+        return this;
+    }
+    display(){
+        document.getElementById('pacman').style.left = this.x*currentWorld.standardsize-(currentWorld.standardsize/10)+"px";
+        document.getElementById('pacman').style.top = this.y*currentWorld.standardsize+(1.75*currentWorld.standardsize)+"px";
+        document.getElementById('pacman').style.backgroundImage = "url('PacMan"+ this.direction +".gif')";
+        return this;
+    }
+    displayScore(){
+        document.getElementById('score').innerHTML = "Score: <span>"+this.score+"</span>";
+        return this;
+    }
+    displayLives(){
+        document.getElementById('lives').innerHTML = "Lives: <span>"+this.lives+"</span>";
+        return this;
+    }
 }
-// Determines if pacman died
-var startX = pacman.x;
-var startY = pacman.y;
+
 function death(){
-    if((monsters[pacman.y][pacman.x] > 0)){
-        lives -=1;
-        displayLives();
+    if((currentWorld.monsterlocationtable[currentPacMan.y][currentPacMan.x] > 0)){
+        currentPacMan.lives -=1;
         //Moves PacMan back to the center when he dies x= 5, y =5 in easy level, x=7 y =7 in hard level
-        pacman.x = startX;
-        pacman.y = startY;
-        displayPacman();
+        currentPacMan.x = currentPacMan.y = 7;
+        currentPacMan.display().displayLives();
     }
-    if (lives <= 0){
-        document.getElementById('container').innerHTML = "<div id='gameover'><h1>Game Over</h1><p>Score = "+ score+"</p></div>";
+    if (currentPacMan.lives <= 0){
+        document.getElementById('container').innerHTML = "<div id='gameover'><h1>Game Over</h1><p>Score = "+ currentPacMan.score+"</p></div>";
         return;
     }
 }
-// Monster Movement
-//Direction Monster will move until it hits a wall
-//L = left
-//R = right
-//T = top
-//B = bottom
-function moveMonster(monster){ 
-    switch (monster.direction) {
-        case "L":
-        if(world[monster.y][monster.x-1]!=2){
-            monsters[monster.y][monster.x] = 0;
-            monsters[monster.y][monster.x-1] = 1; 
-            monster.x -=1;
-            break;
-        }
-        else if(monster.strategy == "CCW"){
-            monster.direction ="D";
-            moveMonster(monster);
-            break;
-        }
-        else if(monster.strategy == "CW"){
-            monster.direction ="U";
-            moveMonster(monster);
-            break;
-        }
-        case "D":
-        if(world[monster.y+1][monster.x]!=2){
-            monsters[monster.y][monster.x] = 0;
-            monsters[monster.y+1][monster.x] = 1; 
-            monster.y +=1;
-            break;
-        }
-        else if(monster.strategy == "CCW"){
-            monster.direction ="R";
-            moveMonster(monster);
-            break;
-        }
-        else if (monster.strategy == "CW"){
-            monster.direction ="L";
-            moveMonster(monster);
-            break;
-        }
-        case "R":
-        if(world[monster.y][monster.x+1]!=2){
-            monsters[monster.y][monster.x] = 0;
-            monsters[monster.y][monster.x+1] = 1; 
-            monster.x +=1;
-            break;
-        }
-        else if(monster.strategy == "CCW"){
-            monster.direction ="U";
-            moveMonster(monster);
-            break;
-        }
-        else if (monster.strategy == "CW"){
-            monster.direction ="D";
-            moveMonster(monster);
-            break;
-        }
-        case "U":
-        if(world[monster.y-1][monster.x]!=2){
-            monsters[monster.y][monster.x] = 0;
-            monsters[monster.y-1][monster.x] = 1; 
-            monster.y -=1;
-        }
-        else if(monster.strategy == "CCW"){
-            monster.direction ="L";
-            moveMonster(monster);
-            break;
-        }
-        else if (monster.strategy == "CW"){
-            monster.direction ="R";
-            moveMonster(monster);
-            break;
-        }
-        break;
-    }
-}
-
-//***********************Keystroke Section*****************************
-
-// Monster Movement
-//Direction PacMan animation will go with each keystroke
-//L = left
-//R = right
-//T = top
-//B = bottom
+let currentWorld = new World();
+let currentPacMan = new Pacman();
+currentWorld.display();
+currentPacMan.display();
 
 document.onkeydown = function(e){
     //left
-    if((e.keyCode == 37 || e.keyCode == 65 || e.keyCode == 100 )&& world[pacman.y][pacman.x-1]!=2){
-        pacman.x--;
-        pacman.direction = "L";
+    if((e.keyCode == 37 || e.keyCode == 65 || e.keyCode == 100 )&& currentWorld.world[currentPacMan.y][currentPacMan.x-1]!=2){
+        currentPacMan.move("L")
+        // console.log("L")
     }
     //right
-    else if((e.keyCode == 39 || e.keyCode == 68 || e.keyCode == 102) && world[pacman.y][pacman.x+1]!=2){
-        pacman.x++;
-        pacman.direction = "R";
+    else if((e.keyCode == 39 || e.keyCode == 68 || e.keyCode == 102) && currentWorld.world[currentPacMan.y][currentPacMan.x+1]!=2){
+        currentPacMan.move("R")
     }
     //up
-    else if((e.keyCode == 38 || e.keyCode == 87 || e.keyCode == 104 )&& world[pacman.y-1][pacman.x]!=2){
-        pacman.y--;
-        pacman.direction = "U";
+    else if((e.keyCode == 38 || e.keyCode == 87 || e.keyCode == 104 )&& currentWorld.world[currentPacMan.y-1][currentPacMan.x]!=2){
+    // else if((e.keyCode == 38 || e.keyCode == 87 || e.keyCode == 104 )){
+        currentPacMan.move("U")
     }
     //down
-    else if((e.keyCode == 40|| e.keyCode == 83 || e.keyCode == 98 ) && world[pacman.y+1][pacman.x]!=2){
-        pacman.y++;
-        pacman.direction = "D";
+    else if((e.keyCode == 40|| e.keyCode == 83 || e.keyCode == 98 ) && currentWorld.world[currentPacMan.y+1][currentPacMan.x]!=2){
+    // else if((e.keyCode == 40|| e.keyCode == 83 || e.keyCode == 98 )){
+        currentPacMan.move("D")
     }
-    
-    displayScore();
-    death();
-    displayWorld();
-    displayPacman();
-    
 }
-//Gameloop section
+
+// Gameloop section
 function gameloop(){
-    console.log("gameLoop is running!")
-    displayWorld();
-    
-    //Moves all of the monsters
-    for(var i = 0, l = monsterArray.length; i < l; i++){
-        moveMonster(monsterArray[i]);
-    }
-    displayMonster();
-    
-    death();
-    
-    if(score >=maximumPoints){
-        document.getElementById('container').innerHTML = "<div id='gameover'><h1>Congratulations!</h1><p>Score = "+ score+"</p></div>";
+    // console.log("gameLoop is running!")
+    currentWorld.display().moveMonsters();
+    if (currentWorld.numberofedibles <= 0){
+        document.getElementById('container').innerHTML = "<div id='gameover'><h1>Congratulations!</h1><p>Score = "+ currentPacMan.score+"</p></div>";
         return;
     }
     setTimeout(gameloop, 200)
 }
 
-//***************************** Starts the game *******************************
-monsterdivs = "";
-//creates divs in HTML to display monsters
-//monsternum = number of monsters in game
-for(var i = 0; i < monsternum; i++){
-    monsterdivs +="<div id='m"+ i + "' class='monster'></div>"
-}
-document.getElementById("m").innerHTML= monsterdivs;
-displayPacman();
-displayMonster();
-displayWorld();
 gameloop();

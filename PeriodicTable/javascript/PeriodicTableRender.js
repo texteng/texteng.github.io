@@ -34,13 +34,11 @@ displayTable(currentcategory);
 //*********************************Renders Table************************
 function displayTable() {
   // console.time(original);
-  var columnlength = matrix.length;
-  let rowlength = matrix[0].length;
   let table_output = "";
 
-  for (var row = 0; row < columnlength; row++) {
+  for (var row in matrix) {
     table_output += `<div class = "row">\n`;
-    for (var column = 0; column < rowlength; column++) {
+    for (var column in matrix[row]){
       let tableposition = matrix[row][column];
       switch (true) {
         case tableposition > 0: //Displays Elements
