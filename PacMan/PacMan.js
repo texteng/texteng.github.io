@@ -1,53 +1,10 @@
-// **********************Small Easy Level **************************************
-// var world = [
-//     [2,2,2,2,2,2,2,2,2,2,2,2],
-//     [2,3,1,1,1,1,1,1,1,1,3,2],
-//     [2,1,2,2,1,2,2,1,2,2,1,2],
-//     [2,1,2,3,1,1,1,1,3,2,1,2],
-//     [2,1,1,1,2,2,1,2,1,1,1,2],
-//     [2,1,2,1,1,0,1,2,1,2,1,2],
-//     [2,1,2,1,2,1,1,1,1,2,1,2],
-//     [2,1,1,1,2,1,2,2,1,1,1,2],
-//     [2,1,2,3,1,1,1,1,3,2,1,2],
-//     [2,1,2,2,1,2,2,1,2,2,1,2],
-//     [2,3,1,1,1,1,1,1,1,1,3,2],
-//     [2,2,2,2,2,2,2,2,2,2,2,2]
-//     ]
-
-// var pacman = {
-//     x:5,
-//     y:5,
-//     direction:"R"
-// }
-
-// var monsterArray=[
-//     {x:10, y:1, direction:"L", strategy: "CCW"}, 
-//     {x:8, y:3, direction:"D", strategy: "CW"}, 
-//     {x:1, y:10, direction:"R", strategy: "CCW"},
-//     {x:2, y:8, direction:"R", strategy: "CCW"},
-//     {x:10, y:2, direction:"D", strategy: "CW"}
-// ];
-//*********************End of basic map *********************************************
-//Determines basic dimensions of level
-// **********************Pacman, Map and Monster Notes********************************    
-// Initial Direction
-//     L = left
-//     R = right
-//     T = top
-//     B = bottom
-
-// Strategy
-//     CCW = counterclockwise movement
-//     CW = clockwise movement
-
-//0= blank space
-//1= coin
-//2= wall
-//3= cherry
-
-
 class World{
     constructor(){
+        //0= blank space
+        //1= coin
+        //2= wall
+        //3= cherry
+
         this.world = [
             [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
             [2,3,1,1,1,1,1,1,1,1,1,1,1,3,2],
@@ -65,6 +22,16 @@ class World{
             [2,3,1,1,1,1,1,1,1,1,1,1,1,3,2],
             [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
         ]
+
+        // Strategy
+        //     CCW = counterclockwise movement
+        //     CW = clockwise movement
+
+        // Initial Direction
+        //     L = left
+        //     R = right
+        //     T = top
+        //     B = bottom
         this.monsterlocations = [
             // outer ring
             {x:1, y:1, direction:"R", strategy: "CW"},
@@ -326,7 +293,6 @@ document.onkeydown = function(e){
     //left
     if((e.keyCode == 37 || e.keyCode == 65 || e.keyCode == 100 )&& currentWorld.world[currentPacMan.y][currentPacMan.x-1]!=2){
         currentPacMan.move("L")
-        // console.log("L")
     }
     //right
     else if((e.keyCode == 39 || e.keyCode == 68 || e.keyCode == 102) && currentWorld.world[currentPacMan.y][currentPacMan.x+1]!=2){
@@ -334,19 +300,16 @@ document.onkeydown = function(e){
     }
     //up
     else if((e.keyCode == 38 || e.keyCode == 87 || e.keyCode == 104 )&& currentWorld.world[currentPacMan.y-1][currentPacMan.x]!=2){
-    // else if((e.keyCode == 38 || e.keyCode == 87 || e.keyCode == 104 )){
         currentPacMan.move("U")
     }
     //down
     else if((e.keyCode == 40|| e.keyCode == 83 || e.keyCode == 98 ) && currentWorld.world[currentPacMan.y+1][currentPacMan.x]!=2){
-    // else if((e.keyCode == 40|| e.keyCode == 83 || e.keyCode == 98 )){
         currentPacMan.move("D")
     }
 }
 
 // Gameloop section
 function gameloop(){
-    // console.log("gameLoop is running!")
     currentWorld.display().moveMonsters();
     if (currentWorld.numberofedibles <= 0){
         document.getElementById('container').innerHTML = "<div id='gameover'><h1>Congratulations!</h1><p>Score = "+ currentPacMan.score+"</p></div>";
