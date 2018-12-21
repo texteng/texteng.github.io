@@ -242,26 +242,19 @@ function displayLegend() {
 $(document).on("click", ".element", function() {
   elementId = this.id;
   if (elementId != "lanth" && elementId != "actin") {
-    $(".modal-title").html(elementInformationTitle(elementId));
-    $(".modal-body").html(elementInformation(elementId));
+    let currentelement = PeriodicTable[elementId - 1];
+    $(".modal-title").html(`${currentelement["name"]} (${currentelement["symbol"]}) `);
+    $(".modal-body").html(elementInformation(currentelement));
   }
 });
 
-function elementInformationTitle(ElementNumber) {
-  var currentelement = PeriodicTable[ElementNumber - 1];
-  let elementinformationtitle_output = "";
-  elementinformationtitle_output += `${currentelement["name"]} (${currentelement["symbol"]}) `;
-  return elementinformationtitle_output;
-}
-
-function elementInformation(ElementNumber) {
+function elementInformation(currentelement) {
   function elementFact(title, elementInformation, units = "") {
     if (elementInformation != null && elementInformation != "") {
       elementinformation_output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>\n`;
     }
     return;
   }
-  let currentelement = PeriodicTable[ElementNumber - 1];
   let elementinformation_output = "<ul>";
   elementFact("Atomic Number", currentelement["number"]);
   elementinformation_output += `<li><span class= 'font-weight-bold'>Category: </span>`;
@@ -277,7 +270,7 @@ function elementInformation(ElementNumber) {
   elementinformation_output += `</li>\n`;
   elementFact("Atomic Mass (amu)", currentelement["atomic_mass"]);
   elementFact("Appearance", currentelement["appearance"]);
-  elementFact("Phase (Room Tempurature)", currentelement["phase"]);
+  elementFact("Phase (Room Temperature)", currentelement["phase"]);
   elementFact("Boiling Point", currentelement["boil"], " K");
   elementFact("Melting Point", currentelement["melt"], " K");
   elementFact("Density", currentelement["density"], "g/L</li>");
@@ -286,9 +279,9 @@ function elementInformation(ElementNumber) {
   elementFact("Ionization Energy", currentelement["ionizationEnergy"], "eV");
   elementFact("Electron Affinity", currentelement["electronAffinity"],"E<sub>A</sub>");
   elementFact("Bonding Type", currentelement["bondingType"]);
+  elementFact("Discovered by", currentelement["discovered_by"], "(" + currentelement["yearDiscovered"] + ")");
   // elementFact("Electron Configuration", electronConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
   // elementFact("Nobel Gas Configuration", nobelGasConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
-  elementFact("Discovered by", currentelement["discovered_by"], "(" + currentelement["yearDiscovered"] + ")");
   elementinformation_output += "</ul>\n";
   elementinformation_output += currentelement["summary"];
   elementinformation_output += `<br><span class= 'font-weight-bold'>For More information see </span><a href="${
