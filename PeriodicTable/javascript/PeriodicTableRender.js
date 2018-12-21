@@ -54,17 +54,11 @@ function displayTable() {
           break;
 
         case tableposition == "RL": //Row Label
-          // table_output += `<div id ="R${row}" class= "rowlabel thin h2">${row}</div>\n`;
           table_output += `<div id ="R${row}" class= "rowlabel thin h2"><a href="https://en.wikipedia.org/wiki/Period_${row}_element">${row}</a></div>\n`;
-
           break;
 
         case tableposition == "CL": //Column Label
-          if (wide && column > 2) {
-            table_output += displayColumnLabel(column - 14);
-            break;
-          }
-          table_output += displayColumnLabel(column);
+          table_output += displayColumnLabel(wide && column > 2 ? column - 14 : column);
           break;
 
         case tableposition == "thin": //Column Label
@@ -112,26 +106,18 @@ function displayElement(atomicNumber, row, column) {
   element_output += 'class= "element boxsize '; //Below are the classes added to elements
 
   //Creates Row Class
-  let actualrow = row;
-  if (row > 8) {
-    actualrow -= 3;
-  }
-  element_output += `R${actualrow} `;
+  element_output += `R${row > 8 ? row-3 : row} `;
 
   //Creates Column Class
   if (
-    (atomicNumber < 57 || atomicNumber > 70) &&
-    (atomicNumber < 89 || atomicNumber > 102)
+    (atomicNumber < 57 || atomicNumber > 71) &&
+    (atomicNumber < 89 || atomicNumber > 103)
   ) {
-    if (wide && column > 2) {
-      column -= 14;
-      element_output += `C${column} `;
-    } else if (atomicNumber == 71 || atomicNumber == 103) {
-      element_output += "C3 ";
-    } else {
-      element_output += `C${column} `;
-    }
-  }
+    element_output += `C${wide && column > 2 ? column - 14 : column} `;
+
+  } else if (atomicNumber == 71 || atomicNumber == 103) {
+    element_output += "C3 ";
+  } 
 
   //Determines color of element square
   let color = determineColor(currentelement);
@@ -154,13 +140,13 @@ function displayElement(atomicNumber, row, column) {
     )}</h6>\n`;
     element_output += `<h6 class = "elementname">${
       currentelement["name"]
-    }</h6>\n`;
+    }`;
   } else {
     element_output += `<h6 class = "characterisitc">${
       currentelement[currentcategory]
-    }</h6>\n`;
+    }`;
   }
-  element_output += "</button>";
+  element_output += "</h6>\n</button>";
 
   return element_output;
 }
@@ -263,11 +249,9 @@ $(document).on("click", ".element", function() {
 
 function elementInformationTitle(ElementNumber) {
   var currentelement = PeriodicTable[ElementNumber - 1];
-  let elementinfomrationtitle_output = "";
-  elementinfomrationtitle_output += `${currentelement["name"]} (${
-    currentelement["symbol"]
-  }) `;
-  return elementinfomrationtitle_output;
+  let elementinformationtitle_output = "";
+  elementinformationtitle_output += `${currentelement["name"]} (${currentelement["symbol"]}) `;
+  return elementinformationtitle_output;
 }
 
 function elementInformation(ElementNumber) {
