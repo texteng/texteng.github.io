@@ -1,5 +1,5 @@
 //See jqueryfunctions for interactive portions
-const Tablematrix = [
+const tableMatrix = [
     ["thin", "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
     ["RL", 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
@@ -13,7 +13,7 @@ const Tablematrix = [
     ["thin", 0, 0, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 0]
 ]   
 
-const Tablematrixwide = [
+const tableMatrixWide = [
     ["thin", "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
     ["RL", 1, "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL", "CL", "CL", "CL", "CL", 2],
     ["RL", 3, 4, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 7, 8, 9, 10],
@@ -25,7 +25,7 @@ const Tablematrixwide = [
 ]
 
 var wide = false;
-var matrix = Tablematrix; //Table by default is normal sized.
+var matrix = tableMatrix; //Table by default is normal sized.
 var currentcategory = "category";
 
 //*************Starts Rendering Process*******************
@@ -67,10 +67,7 @@ function displayTable() {
 
         case tableposition == "Lanthanide":
           table_output += '<button id = "lanth" class="element boxsize btn';
-          if (
-            currentcategory == "category" ||
-            currentcategory == "groupBlock"
-          ) {
+          if (currentcategory == "category" || currentcategory == "groupBlock") {
             table_output += "-danger";
           }
           table_output += ' R6 LanthAct">57-71</button>';
@@ -78,10 +75,7 @@ function displayTable() {
 
         case tableposition == "Actinoid":
           table_output += '<button id = "actin" class="element boxsize btn';
-          if (
-            currentcategory == "category" ||
-            currentcategory == "groupBlock"
-          ) {
+          if (currentcategory == "category" || currentcategory == "groupBlock") {
             table_output += "-warning";
           }
           table_output += ' R7 LanthAct">89-103</button>';
@@ -135,16 +129,10 @@ function displayElement(atomicNumber, row, column) {
   }</h3>\n`;
 
   if (currentcategory == "groupBlock" || currentcategory == "category") {
-    element_output += `<h6>${displayAtomicMass(
-      currentelement["atomic_mass"]
-    )}</h6>\n`;
-    element_output += `<h6 class = "elementname">${
-      currentelement["name"]
-    }`;
+    element_output += `<h6>${displayAtomicMass(currentelement["atomic_mass"])}</h6>\n`;
+    element_output += `<h6 class = "elementname">${currentelement["name"]}`;
   } else {
-    element_output += `<h6 class = "characterisitc">${
-      currentelement[currentcategory]
-    }`;
+    element_output += `<h6 class = "characterisitc">${currentelement[currentcategory]}`;
   }
   element_output += "</h6>\n</button>";
 
@@ -209,8 +197,7 @@ function displayColumnLabel(column) {
     "VIIA",
     "VIIIA"
   ];
-  columnlabel_output += `>${CASindex[column - 1]}</h5></a>`;
-  columnlabel_output += "</div>";
+  columnlabel_output += `>${CASindex[column - 1]}</h5></a></div>`;
   return columnlabel_output;
 }
 
@@ -223,17 +210,15 @@ function displayLegend() {
   legend_output += '<tr>\n<td class= "align-top">\n<ul>\n';
   var count = 0;
   for (key in dict) {
-    if (key == "title") {
-      continue;
+    if (key != "title"){
+      if (count > 1 && count % 6 == 0) {
+        legend_output += "</ul>\n</td>\n<td>\n<ul>\n";
+      }
+      legend_output += `<li class="legenditem" id ="btn-${dict[key]}">\n
+                        <div class ="colorBox btn-${dict[key]}"></div>`;
+      legend_output += key + "</li>\n";
+      count++;
     }
-    if (count > 1 && count % 6 == 0) {
-      legend_output += "</ul>\n</td>\n<td>\n<ul>\n";
-    }
-    legend_output += `<li class="legenditem" id ="btn-${dict[key]}">\n`;
-    legend_output += `<div class ="colorBox btn-${dict[key]}"></div>`;
-    legend_output += key;
-    legend_output += "</li>\n";
-    count++;
   }
   return legend_output;
 }
@@ -253,7 +238,6 @@ function elementInformation(currentelement) {
     if (elementInformation != null && elementInformation != "") {
       elementinformation_output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>\n`;
     }
-    return;
   }
   let elementinformation_output = "<ul>";
   elementFact("Atomic Number", currentelement["number"]);
@@ -273,7 +257,7 @@ function elementInformation(currentelement) {
   elementFact("Phase (Room Temperature)", currentelement["phase"]);
   elementFact("Boiling Point", currentelement["boil"], " K");
   elementFact("Melting Point", currentelement["melt"], " K");
-  elementFact("Density", currentelement["density"], "g/L</li>");
+  elementFact("Density", currentelement["density"], "g/L");
   elementFact("Electronegativity", currentelement["electronegativity"]);
   elementFact("Atomic Radius", currentelement["atomicRadius"], "&#197;");
   elementFact("Ionization Energy", currentelement["ionizationEnergy"], "eV");

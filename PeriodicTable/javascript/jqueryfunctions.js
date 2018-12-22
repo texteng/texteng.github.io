@@ -49,7 +49,7 @@ $(document).on("click", ".view", function() {
       '<button class="nav-link btn btn-link standard active">Standard</button>'
     );
     wide = true;
-    matrix = Tablematrixwide;
+    matrix = tableMatrixWide;
     displayTable(currentcategory);
   });
 
@@ -62,7 +62,7 @@ $(document).on("click", ".view", function() {
       '<button class="nav-link btn btn-link wide active">Wide</button>'
     );
     wide = false;
-    matrix = Tablematrix;
+    matrix = tableMatrix;
     displayTable(currentcategory);
   });
 
