@@ -256,11 +256,10 @@ class Pacman{
 }
 
 function death(){
-    let {x, y} = currentPacMan;
-    if((currentWorld.monsterlocationtable[y][x] > 0)){
+    if((currentWorld.monsterlocationtable[currentPacMan.y][currentPacMan.x] > 0)){
         currentPacMan.lives -=1;
         //Moves PacMan back to the center when he dies x= 5, y =5 in easy level, x=7 y =7 in hard level
-        x = 7; y = 7;
+        currentPacMan.x = currentPacMan.y = 7;
         currentPacMan.display().displayLives();
     }
     if (currentPacMan.lives <= 0){
