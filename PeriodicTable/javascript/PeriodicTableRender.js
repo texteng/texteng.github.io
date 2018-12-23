@@ -94,7 +94,7 @@ function displayTable() {
 
 //***************************Renders Each Element*******************************
 function displayElement(atomicNumber, row, column) {
-  var currentelement = PeriodicTable[atomicNumber - 1];
+  let { number, symbol, atomic_mass, name } = currentelement = PeriodicTable[atomicNumber - 1];
   let element_output = "";
   element_output = `<button id="${atomicNumber}" `; //Determines button ID
   element_output += 'class= "element boxsize '; //Below are the classes added to elements
@@ -121,18 +121,14 @@ function displayElement(atomicNumber, row, column) {
   element_output += 'data-toggle="modal" data-target="#ElementDisplayModal">\n'; //Allows information to be displayed in modal
 
   //Information found inside element
-  element_output += `<h6 class = "atomicnumber">${
-    currentelement["number"]
-  }</h6>\n`;
-  element_output += `<h3 class = "elementsymbol">${
-    currentelement["symbol"]
-  }</h3>\n`;
+  element_output += `<h6 class = "atomicnumber">${number}</h6>\n`;
+  element_output += `<h3 class = "elementsymbol">${symbol}</h3>\n`;
 
   if (currentcategory == "groupBlock" || currentcategory == "category") {
-    element_output += `<h6>${displayAtomicMass(currentelement["atomic_mass"])}</h6>\n`;
-    element_output += `<h6 class = "elementname">${currentelement["name"]}`;
+    element_output += `<h6>${displayAtomicMass(atomic_mass)}</h6>\n`;
+    element_output += `<h6 class = "elementname">${name}`;
   } else {
-    element_output += `<h6 class = "characterisitc">${currentelement[currentcategory]}`;
+    element_output += `<h6 class = "characterisitc">${currentelement}`;
   }
   element_output += "</h6>\n</button>";
 
@@ -151,18 +147,19 @@ function displayAtomicMass(MassNumber) {
 
 function determineColor(currentelement) {
   let currentDict = colorLibrary(); //Function found in color libraries
+  category = currentelement[currentcategory];
   for (let index in currentDict) {
-    if (typeof currentelement[currentcategory] == "string") {
+    if (typeof category == "string") {
       if (
-        currentelement[currentcategory].includes("unknown") ||
-        currentelement[currentcategory] == ""
+        category.includes("unknown") ||
+        category == ""
       ) {
         return "light";
       }
-      return currentDict[currentelement[currentcategory]];
-    } else if (currentelement[currentcategory] == null) {
+      return currentDict[category];
+    } else if (category == null) {
       return "light";
-    } else if (currentelement[currentcategory] <= index) {
+    } else if (category <= index) {
       return currentDict[index];
     }
   }
@@ -205,7 +202,7 @@ function displayColumnLabel(column) {
 function displayLegend() {
   var dict = colorLibrary(currentcategory); //Function found in color libraries
   let legend_output = "";
-  legend_output += `<h4>${dict["title"]}</h4>`;
+  legend_output += `<h4>${dict.title}</h4>`;
   legend_output += '<table class = "legend">';
   legend_output += '<tr>\n<td class= "align-top">\n<ul>\n';
   var count = 0;
@@ -225,10 +222,10 @@ function displayLegend() {
 
 //************************************** Modal Functions *******************************************
 $(document).on("click", ".element", function() {
-  elementId = this.id;
+  let elementId = this.id;
   if (elementId != "lanth" && elementId != "actin") {
-    let currentelement = PeriodicTable[elementId - 1];
-    $(".modal-title").html(`${currentelement["name"]} (${currentelement["symbol"]}) `);
+    let {name, symbol} = currentelement = PeriodicTable[elementId - 1];
+    $(".modal-title").html(`${name} (${symbol}) `);
     $(".modal-body").html(elementInformation(currentelement));
   }
 });
@@ -239,37 +236,32 @@ function elementInformation(currentelement) {
       elementinformation_output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>\n`;
     }
   }
+  let { number, category, groupBlock, atomic_mass, appearance, phase, boil, melt, density, electronegativity, atomicRadius, ionizationEnergy, electronAffinity, bondingType, discovered_by, yearDiscovered, summary, source} = currentelement;
   let elementinformation_output = "<ul>";
-  elementFact("Atomic Number", currentelement["number"]);
+  elementFact("Atomic Number", number);
   elementinformation_output += `<li><span class= 'font-weight-bold'>Category: </span>`;
-  elementinformation_output += currentelement["category"];
-  if (
-    !currentelement["category"].includes(currentelement["groupBlock"]) &&
-    currentelement["groupBlock"] != "lanthanoid" &&
-    currentelement["groupBlock"] != "actinoid"
-  ) 
+  elementinformation_output += category;
+  if (!category.includes(groupBlock) && groupBlock != "lanthanoid" && groupBlock != "actinoid") 
     {
-      elementinformation_output += ", " + currentelement["groupBlock"];
+      elementinformation_output += ", " + groupBlock;
     }
   elementinformation_output += `</li>\n`;
-  elementFact("Atomic Mass (amu)", currentelement["atomic_mass"]);
-  elementFact("Appearance", currentelement["appearance"]);
-  elementFact("Phase (Room Temperature)", currentelement["phase"]);
-  elementFact("Boiling Point", currentelement["boil"], " K");
-  elementFact("Melting Point", currentelement["melt"], " K");
-  elementFact("Density", currentelement["density"], "g/L");
-  elementFact("Electronegativity", currentelement["electronegativity"]);
-  elementFact("Atomic Radius", currentelement["atomicRadius"], "&#197;");
-  elementFact("Ionization Energy", currentelement["ionizationEnergy"], "eV");
-  elementFact("Electron Affinity", currentelement["electronAffinity"],"E<sub>A</sub>");
-  elementFact("Bonding Type", currentelement["bondingType"]);
-  elementFact("Discovered by", currentelement["discovered_by"], "(" + currentelement["yearDiscovered"] + ")");
+  elementFact("Atomic Mass (amu)", atomic_mass);
+  elementFact("Appearance", appearance);
+  elementFact("Phase (Room Temperature)", phase);
+  elementFact("Boiling Point", boil, " K");
+  elementFact("Melting Point", melt, " K");
+  elementFact("Density", density, "g/L");
+  elementFact("Electronegativity", electronegativity);
+  elementFact("Atomic Radius", atomicRadius, "&#197;");
+  elementFact("Ionization Energy", ionizationEnergy, "eV");
+  elementFact("Electron Affinity", electronAffinity,"E<sub>A</sub>");
+  elementFact("Bonding Type", bondingType);
+  elementFact("Discovered by", discovered_by, "(" + yearDiscovered + ")");
   // elementFact("Electron Configuration", electronConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
   // elementFact("Nobel Gas Configuration", nobelGasConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
   elementinformation_output += "</ul>\n";
-  elementinformation_output += currentelement["summary"];
-  elementinformation_output += `<br><span class= 'font-weight-bold'>For More information see </span><a href="${
-    currentelement["source"]
-  }">${currentelement["source"]}</a>`;
+  elementinformation_output += summary;
+  elementinformation_output += `<br><span class= 'font-weight-bold'>For More information see </span><a href="${source}">${source}</a>`;
   return elementinformation_output;
 }
