@@ -49,6 +49,7 @@ class World{
         this.coinValue = 10;
         this.cherryValue = 50;
         this.numberofedibles= this.calculateEdibles();
+        this.tiles = ["empty", "coin", "brick", "cherry"];
         this.createMonsters();
         document.getElementById("header").style.width = (this.worldRowLength) * this.standardsize +"px";
         document.getElementById("scorebox").style.width = (this.worldRowLength-2) * this.standardsize +"px";
@@ -67,14 +68,9 @@ class World{
     createMonsters(){
         let monsterdivs = "";
         for(var i in this.monsterlocations){
+            let {x, y, direction, strategy} = this.monsterlocations[i]
             monsterdivs +="<div id='m"+ i + "' class='monster'></div>\n"
-            this.monsterlocations[i] = new Monster(
-                i, 
-                this.monsterlocations[i].x,
-                this.monsterlocations[i].y,
-                this.monsterlocations[i].direction,
-                this.monsterlocations[i].strategy
-                )
+            this.monsterlocations[i] = new Monster(i, x, y, direction, strategy)
         }
         document.getElementById('m').innerHTML= monsterdivs;
         return this;
@@ -104,20 +100,7 @@ class World{
         for(let row of this.world){
             output += "\n<div class = 'row'\n>";
             for(let section of row){
-                switch (section) {
-                    case 0:
-                    output += "<div class='empty'></div>";
-                    break;
-                    case 1:
-                    output += "<div class='coin'></div>";
-                    break;
-                    case 2:
-                    output += "<div class='brick'></div>";
-                    break;
-                    case 3:
-                    output += "<div class='cherry'></div>";
-                    break;
-                }
+                output += `<div class='${this.tiles[section]}'></div>`;
             }
             output += "\n</div>";
         }
@@ -273,10 +256,11 @@ class Pacman{
 }
 
 function death(){
-    if((currentWorld.monsterlocationtable[currentPacMan.y][currentPacMan.x] > 0)){
+    let {x, y} = currentPacMan;
+    if((currentWorld.monsterlocationtable[y][x] > 0)){
         currentPacMan.lives -=1;
         //Moves PacMan back to the center when he dies x= 5, y =5 in easy level, x=7 y =7 in hard level
-        currentPacMan.x = currentPacMan.y = 7;
+        x = 7; y = 7;
         currentPacMan.display().displayLives();
     }
     if (currentPacMan.lives <= 0){
