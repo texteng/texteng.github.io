@@ -119,26 +119,26 @@
 
 @include algorithmic-color-scheme(
     "electronegativity", // button name
-    4, // number of increments
+    10, // number of increments
     2, // original hue
-    20, // hue increment
-    70, // initial saturation percent
-    7, // saturation percent increment
-    40, // initial lightness percent
-    10, // lightness percent increment
+    6, // hue increment
+    50, // initial saturation percent
+    5, // saturation percent increment
+    20, // initial lightness percent
+    8, // lightness percent increment
     55 // whitetext threshhold
 );
 
 @include algorithmic-color-scheme(
     "atomicRadius", // button name
-    7, // number of increments
-    340, // original hue
-    40, // hue increment
+    9, // number of increments
+    320, // original hue
+    14, // hue increment
     80, // initial saturation percent
-    0, // saturation percent increment
-    70, // initial lightness percent
-    -10, // lightness percent increment
-    30 // whitetext threshhold
+    -4, // saturation percent increment
+    50, // initial lightness percent
+    4, // lightness percent increment
+    50 // whitetext threshhold
 );
 
 @include algorithmic-color-scheme(
@@ -155,13 +155,13 @@
 
 @include algorithmic-color-scheme(
     "ionizationEnergy", // button name
-    7, // number of increments
-    308, // original hue
-    -25, // hue increment
+    10, // number of increments
+    340, // original hue
+    -22, // hue increment
     70, // initial saturation percent
-    2, // saturation percent increment
-    20, // initial lightness percent
-    10, // lightness percent increment
+    -7, // saturation percent increment
+    15, // initial lightness percent
+    8, // lightness percent increment
     60 // whitetext threshhold
 );
 

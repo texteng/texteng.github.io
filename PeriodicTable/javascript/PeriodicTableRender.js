@@ -151,8 +151,8 @@ function determineColor(currentelement) {
   let currentDict = colorLibrary(); //Function found in color libraries
   category = currentelement[currentcategory];
   for (let index in currentDict) {
-      if (typeof index == "string" && index.charAt(0) === "-"){
-        index= parseInt(index);
+      if (typeof index == "string" && index.charAt(0) === "-" || index.charAt(1) =="."){
+        index= parseFloat(index);
         //console.log("category ", category);
       } 
       if (typeof category == "string") {
@@ -239,7 +239,7 @@ $(document).on("click", ".element", function() {
 
 function elementInformation(currentelement) {
   function elementFact(title, elementInformation, units = "") {
-    if (elementInformation !== null && elementInformation != "") {
+    if ((elementInformation !== null && elementInformation != "") || elementInformation === 0 ) {
       elementinformation_output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>\n`;
     }
   }

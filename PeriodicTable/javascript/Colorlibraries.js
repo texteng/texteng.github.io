@@ -109,22 +109,30 @@ const bondtypeDict = {
 
 const electronegativityDict = {
     "title":"Electronegativity",
-    1: "electronegativity-1",
-    2: "electronegativity-2",
-    3: "electronegativity-3", 
-    4: "electronegativity-4"
+    " 0.75": "electronegativity-1",
+    " 1.0": "electronegativity-2",
+    " 1.25": "electronegativity-3",
+    " 1.5": "electronegativity-4",
+    " 1.75": "electronegativity-5", 
+    " 2.0": "electronegativity-6", 
+    " 2.5": "electronegativity-7",
+    " 3.0": "electronegativity-8",
+    " 3.5": "electronegativity-9",
+    " 4.0": "electronegativity-10",
 }
 
 const atomicRadiusDict = {
     "title":"Atomic Radius (Angstroms &#197;) ",
     "Unknown": "light",
-    50: "atomicRadius-1",
-    100: "atomicRadius-2",
-    125: "atomicRadius-3",
-    150: "atomicRadius-4",
-    175: "atomicRadius-5",
-    200: "atomicRadius-6",
-    250: "atomicRadius-7",
+    40: "atomicRadius-1",
+    80: "atomicRadius-2",
+    100: "atomicRadius-3",
+    120: "atomicRadius-4",
+    140: "atomicRadius-5",
+    160: "atomicRadius-6",
+    180: "atomicRadius-7",
+    200: "atomicRadius-8",
+    240: "atomicRadius-9",
 }
 
 const vanDelWaalsRadiusDict = {
@@ -142,13 +150,16 @@ const vanDelWaalsRadiusDict = {
 const ionizationEnergyDict = {
     "title":"Ionization Energy (Electron Volts eV)",
     "Unknown": "light",
-    500: "ionizationEnergy-1",
-    750: "ionizationEnergy-2",
-    1000: "ionizationEnergy-3",
-    1250: "ionizationEnergy-4",
-    1500: "ionizationEnergy-5",
-    2000: "ionizationEnergy-6",
-    2500: "ionizationEnergy-7",
+    400: "ionizationEnergy-1",
+    500: "ionizationEnergy-2",
+    600: "ionizationEnergy-3",
+    700: "ionizationEnergy-4",
+    800: "ionizationEnergy-5",
+    900: "ionizationEnergy-6",
+    1000: "ionizationEnergy-7",
+    1400: "ionizationEnergy-8",
+    1800: "ionizationEnergy-9",
+    2400: "ionizationEnergy-10",
 }
 // const electronAffinityDict= {
 //     "None": "light",
@@ -161,12 +172,12 @@ const electronAffinityDict= {
     "-250": "electronAffinity-1",
     "-200": "electronAffinity-2",
     "-150": "electronAffinity-3",
-    "-125": "electronAffinity-4",
-    "-100": "electronAffinity-5",
-    "-75": "electronAffinity-6",
-    "-50": "electronAffinity-7",
-    "-25": "electronAffinity-8",
-    "-1": "electronAffinity-9",
+    "-100": "electronAffinity-4",
+    "-80": "electronAffinity-5",
+    "-60": "electronAffinity-6",
+    "-40": "electronAffinity-7",
+    "-20": "electronAffinity-8",
+    "-5": "electronAffinity-9",
     " 0": "electronAffinity-10"
 }
 
