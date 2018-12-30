@@ -1,20 +1,20 @@
 #container {
-  padding: 0px;
+  padding: 0;
 }
 
 #table {
   background-color: white;
   display: block;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 .row {
   background-color: white;
   display: block;
-  padding: 0px;
-  margin: 0px;
-  margin: 0px !important;
+  padding: 0;
+  margin: 0;
+  margin: 0 !important;
 }
 
 #mobile {
@@ -22,7 +22,7 @@
 }
 
 button.element {
-  padding: 0px;
+  padding: 0;
   display: inline-block;
   text-align: center;
   border-style: solid;
@@ -30,13 +30,12 @@ button.element {
   border-width: 1px;
   border-color: lightgray;
 }
+button.element .characteristic {
+  text-transform: capitalize;
+}
 button.element h6 {
   font-size: 9px;
   margin: 2px;
-}
-button.element h6 .characteristic {
-  text-transform: capitalize;
-  font-weight: bolder;
 }
 button.element.h6.atomicnumber {
   font-size: 10px;
@@ -53,18 +52,18 @@ button.element .elementsymbol {
 }
 
 div.blank div.smallblank {
-  margin: 0px;
+  margin: 0;
   background-color: white;
   display: inline-block;
 }
 div.rowlabel {
-  margin: 0px;
+  margin: 0;
   background-color: white;
   display: inline-block;
   text-align: left;
 }
 div.columnlabel {
-  margin: 0px;
+  margin: 0;
   background-color: white;
   display: inline-block;
   padding: 6px 2px 2px 2px;
@@ -95,7 +94,7 @@ div.columnlabel {
   vertical-align: top;
 }
 #legend .legend .colorBox {
-  padding: 0px;
+  padding: 0;
   display: inline-block;
   text-align: center;
   margin-right: 5px;

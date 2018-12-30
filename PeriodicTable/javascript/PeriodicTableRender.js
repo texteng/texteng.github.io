@@ -1,3 +1,4 @@
+//import {colorLibrary} from './Colorlibraries';
 //See jqueryfunctions for interactive portions
 const tableMatrix = [
     ["thin", "CL", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "CL"],
@@ -26,10 +27,11 @@ const tableMatrixWide = [
 
 var wide = false;
 var matrix = tableMatrix; //Table by default is normal sized.
-var currentcategory = "category";
+// var currentcategory = "category";
+var currentcategory= "category";
 
 //*************Starts Rendering Process*******************
-displayTable(currentcategory);
+displayTable();
 
 //*********************************Renders Table************************
 function displayTable() {
@@ -128,7 +130,7 @@ function displayElement(atomicNumber, row, column) {
     element_output += `<h6>${displayAtomicMass(atomic_mass)}</h6>\n`;
     element_output += `<h6 class = "elementname">${name}`;
   } else {
-    element_output += `<h6 class = "characterisitc">${currentelement}`;
+    element_output += `<h6 class = "characteristic">${currentelement[currentcategory]}`;
   }
   element_output += "</h6>\n</button>";
 
@@ -149,19 +151,24 @@ function determineColor(currentelement) {
   let currentDict = colorLibrary(); //Function found in color libraries
   category = currentelement[currentcategory];
   for (let index in currentDict) {
-    if (typeof category == "string") {
-      if (
-        category.includes("unknown") ||
-        category == ""
-      ) {
+      if (typeof index == "string" && index.charAt(0) === "-"){
+        index= parseInt(index);
+        console.log("category ", category);
+      } 
+      if (typeof category == "string") {
+        if (
+          category.includes("unknown") ||
+          category == ""
+        ) {
+          return "light";
+        }
+        return currentDict[category];
+      } else if (category == null) {
         return "light";
+      } else if (category <= index) {
+        return currentDict[index];
       }
-      return currentDict[category];
-    } else if (category == null) {
-      return "light";
-    } else if (category <= index) {
-      return currentDict[index];
-    }
+
   }
 }
 
@@ -232,11 +239,13 @@ $(document).on("click", ".element", function() {
 
 function elementInformation(currentelement) {
   function elementFact(title, elementInformation, units = "") {
-    if (elementInformation != null && elementInformation != "") {
+    if ((elementInformation !== null && elementInformation != "") || elementInformation === 0 ) {
       elementinformation_output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>\n`;
     }
   }
-  let { number, category, groupBlock, atomic_mass, appearance, phase, boil, melt, density, electronegativity, atomicRadius, ionizationEnergy, electronAffinity, bondingType, discovered_by, yearDiscovered, summary, source} = currentelement;
+  let { number, category, groupBlock, atomic_mass, appearance, phase, boil, melt, 
+    molar_heat, density, electronegativity, atomicRadius, ionRadius, vanDelWaalsRadius, ionizationEnergy, electronAffinity, 
+    bondingType, discovered_by, named_by, yearDiscovered, summary, source} = currentelement;
   let elementinformation_output = "<ul>";
   elementFact("Atomic Number", number);
   elementinformation_output += `<li><span class= 'font-weight-bold'>Category: </span>`;
@@ -251,13 +260,17 @@ function elementInformation(currentelement) {
   elementFact("Phase (Room Temperature)", phase);
   elementFact("Boiling Point", boil, " K");
   elementFact("Melting Point", melt, " K");
+  elementFact("Molar Heat", molar_heat, " C");
   elementFact("Density", density, "g/L");
   elementFact("Electronegativity", electronegativity);
   elementFact("Atomic Radius", atomicRadius, "&#197;");
+  elementFact("Ionic Radius", ionRadius, "&#197;")
+  elementFact("Van der Waals Radius", vanDelWaalsRadius, "&#197;")
   elementFact("Ionization Energy", ionizationEnergy, "eV");
-  elementFact("Electron Affinity", electronAffinity,"E<sub>A</sub>");
+  elementFact("Electron Affinity", electronAffinity,"kJ/mol");
   elementFact("Bonding Type", bondingType);
   elementFact("Discovered by", discovered_by, "(" + yearDiscovered + ")");
+  elementFact("Named by", named_by);
   // elementFact("Electron Configuration", electronConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
   // elementFact("Nobel Gas Configuration", nobelGasConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
   elementinformation_output += "</ul>\n";

@@ -59,12 +59,12 @@
 }
 @media only screen and (min-width: 481px) {
   div.rowlabel {
-    padding: 13.3333333333px 0px;
+    padding: 13.3333333333px 0;
   }
 }
 @media only screen and (min-width: 1017.5px) {
   div.rowlabel {
-    padding: 18.3333333333px 0px;
+    padding: 18.3333333333px 0;
   }
 }
 
@@ -78,7 +78,7 @@
     font-size: 10px;
     font-weight: bold;
     font-family: "Helvetica Narrow", "Arial Narrow";
-    margin: 0px;
+    margin: 0;
     display: block;
   }
 }
@@ -114,7 +114,7 @@
 @media only screen and (min-width: 481px) {
   #legend .legend li {
     font-size: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 1017.5px) {

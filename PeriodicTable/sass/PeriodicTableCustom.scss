@@ -1,63 +1,63 @@
-$MDstandardboxwidth:40px;
-$MDstandardboxheight:55px; 
-$MDcontainerwidth: $MDstandardboxwidth * 18.50;
+$mdStandardBoxWidth:40px;
+$mdStandardBoxHeight:55px; 
+$mdContainerWidth: $mdStandardBoxWidth * 18.50;
 
-$LGstandardboxwidth:55px;
-$LGstandardboxheight:75px;
-$LGcontainerwidth: $LGstandardboxwidth * 18.50;
+$lgStandardBoxWidth:55px;
+$lgStandardBoxHeight:75px;
+$lgContainerWidth: $lgStandardBoxWidth * 18.50;
 
 @mixin respond-to($media) {
   @if $media == condensed {
     @media only screen and (min-width: 481px) { @content; }
   }
   @else if $media == "full" {
-    @media only screen and (min-width: $LGcontainerwidth) { @content; }
+    @media only screen and (min-width: $lgContainerWidth) { @content; }
   }
 }
 
 #container {
-  @include respond-to("condensed") {max-width: $MDcontainerwidth;}
-  @include respond-to("full") {max-width: $LGcontainerwidth;}
+  @include respond-to("condensed") {max-width: $mdContainerWidth;}
+  @include respond-to("full") {max-width: $lgContainerWidth;}
 }
 #table {
-  @include respond-to("condensed") {width: $MDcontainerwidth;}
-  @include respond-to("full") {width: $LGcontainerwidth;}
+  @include respond-to("condensed") {width: $mdContainerWidth;}
+  @include respond-to("full") {width: $lgContainerWidth;}
 }
 
 .boxsize {
   @include respond-to("condensed") {
-    width: $MDstandardboxwidth !important;
-    height: $MDstandardboxheight !important;
+    width: $mdStandardBoxWidth !important;
+    height: $mdStandardBoxHeight !important;
   }
   @include respond-to("full") {
-    width: $LGstandardboxwidth !important;
-    height: $LGstandardboxheight !important;
+    width: $lgStandardBoxWidth !important;
+    height: $lgStandardBoxHeight !important;
   }
 }
 div{
   &.thin {
     @include respond-to("condensed") {
-      width: $MDstandardboxwidth * .5 !important;
-      height: $MDstandardboxheight !important;
+      width: $mdStandardBoxWidth * .5 !important;
+      height: $mdStandardBoxHeight !important;
     }
     @include respond-to("full") {
-      width: $LGstandardboxwidth*.5 !important;
-      height: $LGstandardboxheight !important;
+      width: $lgStandardBoxWidth*.5 !important;
+      height: $lgStandardBoxHeight !important;
     }
   }
   &.smallblank {
     @include respond-to("condensed") {
-      width: $MDstandardboxwidth;
-      height: $MDstandardboxwidth/4;
+      width: $mdStandardBoxWidth;
+      height: $mdStandardBoxWidth/4;
     }
     @include respond-to("full") {
-      width: $LGstandardboxwidth;
-      height: $LGstandardboxwidth/4;
+      width: $lgStandardBoxWidth;
+      height: $lgStandardBoxWidth/4;
     }
   }
   &.rowlabel {
-    @include respond-to("condensed") {padding: $MDstandardboxwidth/3 0px ;}    
-    @include respond-to("full") {padding: $LGstandardboxwidth/3 0px ;}
+    @include respond-to("condensed") {padding: $mdStandardBoxWidth/3 0 ;}    
+    @include respond-to("full") {padding: $lgStandardBoxWidth/3 0 ;}
   }
 }
 
@@ -69,23 +69,23 @@ h6.elementname {
       weight: bold;
       family: "Helvetica Narrow", "Arial Narrow";
     }
-    margin: 0px;
+    margin: 0;
     display: block;
   }
 }
 
 #legend {
   @include respond-to("condensed") {
-    width: $MDstandardboxwidth*10;
-    height: $MDstandardboxheight*3;
-    left: $MDstandardboxwidth*2.75;
-    top: -$MDstandardboxheight*10.25;
+    width: $mdStandardBoxWidth*10;
+    height: $mdStandardBoxHeight*3;
+    left: $mdStandardBoxWidth*2.75;
+    top: -$mdStandardBoxHeight*10.25;
   }    
   @include respond-to("full") {
-    width: $LGstandardboxwidth*10;
-    height: $LGstandardboxheight*3;
-    left: $LGstandardboxwidth*2.75;
-    top: -$LGstandardboxheight*10.25;
+    width: $lgStandardBoxWidth*10;
+    height: $lgStandardBoxHeight*3;
+    left: $lgStandardBoxWidth*2.75;
+    top: -$lgStandardBoxHeight*10.25;
   }
   .colorBox {
     @include respond-to("condensed") {
@@ -100,7 +100,7 @@ h6.elementname {
   .legend li {
     @include respond-to("condensed") {
       font-size: 10px;
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
     @include respond-to("full") {
       font-size: 14px;

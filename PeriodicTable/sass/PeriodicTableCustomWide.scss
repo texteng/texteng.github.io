@@ -1,28 +1,28 @@
-$Wideboxwidth:36px;
-$Wideboxheight:50px; 
-$Widecontainerwidth: $Wideboxwidth * 32.50;
+$wideBoxWidth:36px;
+$wideBoxHeight:50px; 
+$wideContainerWidth: $wideBoxWidth * 32.50;
 
 @media only screen and (min-width: 481px) {
   #container{
-    max-width: $Widecontainerwidth;
+    max-width: $wideContainerWidth;
   }
 
   #table {
-    width: $Widecontainerwidth;
+    width: $wideContainerWidth;
   }
 
   .boxsize {
-    width: $Wideboxwidth !important;
-    height: $Wideboxheight !important;
+    width: $wideBoxWidth !important;
+    height: $wideBoxHeight !important;
   }
   div{
     .thin {
-        width: $Wideboxwidth*.50 !important;
-        height: $Wideboxheight !important;
+        width: $wideBoxWidth*.50 !important;
+        height: $wideBoxHeight !important;
       }
 
     .rowlabel {
-      padding: $Wideboxwidth/3 0px ;
+      padding: $wideBoxWidth/3 0;
       // padding: 15px;
     }
   }
@@ -32,10 +32,10 @@ $Widecontainerwidth: $Wideboxwidth * 32.50;
   }
 
 #legend {
-  width: $Wideboxwidth*13;
-  height: $Wideboxheight*3;
-  left: $Wideboxwidth*2.75;
-  top: -$Wideboxheight*8;
+  width: $wideBoxWidth*13;
+  height: $wideBoxHeight*3;
+  left: $wideBoxWidth*2.75;
+  top: -$wideBoxHeight*8;
 
   table.legend {
     border-style: hidden;

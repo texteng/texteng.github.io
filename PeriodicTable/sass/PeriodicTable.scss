@@ -1,13 +1,12 @@
-$nopixels: 0px;
 @mixin basicbackground { 
     background-color: white;
     display: block;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 #container {
-  padding: 0px;
+  padding: 0;
 }
 
 #table {
@@ -16,7 +15,7 @@ $nopixels: 0px;
   
 .row {
   @include basicbackground;
-  margin: 0px !important;
+  margin: 0 !important;
 }
   
 #mobile {
@@ -24,7 +23,7 @@ $nopixels: 0px;
 }
   
 button.element {
-    padding: $nopixels;
+    padding: 0;
     display: inline-block;
     text-align: center;
     border: {
@@ -34,14 +33,13 @@ button.element {
       color: lightgray;
     }
 
+    .characteristic{
+      text-transform: capitalize;
+    }
 
     h6 {
       font-size: 9px;
       margin: 2px;
-      .characteristic{
-        text-transform: capitalize;
-        font-weight: bolder;
-      }
     }
     &.h6.atomicnumber {
       font: {
@@ -66,7 +64,7 @@ button.element {
   
 div {
   @mixin blankstyle {
-    margin: $nopixels;
+    margin: 0;
     background-color: white;
     display: inline-block;
   }
@@ -109,7 +107,7 @@ div {
         vertical-align: top;
         }
         .colorBox {
-            padding: $nopixels;
+            padding: 0;
             display: inline-block;
             text-align: center;
             margin-right: 5px;

@@ -36,7 +36,7 @@ $(document).on("click", ".view", function() {
   $("#" + currentcategory).removeClass("active");
   currentcategory = this.id;
   $("#" + currentcategory).addClass("active");
-  console.log(this.id);
+  //console.log(this.id);
   displayTable(currentcategory);
 });
 
