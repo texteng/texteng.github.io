@@ -153,7 +153,7 @@ function determineColor(currentelement) {
   for (let index in currentDict) {
       if (typeof index == "string" && index.charAt(0) === "-"){
         index= parseInt(index);
-        console.log("category ", category);
+        //console.log("category ", category);
       } 
       if (typeof category == "string") {
         if (
@@ -239,7 +239,7 @@ $(document).on("click", ".element", function() {
 
 function elementInformation(currentelement) {
   function elementFact(title, elementInformation, units = "") {
-    if ((elementInformation !== null && elementInformation != "") || elementInformation === 0 ) {
+    if (elementInformation !== null && elementInformation != "") {
       elementinformation_output += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>\n`;
     }
   }
