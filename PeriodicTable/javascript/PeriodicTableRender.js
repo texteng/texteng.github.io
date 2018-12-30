@@ -137,14 +137,14 @@ function displayElement(atomicNumber, row, column) {
   return element_output;
 }
 
-function displayAtomicMass(MassNumber) {
-  if ((MassNumber * 1000) % 1 != 0) {
-    return MassNumber.toFixed(3);
-  } else if (MassNumber % 1 == 0) {
-    return `(${MassNumber})`;
+function displayAtomicMass(massNumber) {
+  if ((massNumber * 1000) % 1 != 0) {
+    return massNumber.toFixed(3);
+  } else if (massNumber % 1 == 0) {
+    return `(${massNumber})`;
   }
 
-  return MassNumber;
+  return massNumber;
 }
 
 function determineColor(currentelement) {

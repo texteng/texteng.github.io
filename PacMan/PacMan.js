@@ -46,10 +46,9 @@ class World{
         ];
         this.monsterlocationtable = this.createMonsterTable();
         this.standardsize = 40;
-        this.coinValue = 10;
-        this.cherryValue = 50;
         this.numberofedibles= this.calculateEdibles();
         this.tiles = ["empty", "coin", "brick", "cherry"];
+        this.pointValues = {1: 10, 3: 50}
         this.createMonsters();
         document.getElementById("header").style.width = (this.worldRowLength) * this.standardsize +"px";
         document.getElementById("scorebox").style.width = (this.worldRowLength-2) * this.standardsize +"px";
@@ -219,26 +218,36 @@ class Pacman{
     }
     move(direction){
         this.direction = direction;
-             if(direction == "L"){this.x--;}
-        else if(direction == "R"){this.x++;}
-        else if(direction == "U"){this.y--;}
-        else if(direction == "D"){this.y++;}
-        if (this.currentlocationinformation() == 1){
-            currentWorld.world[this.y][this.x] = 0;
-            currentWorld.numberofedibles--;
-            this.score += 10;
+        if(direction == "L" && currentWorld.world[this.y][this.x-1]!=2){
+            this.x--;
         }
-        else if (this.currentlocationinformation() == 3){
-            currentWorld.world[this.y][this.x] = 0;
-            currentWorld.numberofedibles--;
-            this.score += 50;
+        else if(direction == "R" && currentWorld.world[this.y][this.x+1]!=2){
+            this.x++;
         }
-        // console.log("your score is", this.score);
+        else if(direction == "U" && currentWorld.world[this.y-1][this.x]!=2){
+            this.y--;
+        }
+        else if(direction == "D" && currentWorld.world[this.y+1][this.x]!=2){
+            this.y++;
+        }
+        this.eat();
         currentWorld.display();
         this.display().displayScore();
         death();
         return this;
     }
+    eat() {
+        let location = this.currentlocationinformation();
+        for(let points in currentWorld.pointValues){
+            if(location == points){
+                currentWorld.world[this.y][this.x] = 0;
+                currentWorld.numberofedibles--;
+                this.score += currentWorld.pointValues[points];
+                return;
+            }
+        }
+    }
+
     display(){
         document.getElementById('pacman').style.left = this.x*currentWorld.standardsize-(currentWorld.standardsize/10)+"px";
         document.getElementById('pacman').style.top = this.y*currentWorld.standardsize+(1.75*currentWorld.standardsize)+"px";
@@ -273,21 +282,15 @@ currentWorld.display();
 currentPacMan.display();
 
 document.onkeydown = function(e){
-    //left
-    if((e.keyCode == 37 || e.keyCode == 65 || e.keyCode == 100 )&& currentWorld.world[currentPacMan.y][currentPacMan.x-1]!=2){
-        currentPacMan.move("L")
-    }
-    //right
-    else if((e.keyCode == 39 || e.keyCode == 68 || e.keyCode == 102) && currentWorld.world[currentPacMan.y][currentPacMan.x+1]!=2){
-        currentPacMan.move("R")
-    }
-    //up
-    else if((e.keyCode == 38 || e.keyCode == 87 || e.keyCode == 104 )&& currentWorld.world[currentPacMan.y-1][currentPacMan.x]!=2){
-        currentPacMan.move("U")
-    }
-    //down
-    else if((e.keyCode == 40|| e.keyCode == 83 || e.keyCode == 98 ) && currentWorld.world[currentPacMan.y+1][currentPacMan.x]!=2){
-        currentPacMan.move("D")
+    switch (e.keyCode) {
+        case 37: case 65: case 100:
+            currentPacMan.move("L"); break;
+        case 39: case 68: case 102:
+            currentPacMan.move("R"); break;
+        case 38: case 87: case 104:
+            currentPacMan.move("U"); break;
+        case 40: case 83: case 98:
+            currentPacMan.move("D"); break;
     }
 }
 
