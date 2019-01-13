@@ -77,7 +77,7 @@ class World{
 
     moveMonsters(){
         for(var currentMonster of this.monsterlocations){
-            currentMonster.move().display();
+            currentMonster.move();
         }
         return this;
     }
@@ -117,87 +117,63 @@ class Monster{
     }
 
     display(){
-        document.getElementById("m"+this.number).style.left = this.x*currentWorld.standardsize-(currentWorld.standardsize/10)+"px";
-        document.getElementById("m"+this.number).style.top = this.y*currentWorld.standardsize+(1.75*currentWorld.standardsize)+"px";
-        document.getElementById("m"+this.number).style.backgroundImage = "url('monster"+ this.direction +".gif')";
+        let {style} = document.getElementById("m"+this.number);
+        style.left = this.x*currentWorld.standardsize-(currentWorld.standardsize/10)+"px";
+        style.top = this.y*currentWorld.standardsize+(1.75*currentWorld.standardsize)+"px";
+        style.backgroundImage = "url('monster"+ this.direction +".gif')";
         return this;
     }
 
     move(){ 
+        const {monsterlocationtable} = currentWorld;
         switch (this.direction) {
             case "L":
-            if(currentWorld.world[this.y][this.x-1]!=2){
-                currentWorld.monsterlocationtable[this.y][this.x] = 0;
-                currentWorld.monsterlocationtable[this.y][this.x-1] = 1; 
-                this.x--;
-                break;
+            if(!newLocationNotWall(this)){
+                this.direction = this.strategy == "CCW" ? "D" : "U";
+                return this.move();
             }
-            else if(this.strategy == "CCW"){
-                this.direction ="D";
-                this.move();
-                break;
-            }
-            else if(this.strategy == "CW"){
-                this.direction ="U";
-                this.move();
-                break;
-            }
+               monsterlocationtable[this.y][this.x] = 0;
+               monsterlocationtable[this.y][this.x-1] = 1; 
+               this.x--;
+               break;
+
             case "D":
-            if(currentWorld.world[this.y+1][this.x]!=2){
-                currentWorld.monsterlocationtable[this.y][this.x] = 0;
-                currentWorld.monsterlocationtable[this.y+1][this.x] = 1; 
-                this.y++;
-                break;
+            if(!newLocationNotWall(this)){
+                this.direction = this.strategy == "CCW" ? "R" : "L";
+                return this.move();
             }
-            else if(this.strategy == "CCW"){
-                this.direction ="R";
-                this.move();
-                break;
-            }
-            else if (this.strategy == "CW"){
-                this.direction ="L";
-                this.move();
-                break;
-            }
+               monsterlocationtable[this.y][this.x] = 0;
+               monsterlocationtable[this.y+1][this.x] = 1; 
+               this.y++;
+               break;
+
             case "R":
-            if(currentWorld.world[this.y][this.x+1]!=2){
-                currentWorld.monsterlocationtable[this.y][this.x] = 0;
-                currentWorld.monsterlocationtable[this.y][this.x+1] = 1; 
-                this.x++;
-                break;
+            if(!newLocationNotWall(this)){
+                this.direction = this.strategy == "CCW" ? "U" : "D";
+                return this.move();
             }
-            else if(this.strategy == "CCW"){
-                this.direction ="U";
-                this.move();
-                break;
-            }
-            else if (this.strategy == "CW"){
-                this.direction ="D";
-                this.move();
-                break;
-            }
+               monsterlocationtable[this.y][this.x] = 0;
+               monsterlocationtable[this.y][this.x+1] = 1; 
+               this.x++;
+               break;
+
             case "U":
-            if(currentWorld.world[this.y-1][this.x]!=2){
-                currentWorld.monsterlocationtable[this.y][this.x] = 0;
-                currentWorld.monsterlocationtable[this.y-1][this.x] = 1; 
-                this.y--;
+            if(!newLocationNotWall(this)){
+                this.direction = this.strategy == "CCW" ? "L" : "R";
+                return this.move();
             }
-            else if(this.strategy == "CCW"){
-                this.direction ="L";
-                this.move();
-                break;
+               monsterlocationtable[this.y][this.x] = 0;
+               monsterlocationtable[this.y-1][this.x] = 1; 
+               this.y--;
+               break;
             }
-            else if (this.strategy == "CW"){
-                this.direction ="R";
-                this.move();
-                break;
-            }
-            break;
-        }
         death();
         this.display();
         return this;
+
+
     }
+
 }
 
 class Pacman{
@@ -218,17 +194,12 @@ class Pacman{
     }
     move(direction){
         this.direction = direction;
-        if(direction == "L" && currentWorld.world[this.y][this.x-1]!=2){
-            this.x--;
-        }
-        else if(direction == "R" && currentWorld.world[this.y][this.x+1]!=2){
-            this.x++;
-        }
-        else if(direction == "U" && currentWorld.world[this.y-1][this.x]!=2){
-            this.y--;
-        }
-        else if(direction == "D" && currentWorld.world[this.y+1][this.x]!=2){
-            this.y++;
+        if(direction == "L" && newLocationNotWall(this)){this.x--;}
+        else if(direction == "R" && newLocationNotWall(this)){this.x++;}
+        else if(direction == "U" && newLocationNotWall(this)){this.y--;}
+        else if(direction == "D" && newLocationNotWall(this)){this.y++;}
+        else{
+            return;
         }
         this.eat();
         currentWorld.display();
@@ -237,12 +208,13 @@ class Pacman{
         return this;
     }
     eat() {
+        const {pointValues, world} = currentWorld;
         let location = this.currentlocationinformation();
-        for(let points in currentWorld.pointValues){
+        for(let points in pointValues){
             if(location == points){
-                currentWorld.world[this.y][this.x] = 0;
+                world[this.y][this.x] = 0;
                 currentWorld.numberofedibles--;
-                this.score += currentWorld.pointValues[points];
+                this.score += pointValues[points];
                 return;
             }
         }
@@ -254,10 +226,12 @@ class Pacman{
         document.getElementById('pacman').style.backgroundImage = "url('PacMan"+ this.direction +".gif')";
         return this;
     }
+
     displayScore(){
         document.getElementById('score').innerHTML = "Score: <span>"+this.score+"</span>";
         return this;
     }
+
     displayLives(){
         document.getElementById('lives').innerHTML = "Lives: <span>"+this.lives+"</span>";
         return this;
@@ -276,6 +250,21 @@ function death(){
         return;
     }
 }
+
+function newLocationNotWall(object) {
+    switch (object.direction) {
+        case "L":
+            return currentWorld.world[object.y][object.x - 1] !== 2;
+        case "D":
+            return currentWorld.world[object.y + 1][object.x] !== 2;
+        case "R":
+            return currentWorld.world[object.y][object.x + 1] !== 2;
+        case "U":
+            return currentWorld.world[object.y - 1][object.x] !== 2;
+    }
+    return false;
+}
+
 let currentWorld = new World();
 let currentPacMan = new Pacman();
 currentWorld.display();
@@ -301,7 +290,9 @@ function gameloop(){
         document.getElementById('container').innerHTML = "<div id='gameover'><h1>Congratulations!</h1><p>Score = "+ currentPacMan.score+"</p></div>";
         return;
     }
-    setTimeout(gameloop, 200)
+    else{
+        setTimeout(gameloop, 200)
+    }
 }
 
 gameloop();
