@@ -22,7 +22,6 @@ class World{
             [2,3,1,1,1,1,1,1,1,1,1,1,1,3,2],
             [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
         ]
-
         // Strategy
         //     CCW = counterclockwise movement
         //     CW = clockwise movement
@@ -46,9 +45,13 @@ class World{
         ];
         this.monsterlocationtable = this.createMonsterTable();
         this.standardsize = 40;
+        this.worldRowLength = this.world.length;
         this.numberofedibles= this.calculateEdibles();
         this.tiles = ["empty", "coin", "brick", "cherry"];
-        this.pointValues = {1: 10, 3: 50}
+        this.pointValues = {
+                            1: 10, // Coin 
+                            3: 50 // Brick
+                            }
         this.createMonsters();
         document.getElementById("header").style.width = (this.worldRowLength) * this.standardsize +"px";
         document.getElementById("scorebox").style.width = (this.worldRowLength-2) * this.standardsize +"px";
@@ -76,21 +79,20 @@ class World{
     }
 
     moveMonsters(){
-        for(var currentMonster of this.monsterlocations){
-            currentMonster.move();
-        }
+        this.monsterlocations.forEach((currentMonster) => currentMonster.move());
         return this;
     }
     
     calculateEdibles(){
         let ediblecount = 0;
-        for(let row of this.world){
-            for(let section of row){
+        this.world.forEach(row =>
+            row.forEach(section=>{
                 if(section == 1 || section == 3 ){
                     ediblecount++;
+                    }
                 }
-            }
-        }
+            )
+        )
         return ediblecount;
     }
 
@@ -198,9 +200,7 @@ class Pacman{
         else if(direction == "R" && newLocationNotWall(this)){this.x++;}
         else if(direction == "U" && newLocationNotWall(this)){this.y--;}
         else if(direction == "D" && newLocationNotWall(this)){this.y++;}
-        else{
-            return;
-        }
+        else{return;}
         this.eat();
         currentWorld.display();
         this.display().displayScore();
