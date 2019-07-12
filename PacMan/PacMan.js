@@ -290,9 +290,7 @@ function gameloop(){
         document.getElementById('container').innerHTML = "<div id='gameover'><h1>Congratulations!</h1><p>Score = "+ currentPacMan.score+"</p></div>";
         return;
     }
-    else{
-        setTimeout(gameloop, 200)
-    }
+    setTimeout(gameloop, 200)
 }
 
 gameloop();

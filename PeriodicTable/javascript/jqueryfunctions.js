@@ -33,11 +33,11 @@ $(document).on("mouseleave ", ".legenditem", function() {
 
 //************************************** Navbar Stuff *******************************************
 $(document).on("click", ".view", function() {
-  $("#" + currentcategory).removeClass("active");
-  currentcategory = this.id;
-  $("#" + currentcategory).addClass("active");
-  //console.log(this.id);
-  displayTable(currentcategory);
+  $("#" + currentTable.category).removeClass("active");
+  currentTable.category = this.id;
+  $("#" + currentTable.category).addClass("active");
+  currentTable.colors = colorLibrary[currentTable.category];
+  displayTable(currentTable.category);
 });
 
   // ---------------------------------turns standard to wide -------------------------
@@ -48,9 +48,9 @@ $(document).on("click", ".view", function() {
     $("#wide").html(
       '<button class="nav-link btn btn-link standard active">Standard</button>'
     );
-    wide = true;
-    matrix = tableMatrixWide;
-    displayTable(currentcategory);
+    currentTable.wide = true;
+    currentTable.matrix = tableMatrix.wide;
+    displayTable(currentTable.category);
   });
 
   // ---------------------------------turns wide to standard-------------------------
@@ -61,18 +61,18 @@ $(document).on("click", ".view", function() {
     $("#wide").html(
       '<button class="nav-link btn btn-link wide active">Wide</button>'
     );
-    wide = false;
-    matrix = tableMatrix;
-    displayTable(currentcategory);
+    currentTable.wide = false;
+    currentTable.matrix = tableMatrix.standard;
+    displayTable(currentTable.category);
   });
 
 $(document).on("click", "#credits", function() {
   $(".modal-title").html("Credits");
-  let text = "<ul>";
-  text += "<li>Creator: Stephen Teng</li>";
-  text +=
-    "<li>Sources: https://github.com/Bowserinator/Periodic-Table-JSON<br>https://github.com/andrejewski/periodic-table</li>";
-  text += "<li>Project for Coding Dojo Dallas</li>";
-  text += "</ul>";
-  $(".modal-body").html(text);
+  $(".modal-body").html(
+    `<ul>
+    <li>Creator: Stephen Teng</li>
+    <li>Sources: https://github.com/Bowserinator/Periodic-Table-JSON<br>https://github.com/andrejewski/periodic-table</li>
+    <li>Project for Coding Dojo Dallas</li>
+    </ul>`
+  );
 });
