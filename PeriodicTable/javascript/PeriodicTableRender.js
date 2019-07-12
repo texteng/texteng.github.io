@@ -43,10 +43,17 @@ function displayTable() {
           break;
 
         case tablePosition == "Lanthanide":
+          tableOutput += '<button id = "lanth" class="element boxsize btn';
+          if (tableCategory == "category" || tableCategory == "groupBlock") {
+            tableOutput += "-danger";
+          }
+          tableOutput += ' R6 LanthAct">57-71</button>';
+          break;
+
         case tablePosition == "Actinoid":
           tableOutput += '<button id = "actin" class="element boxsize btn';
           if (tableCategory == "category" || tableCategory == "groupBlock") {
-            tableOutput += '-' + ((tablePosition == "Lanthanide") ? "danger" : "warning");
+            tableOutput += "-warning";
           }
           tableOutput += ' R7 LanthAct">89-103</button>';
           break;
@@ -69,16 +76,16 @@ function displayTable() {
       ${createColumnClass(column, atomicNumber)}
       btn-${determineColor()}" 
       data-toggle="modal" data-target="#ElementDisplayModal">\n
-      <h6 class = "atomicnumber">${atomicNumber}</h6>\n
-      <h3 class = "elementsymbol">${elementSymbol}</h3>\n
-      ${displayCharacteristic()}
+      ${displayCharacteristics()}
       </button>`;
     //---------------------------- Helper Functions ------------------------------
-    function displayCharacteristic() {
+    function displayCharacteristics() {
+      let charOutput = `<h6 class = "atomicnumber">${atomicNumber}</h6>\n
+      <h3 class = "elementsymbol">${elementSymbol}</h3>\n` 
       if (tableCategory == "groupBlock" || tableCategory == "category") {
-        return `<h6>${displayAtomicMass()}</h6>\n<h6 class = "elementname">${elementName}</h6>\n`;
+        return charOutput + `<h6>${displayAtomicMass()}</h6>\n<h6 class = "elementname">${elementName}</h6>\n`;
       }
-      return `<h6 class = "characteristic">${elementCategory}</h6>\n`;
+      return charOutput + `<h6 class = "characteristic">${elementCategory}</h6>\n`;
     }
 
     function createColumnClass(){
