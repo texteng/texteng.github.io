@@ -12,7 +12,7 @@ displayTable();
 
 //*********************************Renders Table************************
 function displayTable() {
-  // console.time();
+  console.time();
   let { wide, category, matrix } = currentTable;
   let table_output = "";
   
@@ -58,85 +58,86 @@ function displayTable() {
 
   $("#table").html(table_output);
   $("#legend").html(displayLegend());
-  // console.timeEnd()
-}
+  console.timeEnd()
 
-//***************************Renders Each Element*******************************
-function displayElement(atomicNumber, row, column) {
-  let { category } = currentTable;
-  let { number, symbol, atomic_mass, name } = currentElement = PeriodicTable[atomicNumber - 1];
-  let element_output = `<button id="${atomicNumber}" class= "element boxsize 
-    R${row > 8 ? row-3 : row}
-    ${createColumnClass(column, atomicNumber)}
-    btn-${determineColor(currentElement)}" 
-    data-toggle="modal" data-target="#ElementDisplayModal">\n
-    <h6 class = "atomicnumber">${number}</h6>\n
-    <h3 class = "elementsymbol">${symbol}</h3>\n`;
+  //***************************Renders Each Element*******************************
+  function displayElement(atomicNumber, row, column) {
+    let { category } = currentTable;
+    let { number, symbol, atomic_mass, name } = currentElement = PeriodicTable[atomicNumber - 1];
+    let element_output = `<button id="${atomicNumber}" class= "element boxsize 
+      R${row > 8 ? row-3 : row}
+      ${createColumnClass(column, atomicNumber)}
+      btn-${determineColor(currentElement)}" 
+      data-toggle="modal" data-target="#ElementDisplayModal">\n
+      <h6 class = "atomicnumber">${number}</h6>\n
+      <h3 class = "elementsymbol">${symbol}</h3>\n`;
 
-  if (category == "groupBlock" || category == "category") {
-    element_output += `<h6>${displayAtomicMass(atomic_mass)}</h6>\n<h6 class = "elementname">${name}`;
-  } 
-  else {
-    element_output += `<h6 class = "characteristic">${currentElement[category]}`;
-  }
+    if (category == "groupBlock" || category == "category") {
+      element_output += `<h6>${displayAtomicMass(atomic_mass)}</h6>\n<h6 class = "elementname">${name}`;
+    } 
+    else {
+      element_output += `<h6 class = "characteristic">${currentElement[category]}`;
+    }
 
-  element_output += `</h6>\n</button>`;
+    element_output += `</h6>\n</button>`;
 
-  return element_output;
-}
+    return element_output;
 
-function createColumnClass(column, atomicNumber){
-  if ((atomicNumber < 57 || atomicNumber > 71) &&(atomicNumber < 89 || atomicNumber > 103)) {
-    return `C${currentTable.wide && column > 2 ? column - 14 : column} `;
-  } 
-  else if (atomicNumber == 71 || atomicNumber == 103) {
-    return "C3 ";
-  }
-  return '';
-}
 
-function displayAtomicMass(massNumber) {
-  if ((massNumber * 1000) % 1 != 0) {
-    return massNumber.toFixed(3);
-  } 
-  else if (massNumber % 1 == 0) {
-    return `(${massNumber})`;
-  }
-  return massNumber;
-}
-
-function determineColor(currentElement) {
-  let {category, colors} = currentTable;
-  let elementCategory = currentElement[category];
-  for (let index in colors) {
-      if (typeof index == "string" && index.charAt(0) === "-" || index.charAt(1) =="."){
-        index= parseFloat(index);
+    function createColumnClass(column, atomicNumber){
+      if ((atomicNumber < 57 || atomicNumber > 71) &&(atomicNumber < 89 || atomicNumber > 103)) {
+        return `C${currentTable.wide && column > 2 ? column - 14 : column} `;
       } 
-      if (typeof elementCategory == "string") {
-        return (elementCategory.includes("unknown") || elementCategory == "") ? "light" : colors[elementCategory];
-      } 
-      else if (elementCategory == null) {
-        return "light";
-      } 
-      else if (elementCategory <= index) {
-        return colors[index];
+      else if (atomicNumber == 71 || atomicNumber == 103) {
+        return "C3 ";
       }
-  }
-}
+      return '';
+    }
 
-function displayColumnLabel(column) {
-  const CASindex = [
-    "IA", "IIA", "IIIB", "IVB", "VB", "VIB", "VIIB", "&#9486;&#8212;&#8212;", "VIIIB", "&#8212;&#8212;&#9490;", "IB", "IIB", "IIIA", "IVA", "VA", "VIA", "VIIA", "VIIIA"
-  ];
-  var columnlabel_output = `<div id = "C${column}" class= "columnlabel boxsize">
-  <a href="https://en.wikipedia.org/wiki/Group_${column}_element">
-  <h3 class ="d-block">${column}</h3>
-  <h5 class ="d-block"`;
-  if (column != 8 && column != 10) {
-    columnlabel_output += ` style="font-family: 'Times New Roman', 'Times', 'serif'"`;
+    function displayAtomicMass(massNumber) {
+      if ((massNumber * 1000) % 1 !== 0) {
+        return massNumber.toFixed(3);
+      } 
+      else if (massNumber % 1 == 0) {
+        return `(${massNumber})`;
+      }
+      return massNumber;
+    }
+
+    function determineColor(currentElement) {
+      let {category, colors} = currentTable;
+      let elementCategory = currentElement[category];
+      for (let index in colors) {
+        if (typeof index == "string" && index.charAt(0) === "-" || index.charAt(1) =="."){
+          index= parseFloat(index);
+        } 
+        if (typeof elementCategory == "string") {
+          return (elementCategory.includes("unknown") || elementCategory == "") ? "light" : colors[elementCategory];
+        } 
+        else if (elementCategory == null) {
+          return "light";
+        } 
+        else if (elementCategory <= index) {
+          return colors[index];
+        }
+      }
+    }
   }
-  columnlabel_output += `>${CASindex[column - 1]}</h5></a></div>`;
-  return columnlabel_output;
+  // ******************************************************************************************
+  function displayColumnLabel(column) {
+    const CASindex = [
+      "IA", "IIA", "IIIB", "IVB", "VB", "VIB", "VIIB", "&#9486;&#8212;&#8212;", "VIIIB", "&#8212;&#8212;&#9490;", "IB", "IIB", "IIIA", "IVA", "VA", "VIA", "VIIA", "VIIIA"
+    ];
+    var columnlabel_output = `<div id = "C${column}" class= "columnlabel boxsize">
+    <a href="https://en.wikipedia.org/wiki/Group_${column}_element">
+    <h3 class ="d-block">${column}</h3>
+    <h5 class ="d-block"`;
+    if (column != 8 && column != 10) {
+      columnlabel_output += ` style="font-family: 'Times New Roman', 'Times', 'serif'"`;
+    }
+    columnlabel_output += `>${CASindex[column - 1]}</h5></a></div>`;
+    return columnlabel_output;
+  }
 }
 
 //*********************************Renders Legend************************
@@ -160,15 +161,6 @@ function displayLegend() {
 }
 
 //************************************** Modal Functions *******************************************
-$(document).on("click", ".element", function() {
-  let elementId = this.id;
-  if (elementId != "lanth" && elementId != "actin") {
-    let {name, symbol} = currentElement = PeriodicTable[elementId - 1];
-    $(".modal-title").html(`${name} (${symbol}) `);
-    $(".modal-body").html(elementInformation(currentElement));
-  }
-});
-
 function elementInformation(currentElement) {
   let { number, category, groupBlock, atomic_mass, appearance, phase, boil, melt, 
     molar_heat, density, electronegativity, atomicRadius, ionRadius, vanDelWaalsRadius, ionizationEnergy, electronAffinity, 
