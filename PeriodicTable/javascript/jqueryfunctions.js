@@ -11,7 +11,7 @@ $(".view").click(function() {
   currentTable.category = this.id;
   currentTable.colors = colorLibrary[currentTable.category];
   $("#" + currentTable.category).addClass("active");
-  displayTable(currentTable.category);
+  displayTable();
 });
 
 // ---------------------------------turns standard to wide -------------------------
@@ -24,7 +24,7 @@ $(".wide").click(function() {
   );
   currentTable.wide = true;
   currentTable.matrix = tableMatrix.wide;
-  displayTable(currentTable.category);
+  displayTable();
 });
 
 // ---------------------------------turns wide to standard-------------------------
@@ -37,7 +37,7 @@ $(".standard").click(function() {
   );
   currentTable.wide = false;
   currentTable.matrix = tableMatrix.standard;
-  displayTable(currentTable.category);
+  displayTable();
 });
 
 // -----------------------------------displays credits -------------------------
