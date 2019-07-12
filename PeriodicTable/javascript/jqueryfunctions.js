@@ -1,42 +1,17 @@
 //See Periodic Table Render for non-interactive portions
 
 //************************************** Hover Functions *******************************************
-//Highlights whole rows
-$(document).on("mouseenter", ".rowlabel", function() {
-  rowId = this.id;
-  $("." + rowId).button("toggle");
-});
-$(document).on("mouseleave ", ".rowlabel", function() {
-  rowId = this.id;
-  $("." + rowId).button("toggle");
-});
-
-//Highlights whole columns
-$(document).on("mouseenter", ".columnlabel", function() {
-  columnId = this.id;
-  $("." + columnId).button("toggle");
-});
-$(document).on("mouseleave", ".columnlabel", function() {
-  columnId = this.id;
-  $("." + columnId).button("toggle");
-});
-
-//Highlights whole section on legend
-$(document).on("mouseenter", ".legenditem", function() {
-  var colorBoxId = this.id;
-  $("." + colorBoxId).button("toggle");
-});
-$(document).on("mouseleave ", ".legenditem", function() {
-  var colorBoxId = this.id;
-  $("." + colorBoxId).button("toggle");
+//Highlights various section depending on its id name
+$(document).on("mouseenter mouseleave", ".columnlabel, .rowlabel, .legenditem", function() {
+  $("." + this.id).button("toggle");
 });
 
 //************************************** Navbar Stuff *******************************************
 $(document).on("click", ".view", function() {
   $("#" + currentTable.category).removeClass("active");
   currentTable.category = this.id;
-  $("#" + currentTable.category).addClass("active");
   currentTable.colors = colorLibrary[currentTable.category];
+  $("#" + currentTable.category).addClass("active");
   displayTable(currentTable.category);
 });
 

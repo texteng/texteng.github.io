@@ -1,10 +1,10 @@
 //See additional libraries for major variables;
 //See jqueryfunctions for interactive portions
 const currentTable = {
-  wide : false,
-  matrix : tableMatrix.standard,
   category : "category",
-  colors : colorLibrary["category"]
+  colors : colorLibrary.category,
+  matrix : tableMatrix.standard,
+  wide : false
 };
 
 //*************Starts Rendering Process*******************
@@ -12,12 +12,11 @@ displayTable();
 
 //*********************************Renders Table************************
 function displayTable() {
-  // console.time(original);
-  let table_output = "";
+  // console.time();
   let { wide, category, matrix } = currentTable;
+  let table_output = "";
   
   for (var row in matrix) {
-
     table_output += `<div class = "row">\n`;
     for (var column in matrix[row]){
       let tableposition = matrix[row][column];
@@ -59,29 +58,28 @@ function displayTable() {
 
   $("#table").html(table_output);
   $("#legend").html(displayLegend());
+  // console.timeEnd()
 }
 
 //***************************Renders Each Element*******************************
 function displayElement(atomicNumber, row, column) {
   let { category } = currentTable;
-  let { number, symbol, atomic_mass, name } = currentelement = PeriodicTable[atomicNumber - 1];
+  let { number, symbol, atomic_mass, name } = currentElement = PeriodicTable[atomicNumber - 1];
   let element_output = `<button id="${atomicNumber}" class= "element boxsize 
     R${row > 8 ? row-3 : row}
     ${createColumnClass(column, atomicNumber)}
-    btn-${determineColor(currentelement)}" 
-    data-toggle="modal" data-target="#ElementDisplayModal"
-  >\n`; //Allows information to be displayed in modal
-
-  //Information found inside element
-  element_output += `<h6 class = "atomicnumber">${number}</h6>\n
+    btn-${determineColor(currentElement)}" 
+    data-toggle="modal" data-target="#ElementDisplayModal">\n
+    <h6 class = "atomicnumber">${number}</h6>\n
     <h3 class = "elementsymbol">${symbol}</h3>\n`;
 
   if (category == "groupBlock" || category == "category") {
     element_output += `<h6>${displayAtomicMass(atomic_mass)}</h6>\n<h6 class = "elementname">${name}`;
   } 
   else {
-    element_output += `<h6 class = "characteristic">${currentelement[category]}`;
+    element_output += `<h6 class = "characteristic">${currentElement[category]}`;
   }
+
   element_output += `</h6>\n</button>`;
 
   return element_output;
@@ -107,9 +105,9 @@ function displayAtomicMass(massNumber) {
   return massNumber;
 }
 
-function determineColor(currentelement) {
+function determineColor(currentElement) {
   let {category, colors} = currentTable;
-  let elementCategory = currentelement[category];
+  let elementCategory = currentElement[category];
   for (let index in colors) {
       if (typeof index == "string" && index.charAt(0) === "-" || index.charAt(1) =="."){
         index= parseFloat(index);
@@ -130,9 +128,8 @@ function displayColumnLabel(column) {
   const CASindex = [
     "IA", "IIA", "IIIB", "IVB", "VB", "VIB", "VIIB", "&#9486;&#8212;&#8212;", "VIIIB", "&#8212;&#8212;&#9490;", "IB", "IIB", "IIIA", "IVA", "VA", "VIA", "VIIA", "VIIIA"
   ];
-  var columnlabel_output = `<div id = "C${column}" class= "columnlabel boxsize">`;
-  //Actual Labels
-  columnlabel_output += `<a href="https://en.wikipedia.org/wiki/Group_${column}_element">
+  var columnlabel_output = `<div id = "C${column}" class= "columnlabel boxsize">
+  <a href="https://en.wikipedia.org/wiki/Group_${column}_element">
   <h3 class ="d-block">${column}</h3>
   <h5 class ="d-block"`;
   if (column != 8 && column != 10) {
@@ -144,17 +141,18 @@ function displayColumnLabel(column) {
 
 //*********************************Renders Legend************************
 function displayLegend() {
-  let legend_output = `<h4>${currentTable.colors.title}</h4>\n
+  let { colors } = currentTable;
+  let legend_output = `<h4>${colors.title}</h4>\n
   <table class = "legend">
   <tr>\n<td class= "align-top">\n<ul>\n`;
   var count = 0;
-  for (key in currentTable.colors) {
-    if (key != "title"){
+  for (key in colors) {
+    if (key != "title") {
       if (count > 1 && count % 6 == 0) {
         legend_output += "</ul>\n</td>\n<td>\n<ul>\n";
       }
-      legend_output += `<li class="legenditem" id ="btn-${currentTable.colors[key]}">\n
-        <div class ="colorBox btn-${currentTable.colors[key]}"></div>${key}</li>\n`;
+      legend_output += `<li class="legenditem" id ="btn-${colors[key]}">\n
+        <div class ="colorBox btn-${colors[key]}"></div>${key}</li>\n`;
       count++;
     }
   }
@@ -165,16 +163,16 @@ function displayLegend() {
 $(document).on("click", ".element", function() {
   let elementId = this.id;
   if (elementId != "lanth" && elementId != "actin") {
-    let {name, symbol} = currentelement = PeriodicTable[elementId - 1];
+    let {name, symbol} = currentElement = PeriodicTable[elementId - 1];
     $(".modal-title").html(`${name} (${symbol}) `);
-    $(".modal-body").html(elementInformation(currentelement));
+    $(".modal-body").html(elementInformation(currentElement));
   }
 });
 
-function elementInformation(currentelement) {
+function elementInformation(currentElement) {
   let { number, category, groupBlock, atomic_mass, appearance, phase, boil, melt, 
     molar_heat, density, electronegativity, atomicRadius, ionRadius, vanDelWaalsRadius, ionizationEnergy, electronAffinity, 
-    bondingType, discovered_by, named_by, yearDiscovered, summary, source} = currentelement;
+    bondingType, discovered_by, named_by, yearDiscovered, summary, source} = currentElement;
   let elementinformation_output = "<ul>";
   elementFact("Atomic Number", number);
   elementinformation_output += `<li><span class= 'font-weight-bold'>Category: </span>${category}`;
@@ -199,8 +197,8 @@ function elementInformation(currentelement) {
   elementFact("Bonding Type", bondingType);
   elementFact("Discovered by", discovered_by, "(" + yearDiscovered + ")");
   elementFact("Named by", named_by);
-  // elementFact("Electron Configuration", electronConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
-  // elementFact("Nobel Gas Configuration", nobelGasConfiguration(currentelement['number'])); //There seems to be a lot of exceptions to this rule
+  // elementFact("Electron Configuration", electronConfiguration(currentElement['number'])); //There seems to be a lot of exceptions to this rule
+  // elementFact("Nobel Gas Configuration", nobelGasConfiguration(currentElement['number'])); //There seems to be a lot of exceptions to this rule
   elementinformation_output += `</ul>\n${summary}<br>
   <span class= 'font-weight-bold'>For More information see </span><a href="${source}">${source}</a>`;
   return elementinformation_output;
