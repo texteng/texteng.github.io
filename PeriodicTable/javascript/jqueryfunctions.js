@@ -1,12 +1,11 @@
 //See Periodic Table Render for non-interactive portions
-
-//************************************** Hover Functions *******************************************
+//------------------------------------ Hover Function ----------------------------------------
 //Highlights various sections depending on its id name
 $(".columnlabel, .rowlabel, .legenditem").on("mouseenter mouseleave", function() {
   $("." + this.id).button("toggle");
 });
 
-//************************************** Navbar Stuff *******************************************
+//--------------------------------- Navbar Stuff -------------------------------------
 $(".view").click(function() {
   $("#" + currentTable.category).removeClass("active");
   currentTable.category = this.id;
@@ -15,7 +14,7 @@ $(".view").click(function() {
   displayTable(currentTable.category);
 });
 
-  // ---------------------------------turns standard to wide -------------------------
+// ---------------------------------turns standard to wide -------------------------
 $(".wide").click(function() {
   $("#widecss").html(
     '<link rel="stylesheet" type="text/css" href="css/PeriodicTableCustomWide.css">'
@@ -41,7 +40,7 @@ $(".standard").click(function() {
   displayTable(currentTable.category);
 });
 
-// -----------------------------------Displays credits -------------------------
+// -----------------------------------displays credits -------------------------
 $("#credits").click(function() {
   $(".modal-title").html("Credits");
   $(".modal-body").html(
