@@ -43,19 +43,19 @@ function displayTable() {
           break;
 
         case tablePosition == "Lanthanide":
-          tableOutput += '<button id = "lanth" class="element boxsize btn';
+          tableOutput += '<button id = "lanth" class="element boxsize R6 btn';
           if (tableCategory == "category" || tableCategory == "groupBlock") {
             tableOutput += "-danger";
           }
-          tableOutput += ' R6 LanthAct">57-71</button>';
+          tableOutput += ' LanthAct">57-71</button>';
           break;
 
         case tablePosition == "Actinoid":
-          tableOutput += '<button id = "actin" class="element boxsize btn';
+          tableOutput += '<button id = "actin" class="element boxsize R7 btn';
           if (tableCategory == "category" || tableCategory == "groupBlock") {
             tableOutput += "-warning";
           }
-          tableOutput += ' R7 LanthAct">89-103</button>';
+          tableOutput += ' LanthAct">89-103</button>';
           break;
       }
       tableOutput += "\n";
@@ -70,7 +70,8 @@ function displayTable() {
 
   //***************************Renders Each Element*******************************
   function displayElement(tablePosition) {
-    let { number:atomicNumber, symbol:elementSymbol, atomic_mass:atomicMass, name:elementName, category:elementCategory } = PeriodicTable[tablePosition - 1];
+    let { number:atomicNumber, symbol:elementSymbol, atomic_mass:atomicMass, name:elementName } = currentElement = PeriodicTable[tablePosition - 1];
+    elementCategory = currentElement[tableCategory];
     return `<button id="${atomicNumber}" class= "element boxsize 
       R${row > 8 ? row-3 : row}
       ${createColumnClass(column, atomicNumber)}
