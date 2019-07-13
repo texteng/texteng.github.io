@@ -3,72 +3,74 @@ $wideBoxHeight:50px;
 $wideContainerWidth: $wideBoxWidth * 32.50;
 
 @media only screen and (min-width: 481px) {
-  #container{
+  #container.widesize{
     max-width: $wideContainerWidth;
-  }
 
-  #table {
-    width: $wideContainerWidth;
-  }
 
-  .boxsize {
-    width: $wideBoxWidth !important;
-    height: $wideBoxHeight !important;
-  }
-  div{
-    .thin {
-        width: $wideBoxWidth*.50 !important;
-        height: $wideBoxHeight !important;
+    #table {
+      width: $wideContainerWidth;
+    }
+
+    .boxsize {
+      width: $wideBoxWidth !important;
+      height: $wideBoxHeight !important;
+    }
+
+    div{
+      .thin {
+          width: $wideBoxWidth*.50 !important;
+          height: $wideBoxHeight !important;
+        }
+
+      .rowlabel {
+        padding: $wideBoxWidth/3 0;
+        // padding: 15px;
+      }
+    }
+
+    h6.elementname {
+      display: none;
+    }
+
+    #legend {
+      width: $wideBoxWidth*13;
+      height: $wideBoxHeight*3;
+      left: $wideBoxWidth*2.75;
+      top: -$wideBoxHeight*8;
+
+      table.legend {
+        border-style: hidden;
+        width: 100%;
+        vertical-align: top;
       }
 
-    .rowlabel {
-      padding: $wideBoxWidth/3 0;
-      // padding: 15px;
+      .colorBox {
+        width: 25px;
+        height: 25px;
+      }
+
+      .legend li {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
     }
-  }
 
-  h6.elementname {
-    display: none;
-  }
+    #mobile {
+      display: none;
+    }
 
-#legend {
-  width: $wideBoxWidth*13;
-  height: $wideBoxHeight*3;
-  left: $wideBoxWidth*2.75;
-  top: -$wideBoxHeight*8;
+    .h2 {
+      font-size: 1.5rem !important;
+    }
 
-  table.legend {
-    border-style: hidden;
-    width: 100%;
-    vertical-align: top;
-  }
+    h3 {
+      font-size: 1.25rem !important;
+    }
 
-  .colorBox {
-    width: 25px;
-    height: 25px;
-  }
-
-  .legend li {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-
-}
-
-  #mobile {
-    display: none;
-  }
-
-  .h2 {
-    font-size: 1.5rem !important;
-  }
-
-  h3 {
-    font-size: 1.25rem !important;
-  }
-
-  h5 {
-    font-size: 0.75rem !important;
+    h5 {
+      font-size: 0.75rem !important;
+    }
   }
 
 }

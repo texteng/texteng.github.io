@@ -15,115 +15,113 @@ $lgContainerWidth: $lgStandardBoxWidth * 18.50;
   }
 }
 
-#container {
+#container.standardsize {
   @include respond-to("condensed") {max-width: $mdContainerWidth;}
   @include respond-to("full") {max-width: $lgContainerWidth;}
-}
-#table {
-  @include respond-to("condensed") {width: $mdContainerWidth;}
-  @include respond-to("full") {width: $lgContainerWidth;}
-}
-
-.boxsize {
-  @include respond-to("condensed") {
-    width: $mdStandardBoxWidth !important;
-    height: $mdStandardBoxHeight !important;
+  #table {
+    @include respond-to("condensed") {width: $mdContainerWidth;}
+    @include respond-to("full") {width: $lgContainerWidth;}
   }
-  @include respond-to("full") {
-    width: $lgStandardBoxWidth !important;
-    height: $lgStandardBoxHeight !important;
-  }
-}
-div{
-  &.thin {
+  
+  .boxsize {
     @include respond-to("condensed") {
-      width: $mdStandardBoxWidth * .5 !important;
+      width: $mdStandardBoxWidth !important;
       height: $mdStandardBoxHeight !important;
     }
     @include respond-to("full") {
-      width: $lgStandardBoxWidth*.5 !important;
+      width: $lgStandardBoxWidth !important;
       height: $lgStandardBoxHeight !important;
     }
   }
-  &.smallblank {
-    @include respond-to("condensed") {
-      width: $mdStandardBoxWidth;
-      height: $mdStandardBoxWidth/4;
+  div{
+    &.thin {
+      @include respond-to("condensed") {
+        width: $mdStandardBoxWidth * .5 !important;
+        height: $mdStandardBoxHeight !important;
+      }
+      @include respond-to("full") {
+        width: $lgStandardBoxWidth*.5 !important;
+        height: $lgStandardBoxHeight !important;
+      }
     }
+    &.smallblank {
+      @include respond-to("condensed") {
+        width: $mdStandardBoxWidth;
+        height: $mdStandardBoxWidth/4;
+      }
+      @include respond-to("full") {
+        width: $lgStandardBoxWidth;
+        height: $lgStandardBoxWidth/4;
+      }
+    }
+    &.rowlabel {
+      @include respond-to("condensed") {padding: $mdStandardBoxWidth/3 0 ;}    
+      @include respond-to("full") {padding: $lgStandardBoxWidth/3 0 ;}
+    }
+  }
+  
+  h6.elementname {
+    @include respond-to("condensed") {display: none;}
     @include respond-to("full") {
-      width: $lgStandardBoxWidth;
-      height: $lgStandardBoxWidth/4;
+      font: {
+        weight: bold;
+        family: "Helvetica Narrow", "Arial Narrow";
+      }
+      margin: 0;
+      display: block;
     }
   }
-  &.rowlabel {
-    @include respond-to("condensed") {padding: $mdStandardBoxWidth/3 0 ;}    
-    @include respond-to("full") {padding: $lgStandardBoxWidth/3 0 ;}
-  }
-}
-
-h6.elementname {
-  @include respond-to("condensed") {display: none;}
-  @include respond-to("full") {
-    font: {
-      size: 10px;
-      weight: bold;
-      family: "Helvetica Narrow", "Arial Narrow";
-    }
-    margin: 0;
-    display: block;
-  }
-}
-
-#legend {
-  @include respond-to("condensed") {
-    width: $mdStandardBoxWidth*10;
-    height: $mdStandardBoxHeight*3;
-    left: $mdStandardBoxWidth*2.75;
-    top: -$mdStandardBoxHeight*10.25;
-  }    
-  @include respond-to("full") {
-    width: $lgStandardBoxWidth*10;
-    height: $lgStandardBoxHeight*3;
-    left: $lgStandardBoxWidth*2.75;
-    top: -$lgStandardBoxHeight*10.25;
-  }
-  .colorBox {
+  
+  #legend {
     @include respond-to("condensed") {
-      width: 15px;
-      height: 15px;
+      width: $mdStandardBoxWidth*10;
+      height: $mdStandardBoxHeight*3;
+      left: $mdStandardBoxWidth*2.75;
+      top: -$mdStandardBoxHeight*10.25;
     }    
     @include respond-to("full") {
-      width: 25px;
-      height: 25px;
+      width: $lgStandardBoxWidth*10;
+      height: $lgStandardBoxHeight*3;
+      left: $lgStandardBoxWidth*2.75;
+      top: -$lgStandardBoxHeight*10.25;
+    }
+    .colorBox {
+      @include respond-to("condensed") {
+        width: 15px;
+        height: 15px;
+      }    
+      @include respond-to("full") {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    .legend li {
+      @include respond-to("condensed") {
+        font-size: 10px;
+        margin-bottom: 0;
+      }
+      @include respond-to("full") {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
     }
   }
-  .legend li {
-    @include respond-to("condensed") {
-      font-size: 10px;
-      margin-bottom: 0;
-    }
-    @include respond-to("full") {
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
+  
+  .h2 {
+    @include respond-to("condensed") {font-size: 1.5rem !important;}
+    @include respond-to("full") {font-size: 2rem !important;}
+  }
+  h3 {
+    @include respond-to("condensed") {font-size: 1.25rem !important;}
+    @include respond-to("full") {font-size: 1.75rem !important;}
+  }
+  h5 {
+    @include respond-to("condensed") {font-size: 0.65rem !important;}
+    @include respond-to("full") {font-size: 1.25rem !important;}
+  }
+  
+  #mobile {
+    @include respond-to("condensed") {display: none;}
+    @include respond-to("full") {display: none;}
   }
 }
-
-.h2 {
-  @include respond-to("condensed") {font-size: 1.5rem !important;}
-  @include respond-to("full") {font-size: 2rem !important;}
-}
-h3 {
-  @include respond-to("condensed") {font-size: 1.25rem !important;}
-  @include respond-to("full") {font-size: 1.75rem !important;}
-}
-h5 {
-  @include respond-to("condensed") {font-size: 0.65rem !important;}
-  @include respond-to("full") {font-size: 1.25rem !important;}
-}
-
-#mobile {
-  @include respond-to("condensed") {display: none;}
-  @include respond-to("full") {display: none;}
-}
-/*# sourceMappingURL=PeriodicTableCustom.scss.map */

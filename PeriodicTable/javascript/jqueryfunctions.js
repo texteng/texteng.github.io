@@ -1,7 +1,8 @@
 //See Periodic Table Render for non-interactive portions
 //------------------------------------ Hover Function ----------------------------------------
 //Highlights various sections depending on its id name
-$(".columnlabel, .rowlabel, .legenditem").on("mouseenter mouseleave", function() {
+//Works in Chrome not Firefox when tables are redrawn
+$(document).on("mouseenter mouseleave", ".columnlabel, .rowlabel, .legenditem", function() {
   $("." + this.id).button("toggle");
 });
 
@@ -14,29 +15,20 @@ $(".view").click(function() {
   displayTable();
 });
 
-// ---------------------------------turns standard to wide -------------------------
-$(document).on("click", ".wide", function() {
-  $("#widecss").html(
-    '<link rel="stylesheet" type="text/css" href="css/PeriodicTableCustomWide.css">'
-  );
-  $("#wide").html(
-    '<button class="nav-link btn btn-link standard active">Standard</button>'
-  );
-  currentTable.wide = true;
-  currentTable.matrix = tableMatrix.wide;
-  displayTable();
-});
+// ---------------------------------changes wideness -------------------------
+$("#wideLink").click(function() {
+  currentTable.wide = !currentTable.wide; // Starts as false
+  currentTable.matrix = tableMatrix[(currentTable.wide) ? 'wide' : 'standard'];
 
-// ---------------------------------turns wide to standard-------------------------
-$(document).on("click", ".standard", function() {
-  $("#widecss").html(
-    '<link rel="stylesheet" type="text/css" href="css/PeriodicTableCustom.css">'
+  $("#wideLink").html(
+    (currentTable.wide) ? 'Standard' : 'Wide'
   );
-  $("#wide").html(
-    '<button class="nav-link btn btn-link wide active">Wide</button>'
-  );
-  currentTable.wide = false;
-  currentTable.matrix = tableMatrix.standard;
+  if(currentTable.wide) {
+    $("#container").removeClass('standardsize').addClass('widesize');
+  }
+  else{
+    $("#container").removeClass('widesize').addClass('standardsize');
+  }
   displayTable();
 });
 
@@ -53,7 +45,7 @@ $("#credits").click(function() {
 });
 
 // ----------------------------- Displays Modals --------------------------
-$(".element").click(function() {
+$(document).on("click", ".element", function() {
   let elementId = this.id;
   if (elementId != "lanth" && elementId != "actin") {
     let {name, symbol} = currentElement = PeriodicTable[elementId - 1];
