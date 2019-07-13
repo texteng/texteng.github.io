@@ -15,7 +15,7 @@ $(".view").click(function() {
 });
 
 // ---------------------------------turns standard to wide -------------------------
-$(".wide").click(function() {
+$(document).on("click", ".wide", function() {
   $("#widecss").html(
     '<link rel="stylesheet" type="text/css" href="css/PeriodicTableCustomWide.css">'
   );
@@ -28,7 +28,7 @@ $(".wide").click(function() {
 });
 
 // ---------------------------------turns wide to standard-------------------------
-$(".standard").click(function() {
+$(document).on("click", ".standard", function() {
   $("#widecss").html(
     '<link rel="stylesheet" type="text/css" href="css/PeriodicTableCustom.css">'
   );

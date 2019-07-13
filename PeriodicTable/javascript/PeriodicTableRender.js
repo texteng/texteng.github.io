@@ -132,11 +132,12 @@ function displayTable() {
     const CASindex = [
       "IA", "IIA", "IIIB", "IVB", "VB", "VIB", "VIIB", "&#9486;&#8212;&#8212;", "VIIIB", "&#8212;&#8212;&#9490;", "IB", "IIB", "IIIA", "IVA", "VA", "VIA", "VIIA", "VIIIA"
     ];
-    return `<div id = "C${column}" class= "columnlabel boxsize">
-    <a href="https://en.wikipedia.org/wiki/Group_${column}_element">\n
-      <h3 style="display:block">${column}</h3>\n
-      <h5 style="display:block; ${column != 8 && column != 10 ? "font-family: 'Times New Roman', 'Times', 'serif'" : ''}">\n
-      ${CASindex[column - 1]}</h5>\n
+    let adjustedColumn = wide && column > 2 ? column - 14 : column;
+    return `<div id = "C${adjustedColumn}" class= "columnlabel boxsize">
+    <a href="https://en.wikipedia.org/wiki/Group_${adjustedColumn}_element">\n
+      <h3 style="display:block">${adjustedColumn}</h3>\n
+      <h5 style="display:block; ${adjustedColumn != 8 && adjustedColumn != 10 ? "font-family: 'Times New Roman', 'Times', 'serif'" : ''}">\n
+      ${CASindex[adjustedColumn - 1]}</h5>\n
     </a></div>`;
   }
 }//*********************************End of render table function ************************
