@@ -22,7 +22,7 @@ function displayTable() {
       let tablePosition = matrix[row][column];
       switch (true) {
         case tablePosition > 0: //Displays Elements
-          tableOutput += displayElement(tablePosition) + "\n";
+          tableOutput += displayElement(tablePosition);
           break;
 
         case tablePosition == 0: // Blank
@@ -47,7 +47,7 @@ function displayTable() {
           if (tableCategory == "category" || tableCategory == "groupBlock") {
             tableOutput += "-danger";
           }
-          tableOutput += ' LanthAct">57-71</button>';
+          tableOutput += ' LanthAct">57-71</button>\n';
           break;
 
         case tablePosition == "Actinoid":
@@ -55,10 +55,9 @@ function displayTable() {
           if (tableCategory == "category" || tableCategory == "groupBlock") {
             tableOutput += "-warning";
           }
-          tableOutput += ' LanthAct">89-103</button>';
+          tableOutput += ' LanthAct">89-103</button>\n';
           break;
       }
-      tableOutput += "\n";
     }
     tableOutput += "</div>\n";
   }
@@ -128,17 +127,14 @@ function displayTable() {
   }
   
   // ******************************End of displayelement function******************************
-  function displayColumnLabel() {
-    const CASindex = [
-      "IA", "IIA", "IIIB", "IVB", "VB", "VIB", "VIIB", "&#9486;&#8212;&#8212;", "VIIIB", "&#8212;&#8212;&#9490;", "IB", "IIB", "IIIA", "IVA", "VA", "VIA", "VIIA", "VIIIA"
-    ];
+  function displayColumnLabel() { //CASindex is in additionalLibraries
     let adjustedColumn = wide && column > 2 ? column - 14 : column;
     return `<div id = "C${adjustedColumn}" class= "columnlabel boxsize">
     <a href="https://en.wikipedia.org/wiki/Group_${adjustedColumn}_element">\n
-      <h3 style="display:block">${adjustedColumn}</h3>\n
-      <h5 style="display:block; ${adjustedColumn != 8 && adjustedColumn != 10 ? "font-family: 'Times New Roman', 'Times', 'serif'" : ''}">\n
+      <h3>${adjustedColumn}</h3>\n
+      <h5 style="${adjustedColumn != 8 && adjustedColumn != 10 ? "font-family: 'Times New Roman', 'Times', 'serif'" : ''}">\n
       ${CASindex[adjustedColumn - 1]}</h5>\n
-    </a></div>`;
+    </a></div>\n`;
   }
 }//*********************************End of render table function ************************
 

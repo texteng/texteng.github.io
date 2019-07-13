@@ -191,3 +191,7 @@ const colorLibrary = {
         " 0": "electronAffinity-10"
     },
 }
+
+const CASindex = [
+    "IA", "IIA", "IIIB", "IVB", "VB", "VIB", "VIIB", "&#9486;&#8212;&#8212;", "VIIIB", "&#8212;&#8212;&#9490;", "IB", "IIB", "IIIA", "IVA", "VA", "VIA", "VIIA", "VIIIA"
+];
