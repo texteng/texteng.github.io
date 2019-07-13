@@ -39,7 +39,7 @@ function displayTable() {
           break;
 
         case tablePosition == "CL": //Column Label
-          tableOutput += displayColumnLabel(wide && column > 2 ? column - 14 : column);
+          tableOutput += displayColumnLabel();
           break;
 
         case tablePosition == "Lanthanide":
@@ -79,15 +79,6 @@ function displayTable() {
       ${displayCharacteristics()}
       </button>`;
     //---------------------------- Helper Functions ------------------------------
-    function displayCharacteristics() {
-      let charOutput = `<h6 class = "atomicnumber">${atomicNumber}</h6>\n
-      <h3 class = "elementsymbol">${elementSymbol}</h3>\n` 
-      if (tableCategory == "groupBlock" || tableCategory == "category") {
-        return charOutput + `<h6>${displayAtomicMass()}</h6>\n<h6 class = "elementname">${elementName}</h6>\n`;
-      }
-      return charOutput + `<h6 class = "characteristic">${elementCategory}</h6>\n`;
-    }
-
     function createColumnClass(){
       if ((atomicNumber < 57 || atomicNumber > 71) &&(atomicNumber < 89 || atomicNumber > 103)) {
         return `C${wide && column > 2 ? column - 14 : column} `;
@@ -96,16 +87,6 @@ function displayTable() {
         return "C3 ";
       }
       return '';
-    }
-
-    function displayAtomicMass() {
-      if ((atomicMass * 1000) % 1 !== 0) {
-        return atomicMass.toFixed(3);
-      } 
-      else if (atomicMass % 1 == 0) {
-        return `(${atomicMass})`;
-      }
-      return atomicMass;
     }
 
     function determineColor() {
@@ -124,9 +105,28 @@ function displayTable() {
         }
       }
     }
+    
+    function displayCharacteristics() {
+      let charOutput = `<h6 class = "atomicnumber">${atomicNumber}</h6>\n
+      <h3 class = "elementsymbol">${elementSymbol}</h3>\n` 
+      if (tableCategory == "groupBlock" || tableCategory == "category") {
+        return charOutput + `<h6>${displayAtomicMass()}</h6>\n<h6 class = "elementname">${elementName}</h6>\n`;
+      }
+      return charOutput + `<h6 class = "characteristic">${elementCategory}</h6>\n`;
+    
+      function displayAtomicMass() {
+        if ((atomicMass * 1000) % 1 !== 0) {
+          return atomicMass.toFixed(3);
+        } 
+        else if (atomicMass % 1 == 0) {
+          return `(${atomicMass})`;
+        }
+        return atomicMass;
+      }
+    }
   }
   
-  // ******************************End of displayelement function******************************
+  // ******************************End of display element function******************************
   function displayColumnLabel() { //CASindex is in additionalLibraries
     let adjustedColumn = wide && column > 2 ? column - 14 : column;
     return `<div id = "C${adjustedColumn}" class= "columnlabel boxsize">
