@@ -1,0 +1,55 @@
+body {
+  background-color: lightgray;
+  font-family: "Open Sans", sans-serif;
+  color: black;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: "Poppins", sans-serif;
+}
+body .container {
+  background-color: white;
+  min-height: calc(100vh - 56px);
+}
+body .container .section-heading {
+  border-bottom: 1px solid black;
+}
+
+nav.navbar {
+  background-color: darkslategray;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+a {
+  color: white;
+}
+a i {
+  color: white;
+}
+a:hover {
+  color: #ffff90;
+}
+a:hover i {
+  transform: scale(1.4);
+  animation-duration: 0.25s;
+}
+a:active {
+  color: yellow;
+}
+a:active i {
+  transform: scale(1.2);
+}
+
+bibilography p {
+  padding-left: 2rem;
+  text-indent: -2rem;
+}
+
+/*# sourceMappingURL=ltec5200.css.map */

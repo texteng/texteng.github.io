@@ -1,0 +1,56 @@
+body{
+    background-color: lightgray;
+    font-family: 'Open Sans', sans-serif;
+    // font-family: 'Ubuntu', sans-serif;
+    color:black;
+    h1, h2, h3, h4, h5, h6{
+        font-family: 'Poppins', sans-serif;
+    }
+    .container{
+        background-color: white;
+        min-height: calc(100vh - 56px);
+        .section-heading{
+            border-bottom: 1px solid black;
+        }
+    }
+}
+
+nav.navbar {
+    background-color: darkslategray;
+    font-family: 'Poppins', sans-serif;
+}
+header{
+    text-align: center;
+}
+
+
+.navbar-dark .navbar-nav .nav-link{
+    color:white;
+}
+
+a{
+    color:white;
+    i{
+        color:white;
+    }
+    &:hover{
+        color:rgb(255, 255, 144);
+        i{
+            transform: scale(1.4);
+            animation-duration: .25s;
+        }
+    }
+    &:active{
+        color: yellow;
+        i{
+            transform: scale(1.2);
+        }
+    }
+}
+
+bibilography{
+    p{
+        padding-left: 2rem;
+        text-indent: -2rem;
+    }
+}
