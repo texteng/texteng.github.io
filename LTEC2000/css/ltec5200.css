@@ -10,9 +10,6 @@ body .container {
   background-color: white;
   min-height: calc(100vh - 56px);
 }
-body .container .section-heading {
-  border-bottom: 1px solid black;
-}
 
 nav.navbar {
   background-color: darkslategray;
@@ -26,24 +23,23 @@ header {
 .navbar-dark .navbar-nav .nav-link {
   color: white;
 }
-
-a {
+.navbar-dark .navbar-nav .nav-link a {
   color: white;
 }
-a i {
+.navbar-dark .navbar-nav .nav-link a i {
   color: white;
 }
-a:hover {
+.navbar-dark .navbar-nav .nav-link a:hover {
   color: #ffff90;
 }
-a:hover i {
+.navbar-dark .navbar-nav .nav-link a:hover i {
   transform: scale(1.4);
   animation-duration: 0.25s;
 }
-a:active {
+.navbar-dark .navbar-nav .nav-link a:active {
   color: yellow;
 }
-a:active i {
+.navbar-dark .navbar-nav .nav-link a:active i {
   transform: scale(1.2);
 }
 

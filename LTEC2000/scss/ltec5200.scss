@@ -9,9 +9,9 @@ body{
     .container{
         background-color: white;
         min-height: calc(100vh - 56px);
-        .section-heading{
-            border-bottom: 1px solid black;
-        }
+        // .section-heading{
+        //     border-bottom: 1px solid black;
+        // }
     }
 }
 
@@ -26,27 +26,27 @@ header{
 
 .navbar-dark .navbar-nav .nav-link{
     color:white;
+    a{
+        color:white;
+        i{
+            color:white;
+        }
+        &:hover{
+            color:rgb(255, 255, 144);
+            i{
+                transform: scale(1.4);
+                animation-duration: .25s;
+            }
+        }
+        &:active{
+            color: yellow;
+            i{
+                transform: scale(1.2);
+            }
+        }
+    }
 }
 
-a{
-    color:white;
-    i{
-        color:white;
-    }
-    &:hover{
-        color:rgb(255, 255, 144);
-        i{
-            transform: scale(1.4);
-            animation-duration: .25s;
-        }
-    }
-    &:active{
-        color: yellow;
-        i{
-            transform: scale(1.2);
-        }
-    }
-}
 
 bibilography{
     p{
