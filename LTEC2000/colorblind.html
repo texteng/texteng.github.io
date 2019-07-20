@@ -12,45 +12,46 @@
     <title>Accessibility for the Color Blind</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg">
-        <a class="navbar-brand" href="home.html">Web Accessibility For All</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#TopNavBar" aria-controls="TopNavBar"
-        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        
-        <div class="collapse navbar-collapse" id="TopNavBar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="overview.html"><i class="fas fa-info"></i> &nbsp;Overview</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="w3.html"><i class="fas fa-question" alt="guidelines"></i> &nbsp;WCAG</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="blind.html"><i class="fas fa-eye-slash" alt="Blind Icon"></i>&nbsp;Blind</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="deaf.html"><i class="fas fa-deaf"></i>&nbsp;Deaf</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="colorblind.html"><i class="fas fa-eye" style="color:lightgray"></i> &nbsp;Color Blind </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mobility.html"><i class="fas fa-wheelchair"></i> &nbsp;Mobility Impaired</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="accessibility_statement.html"><i class="fas fa-universal-access"></i> &nbsp;Accessiblity Statement</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar">
+        <!-- Vue part -->
+        <top_navbar></top_navbar> 
+    </div>
     <div id="wrapper" class="container">
         <header role="header" class="row">
-            <div class ='col-12 col md-8' style="text-align: left; background-color:beige">
+            <div id = "page-heading" class ='col-12 col md-8'>
                 <h1 class="display-4 p-md-3"><i class="fas fa-eye" alt="Eye Icon"></i> Accessibility for&nbsp;the Color Blind</h1>
             </div>
             <div class='d-none d-md-flex'>
                 
             </div>
+            
+            <nav class="navbar navbar-dark navbar-expand-lg col-12" id="page_nav">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#PageNavBar" aria-controls="PageNavBar"
+                aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                
+                <div class="collapse navbar-collapse " id="PageNavBar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#description"> <i class="fas fa-book" alt="Book"></i> Description</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#challenges"> <i class="fas fa-running" alt="Runner"></i> Challenges</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#software"> <i class="fas fa-save" alt="Floppy Disk"></i> Software</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#hardware"> <i class="fas fa-hdd"  alt="Hard Drive"> </i> Hardware</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#developer"> <i class="fas fa-tools" alt="Hammer and Screwdriver"></i> Developer Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#video"> <i class="fas fa-tv" alt="Television image"></i> Video</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </header>
         <main role="main">
             <section id="description" class="row">
@@ -118,30 +119,38 @@
                     <h2><i class="fas fa-tools" alt="Hammer and Screwdriver"></i> Developer Tips</h2>
                     <ul>
                         <li>The WCAG guidelines recommend a contrast ratio of at least 4.5:1 for text and its bacground. Try using this <a href="https://developer.paciellogroup.com/resources/contrastanalyser/">color contrast analyser</a> tool.</li>
-                        <li>One can view their website in the way a color blind person would see it using <a href="https://www.toptal.com/designers/colorfilter/">this color filter</a><li>
-                            <li>Ideally, design a sign in Black and white and only add color for emphasis (Swierenga, 2002)</li>
-                            <li>Color combinations that should be avoided are: red-green, green-yellow, and blue-yellow. Also, make sure that the colors have sufficient contrast to increase readability. (Swierenga, 2002)</li>
-                            <li>If color coding is used on a website, be sure to add additional visual indications like an icons to help differentiate parts of the site.</li>
-                            <ul>
-                            </div>
-                        </section>
-                        
-                        <section id="video" class="row">
-                            <div class='col-12 section-heading'>
-                                <h2><i class="fas fa-tv" alt="Television image"></i> Colorblind glasses video</h2>
-                            </div>
-                            <div class="col-12" >
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/1vWM2N3GRjE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </section>
-                    </main>
+                        <li>One can view their website in the way a color blind person would see it using <a href="https://www.toptal.com/designers/colorfilter/">this color filter</a></li>
+                        <li>Ideally, design a sign in Black and white and only add color for emphasis (Swierenga, 2002)</li>
+                        <li>Color combinations that should be avoided are: red-green, green-yellow, and blue-yellow. Also, make sure that the colors have sufficient contrast to increase readability. (Swierenga, 2002)</li>
+                        <li>If color coding is used on a website, be sure to add additional visual indications like an icons to help differentiate parts of the site.</li>
+                    </ul>
                 </div>
-                
-                
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-            </body>
-            </html>
+            </section>
             
-            <!-- José de Araújo, R., Cesar Dos, J. R., & Bonacin, R. (2018, August 14). Understanding interface recoloring aspects by colorblind people:. Universal Access in the Information Society, 1–18. doi:https://doi.org/10.1007/s10209-018-0631-7 -->
+            <section id="video" class="row">
+                <div class='col-12 section-heading'>
+                    <h2><i class="fas fa-tv" alt="Television image"></i> Colorblind glasses video</h2>
+                </div>
+                <div class="col-12" >
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/1vWM2N3GRjE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="js/vuejs.js"></script>
+</body>
+</html>
+
+<!-- José de Araújo, R., Cesar Dos, J. R., & Bonacin, R. (2018, August 14). Understanding interface recoloring aspects by colorblind people:. Universal Access in the Information Society, 1–18. doi:https://doi.org/10.1007/s10209-018-0631-7 -->

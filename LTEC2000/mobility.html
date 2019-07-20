@@ -9,40 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/ltec5200.css">
-    <title>Accessibility for the Blind</title>
+    <title>Accessibility for the mobility impaired</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg">
-        <a class="navbar-brand" href="home.html">Web Accessibility For All</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#TopNavBar" aria-controls="TopNavBar"
-        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        
-        <div class="collapse navbar-collapse" id="TopNavBar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="overview.html"><i class="fas fa-info"></i> &nbsp;Overview</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="w3.html"><i class="fas fa-question" alt="guidelines"></i> &nbsp;WCAG</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="blind.html"><i class="fas fa-eye-slash" alt="Blind Icon"></i>&nbsp;Blind</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="deaf.html"><i class="fas fa-deaf"></i>&nbsp;Deaf</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="colorblind.html"><i class="fas fa-eye" style="color:lightgray"></i> &nbsp;Color Blind </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mobility.html"><i class="fas fa-wheelchair"></i> &nbsp;Mobility Impaired</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="accessibility_statement.html"><i class="fas fa-universal-access"></i> &nbsp;Accessiblity Statement</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar">
+        <!-- Vue part -->
+        <top_navbar></top_navbar> 
+    </div>
     <div id="wrapper" class="container">
         <header role="header" class="row">
             <div class ='col-12 col md-8' style="text-align: left; background-color:beige">
@@ -51,6 +24,35 @@
             <div class='d-none d-md-flex'>
                 
             </div>
+            
+            <nav class="navbar navbar-dark navbar-expand-lg col-12" id="page_nav">
+                <a class="navbar-brand"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#PageNavBar" aria-controls="PageNavBar"
+                aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                
+                <div class="collapse navbar-collapse " id="PageNavBar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#description"> <i class="fas fa-book" alt="Book"></i> Description</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#challenges"> <i class="fas fa-running" alt="Runner"></i> Challenges</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#software"> <i class="fas fa-save" alt="Floppy Disk"></i> Software</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#hardware"> <i class="fas fa-hdd"  alt="Hard Drive"> </i> Hardware</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#developer"> <i class="fas fa-tools" alt="Hammer and Screwdriver"></i> Developer Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#video"> <i class="fas fa-tv" alt="Television image"></i> Video</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </header>
         <main role="main">
             <section id="description" class="row">
@@ -94,12 +96,28 @@
                     <h2><i class="fas fa-tools" alt="Hammer and Screwdriver"></i> Developer Tools</h2>
                 </div>
             </section>
+            
+            <section id="video" class="row">
+                <div class='col-12 section-heading'>
+                    <h2><i class="fas fa-tv" alt="Television image"></i> Morse Code as an Input Device</h2>
+                    <p>(Will automatically start at 8:14 and end at 11:45)</p>
+                </div>
+                <div class="col-12" >
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ogfYd705cRs?start=494&end=705" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
         </main>
     </div>
+    <!-- development version, includes helpful console warnings -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="js/vuejs.js"></script>
 </body>
 </html>

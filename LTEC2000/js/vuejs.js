@@ -1,32 +1,100 @@
 "use strict";
 
-Vue.component('top_navigation', {
+// console.log("hello");
+Vue.component('top_navbar', {
   props: {
-    assignment: String
+    search_option: String
   },
   methods: {
-    nav_link_class: function nav_link_class(location) {
-      return 'nav-link' + (location == "2" this.assignment === location ? ' active' : '');
-    },
-    nav_link: function nav_link(location) {
-      if (this.assignment === 'home') {
-        return location === 'home' ? 'index.html' : 'assign' + location + '/index.html';
-      }
-
-      if (this.assignment === location) {
-        return 'index.html';
-      } else if (location === 'home') {
-        return '../index.html';
-      }
-
-      return '../assign' + location + '/index.html';
-    }
+    // nav_link_class: function nav_link_class(location) {
+    //   return 'nav-link' + (this.search_option === location ? ' active' : '');
+    // }
   },
-  template: `\n<nav class=\"navbar navbar-expand-lg navbar-dark\">\n        <a class=\"navbar-brand\" href=\"#\">Stephen Teng</a>\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n            <span class=\"navbar-toggler-icon\"></span>\n        </button>\n        <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">\n            <ul class=\"navbar-nav\">\n                <li class=\"nav-item\">\n                    <a :class=\"nav_link_class('home')\" :href=\"nav_link('home')\">Home </a>\n                </li>\n                <li class=\"nav-item\">\n                    <a :class=\"nav_link_class('1')\" :href=\"nav_link('1')\">Project 1</a>\n                </li>\n                <li class=\"nav-item dropdown\">\n                    <a :class=\"nav_link_class('2')\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        Project 2\n                    </a>\n                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                        <a class=\"dropdown-item\" :href=\"nav_link('2')\">Project 2</a>\n                        <a class=\"dropdown-item\" href=\"Landscape/lake_home_txt.html\">Great Landscape Lodge</a>\n                    </div>\n                </li>\n                <li class=\"nav-item\">\n                    <a :class=\"nav_link_class('3')\" :href=\"nav_link('3')\" aria-disabled=\"true\">Project 3</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a :class=\"nav_link_class('4')\" :href=\"nav_link('4')\" aria-disabled=\"true\">Project 4</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a :class=\"nav_link_class('5')\" :href=\"nav_link('5')\" aria-disabled=\"true\">Project 5</a>\n                </li>\n            </ul>\n        </div>\n    </nav>`
+  template: `<nav id="main_nav" class="navbar navbar-dark navbar-expand-lg">
+  <a class="navbar-brand" href="home.html">Web Accessibility For All</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#TopNavBar" aria-controls="TopNavBar"
+  aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  
+  <div class="collapse navbar-collapse" id="TopNavBar">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="overview.html"><i class="fas fa-info"></i> &nbsp;Overview</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="w3.html"><i class="fas fa-question" alt="guidelines"></i> &nbsp;WCAG</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="blind.html"><i class="fas fa-eye-slash" alt="Blind Icon"></i>&nbsp;Blind</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="deaf.html"><i class="fas fa-deaf"></i>&nbsp;Deaf</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="colorblind.html"><i class="fas fa-eye" style="color:lightgray"></i> &nbsp;Color Blind </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="mobility.html"><i class="fas fa-wheelchair"></i> &nbsp;Mobility Impaired</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="accessibility_statement.html"><i class="fas fa-universal-access"></i> &nbsp;Accessiblity Statement</a>
+          </li>
+      </ul>
+  </div>
+</nav>`
 });
-var navbar = new Vue({
+
+// Vue.component('top_heading', {
+//   props: {
+//     search_option: String
+//   },
+//   methods: {
+//     // nav_link_class: function nav_link_class(location) {
+//     //   return 'nav-link' + (this.search_option === location ? ' active' : '');
+//     // }
+//   },
+//   template: `<nav id="" class="navbar navbar-dark navbar-expand-lg">
+//   <a class="navbar-brand" href="home.html">Web Accessibility For All</a>
+//   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#TopNavBar" aria-controls="TopNavBar"
+//   aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+  
+//   <div class="collapse navbar-collapse" id="TopNavBar">
+//       <ul class="navbar-nav mr-auto">
+//           <li class="nav-item">
+//               <a class="nav-link" href="overview.html"><i class="fas fa-info"></i> &nbsp;Overview</a>
+//           </li>
+//           <li class="nav-item">
+//               <a class="nav-link" href="w3.html"><i class="fas fa-question" alt="guidelines"></i> &nbsp;WCAG</a>
+//           </li>
+//           <li class="nav-item">
+//               <a class="nav-link" href="blind.html"><i class="fas fa-eye-slash" alt="Blind Icon"></i>&nbsp;Blind</a>
+//           </li>
+//           <li class="nav-item">
+//               <a class="nav-link" href="deaf.html"><i class="fas fa-deaf"></i>&nbsp;Deaf</a>
+//           </li>
+//           <li class="nav-item">
+//               <a class="nav-link" href="colorblind.html"><i class="fas fa-eye" style="color:lightgray"></i> &nbsp;Color Blind </a>
+//           </li>
+//           <li class="nav-item">
+//               <a class="nav-link" href="mobility.html"><i class="fas fa-wheelchair"></i> &nbsp;Mobility Impaired</a>
+//           </li>
+//           <li class="nav-item">
+//               <a class="nav-link" href="accessibility_statement.html"><i class="fas fa-universal-access"></i> &nbsp;Accessiblity Statement</a>
+//           </li>
+//       </ul>
+//   </div>
+// </nav>`
+// });
+
+var top_menu = new Vue({
   el: '#navbar',
   data: {
-    message: 'Hello Vue!'
+    message: 'test'
   }
 });
+
+// var main_heading = new Vue({
+//   el: '#navbar',
+//   data: {
+//     message: 'test'
+//   }
+// });
