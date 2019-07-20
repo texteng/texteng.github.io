@@ -12,37 +12,10 @@
     <title>Accessibility for the Blind</title>
 </head>
 <body>
-    <nav id="main_nav" class="navbar navbar-dark navbar-expand-lg">
-        <a class="navbar-brand" href="home.html">Web Accessibility For All</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#TopNavBar" aria-controls="TopNavBar"
-        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        
-        <div class="collapse navbar-collapse" id="TopNavBar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="overview.html"><i class="fas fa-info"></i> &nbsp;Overview</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="w3.html"><i class="fas fa-question" alt="guidelines"></i> &nbsp;WCAG</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="blind.html"><i class="fas fa-eye-slash" alt="Blind Icon"></i>&nbsp;Blind</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="deaf.html"><i class="fas fa-deaf"></i>&nbsp;Deaf</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="colorblind.html"><i class="fas fa-eye" style="color:lightgray"></i> &nbsp;Color Blind </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="mobility.html"><i class="fas fa-wheelchair"></i> &nbsp;Mobility Impaired</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="accessibility_statement.html"><i class="fas fa-universal-access"></i> &nbsp;Accessiblity Statement</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar">
+        <!-- Vue part -->
+        <top_navbar></top_navbar> 
+    </div>
     <div id="wrapper" class="container">
         <header role="header" class="row">
             <div class ='col-12 col md-8' style="text-align: left; background-color:beige">
@@ -53,9 +26,179 @@
             </div>
         </header>
         <main role="main">
-            <section id="Web Guidelines" class="row">
+            <section id="definition" class="row">
                 <div class='col-12 section-heading'>
-                    <h2>https://www.w3.org/WAI/standards-guidelines/wcag/</h2>
+                    <h2>What is the Web Content Accessibility Guidelines (WCAG)?</h2>
+                    <ul>
+                        <li>These are recommended standards for created accessable websites created by the World Wide Web Consortium (W3C)</li>
+                        <li>The first set of standards WCAG 1.0 came out in 1999 and focused on fourteen different guidelines</li>
+                        <li>WCAG 2.0 was released in 2008 and it was based on four different principles: perceivable, operable, understandable, robust</li>
+                        <li>WCAG 2.1 was released in 2018.  It adds additional success criteria to the 2.0 standard.</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="definition" class="row" id="principles">
+                <div class='col-12 section-heading'>
+                    <h2>The Four Principles of the WCAG</h2>
+                    <p><b>Click</b> on each principle to see their WCAG 2.1 standards</p>
+                    <ul>
+                        <li style="font-size:1.5em;"><a href="" onclick="nolink(event, this.getAttribute('location'))" location = "perceivable">Perceivable</a></li>
+                        <li style="font-size:1.5em;"><a href="" onclick="nolink(event, this.getAttribute('location'))" location = "operable">Operable</a></li>
+                        <li style="font-size:1.5em;"><a href=""  onclick="nolink(event, this.getAttribute('location'))" location = "understandable">Understandable</a></li>
+                        <li style="font-size:1.5em;"><a href=""  onclick="nolink(event, this.getAttribute('location'))" location = "robust">Robust</a></li>
+                        <li id="clear_button" style="font-size:1.2em; display:none; list-style: none;"><a href="" class="btn btn-info" onclick="nolink(event, this.getAttribute('location'))" location = "clear">Clear</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-12 section-heading" id="perceivable" style="display:none">
+                    <h2>Perceivable</h2>
+                    <ul>
+                        <li>1.1 Text Alternatives</li>
+                        <ul>
+                            <li>1.1.1 Non-text Content</li>
+                        </ul>
+                        <li>1.2 Time-based Media</li>
+                        <ul>
+                            <li>1.2.1 Audio-only and Video-only (Prerecorded)</li>
+                            <li>1.2.2 Captions (Prerecorded)</li>
+                            <li>1.2.3 Audio Description or Media Alternative (Prerecorded)</li>
+                            <li>1.2.4 Captions (Live)</li>
+                            <li>1.2.5 Audio Description (Prerecorded)</li>
+                            <li>1.2.6 Sign Language (Prerecorded)</li>
+                            <li>1.2.7 Extended Audio Description (Prerecorded)</li>
+                            <li>1.2.8 Media Alternative (Prerecorded)</li>
+                            <li>1.2.9 Audio-only (Live)</li>
+                        </ul>
+                        <li>1.3 Adaptable</li>
+                        <ul>
+                            <li>1.3.1 Info and Relationships</li>
+                            <li>1.3.2 Meaningful Sequence</li>
+                            <li>1.3.3 Sensory Characteristics</li>
+                            <li>1.3.4 Orientation</li>
+                            <li>1.3.5 Identify Input Purpose</li>
+                            <li>1.3.6 Identify Purpose</li>
+                        </ul>
+                        <li>1.4 Distinguishable</li>
+                        <ul>
+                            <li>1.4.1 Use of Color</li>
+                            <li>1.4.2 Audio Control</li>
+                            <li>1.4.3 Contrast (Minimum)</li>
+                            <li>1.4.4 Resize text</li>
+                            <li>1.4.5 Images of Text</li>
+                            <li>1.4.6 Contrast (Enhanced)</li>
+                            <li>1.4.7 Low or No Background Audio</li>
+                            <li>1.4.8 Visual Presentation</li>
+                            <li>1.4.9 Images of Text (No Exception)</li>
+                            <li>1.4.10 Reflow</li>
+                            <li>1.4.11 Non-text Contrast</li>
+                            <li>1.4.12 Text Spacing</li>
+                            <li>1.4.13 Content on Hover or Focus</li>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="col-12 section-heading" id="operable" style="display:none">
+                    <h2>Operable</h2>
+                    <ul>
+                        <li>2.1 Keyboard Accessible</li>
+                        <ul>
+                            <li>2.1.1 Keyboard</li>
+                            <li>2.1.2 No Keyboard Trap</li>
+                            <li>2.1.3 Keyboard (No Exception)</li>
+                            <li>2.1.4 Character Key Shortcuts</li>
+                        </ul>
+                        <li>2.2 Enough Time</li>
+                        <ul>
+                            <li>2.2.1 Timing Adjustable</li>
+                            <li>2.2.2 Pause, Stop, Hide</li>
+                            <li>2.2.3 No Timing</li>
+                            <li>2.2.4 Interruptions</li>
+                            <li>2.2.5 Re-authenticating</li>
+                            <li>2.2.6 Timeouts</li>
+                        </ul>
+                        <li>2.3 Seizures and Physical Reactions</li>
+                        <ul>
+                            <li>2.3.1 Three Flashes or Below Threshold</li>
+                            <li>2.3.2 Three Flashes</li>
+                            <li>2.3.3 Animation from Interactions</li>
+                        </ul>
+                        <li>2.4 Navigable</li>
+                        <ul>
+                            <li>2.4.1 Bypass Blocks</li>
+                            <li>2.4.2 Page Titled</li>
+                            <li>2.4.3 Focus Order</li>
+                            <li>2.4.4 Link Purpose (In Context)</li>
+                            <li>2.4.5 Multiple Ways</li>
+                            <li>2.4.6 Headings and Labels</li>
+                            <li>2.4.7 Focus Visible</li>
+                            <li>2.4.8 Location</li>
+                            <li>2.4.9 Link Purpose (Link Only)</li>
+                            <li>2.4.10 Section Headings</li>
+                        </ul>
+                        <li>2.5 Input Modalities</li>
+                        <ul>
+                            <li>2.5.1 Pointer Gestures</li>
+                            <li>2.5.2 Pointer Cancellation</li>
+                            <li>2.5.3 Label in Name</li>
+                            <li>2.5.4 Motion Actuation</li>
+                            <li>2.5.5 Target Size</li>
+                            <li>2.5.6 Concurrent Input Mechanisms</li>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="col-12 section-heading" id="understandable" style="display:none">
+                    <h2>Understandable</h2>
+                    <ul>
+                        <li>3.1 Readable</li>
+                        <ul>
+                            <li>3.1.1 Language of Page</li>
+                            <li>3.1.2 Language of Parts</li>
+                            <li>3.1.3 Unusual Words</li>
+                            <li>3.1.4 Abbreviations</li>
+                            <li>3.1.5 Reading Level</li>
+                            <li>3.1.6 Pronunciation</li>
+                        </ul>
+                        <li>3.2 Predictable</li>
+                        <ul>
+                            <li>3.2.1 On Focus</li>
+                            <li>3.2.2 On Input</li>
+                            <li>3.2.3 Consistent Navigation</li>
+                            <li>3.2.4 Consistent Identification</li>
+                            <li>3.2.5 Change on Request</li>
+                        </ul>
+                        <li>3.3 Input Assistance</li>
+                        <ul>
+                            <li>3.3.1 Error Identification</li>
+                            <li>3.3.2 Labels or Instructions</li>
+                            <li>3.3.3 Error Suggestion</li>
+                            <li>3.3.4 Error Prevention (Legal, Financial, Data)</li>
+                            <li>3.3.5 Help</li>
+                            <li>3.3.6 Error Prevention (All)</li>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="col-12 section-heading" id="robust" style="display:none">
+                    <h2>Robust</h2>
+                    <ul>
+                        <li>4.1 Compatible</li>
+                        <ul>
+                            <li>4.1.1 Parsing</li>
+                            <li>4.1.2 Name, Role, Value</li>
+                            <li>4.1.3 Status Messages</li>
+                        </ul>
+                    </ul>
+                </div>
+            </section>
+            <section id="challenges" class="row">
+                <div class='col-12 section-heading'>
+                    <h2>W3C 2.1 Certification Levels</h2>
+                    <ul>
+                        <li><img src="images/wcag2.1A-v.png" height="32" width="88" alt="Level A W3C WAI Web Content Accessibility Guidelines 2.1 certification logo"> Level A WCAG 2.1 certification logo</li>
+                        <li><img src="images/wcag2.1AA-v.png" height="32" width="88" alt="Level Double A W3C WAI Web Content Accessibility Guidelines 2.1 certification logo"> Level Double A WCAG 2.1 certification logo</li>
+                        <li><img src="images/wcag2.1AAA-v.png" height="32" width="88" alt="Level Triple A W3C WAI Web Content Accessibility Guidelines 2.1 certification logo"> Level Triple A WCAG 2.1 certification logo</li>
+                    </ul>
+                    
+                    <p>Note that this site has not been tested for WCAG complience and is only using these images do demonstrate what these logos look like</p>
+                    <p>https://www.w3.org/WAI/standards-guidelines/wcag/conformance-logos/</p>
                 </div>
             </section>
         </main>
@@ -69,5 +212,20 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script src="js/vuejs.js"></script>
+    <script>
+        function nolink(event, location){
+            event.preventDefault();
+            $('#perceivable, #operable, #understandable, #robust').hide();
+            if(location == 'clear'){
+                $('#clear_button').hide();
+                console.log('cleared');
+                return;
+            }
+            $('#clear_button').show();
+            $('#'+ location).show();
+        }
+    </script>
 </body>
 </html>

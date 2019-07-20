@@ -38,14 +38,14 @@ nav.navbar {
     a{
         color:white!important;
         &:hover{
-            color:rgb(255, 255, 144);
+            color:rgb(255, 255, 144)!important;
             i{
                 transform: scale(1.4);
                 animation-duration: .25s;
             }
         }
         &:active{
-            color: yellow;
+            color: lightyellow!important;
             i{
                 transform: scale(1.2);
             }

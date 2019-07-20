@@ -17,9 +17,7 @@ Vue.component('top_navbar', {
   
   <div class="collapse navbar-collapse" id="TopNavBar">
       <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-              <a class="nav-link" href="overview.html"><i class="fas fa-info"></i> &nbsp;Overview</a>
-          </li>
+
           <li class="nav-item">
               <a class="nav-link" href="w3.html"><i class="fas fa-question" alt="guidelines"></i> &nbsp;WCAG</a>
           </li>

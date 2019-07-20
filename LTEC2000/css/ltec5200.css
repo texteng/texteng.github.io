@@ -33,14 +33,14 @@ nav.navbar a {
   color: white !important;
 }
 nav.navbar a:hover {
-  color: #ffff90;
+  color: #ffff90 !important;
 }
 nav.navbar a:hover i {
   transform: scale(1.4);
   animation-duration: 0.25s;
 }
 nav.navbar a:active {
-  color: yellow;
+  color: lightyellow !important;
 }
 nav.navbar a:active i {
   transform: scale(1.2);
