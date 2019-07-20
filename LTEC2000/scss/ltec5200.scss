@@ -18,25 +18,14 @@ body{
 nav.navbar {
     background-color: darkslategray;
     font-family: 'Poppins', sans-serif;
-}
-header{
-    text-align: center;
-}
-
-
-.navbar-dark .navbar-nav .nav-link{
-    color:white;
     a{
-        color:white;
-        i{
-            color:white;
-        }
+        color:white!important;
         &:hover{
-            color:rgb(255, 255, 144);
-            i{
-                transform: scale(1.4);
-                animation-duration: .25s;
-            }
+        color:rgb(255, 255, 144);
+        i{
+            transform: scale(1.4);
+            animation-duration: .25s;
+        }
         }
         &:active{
             color: yellow;
@@ -45,6 +34,9 @@ header{
             }
         }
     }
+}
+header{
+    text-align: center;
 }
 
 

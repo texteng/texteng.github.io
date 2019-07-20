@@ -15,32 +15,25 @@ nav.navbar {
   background-color: darkslategray;
   font-family: "Poppins", sans-serif;
 }
-
-header {
-  text-align: center;
+nav.navbar a {
+  color: white !important;
 }
-
-.navbar-dark .navbar-nav .nav-link {
-  color: white;
-}
-.navbar-dark .navbar-nav .nav-link a {
-  color: white;
-}
-.navbar-dark .navbar-nav .nav-link a i {
-  color: white;
-}
-.navbar-dark .navbar-nav .nav-link a:hover {
+nav.navbar a:hover {
   color: #ffff90;
 }
-.navbar-dark .navbar-nav .nav-link a:hover i {
+nav.navbar a:hover i {
   transform: scale(1.4);
   animation-duration: 0.25s;
 }
-.navbar-dark .navbar-nav .nav-link a:active {
+nav.navbar a:active {
   color: yellow;
 }
-.navbar-dark .navbar-nav .nav-link a:active i {
+nav.navbar a:active i {
   transform: scale(1.2);
+}
+
+header {
+  text-align: center;
 }
 
 bibilography p {
