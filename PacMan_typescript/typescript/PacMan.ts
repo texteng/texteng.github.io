@@ -24,7 +24,7 @@ class PacMan extends Character {
 
     display(): this {
         this.displayLocation();
-        document.getElementById(this.htmlId).style.backgroundImage = `url('${this.htmlId}${this.direction}.gif')`;
+        document.getElementById(this.htmlId).style.backgroundImage = `url('PacMan${this.direction}.gif')`;
         return this;
     }
 

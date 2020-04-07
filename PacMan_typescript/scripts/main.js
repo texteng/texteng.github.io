@@ -162,7 +162,7 @@ var PacMan = (function (_super) {
     };
     PacMan.prototype.display = function () {
         this.displayLocation();
-        document.getElementById(this.htmlId).style.backgroundImage = "url('" + this.htmlId + this.direction + ".gif')";
+        document.getElementById(this.htmlId).style.backgroundImage = "url('PacMan" + this.direction + ".gif')";
         return this;
     };
     PacMan.prototype.die = function () {
