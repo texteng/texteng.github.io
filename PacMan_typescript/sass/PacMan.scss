@@ -1,0 +1,146 @@
+$standardsize: 40px; // If edited, please change PacMan js's version of same variable
+
+@mixin boxsize($size:1) {
+    height: $standardsize * $size;
+    width: $standardsize * $size;
+}
+
+@mixin standardbackground() {
+    background: {
+        position:center;
+        size:cover;
+        repeat: no-repeat;
+    }
+}
+
+@mixin rotate($degrees:0deg) {
+    -ms-transform: rotate($degrees); /* IE 9 */
+    -webkit-transform: rotate($degrees); /* Safari 3-8 */
+    transform: rotate($degrees);
+}
+@mixin mirrorimage() {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+
+body{
+    background-color: black;
+    display:block;
+    font-family: "Trebuchet MS", "Lucida Console", Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+#header{
+    background-color: #001e64;
+    height: $standardsize * 2;
+    border-radius: $standardsize*.25 $standardsize*.25 0px 0px;
+    /* width determined in javascript file */
+    img{
+        height: $standardsize*2;
+    }
+}
+
+%standardbox {
+    @include standardbackground();
+    @include boxsize();
+    display: inline-block;
+}
+
+    .wall{
+        /* background-color: blue; */
+        @extend %standardbox;
+        background-image:url('background2.png');
+    }
+
+    .coin{
+        @extend %standardbox;
+        background-image: url('coin.gif');
+    }
+
+    .cherry{
+        @extend %standardbox;
+        background: {
+            image: url('cherry.png');
+            size: $standardsize * .75;
+        }
+    }
+
+    .blank{
+        @extend %standardbox;
+        background-color: black;
+    }
+
+
+%movingobjects {
+    @include standardbackground();
+    position: absolute;
+}
+
+    #pacman{
+        @extend %movingobjects;
+        @include boxsize(1.1); /* Note pacman is slightly enlarged for artistic effect */
+        .pacmanL{
+            @include mirrorimage();
+        }
+        .pacmanR{
+            @include rotate($degrees:0deg);
+        }
+        .pacmanU{
+            @include rotate($degrees:90deg);
+        }
+        .pacmanD{
+            @include rotate($degrees:-90deg);
+        }
+    }
+
+
+    .monster{
+        @extend %movingobjects;
+        @include boxsize(1.2); /* Note monster is slightly enlarged for artistic effect */
+    }
+
+#scorebox{
+    background: linear-gradient(#001e64, #001e64,#000033);
+    padding: $standardsize*.25 $standardsize;
+    font-size: $standardsize/1.6;
+    border-radius: 0px 0px $standardsize*.25 $standardsize*.25;
+    text-align: center;
+    box-sizing: border-box;
+    /* width determined in javascript file */
+
+    %scoreboxformatting {
+        display: inline-block;
+    }
+    span{
+        font-weight: bold;
+        color: #ffcc00;
+    }
+    #score{
+        @extend %scoreboxformatting;
+    }
+    #lives{
+        @extend %scoreboxformatting;
+        margin-left: $standardsize*4;
+    }
+
+}
+
+#gameover{
+    display:block;
+    background-color: #001e64;
+    position: absolute;
+    text-align: center;
+    border-radius: $standardsize/2;
+    padding: $standardsize/2;
+    width: $standardsize*7.5;
+    height: $standardsize*2.5;
+    top:$standardsize*4.75;
+    left:$standardsize*2.5;
+    h1{
+        margin: $standardsize/5 0px !important;
+    }
+    p{
+        margin: $standardsize/5 0px !important;
+    }
+}

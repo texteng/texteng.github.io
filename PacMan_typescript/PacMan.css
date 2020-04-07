@@ -1,0 +1,128 @@
+body {
+  background-color: black;
+  display: block;
+  font-family: "Trebuchet MS", "Lucida Console", Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+#header {
+  background-color: #001e64;
+  height: 80px;
+  border-radius: 10px 10px 0px 0px;
+  /* width determined in javascript file */
+}
+#header img {
+  height: 80px;
+}
+
+.blank, .cherry, .coin, .wall {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+}
+
+.wall {
+  /* background-color: blue; */
+  background-image: url("background2.png");
+}
+
+.coin {
+  background-image: url("coin.gif");
+}
+
+.cherry {
+  background-image: url("cherry.png");
+  background-size: 30px;
+}
+
+.blank {
+  background-color: black;
+}
+
+.monster, #pacman {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+#pacman {
+  height: 44px;
+  width: 44px;
+  /* Note pacman is slightly enlarged for artistic effect */
+}
+#pacman .pacmanL {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+#pacman .pacmanR {
+  -ms-transform: rotate(0deg);
+  /* IE 9 */
+  -webkit-transform: rotate(0deg);
+  /* Safari 3-8 */
+  transform: rotate(0deg);
+}
+#pacman .pacmanU {
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(90deg);
+  /* Safari 3-8 */
+  transform: rotate(90deg);
+}
+#pacman .pacmanD {
+  -ms-transform: rotate(-90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-90deg);
+  /* Safari 3-8 */
+  transform: rotate(-90deg);
+}
+
+.monster {
+  height: 48px;
+  width: 48px;
+  /* Note monster is slightly enlarged for artistic effect */
+}
+
+#scorebox {
+  background: linear-gradient(#001e64, #001e64, #000033);
+  padding: 10px 40px;
+  font-size: 25px;
+  border-radius: 0px 0px 10px 10px;
+  text-align: center;
+  box-sizing: border-box;
+  /* width determined in javascript file */
+}
+#scorebox #lives, #scorebox #score {
+  display: inline-block;
+}
+#scorebox span {
+  font-weight: bold;
+  color: #ffcc00;
+}
+#scorebox #lives {
+  margin-left: 160px;
+}
+
+#gameover {
+  display: block;
+  background-color: #001e64;
+  position: absolute;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px;
+  width: 300px;
+  height: 100px;
+  top: 190px;
+  left: 100px;
+}
+#gameover h1 {
+  margin: 8px 0px !important;
+}
+#gameover p {
+  margin: 8px 0px !important;
+}
+
+/*# sourceMappingURL=PacMan.css.map */

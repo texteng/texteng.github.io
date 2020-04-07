@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "outFile": "scripts/main.js",
+        "resolveJsonModule": true,
+        // "esModuleInterop": true,
+        // "module": "AMD",
+        // "moduleResolution": "node",
+    },
+    "files": [
+        "typescript/Types.ts",
+        "typescript/Enums.ts",
+        "typescript/Interfaces.ts",
+        "typescript/Map.ts",
+        "typescript/Character.ts",
+        "typescript/PacMan.ts",
+        "typescript/Monster.ts",
+        "typescript/GameState.ts"
+    ],
+}
