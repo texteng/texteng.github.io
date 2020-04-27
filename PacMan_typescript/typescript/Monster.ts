@@ -23,17 +23,17 @@ class Monster extends Character {
             return direction;
         }
         switch (true) { // alternative directions depending on strategy
-            case (direction =='L' && strategy == Strategy.Clockwise) || 
-                (direction =='R' && strategy == Strategy.Counterclockwise):
+            case (direction === Direction.Left && strategy == Strategy.Clockwise) || 
+                (direction === Direction.Right && strategy == Strategy.Counterclockwise):
                 return Direction.Up;
-            case (direction =='L' && strategy == Strategy.Counterclockwise) || 
-            (direction =='R' && strategy == Strategy.Clockwise):
+            case (direction === Direction.Left && strategy == Strategy.Counterclockwise) || 
+            (direction === Direction.Right && strategy == Strategy.Clockwise):
                 return Direction.Down;
-            case (direction =='U' && strategy == Strategy.Clockwise) || 
-                (direction =='D' && strategy == Strategy.Counterclockwise):
+            case (direction === Direction.Up && strategy == Strategy.Clockwise) || 
+                (direction === Direction.Down && strategy == Strategy.Counterclockwise):
                 return Direction.Right;
-            case (direction =='U' && strategy == Strategy.Counterclockwise) || 
-                (direction =='D' && strategy == Strategy.Clockwise):
+            case (direction === Direction.Up && strategy == Strategy.Counterclockwise) || 
+                (direction === Direction.Down && strategy == Strategy.Clockwise):
                 return Direction.Left;
         }
     }
