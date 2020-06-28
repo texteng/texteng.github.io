@@ -1,0 +1,10 @@
+sass --watch sass/PeriodicTable.scss:sass/PeriodicTableCustom.scss css/PeriodicTable.css:css/PeriodicTableCustom.css
+
+
+sass --watch sass/PeriodicTable.scss css/PeriodicTable.css
+
+sass --watch sass/PeriodicTableCustom.scss css/PeriodicTableCustom.css
+
+sass --watch sass/PeriodicTableCustomWide.scss css/PeriodicTableCustomWide.css
+
+sass --watch sass/custombootstrapbuttons.scss css/custombootstrapbuttons.css 

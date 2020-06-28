@@ -1,0 +1,64 @@
+@media only screen and (min-width: 481px) {
+  #container {
+    max-width: 1170px;
+  }
+
+  #table {
+    width: 1170px;
+  }
+
+  .boxsize {
+    width: 36px !important;
+    height: 50px !important;
+  }
+
+  div .thin {
+    width: 18px !important;
+    height: 50px !important;
+  }
+  div .rowlabel {
+    padding: 12px 0;
+  }
+
+  h6.elementname {
+    display: none;
+  }
+
+  #legend {
+    width: 468px;
+    height: 150px;
+    left: 99px;
+    top: -400px;
+  }
+  #legend table.legend {
+    border-style: hidden;
+    width: 100%;
+    vertical-align: top;
+  }
+  #legend .colorBox {
+    width: 25px;
+    height: 25px;
+  }
+  #legend .legend li {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  #mobile {
+    display: none;
+  }
+
+  .h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  h5 {
+    font-size: 0.75rem !important;
+  }
+}
+
+/*# sourceMappingURL=PeriodicTableCustomWide.css.map */

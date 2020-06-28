@@ -1,0 +1,178 @@
+@import '_buttons';
+//**********Single custom buttons ******************
+.btn-purple {
+    @include button-variant(
+      #ffffff, //text color
+      #611bbd, //background color
+      darken(#611bbd, 10) //border color
+    );
+  }
+  
+  .btn-darkgreen {
+    @include button-variant(
+      #ffffff, //text color
+      #156124, //background color
+      darken(#156124, 10) //border color
+    );
+  }
+  
+  .btn-skyblue {
+    @include button-variant(
+      #000000, //text color
+      #00ccff, //background color
+      //#7a7a7a //border color
+      darken(#7a7a7a , 10) //border color
+    );
+  }
+
+//**********Color Schemes created by algorithms ******************
+@mixin algorithmic-color-scheme ($button_name, $number_of_increments, $original_hue, $hue_increment, $initial_saturation_percent, $saturation_increment, $initial_lightness, $lightness_increment, $whitetext_threshhold){
+    @for $increment from 1 through $number_of_increments{
+        $color: $original_hue + $hue_increment * ($increment - 1);
+        $saturation_percent: $initial_saturation_percent + $saturation_increment * ($increment - 1);
+        $lightness_percent: $initial_lightness + $lightness_increment * ($increment - 1);
+
+        //Lighter background colors should have black text, darker background colors should be white 
+        $text_color: if($lightness_percent >= $whitetext_threshhold, black, white);
+        $background_color: hsl($color, $saturation_percent, $lightness_percent);
+
+        .btn-#{$button_name}-#{$increment} {
+            @include button-variant(
+                $text_color, //text color
+                $background_color,  //background color
+                darken($background_color, 10) //border color
+            );
+        }
+    }
+}
+
+// Hue is a degree on the color wheel from 0 to 360. 
+    // 0 is red
+    // 60 is yellow
+    // 120 is green
+    // 180 is cyan
+    // 240 is blue
+    // 300 is magenta.
+// http://hslpicker.com/
+// https://www.w3schools.com/colors/colors_hsl.asp
+
+@include algorithmic-color-scheme(
+    "melt", // button name
+    9, // number of increments
+    320, // original hue
+    -23, // hue increment
+    72, // initial saturation percent
+    2, // saturation percent increment
+    10, // initial lightness percent
+    10, // lightness percent increment
+    60 // whitetext threshhold
+);
+    
+@include algorithmic-color-scheme(
+    "boil", // button name
+    9, // number of increments
+    182, // original hue
+    -28, // hue increment
+    65, // initial saturation percent
+    -1, // saturation percent increment
+    40, // initial lightness percent
+    2, // lightness percent increment
+    60 // whitetext threshhold
+);
+
+@include algorithmic-color-scheme(
+    "molar_heat", // button name
+    6, // number of increments
+    76, // original hue
+    -66, // hue increment
+    70, // initial saturation percent
+    -5, // saturation percent increment
+    50, // initial lightness percent
+    -3, // lightness percent increment
+    50 // whitetext threshhold
+);
+
+
+@include algorithmic-color-scheme(
+    "density", // button name
+    9, // number of increments
+    180, // original hue
+    180, // hue increment
+    65, // initial saturation percent
+    -5, // saturation percent increment
+    98, // initial lightness percent
+    -9.8, // lightness percent increment
+    50 // whitetext threshhold
+);
+
+@include algorithmic-color-scheme(
+    "year_discovered", // button name
+    6, // number of increments
+    191, // original hue
+    -4, // hue increment
+    0, // initial saturation percent
+    20, // saturation percent increment
+    20, // initial lightness percent
+    10, // lightness percent increment
+    50 // whitetext threshhold
+);
+
+@include algorithmic-color-scheme(
+    "electronegativity", // button name
+    10, // number of increments
+    2, // original hue
+    6, // hue increment
+    50, // initial saturation percent
+    5, // saturation percent increment
+    20, // initial lightness percent
+    8, // lightness percent increment
+    55 // whitetext threshhold
+);
+
+@include algorithmic-color-scheme(
+    "atomic_radius", // button name
+    9, // number of increments
+    320, // original hue
+    14, // hue increment
+    80, // initial saturation percent
+    -4, // saturation percent increment
+    50, // initial lightness percent
+    4, // lightness percent increment
+    50 // whitetext threshhold
+);
+
+@include algorithmic-color-scheme(
+    "van_der_waals_radius", // button name
+    7, // number of increments
+    100, // original hue
+    20, // hue increment
+    30, // initial saturation percent
+    10, // saturation percent increment
+    90, // initial lightness percent
+    -13, // lightness percent increment
+    30 // whitetext threshhold
+);
+
+@include algorithmic-color-scheme(
+    "ionization_energy", // button name
+    10, // number of increments
+    340, // original hue
+    -22, // hue increment
+    70, // initial saturation percent
+    -7, // saturation percent increment
+    15, // initial lightness percent
+    8, // lightness percent increment
+    60 // whitetext threshhold
+);
+
+@include algorithmic-color-scheme(
+    "electron_affinity", // button name
+    10, // number of increments
+    280, // original hue
+    -45, // hue increment
+    45, // initial saturation percent
+    -3, // saturation percent increment
+    70, // initial lightness percent
+    -3, // lightness percent increment
+    50 // whitetext threshhold
+);

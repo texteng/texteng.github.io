@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "outFile": "scripts/main.js",
+        // "resolveJsonModule": true,
+        "esModuleInterop": true  
+    },
+    "files": [
+        "./typescript/NavigationScripts.ts",
+        "./typescript/Enums.ts",
+        "./typescript/Interfaces.ts",
+        "./typescript/Types.ts",
+        "typescript/data/ElementData.ts",
+        "typescript/data/LegendData.ts",
+        "typescript/createTable/TableMatrix.ts",
+        "typescript/createTable/Row.ts",
+        "typescript/createTable/AtomicElement.ts",
+        "typescript/createTable/NonElementSection.ts",
+        "typescript/createTable/RowLabel.ts",
+        "typescript/createTable/ColumnLabel.ts",
+        "typescript/createTable/LanthinideActinide.ts",
+        "typescript/createTable/Table.ts",
+        "typescript/nonTableViews/Modal.ts",
+        "./typescript/RenderTable.ts",
+        "typescript/nonTableViews/Legend.ts"
+    ]
+}

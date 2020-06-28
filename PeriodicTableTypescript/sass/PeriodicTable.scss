@@ -1,0 +1,175 @@
+@mixin basicbackground { 
+    background-color: white;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+  padding: 0;
+}
+
+#table {
+  @include basicbackground;
+}
+  
+.row {
+  @include basicbackground;
+  margin: 0 !important;
+}
+  
+#mobile {
+  display: none;
+}
+  
+button.element {
+    padding: 0;
+    display: inline-block;
+    text-align: center;
+    border: {
+      style: solid;
+      radius: 3px;
+      width: 1px;
+      color: lightgray;
+    }
+
+    .characteristic{
+      text-transform: capitalize;
+    }
+
+    h6 {
+      font-size: 9px;
+      margin: 2px;
+    }
+    &.h6.atomicnumber {
+      font: {
+        size: 10px;
+        weight: bold;
+      }
+
+    }
+    .elementsymbol {
+      margin: -1px;
+    }
+
+}
+
+.LanthAct {
+  font: {
+    size: 0.75em !important;
+    weight: bolder;
+  }
+  white-space: nowrap;
+}
+  
+div {
+  @mixin blankstyle {
+    margin: 0;
+    background-color: white;
+    display: inline-block;
+  }
+    &.blank &.smallblank {
+      @include blankstyle;
+    }
+    &.rowlabel {
+      @include blankstyle;
+      text-align: left;
+    }
+    &.columnlabel {
+      @include blankstyle;
+      padding: 6px 2px 2px 2px;
+      vertical-align: middle;
+      text-align: center;
+      h3, h5 {
+        display:block;
+      }
+    }
+    
+}
+
+#legend {
+    position: relative;
+    padding: 10px;
+    display: block;
+    align-self: center;
+    .legend {
+        ul {
+          padding-left: 20px !important;
+          vertical-align: middle;
+        }
+        li {
+        list-style: none;
+        text-transform: capitalize;
+        }
+        td {
+        vertical-align: top !important;
+        }
+        table {
+        border-style: hidden;
+        width: 100%;
+        vertical-align: top;
+        }
+        .colorBox {
+            padding: 0;
+            display: inline-block;
+            text-align: center;
+            margin-right: 5px;
+            border: 1px{
+              radius: 3px;
+              color: lightgray !important;
+              style: solid;
+            };
+
+            vertical-align: bottom;
+        }
+    }
+}
+  
+
+  /* Modal stuff */
+  
+  .modal-dialog {
+    max-width: 80% !important;
+  }
+  
+  #ElmentDisplayModalLongTitle {
+    font-size: 1.25rem !important;
+  }
+  
+a {
+  text-decoration: none !important;
+    &:link {
+      color: black;
+    }
+    &:visited {
+      color: darkslategray;
+    }
+    &:hover {
+      font-weight: bold !important;
+      color: blue !important;
+      /* background-color: yellow !important; */
+    }
+    // &:active {
+    //
+    // }
+}
+  
+@media only screen and (orientation: portrait) {
+    #mobile {
+      display: block;
+      background-color: white;
+      height: 100%;
+      text-align: center;
+      padding: 30px 30px;
+      h1 {
+        margin-top: 20% !important;
+      }
+    }
+    #container #table .boxsize .button.element .row #legend, .row, #legend, nav, .boxsize {
+      display: none !important;
+    }
+}
+
+@import 'PeriodicTableCustom';
+@import 'PeriodicTableCustomWide';
+@import 'custombootstrapbuttons';
