@@ -19,7 +19,7 @@ class Row {
                     return new RowLabel (this.x++, this.y);
                 case section === 'CL': 
                     console.log("rawrowlength", this.rawRow.length)
-                    let wideColumnAdjustment = (this.rawRow.length > 19 && this.x > 2) ? this.x + -14 : this.x  // if wide, x needs to be different.
+                    let wideColumnAdjustment: number = (this.rawRow.length > 19 && this.x > 2) ? this.x + -14 : this.x  // if wide, x needs to be different.
                     this.x++;
                     return new ColumnLabel (wideColumnAdjustment, this.y);
                 case section === "Lanthanide" || section === "Actinoid" :
@@ -29,7 +29,7 @@ class Row {
                     // @ts-ignore
                     return new AtomicElement(section, this.x++ ,this.y);
                 default:
-                    let convertSectionType = {
+                    let convertSectionType: sectionType = {
                         'thin': sectionType.TallThin,
                         0: sectionType.Blank,
                         "Lanthanide": sectionType.Lanthanide,

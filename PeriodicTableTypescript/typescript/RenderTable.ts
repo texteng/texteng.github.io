@@ -1,7 +1,7 @@
 // This is where we start next
 
-var mainTable = new Table();
-var wideTable = new Table(tableMatrix.wide);
+const MainTable: Table = new Table();
+const WideTable: Table = new Table(tableMatrix.wide);
 
 class renderTable {
     table:Row[];
@@ -15,7 +15,6 @@ class renderTable {
             let rowDiv: HTMLElement = document.createElement("div");
             this.addRowClass(rowDiv, row);
             this.addSections(row, rowDiv);
-            // let textnode: Text = document.createTextNode("Howdy");         // Create a text node
             document.getElementById('table').append(rowDiv)
         }
     }
@@ -33,7 +32,7 @@ class renderTable {
     }
 }
 
-var periodicTable = new renderTable(mainTable);
+var periodicTable = new renderTable(MainTable);
 
 //--------------------------------- Navbar Stuff -------------------------------------
 $("#wideLink").click(function() { 
@@ -42,12 +41,12 @@ $("#wideLink").click(function() {
     if($("#container").hasClass('standardsize')) {
         $("#wideLink").html("Standard");
         $("#container").removeClass('standardsize').addClass('widesize');
-        new renderTable(wideTable);
+        new renderTable(WideTable);
         
     } else {
         $("#wideLink").html("Wide");
         $("#container").addClass('standardsize').removeClass('widesize');
-        new renderTable(mainTable);
+        new renderTable(MainTable);
     }
     changeCategory(colorType[$(".active")[0].id]);
 });

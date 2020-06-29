@@ -3,18 +3,17 @@ $(".view").click(function() { // probably should just use the dom. but this is s
   changeCategory(colorType[this.id]);
 });
 
-function changeCategory(category:colorType) {
-  let elements = document.getElementsByClassName("element");
+function changeCategory(category:colorType): void {
+  let elements: HTMLCollectionOf<Element> = document.getElementsByClassName("element");
   $(".nav-link, .dropdown-item").removeClass("active");
   $("#" + category).addClass("active");
   displayCategoryInfo(category);
   for(var index in elements) {
-    let atomicElement = elements[index];
+    let atomicElement: Element = elements[index];
     if (!atomicElement.classList || atomicElement.classList.contains("LanthAct")) continue;
 
-    let currentColor = atomicElement.getAttribute("current-color");
-    // let newColorCategory = "btn-" + atomicElement.getAttribute(category);
-    let newColorCategory = "btn-" + PeriodicTable[parseInt(atomicElement.id) - 1].colors[category];
+    let currentColor: string = atomicElement.getAttribute("current-color");
+    let newColorCategory: string = "btn-" + PeriodicTable[parseInt(atomicElement.id) - 1].colors[category];
     atomicElement.classList.remove(currentColor);
     atomicElement.classList.add(newColorCategory);
     atomicElement.setAttribute("current-color", newColorCategory);
@@ -22,7 +21,7 @@ function changeCategory(category:colorType) {
   }
 }
 
-function displayCategoryInfo(category: colorType) {
+function displayCategoryInfo(category: colorType): void {
   if (category !== colorType.category && category !== colorType.group_block) {
     $(".atomicmass, .elementname").hide(); // probably should just use the dom. but this is so much easier
     $(".characteristic").hide();

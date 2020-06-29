@@ -6276,8 +6276,8 @@ $(document).on("click", ".element", function () {
         $(".modal-body").html(elementModalInfo(currentElement));
     }
 });
-var mainTable = new Table();
-var wideTable = new Table(tableMatrix.wide);
+var MainTable = new Table();
+var WideTable = new Table(tableMatrix.wide);
 var renderTable = (function () {
     function renderTable(table) {
         this.table = table.data;
@@ -6304,18 +6304,18 @@ var renderTable = (function () {
     };
     return renderTable;
 }());
-var periodicTable = new renderTable(mainTable);
+var periodicTable = new renderTable(MainTable);
 $("#wideLink").click(function () {
     $('#table').html('');
     if ($("#container").hasClass('standardsize')) {
         $("#wideLink").html("Standard");
         $("#container").removeClass('standardsize').addClass('widesize');
-        new renderTable(wideTable);
+        new renderTable(WideTable);
     }
     else {
         $("#wideLink").html("Wide");
         $("#container").addClass('standardsize').removeClass('widesize');
-        new renderTable(mainTable);
+        new renderTable(MainTable);
     }
     changeCategory(colorType[$(".active")[0].id]);
 });

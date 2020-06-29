@@ -5,15 +5,15 @@ class Legend {
 
     }
 
-    static updateLegend(elementCategory: colorType) {
+    static updateLegend(elementCategory: colorType): void {
         let {title, colors} = Legends[elementCategory];
         Legend.updateTitle(title);
         let legendTable = document.getElementsByClassName("legend")[0];
         legendTable.innerHTML = "";
-        let row = document.createElement("tr");
-        let column = document.createElement("td");
-        let list = document.createElement("ul");
-        let count = 0;
+        let row: HTMLElement = document.createElement("tr");
+        let column: HTMLElement = document.createElement("td");
+        let list: HTMLUListElement = document.createElement("ul");
+        let count: number = 0;
         for (let color of colors) {
             count++;
             if(count > 6) {
@@ -30,11 +30,11 @@ class Legend {
         legendTable.appendChild(row);
     }
 
-    private static createBullet(color: any, list: HTMLUListElement) {
-        let bulletPoint = document.createElement("li");
+    private static createBullet(color: any, list: HTMLUListElement): void {
+        let bulletPoint: HTMLElement = document.createElement("li");
         bulletPoint.classList.add("legenditem");
         bulletPoint.id = "btn-" + color.color;
-        let bullet = document.createElement("div");
+        let bullet: HTMLElement = document.createElement("div");
         bullet.classList.add("colorBox", bulletPoint.id);
         bullet.setAttribute("aria-pressed", "false");
         bulletPoint.textContent = color.index;
@@ -42,7 +42,7 @@ class Legend {
         bulletPoint.prepend(bullet);
     }
 
-    private static updateTitle(title: string) {
+    private static updateTitle(title: string): void {
         document.getElementById("legendTitle").textContent = title;
     }
 

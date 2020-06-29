@@ -57,17 +57,17 @@ class AtomicElement implements sectionInterface{
         return this.atomicElementBtn;
     }
 
-    protected addModalAttributes() {
+    protected addModalAttributes() : void {
         this.atomicElementBtn.setAttribute("data-toggle", "modal");
         this.atomicElementBtn.setAttribute("data-target", "#ElementDisplayModal");
     }
 
-    protected addId() {
+    protected addId():void {
         this.atomicElementBtn.id = this.number.toString();
     }
 
-    protected addNavigationClasses() {
-        let row = 'R' + this.period;
+    protected addNavigationClasses(): void {
+        let row:string = 'R' + this.period;
         this.atomicElementBtn.classList.add('element', 'boxsize', 'btn', row);
         if (this.group){
             this.atomicElementBtn.classList.add('C' + this.group);
@@ -81,7 +81,7 @@ class AtomicElement implements sectionInterface{
         this.current_color = newColor;
     }
 
-    protected addInnerElements() {
+    protected addInnerElements():void {
         this.atomicElementBtn.appendChild(this.createAtomNumHTMLElement());
         this.atomicElementBtn.appendChild(this.createSymbolHTMLElement());
         this.atomicElementBtn.appendChild(this.createAtomicMassHTMLElement());
@@ -135,7 +135,7 @@ class AtomicElement implements sectionInterface{
                 let categoryInfo: HTMLElement = document.createElement('h6');
                 categoryInfo.classList.add("characteristic", category);
                 categoryInfo.style.display = "none";
-                let textnode:Text = document.createTextNode((this[category] !== null) ? this[category] : "");
+                let textnode: Text = document.createTextNode((this[category] !== null) ? this[category] : "");
                 categoryInfo.appendChild(textnode);
                 this.atomicElementBtn.appendChild(categoryInfo);
             }

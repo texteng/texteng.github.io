@@ -4,7 +4,7 @@ function elementModalInfo(currentElement) {
     let { number, category, group_block, atomic_mass, appearance, phase, boil, melt, 
       molar_heat, density, electronegativity, atomic_radius, ion_radius, van_der_waals_radius, ionization_energy, electron_affinity, 
       bonding_type, discovered_by, named_by, year_discovered, summary, source} = currentElement;
-    let elementinformationOutput = "<ul>";
+    let elementinformationOutput:string = "<ul>";
     elementFact("Atomic Number", number);
     elementinformationOutput += `<li><span class= 'font-weight-bold'>Category: </span>${category}`;
     if (!category.includes(group_block) && group_block != "lanthanoid" && group_block != "actinoid") 
@@ -32,7 +32,7 @@ function elementModalInfo(currentElement) {
     <span class= 'font-weight-bold'>For More information see </span><a href="${source}">${source}</a>`;
     return elementinformationOutput;
   
-    function elementFact(title, elementInformation, units = "") {
+    function elementFact(title, elementInformation, units = ""): string|void {
       if ((elementInformation !== null) || elementInformation === 0 ) {
         elementinformationOutput += `<li><span class= 'font-weight-bold'>${title}</span> ${elementInformation} ${units}</li>\n`;
       }
