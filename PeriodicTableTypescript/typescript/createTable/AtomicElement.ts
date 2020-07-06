@@ -35,7 +35,7 @@ class AtomicElement implements sectionInterface{
     constructor (atomicNumber: number, x: number, y: number) {
         this.x = x;
         this.y = y;
-        let jsonData = PeriodicTable[atomicNumber - 1];
+        let jsonData = ElementData[atomicNumber - 1];
         for (let data in jsonData) {
             this[data] = (jsonData[data] !== '') ? jsonData[data] : null;
         }

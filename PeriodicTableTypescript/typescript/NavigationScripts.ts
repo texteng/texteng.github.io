@@ -13,7 +13,7 @@ function changeCategory(category:colorType): void {
     if (!atomicElement.classList || atomicElement.classList.contains("LanthAct")) continue;
 
     let currentColor: string = atomicElement.getAttribute("current-color");
-    let newColorCategory: string = "btn-" + PeriodicTable[parseInt(atomicElement.id) - 1].colors[category];
+    let newColorCategory: string = "btn-" + ElementData[parseInt(atomicElement.id) - 1].colors[category];
     atomicElement.classList.remove(currentColor);
     atomicElement.classList.add(newColorCategory);
     atomicElement.setAttribute("current-color", newColorCategory);

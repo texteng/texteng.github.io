@@ -24,7 +24,7 @@ function changeCategory(category) {
         if (!atomicElement.classList || atomicElement.classList.contains("LanthAct"))
             continue;
         var currentColor = atomicElement.getAttribute("current-color");
-        var newColorCategory = "btn-" + PeriodicTable[parseInt(atomicElement.id) - 1].colors[category];
+        var newColorCategory = "btn-" + ElementData[parseInt(atomicElement.id) - 1].colors[category];
         atomicElement.classList.remove(currentColor);
         atomicElement.classList.add(newColorCategory);
         atomicElement.setAttribute("current-color", newColorCategory);
@@ -79,7 +79,7 @@ var colorType;
     colorType["ionization_energy"] = "ionization_energy";
     colorType["electron_affinity"] = "electron_affinity";
 })(colorType || (colorType = {}));
-var PeriodicTable = [
+var ElementData = [
     {
         "number": 1,
         "name": "Hydrogen",
@@ -6025,7 +6025,7 @@ var AtomicElement = (function () {
         this.current_color = 'btn-primary';
         this.x = x;
         this.y = y;
-        var jsonData = PeriodicTable[atomicNumber - 1];
+        var jsonData = ElementData[atomicNumber - 1];
         for (var data in jsonData) {
             this[data] = (jsonData[data] !== '') ? jsonData[data] : null;
         }
@@ -6269,7 +6269,7 @@ function elementModalInfo(currentElement) {
 $(document).on("click", ".element", function () {
     var elementId = this.id;
     if (elementId != "lanth" && elementId != "actin") {
-        var currentElement = PeriodicTable[elementId - 1];
+        var currentElement = ElementData[elementId - 1];
         var name_1 = currentElement.name, symbol = currentElement.symbol;
         $(".modal-title").html(name_1 + " (" + symbol + ") ");
         console.log(elementModalInfo(currentElement));

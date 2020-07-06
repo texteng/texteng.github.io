@@ -44,7 +44,7 @@ function elementModalInfo(currentElement) {
 $(document).on("click", ".element", function() {
     let elementId = this.id;
     if (elementId != "lanth" && elementId != "actin") {
-      let currentElement = PeriodicTable[elementId - 1];
+      let currentElement = ElementData[elementId - 1];
       let {name, symbol} = currentElement;
       $(".modal-title").html(`${name} (${symbol}) `);
       console.log(elementModalInfo(currentElement));

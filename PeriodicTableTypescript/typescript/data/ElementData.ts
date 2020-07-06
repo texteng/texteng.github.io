@@ -1,4 +1,4 @@
-const PeriodicTable =[
+const ElementData =[
     {
         "number": 1,
         "name": "Hydrogen",

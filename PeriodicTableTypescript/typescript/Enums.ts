@@ -24,4 +24,3 @@ enum colorType {
     ionization_energy = "ionization_energy",
     electron_affinity = "electron_affinity"
 }
-

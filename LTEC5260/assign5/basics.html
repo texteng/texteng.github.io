@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biomolecules: Basic Chemistry</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Raleway" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/assignment5.css">
+</head>
+<body>
+    <div id="navbar" style="display:none">
+        <!-- Vue part -->
+        <top_navigation assignment='5'></top_navigation> 
+    </div>
+    <header id='bm_toolbar'>
+        <!-- Vue part -->
+        <h2 class="display-4">Biomolecules</h2>
+        <bm_navigation search_option='basics'></bm_navigation>
+    </header>
+    <main class="container-fluid">
+        <h1 class="display-4">Key Conepts</h1>
+        <div class="row">
+            <div id="main-body" class="col-12 offset-xl-1 col-xl-10">
+                <p><b>Organic chemistry</b> The study of organic compounds: compounds that contain carbon.</p>
+                <p>Biological molecules, or biomolecules are built by joining atoms through covalent bonds.</p>
+                <hr />
+                <h4>Major Elements</h4>
+                <img src="media/chnops.png" class="body-image" alt="CHNOPS image"/>
+                <p>The six major elements of life are six important elements can be remembered with the acronym CHNOPS:</p>
+                <ul>
+                    <li>Carbon</li>
+                    <li>Hydrogen</li>
+                    <li>Nitrogen</li>
+                    <li>Oxygen</li>
+                    <li>Phosphorus</li>
+                    <li>Sulfur</li>
+                </ul>
+                <!-- Originally used <br clear="right" Validator says css is preferred -->
+                <br style="clear: right"> 
+                <hr />
+                <h4>Monomers and Polymers</h4>
+                <img src="media/monomer_polymer.png" class="body-image" alt="Monomer and Polymer image"/>
+                <ul>
+                    <li><b>Monomers</b> the basic subunit of a macromolecule</li>
+                    <li><b>Polymers (or Macromolecules)</b> large molecules made by joining the monomers together.</li>
+                </ul>
+                <br style="clear: right">
+                <hr />
+                <h4>Creating and Breaking Polymers</h4>
+                <img src="media/hydrolysis-dhsynthesis.png" class="body-image" alt="Hydrolysis and Dehydration synthesis"/>
+                <ul>
+                    <li><b>Dehydration synthesis</b> - macromolecules are formed by combining monomers by taking the water out between them.</li>
+                    <li><b>Hydrolysis</b> - macromolecules are separate/digested into monomers by “cutting the bonds with water”</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../javascript/vuejs.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/finalnavbar.js"></script>
+</body>
+</html>

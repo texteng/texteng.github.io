@@ -1,0 +1,204 @@
+@import '../../scss/navbar';
+@import '../../scss/media_queries.scss';
+header{
+    background-image: url("../media/dna_background3.jpg");
+    background-position: top; 
+    // background-repeat: no-repeat;
+    background-repeat: repeat-x;
+    @include media_query_size(xl) {
+        background-size: auto;
+    }
+    background-color: black;
+    font-weight: bold;
+    h2{
+        font-family: 'Dosis', sans-serif;
+        padding: .35em;
+        color:white;
+    }
+
+    nav.navbar{
+        font-family: 'Raleway', sans-serif;
+        background-color:rgba(17, 112, 116);
+        
+        .nav-item{
+            &:hover{
+                background-color:rgba(23, 152, 156, 100);
+            }
+            &:active{
+                background-color:#A6550C;
+            }
+        }
+    }
+
+}
+
+main{
+    &.container-fluid{
+        position: absolute;
+        font-family: 'Raleway', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-family: 'Dosis', sans-serif;
+    }
+
+    h1.display-4{
+        text-align: center;
+        margin:.2em;
+    }
+
+    #main-body{
+        padding: 2em;
+    }
+    
+    #main-image{
+        margin: .5em 0;
+        padding: .5em 0;
+    }
+    
+    .body-image{
+        float:right;
+        @include media_query_size(xs) {
+            max-width:100%;
+            float:none;
+            text-align:center;
+        }
+    }
+
+    #key-facts{
+        h2{
+            text-align: center;
+        }
+        color: white;
+        background-color: rgb(33, 61, 138);
+        margin: 1em 0;
+        padding: 1em 1em;
+        font-family: 'Dosis', sans-serif;
+        border-radius: 5px;
+        height: 95%;
+        @include media_query_size(xs) {
+            min-height: 100px;
+            font-size: .85em;
+        }
+        @include media_query_size(sm) {
+            min-height: 125px;
+            font-size: .85em;
+        }
+        @include media_query_size(md) {
+            font-size: .90em;
+        }
+        @include media_query_size(lg) {
+            font-size: 1.1em;
+        }
+        @include media_query_size(xl) {
+            font-size: 1.3em;
+        }
+    }
+    span.definition{
+        font-weight: bold;
+    }
+    #additional_facts{
+        h5{
+            text-align: center;
+            font-weight: bold;
+        }
+        background-color: wheat;
+        .infobox{
+            padding: .5em;
+        }
+    }
+
+    #carousel-wrapper{
+        background-color: wheat;
+        width: 100vw;
+        #quote_carousel_indicators{
+            .quote{
+                font-family: 'Dosis', sans-serif;
+                padding: 20px;
+                min-width: 100%;
+                font-size:1.5em;
+                .full_quote{
+                    font-weight:bold;
+                }
+                .quoter{
+                    display:block;
+                }
+            }
+            @include media_query_size(xs) {
+                min-height: 100px;
+                font-size: .6em;
+            }
+            @include media_query_size(sm) {
+                min-height: 125px;
+                font-size: .6em;
+            }
+            @include media_query_size(md) {
+                font-size: .7em;
+            }
+            @include media_query_size(lg) {
+                font-size: .8em;
+            }
+        }
+    }
+
+    .mcl-link {
+        padding: 4px;
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        h2 {
+            text-align: center;
+            margin: 1.5em;
+            font-weight: bold;
+            vertical-align: middle;
+            background-color: rgba(255, 255, 255, 0.555);
+            border-radius: 3px;
+        }
+        background-size: cover;
+        background-position: center; 
+        border-style: ridge;
+        border-width: 1px;
+        @include media_query_size(sm) {
+            min-height: 100px;
+        }
+        @include media_query_size(md) {
+            min-height: 200px;
+        }
+        @include media_query_size(lg) {
+            min-height: 400px;
+        }
+
+
+    }
+
+    #carb-link{
+        background-image: url("../media/carbohydrates-wheat.jpg");
+        &:hover{
+            background-color: rgba(0, 128, 0, 0.7);
+            background-blend-mode: screen;
+        }
+    }
+    #lipid-link{
+        background-image: url("../media/butter.jpg");
+        &:hover{
+            background-color: rgba(255, 255, 0, 0.7);
+            background-blend-mode: screen;
+        }
+    }
+    #protein-link{
+        background-image: url("../media/meat.jpg");
+        &:hover{
+            background-color: rgba(255, 0, 0, 0.7);
+            background-blend-mode: screen;
+        }
+    }
+    #na-link{
+        background-image: url("../media/dna_background2.jpg");
+        &:hover{
+            background-color: rgba(0, 0, 255, 0.7);
+            background-blend-mode: screen;
+        }
+    }
+    
+
+}
