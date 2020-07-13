@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biomolecules</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Raleway" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/assignment5.css">
+</head>
+<body>
+    <div id="navbar" style="display:none">
+        <!-- Vue part -->
+        <top_navigation assignment='5'></top_navigation> 
+    </div>
+    <header id='bm_toolbar'>
+        <!-- Vue part -->
+        <h2 class="display-4">Biomolecules</h2>
+        <bm_navigation search_option='main'></bm_navigation>
+    </header>
+    <main class="container-fluid">
+        <h1 class="display-4">The Four Major Biomolecules</h1>
+        <div id="front-navigation" class="row">
+            <!-- Had to use javascript link. a tag was doing weird formatting stuff -->
+            <div id="carb-link" class="mcl-link col-12 col-md-6 col-lg-3" onclick='(window.location.href ="carbo.html")'>
+                <h2>Carbohydrates</h2>
+            </div>
+            
+            <div id="lipid-link" class="mcl-link col-12 col-md-6 col-lg-3" onclick='(window.location.href ="lipid.html")'>
+                <h2>Lipids</h2>
+            </div>
+            
+            <div id="protein-link" class="mcl-link col-12 col-md-6 col-lg-3" onclick='(window.location.href ="prote.html")'>
+                <h2>Proteins</h2>
+            </div>
+            
+            <div id="na-link" class="mcl-link col-12 col-md-6 col-lg-3" onclick='(window.location.href ="nucle.html")'>
+                <h2>Nucleic Acids</h2>
+            </div>
+  
+            <div id ="carousel-wrapper">
+                <div id="quote_carousel_indicators" class="carousel slide carousel-fade" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#quote_carousel_indicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#quote_carousel_indicators" data-slide-to="1"></li>
+                        <li data-target="#quote_carousel_indicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-interval="3000">
+                            <div class="quote">
+                                <span class='full_quote'><q>Almost all aspects of life are engineered at the molecular level, and without understanding molecules we can only have a very sketchy understanding of life itself.</q></span>
+                                <span class="quoter">— Francis Crick</span>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="5000">
+                            <div class="quote">
+                                <span class='full_quote'><q>I'm aware there are certain products that are being advertised - food products - with 'no chemicals whatsoever.' Well, that would be pretty hard to arrange, since everything around us is made up of atoms and molecules - chemicals - including ourselves.</q></span>
+                                <span class="quoter">— Francis Collins</span>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="6000">
+                            <div class="quote">
+                                <span class='full_quote'><q>The problem is how do molecules react. Because if you want to transform a molecule into something useful or something you're interested in, it helps a lot to understand the structure. That means you can explore much more complicated systems, much more complicated reactions.</q></span>
+                                <span class="quoter">— William Lipscomb</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#quote_carousel_indicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#quote_carousel_indicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <!-- <img src="media/biomolecule_skeleton.png" alt="biomolecule image"/> -->
+            </div>
+        </div>
+    </main>
+    
+    
+    <!-- development version, includes helpful console warnings -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../javascript/vuejs.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/finalnavbar.js"></script>
+</body>
+</html>

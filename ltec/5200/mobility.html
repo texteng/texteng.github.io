@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/ltec5200.css">
+    <title>Web Accessibility For All: Impaired</title>
+</head>
+<body>
+    <div id="navbar">
+        <!-- Vue part -->
+        <top_navbar></top_navbar> 
+    </div>
+    <div id="wrapper" class="container">
+        <header role="header" class="row">
+            <div class ='col-12 col md-8' style="text-align: left; background-color:beige">
+                <h1 class="display-4 p-md-3"><i class="fas fa-wheelchair" alt="Wheelchair Icon"></i> Accessibility for&nbsp;the Mobility Impaired</h1>
+            </div>
+            <div class='d-none d-md-flex'>
+                
+            </div>
+            
+            <nav class="navbar navbar-dark navbar-expand-lg col-12" id="page_nav">
+                <a class="navbar-brand"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#PageNavBar" aria-controls="PageNavBar"
+                aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                
+                <div class="collapse navbar-collapse " id="PageNavBar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#description"> <i class="fas fa-book" alt="Book"></i> Description</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#challenges"> <i class="fas fa-running" alt="Runner"></i> Challenges</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#software"> <i class="fas fa-save" alt="Floppy Disk"></i> Software</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#hardware"> <i class="fas fa-hdd"  alt="Hard Drive"> </i> Hardware</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#developer"> <i class="fas fa-tools" alt="Hammer and Screwdriver"></i> Developer Tips</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#video"> <i class="fas fa-tv" alt="Television image"></i> Video</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#links"><i class="fas fa-link" alt="Link image"></i> Links</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main role="main">
+            <section id="description" class="row">
+                <div class='col-12 section-heading'>
+                    <h2><i class="fas fa-book" alt="Book"></i> Description</h2>
+                    <h3>Examples of motility impairments</h3>
+                    <ul>
+                        <li><b>Paraplegia</b> - Loss of control of the legs</li>
+                        <li><b>Quadrplegia</b> - Loss of control of arms and legs</li>
+                        <li><b>Cerebral palsy</b> - Symptoms include "spasms, involuntary movement, impaired speech, and even paralysis" (Polacek, Sporka, & Slavik, 2017)</li>
+                        <li><b>Muscular dystrophy</b> - progressive degeneration of muscles which can lead to paralysis (Polacek, Sporka, & Slavik, 2017)</li>
+                        <li><b>Multiple sclerosis</b> - can experience tremors, spasticity, or muscle stiffness (Polacek, Sporka, & Slavik, 2017)</li>
+                        <li><b>Arthritis</b> - Pain in joints. while most common in the knees this condition can also exists in arms and the hands (Polacek, Sporka, & Slavik, 2017)</li>
+                        <li><b>Parkinson's Disease</b> - cause uncontrollable tremors and affect the voice in more severe cases as well (Polacek, Sporka, & Slavik, 2017)</li>
+                        <li><b>Amputees</b> - a loss of an arm makes it difficult to use a keyboard and a mouse at the same time.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="challenges" class="row">
+                <div class='col-12 section-heading'>
+                    <h2><i class="fas fa-running" alt="Runner"></i> Challenges</h2>
+                    <h3>Types of computer input</h3>
+                    <ul>
+                        <li><b>Text Input</b> The primary text input is keyboards on PCs and touchpads for smartdevices</li>
+                        <li><b>Selection</b> The primary selection mechanism is the mouse, trackpads. The ability to move a mouse around a graphic interface</li>
+                    </ul>
+                    <h3>Types of challenges</h3>
+                    <ul>
+                        <li>Able to use main input forms, but not quickly or accurately enough (double clicking, or holding shift when captalizing a word)</li>
+                        <li>Unable to make large movements with one's arm.  Makes mouse difficult to use</li>
+                        <li>Unable to interact with a keyboard at all</li>
+                        <li>Unable to speak- makes speech recognition software ineffective</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="software" class="row">
+                <div class='col-12 section-heading'>
+                    <h2><i class="fas fa-save" alt="Floppy Disk"></i> Software Accomodations</h2>
+                    <ul>
+                        <li>Voice Control is rapidly improving</li>
+                    </ul>
+                    <h3>Keyboard Modifications</h3>
+                    <ul>
+                        <li>Utilities that hold down the commands such as Shift or Control</li>
+                        <li>A Key Repeat Function- Helps those who "cannot release keys quick enough to avoid multiple selections" https://www.washington.edu/doit/how-can-people-mobility-impairments-operate-computers</li>
+                        <li>Abbreviation Software</li>
+                        <li>Text prediction systems</li>
+                    </ul>
+                </div>
+
+            </section>
+            
+            <section id="hardware" class="row">
+                <div class='col-12 section-heading'>
+                    <h2><i class="fas fa-hdd"  alt="Hard Drive"></i> Hardware Accomodations</h2>
+                    <h3>Keyboard and Mouse alternatives</h3>
+                    <ul>
+                        <li>Ambiguous keyboards- keyboards where multiple characters are on single key</li>
+                        <li>Mini Keyboards</li>
+                        <li>Trackballs</li>
+                        <li>Foot Mice</li>
+                        <li>Moore Code input</li>
+                        <li>Eye Tracking devices- A device that shows promise but is usually best when paired with another movement</li>
+                        <li>Brain Computer Interfaces</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="developer" class="row">
+                <div class='col-12 section-heading'>
+                    <h2><i class="fas fa-tools" alt="Hammer and Screwdriver"></i> Developer Tips</h2>
+                    <ul>
+                        <li>"Changing the setting of any user interface component does not automatically cause a change of context unless the user has been advised of the behavior before using the component." (WCAG requirement 3.2.2)</li>
+                        <li>Allow for keyboard alternatives to mouse use when possible and reducing the number of keystrokes required to navigate the site</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="video" class="row">
+                <div class='col-12 section-heading'>
+                    <h2><i class="fas fa-tv" alt="Television image"></i> Morse Code as an Input Device</h2>
+                    <p>(Will automatically start at 8:14 and end at 11:45)</p>
+                </div>
+                <div class="col-12" >
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ogfYd705cRs?start=494&end=705" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section id="links" class="row">
+                <div class='col-12 section-heading'>
+                    <h2><i class="fas fa-link" alt="Link Image"></i> Useful Links</h2>
+                </div>
+                <div class="col-12" >
+                    <ul>
+                        <li><a href="https://www.washington.edu/doit/how-can-people-mobility-impairments-operate-computers">How can people with mobility impairments operate computers?</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- development version, includes helpful console warnings -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="js/vuejs.js"></script>
+</body>
+</html>
+
+<!-- Polacek, O., Sporka, A. J., & Slavik, P. (2017). Text input for motor-impaired people. Universal Access in the Information Society, 16, 51-71. doi:https://doi.org/10.1007/s10209-015-0433-0 -->
