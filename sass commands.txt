@@ -1,1 +1,1 @@
-sass ./scss ./css _-watch
+sass .\scss\portfolio.scss .\css\portfolio.css --watch

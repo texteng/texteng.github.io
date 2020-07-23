@@ -161,7 +161,7 @@ $card-columns-margin:               $card-spacer-y;
 @import "./bootstrap/bootstrap.scss";
 @import "./sidebar";
 
-.card-deck .card {
+.custom-deck.card-deck .card {
   @include media-breakpoint-up(sm) { 
     min-width: 270px;
     max-width: 270px;
