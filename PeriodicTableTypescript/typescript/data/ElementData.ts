@@ -27,6 +27,7 @@ const ElementData =[
         "year_discovered": 1766,
         "named_by": "Antoine Lavoisier",
         "source": "https://en.wikipedia.org/wiki/Hydrogen",
+        "cpk-hex": "ffffff",
         "colors": {
             "category": "info",
             "phase": "light",
@@ -72,6 +73,7 @@ const ElementData =[
         "year_discovered": 1868,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Helium",
+        "cpk-hex": "d9ffff",
         "colors": {
             "category": "skyblue",
             "phase": "light",
@@ -117,6 +119,7 @@ const ElementData =[
         "year_discovered": 1817,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Lithium",
+        "cpk-hex": "cc80ff",
         "colors": {
             "category": "success",
             "phase": "primary",
@@ -162,6 +165,7 @@ const ElementData =[
         "year_discovered": 1798,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Beryllium",
+        "cpk-hex": "c2ff00",
         "colors": {
             "category": "darkgreen",
             "phase": "primary",
@@ -207,6 +211,7 @@ const ElementData =[
         "year_discovered": 1807,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Boron",
+        "cpk-hex": "ffb5b5",
         "colors": {
             "category": "secondary",
             "phase": "primary",
@@ -252,6 +257,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Carbon",
+        "cpk-hex": "909090",
         "colors": {
             "category": "primary",
             "phase": "primary",
@@ -297,6 +303,7 @@ const ElementData =[
         "year_discovered": 1772,
         "named_by": "Jean-Antoine Chaptal",
         "source": "https://en.wikipedia.org/wiki/Nitrogen",
+        "cpk-hex": "3050f8",
         "colors": {
             "category": "info",
             "phase": "light",
@@ -342,6 +349,7 @@ const ElementData =[
         "year_discovered": 1774,
         "named_by": "Antoine Lavoisier",
         "source": "https://en.wikipedia.org/wiki/Oxygen",
+        "cpk-hex": "ff0d0d",
         "colors": {
             "category": "info",
             "phase": "light",
@@ -387,6 +395,7 @@ const ElementData =[
         "year_discovered": 1670,
         "named_by": "Humphry Davy",
         "source": "https://en.wikipedia.org/wiki/Fluorine",
+        "cpk-hex": "90e050",
         "colors": {
             "category": "info",
             "phase": "light",
@@ -432,6 +441,7 @@ const ElementData =[
         "year_discovered": 1898,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Neon",
+        "cpk-hex": "b3e3f5",
         "colors": {
             "category": "skyblue",
             "phase": "light",
@@ -477,6 +487,7 @@ const ElementData =[
         "year_discovered": 1807,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Sodium",
+        "cpk-hex": "ab5cf2",
         "colors": {
             "category": "success",
             "phase": "primary",
@@ -522,6 +533,7 @@ const ElementData =[
         "year_discovered": 1808,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Magnesium",
+        "cpk-hex": "8aff00",
         "colors": {
             "category": "darkgreen",
             "phase": "primary",
@@ -567,6 +579,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": "Humphry Davy",
         "source": "https://en.wikipedia.org/wiki/Aluminium",
+        "cpk-hex": "bfa6a6",
         "colors": {
             "category": "purple",
             "phase": "primary",
@@ -612,6 +625,7 @@ const ElementData =[
         "year_discovered": 1854,
         "named_by": "Thomas Thomson (chemist)",
         "source": "https://en.wikipedia.org/wiki/Silicon",
+        "cpk-hex": "f0c8a0",
         "colors": {
             "category": "secondary",
             "phase": "primary",
@@ -657,6 +671,7 @@ const ElementData =[
         "year_discovered": 1669,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Phosphorus",
+        "cpk-hex": "ff8000",
         "colors": {
             "category": "primary",
             "phase": "primary",
@@ -702,6 +717,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Sulfur",
+        "cpk-hex": "ffff30",
         "colors": {
             "category": "primary",
             "phase": "primary",
@@ -747,6 +763,7 @@ const ElementData =[
         "year_discovered": 1774,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Chlorine",
+        "cpk-hex": "1ff01f",
         "colors": {
             "category": "info",
             "phase": "light",
@@ -792,6 +809,7 @@ const ElementData =[
         "year_discovered": 1894,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Argon",
+        "cpk-hex": "80d1e3",
         "colors": {
             "category": "skyblue",
             "phase": "light",
@@ -837,6 +855,7 @@ const ElementData =[
         "year_discovered": 1807,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Potassium",
+        "cpk-hex": "8f40d4",
         "colors": {
             "category": "success",
             "phase": "primary",
@@ -882,6 +901,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Calcium",
+        "cpk-hex": "3dff00",
         "colors": {
             "category": "darkgreen",
             "phase": "primary",
@@ -927,6 +947,7 @@ const ElementData =[
         "year_discovered": 1876,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Scandium",
+        "cpk-hex": "e6e6e6",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -972,6 +993,7 @@ const ElementData =[
         "year_discovered": 1791,
         "named_by": "Martin Heinrich Klaproth",
         "source": "https://en.wikipedia.org/wiki/Titanium",
+        "cpk-hex": "bfc2c7",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1017,6 +1039,7 @@ const ElementData =[
         "year_discovered": 1803,
         "named_by": "Isotopes of vanadium",
         "source": "https://en.wikipedia.org/wiki/Vanadium",
+        "cpk-hex": "a6a6ab",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1062,6 +1085,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Chromium",
+        "cpk-hex": "8a99c7",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1107,6 +1131,7 @@ const ElementData =[
         "year_discovered": 1774,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Manganese",
+        "cpk-hex": "9c7ac7",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1152,6 +1177,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Iron",
+        "cpk-hex": "e06633",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1197,6 +1223,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Cobalt",
+        "cpk-hex": "f090a0",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1242,6 +1269,7 @@ const ElementData =[
         "year_discovered": 1751,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Nickel",
+        "cpk-hex": "50d050",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1287,6 +1315,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Copper",
+        "cpk-hex": "c88033",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1332,6 +1361,7 @@ const ElementData =[
         "year_discovered": 1746,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Zinc",
+        "cpk-hex": "7d80b0",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1377,6 +1407,7 @@ const ElementData =[
         "year_discovered": 1875,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Gallium",
+        "cpk-hex": "c28f8f",
         "colors": {
             "category": "purple",
             "phase": "primary",
@@ -1422,6 +1453,7 @@ const ElementData =[
         "year_discovered": 1886,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Germanium",
+        "cpk-hex": "668f8f",
         "colors": {
             "category": "secondary",
             "phase": "primary",
@@ -1467,6 +1499,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Arsenic",
+        "cpk-hex": "bd80e3",
         "colors": {
             "category": "secondary",
             "phase": "primary",
@@ -1512,6 +1545,7 @@ const ElementData =[
         "year_discovered": 1817,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Selenium",
+        "cpk-hex": "ffa100",
         "colors": {
             "category": "primary",
             "phase": "primary",
@@ -1557,6 +1591,7 @@ const ElementData =[
         "year_discovered": 1826,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Bromine",
+        "cpk-hex": "a62929",
         "colors": {
             "category": "info",
             "phase": "info",
@@ -1602,6 +1637,7 @@ const ElementData =[
         "year_discovered": 1898,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Krypton",
+        "cpk-hex": "5cb8d1",
         "colors": {
             "category": "skyblue",
             "phase": "light",
@@ -1647,6 +1683,7 @@ const ElementData =[
         "year_discovered": 1861,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Rubidium",
+        "cpk-hex": "702eb0",
         "colors": {
             "category": "success",
             "phase": "primary",
@@ -1692,6 +1729,7 @@ const ElementData =[
         "year_discovered": 1790,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Strontium",
+        "cpk-hex": "00ff00",
         "colors": {
             "category": "darkgreen",
             "phase": "primary",
@@ -1737,6 +1775,7 @@ const ElementData =[
         "year_discovered": 1794,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Yttrium",
+        "cpk-hex": "94ffff",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1782,6 +1821,7 @@ const ElementData =[
         "year_discovered": 1789,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Zirconium",
+        "cpk-hex": "94e0e0",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1827,6 +1867,7 @@ const ElementData =[
         "year_discovered": 1801,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Niobium",
+        "cpk-hex": "73c2c9",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1872,6 +1913,7 @@ const ElementData =[
         "year_discovered": 1778,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Molybdenum",
+        "cpk-hex": "54b5b5",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1917,6 +1959,7 @@ const ElementData =[
         "year_discovered": 1937,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Technetium",
+        "cpk-hex": "3b9e9e",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -1962,6 +2005,7 @@ const ElementData =[
         "year_discovered": 1827,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Ruthenium",
+        "cpk-hex": "248f8f",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -2007,6 +2051,7 @@ const ElementData =[
         "year_discovered": 1803,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Rhodium",
+        "cpk-hex": "0a7d8c",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -2052,6 +2097,7 @@ const ElementData =[
         "year_discovered": 1803,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Palladium",
+        "cpk-hex": "006985",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -2097,6 +2143,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Silver",
+        "cpk-hex": "c0c0c0",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -2142,6 +2189,7 @@ const ElementData =[
         "year_discovered": 1817,
         "named_by": "Isotopes of cadmium",
         "source": "https://en.wikipedia.org/wiki/Cadmium",
+        "cpk-hex": "ffd98f",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -2187,6 +2235,7 @@ const ElementData =[
         "year_discovered": 1863,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Indium",
+        "cpk-hex": "a67573",
         "colors": {
             "category": "purple",
             "phase": "primary",
@@ -2232,6 +2281,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Tin",
+        "cpk-hex": "668080",
         "colors": {
             "category": "purple",
             "phase": "primary",
@@ -2277,6 +2327,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Antimony",
+        "cpk-hex": "9e63b5",
         "colors": {
             "category": "secondary",
             "phase": "primary",
@@ -2322,6 +2373,7 @@ const ElementData =[
         "year_discovered": 1782,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Tellurium",
+        "cpk-hex": "d47a00",
         "colors": {
             "category": "secondary",
             "phase": "primary",
@@ -2367,6 +2419,7 @@ const ElementData =[
         "year_discovered": 1811,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Iodine",
+        "cpk-hex": "940094",
         "colors": {
             "category": "info",
             "phase": "primary",
@@ -2412,6 +2465,7 @@ const ElementData =[
         "year_discovered": 1898,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Xenon",
+        "cpk-hex": "429eb0",
         "colors": {
             "category": "skyblue",
             "phase": "light",
@@ -2457,6 +2511,7 @@ const ElementData =[
         "year_discovered": 1860,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Cesium",
+        "cpk-hex": "57178f",
         "colors": {
             "category": "success",
             "phase": "primary",
@@ -2502,6 +2557,7 @@ const ElementData =[
         "year_discovered": 1808,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Barium",
+        "cpk-hex": "00c900",
         "colors": {
             "category": "darkgreen",
             "phase": "primary",
@@ -2547,6 +2603,7 @@ const ElementData =[
         "year_discovered": 1839,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Lanthanum",
+        "cpk-hex": "70d4ff",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2592,6 +2649,7 @@ const ElementData =[
         "year_discovered": 1803,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Cerium",
+        "cpk-hex": "ffffc7",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2637,6 +2695,7 @@ const ElementData =[
         "year_discovered": 1885,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Praseodymium",
+        "cpk-hex": "d9ffc7",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2682,6 +2741,7 @@ const ElementData =[
         "year_discovered": 1885,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Neodymium",
+        "cpk-hex": "c7ffc7",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2727,6 +2787,7 @@ const ElementData =[
         "year_discovered": 1947,
         "named_by": "Isotopes of promethium",
         "source": "https://en.wikipedia.org/wiki/Promethium",
+        "cpk-hex": "a3ffc7",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2772,6 +2833,7 @@ const ElementData =[
         "year_discovered": 1853,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Samarium",
+        "cpk-hex": "8fffc7",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2817,6 +2879,7 @@ const ElementData =[
         "year_discovered": 1901,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Europium",
+        "cpk-hex": "61ffc7",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2862,6 +2925,7 @@ const ElementData =[
         "year_discovered": 1880,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Gadolinium",
+        "cpk-hex": "45ffc7",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2907,6 +2971,7 @@ const ElementData =[
         "year_discovered": 1843,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Terbium",
+        "cpk-hex": "30ffc7",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2952,6 +3017,7 @@ const ElementData =[
         "year_discovered": 1886,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Dysprosium",
+        "cpk-hex": "1fffc7",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -2997,6 +3063,7 @@ const ElementData =[
         "year_discovered": 1878,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Holmium",
+        "cpk-hex": "00ff9c",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -3042,6 +3109,7 @@ const ElementData =[
         "year_discovered": 1842,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Erbium",
+        "cpk-hex": "00e675",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -3087,6 +3155,7 @@ const ElementData =[
         "year_discovered": 1879,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Thulium",
+        "cpk-hex": "00d452",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -3132,6 +3201,7 @@ const ElementData =[
         "year_discovered": 1878,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Ytterbium",
+        "cpk-hex": "00bf38",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -3177,6 +3247,7 @@ const ElementData =[
         "year_discovered": 1907,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Lutetium",
+        "cpk-hex": "00ab24",
         "colors": {
             "category": "danger",
             "phase": "primary",
@@ -3222,6 +3293,7 @@ const ElementData =[
         "year_discovered": 1923,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Hafnium",
+        "cpk-hex": "4dc2ff",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -3267,6 +3339,7 @@ const ElementData =[
         "year_discovered": 1802,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Tantalum",
+        "cpk-hex": "4da6ff",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -3312,6 +3385,7 @@ const ElementData =[
         "year_discovered": 1783,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Tungsten",
+        "cpk-hex": "2194d6",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -3357,6 +3431,7 @@ const ElementData =[
         "year_discovered": 1925,
         "named_by": "Walter Noddack",
         "source": "https://en.wikipedia.org/wiki/Rhenium",
+        "cpk-hex": "267dab",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -3402,6 +3477,7 @@ const ElementData =[
         "year_discovered": 1803,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Osmium",
+        "cpk-hex": "266696",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -3447,6 +3523,7 @@ const ElementData =[
         "year_discovered": 1803,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Iridium",
+        "cpk-hex": "175487",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -3492,6 +3569,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Platinum",
+        "cpk-hex": "d0d0e0",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -3537,6 +3615,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Gold",
+        "cpk-hex": "ffd123",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -3582,6 +3661,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Mercury (Element)",
+        "cpk-hex": "b8b8d0",
         "colors": {
             "category": "dark",
             "phase": "info",
@@ -3627,6 +3707,7 @@ const ElementData =[
         "year_discovered": 1861,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Thallium",
+        "cpk-hex": "a6544d",
         "colors": {
             "category": "purple",
             "phase": "primary",
@@ -3672,6 +3753,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Lead_(element)",
+        "cpk-hex": "575961",
         "colors": {
             "category": "purple",
             "phase": "primary",
@@ -3717,6 +3799,7 @@ const ElementData =[
         "year_discovered": "Ancient",
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Bismuth",
+        "cpk-hex": "9e4fb5",
         "colors": {
             "category": "purple",
             "phase": "primary",
@@ -3762,6 +3845,7 @@ const ElementData =[
         "year_discovered": 1898,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Polonium",
+        "cpk-hex": "ab5c00",
         "colors": {
             "category": "purple",
             "phase": "primary",
@@ -3807,6 +3891,7 @@ const ElementData =[
         "year_discovered": 1940,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Astatine",
+        "cpk-hex": "754f45",
         "colors": {
             "category": "secondary",
             "phase": "primary",
@@ -3852,6 +3937,7 @@ const ElementData =[
         "year_discovered": 1900,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Radon",
+        "cpk-hex": "428296",
         "colors": {
             "category": "skyblue",
             "phase": "light",
@@ -3897,6 +3983,7 @@ const ElementData =[
         "year_discovered": 1939,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Francium",
+        "cpk-hex": "420066",
         "colors": {
             "category": "success",
             "phase": "primary",
@@ -3942,6 +4029,7 @@ const ElementData =[
         "year_discovered": 1898,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Radium",
+        "cpk-hex": "007d00",
         "colors": {
             "category": "darkgreen",
             "phase": "primary",
@@ -3987,6 +4075,7 @@ const ElementData =[
         "year_discovered": 1899,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Actinium",
+        "cpk-hex": "70abfa",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4032,6 +4121,7 @@ const ElementData =[
         "year_discovered": 1828,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Thorium",
+        "cpk-hex": "00baff",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4077,6 +4167,7 @@ const ElementData =[
         "year_discovered": 1913,
         "named_by": "Otto Hahn",
         "source": "https://en.wikipedia.org/wiki/Protactinium",
+        "cpk-hex": "00a1ff",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4122,6 +4213,7 @@ const ElementData =[
         "year_discovered": 1789,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Uranium",
+        "cpk-hex": "008fff",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4167,6 +4259,7 @@ const ElementData =[
         "year_discovered": 1940,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Neptunium",
+        "cpk-hex": "0080ff",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4212,6 +4305,7 @@ const ElementData =[
         "year_discovered": 1940,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Plutonium",
+        "cpk-hex": "006bff",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4257,6 +4351,7 @@ const ElementData =[
         "year_discovered": 1944,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Americium",
+        "cpk-hex": "545cf2",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4302,6 +4397,7 @@ const ElementData =[
         "year_discovered": 1944,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Curium",
+        "cpk-hex": "785ce3",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4347,6 +4443,7 @@ const ElementData =[
         "year_discovered": 1949,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Berkelium",
+        "cpk-hex": "8a4fe3",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4392,6 +4489,7 @@ const ElementData =[
         "year_discovered": 1950,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Californium",
+        "cpk-hex": "a136d4",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4437,6 +4535,7 @@ const ElementData =[
         "year_discovered": 1952,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Einsteinium",
+        "cpk-hex": "b31fd4",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4482,6 +4581,7 @@ const ElementData =[
         "year_discovered": 1952,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Fermium",
+        "cpk-hex": "b31fba",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4527,6 +4627,7 @@ const ElementData =[
         "year_discovered": 1955,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Mendelevium",
+        "cpk-hex": "b30da6",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4572,6 +4673,7 @@ const ElementData =[
         "year_discovered": 1957,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Nobelium",
+        "cpk-hex": "bd0d87",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4617,6 +4719,7 @@ const ElementData =[
         "year_discovered": 1961,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Lawrencium",
+        "cpk-hex": "c70066",
         "colors": {
             "category": "warning",
             "phase": "primary",
@@ -4662,6 +4765,7 @@ const ElementData =[
         "year_discovered": 1969,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Rutherfordium",
+        "cpk-hex": "cc0059",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -4707,6 +4811,7 @@ const ElementData =[
         "year_discovered": 1967,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Dubnium",
+        "cpk-hex": "d1004f",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -4752,6 +4857,7 @@ const ElementData =[
         "year_discovered": 1974,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Seaborgium",
+        "cpk-hex": "d90045",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -4797,6 +4903,7 @@ const ElementData =[
         "year_discovered": 1976,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Bohrium",
+        "cpk-hex": "e00038",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -4842,6 +4949,7 @@ const ElementData =[
         "year_discovered": 1984,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Hassium",
+        "cpk-hex": "e6002e",
         "colors": {
             "category": "dark",
             "phase": "primary",
@@ -4887,6 +4995,7 @@ const ElementData =[
         "year_discovered": 1982,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Meitnerium",
+        "cpk-hex": "eb0026",
         "colors": {
             "category": "light",
             "phase": "primary",
@@ -4932,6 +5041,7 @@ const ElementData =[
         "year_discovered": 1994,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Darmstadtium",
+        "cpk-hex": null,
         "colors": {
             "category": "light",
             "phase": "primary",
@@ -4977,6 +5087,7 @@ const ElementData =[
         "year_discovered": 1994,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Roentgenium",
+        "cpk-hex": null,
         "colors": {
             "category": "light",
             "phase": "primary",
@@ -5022,6 +5133,7 @@ const ElementData =[
         "year_discovered": 1996,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Copernicium",
+        "cpk-hex": null,
         "colors": {
             "category": "dark",
             "phase": "light",
@@ -5067,6 +5179,7 @@ const ElementData =[
         "year_discovered": 2003,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Ununtrium",
+        "cpk-hex": null,
         "colors": {
             "category": "light",
             "phase": "primary",
@@ -5112,6 +5225,7 @@ const ElementData =[
         "year_discovered": 1998,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Flerovium",
+        "cpk-hex": null,
         "colors": {
             "category": "purple",
             "phase": "primary",
@@ -5157,6 +5271,7 @@ const ElementData =[
         "year_discovered": 2003,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Ununpentium",
+        "cpk-hex": null,
         "colors": {
             "category": "light",
             "phase": "primary",
@@ -5202,6 +5317,7 @@ const ElementData =[
         "year_discovered": 2000,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Livermorium",
+        "cpk-hex": null,
         "colors": {
             "category": "light",
             "phase": "primary",
@@ -5247,6 +5363,7 @@ const ElementData =[
         "year_discovered": 2010,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Tennessine",
+        "cpk-hex": null,
         "colors": {
             "category": "light",
             "phase": "primary",
@@ -5292,6 +5409,7 @@ const ElementData =[
         "year_discovered": 2002,
         "named_by": null,
         "source": "https://en.wikipedia.org/wiki/Oganesson",
+        "cpk-hex": null,
         "colors": {
             "category": "light",
             "phase": "primary",

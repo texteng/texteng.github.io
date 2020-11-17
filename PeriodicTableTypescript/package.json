@@ -1,0 +1,23 @@
+{
+  "name": "periodictabletypescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts/main.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.8.0",
+    "@typescript-eslint/parser": "^4.8.0",
+    "eslint": "^7.13.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

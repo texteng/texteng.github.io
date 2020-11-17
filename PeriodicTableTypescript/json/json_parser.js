@@ -7,7 +7,7 @@ var fs = require('fs');
 
 function parseElements() {
     var firstJson = ParseJson1()
-    return "const PeriodicTable =" + firstJson;
+    return "const ElementData =" + firstJson;
 }
 
 function parseLegend() {
@@ -61,6 +61,7 @@ function ParseJson1() {
             "year_discovered": outputNull(table2[elementIndex].yearDiscovered),
             "named_by": table1.elements[elementIndex].named_by,
             "source": table1.elements[elementIndex].source,
+            "cpk-hex": table1.elements[elementIndex]['cpk-hex']
         }
         elementArray[elementIndex].colors = findButtonColors(elementArray[elementIndex]);
     }

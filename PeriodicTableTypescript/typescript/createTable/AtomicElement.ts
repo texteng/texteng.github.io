@@ -29,7 +29,7 @@ class AtomicElement implements sectionInterface{
     discovered_by:string|null;
     year_discovered: number|string;
     named_by: string|null;
-    colors: object;
+    colors: color;
     spectral_img:string|null;
     protected atomicElementBtn: HTMLElement;
     constructor (atomicNumber: number, x: number, y: number) {
@@ -75,7 +75,7 @@ class AtomicElement implements sectionInterface{
     }
 
     protected setColor(type: colorType): void {
-        let newColor: string = 'btn-' + this.colors[type];
+        const newColor: string = 'btn-' + this.colors[type];
         this.atomicElementBtn.classList.replace(this.current_color, newColor);
         this.atomicElementBtn.setAttribute("current-color", newColor)
         this.current_color = newColor;
@@ -92,7 +92,7 @@ class AtomicElement implements sectionInterface{
     protected createAtomNumHTMLElement() : HTMLElement {
         let atomicNumber: HTMLElement = document.createElement('h6');
         atomicNumber.classList.add("atomicnumber");
-        let textnode:Text = document.createTextNode(this.number.toString());
+        const textnode:Text = document.createTextNode(this.number.toString());
         atomicNumber.appendChild(textnode);
         return atomicNumber;
     }
